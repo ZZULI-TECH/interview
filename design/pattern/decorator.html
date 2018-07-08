@@ -1436,6 +1436,137 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x88C5;&#x9970;&#x6A21;&#x5F0F;"><a name="&#x88C5;&#x9970;&#x6A21;&#x5F0F;" class="plugin-anchor" href="#&#x88C5;&#x9970;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x88C5;&#x9970;&#x6A21;&#x5F0F;</h1>
+<p>&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x4F5C;&#x4E3A;&#x5E38;&#x7528;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7528;&#x5230;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982;&#x5728;Java&#x4E2D;&#xFF0C;io&#x5305;&#x4E0B;&#x7684;&#x5F88;&#x591A;&#x7C7B;&#x5C31;&#x662F;&#x5178;&#x578B;&#x7684;&#x88C5;&#x9970;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x4F53;&#x73B0;&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">new</span> BufferedOutputStream(OutputStream out)
+<span class="hljs-keyword">new</span> BufferedInputStream(InputStream in);
+<span class="hljs-keyword">new</span> PrintWriter(OutputStream out)
+<span class="hljs-keyword">new</span> FilterReader(Reader in);
+</code></pre>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x4EC0;&#x4E48;&#x662F;&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x5462;&#xFF1F;</p>
+<p>&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x52A8;&#x6001;&#x5730;&#x4E3A;&#x4E00;&#x4E2A;&#x7C7B;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x52A8;&#x6001;&#x5730;&#x64A4;&#x9500;&#xFF0C;&#x7EE7;&#x627F;&#x867D;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x7C7B;&#x8FDB;&#x884C;&#x529F;&#x80FD;&#x6269;&#x5C55;&#xFF0C;&#x4F46;&#x662F;&#x9759;&#x6001;&#x7684;&#xFF0C;&#x4E3A;&#x4E86;&#x6269;&#x5C55;&#x6027;&#x548C;&#x52A8;&#x6001;&#x6027;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5F15;&#x5165;&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#xFF1A; &#x52A8;&#x6001;&#x5730;&#x7ED9;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x804C;&#x8D23;&#x3002;&#x5C31;&#x589E;&#x52A0;&#x529F;&#x80FD;&#x6765;&#x8BF4;&#xFF0C;&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x76F8;&#x6BD4;&#x751F;&#x6210;&#x5B50;&#x7C7B;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;</p>
+<p>&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x7684;&#x901A;&#x7528;&#x7C7B;&#x56FE;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="../../images/decorator.png" alt="image"></p>
+<p>&#x5728;&#x7C7B;&#x56FE;&#x4E2D;&#xFF0C;&#x6709;&#x56DB;&#x4E2A;&#x89D2;&#x8272;&#x9700;&#x8981;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ul>
+<li><p>&#x62BD;&#x8C61;&#x6784;&#x4EF6;&#xFF08;Component&#xFF09; </p>
+<p>  &#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x4EE5;&#x89C4;&#x8303;&#x51C6;&#x5907;&#x63A5;&#x6536;&#x9644;&#x52A0;&#x8D23;&#x4EFB;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+</li>
+<li><p>&#x5177;&#x4F53;&#x6784;&#x4EF6;&#xFF08;ConcreteComponent&#xFF09; </p>
+<p>  ConcreteComponent&#x662F;&#x6700;&#x6838;&#x5FC3;&#x3001;&#x6700;&#x539F;&#x59CB;&#x3001;&#x6700;&#x57FA;&#x672C;&#x7684;&#x63A5;&#x53E3;&#x6216;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x8981;&#x88C5;&#x9970;&#x7684;&#x5C31;&#x662F;&#x5B83;&#x3002;</p>
+</li>
+<li><p>&#x88C5;&#x9970;&#x89D2;&#x8272;&#xFF08;Decorator&#xFF09; </p>
+<p>  &#x6709;&#x4E00;&#x4E2A;&#x6784;&#x4EF6;&#xFF08;Conponent&#xFF09;&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x548C;&#x62BD;&#x8C61;&#x6784;&#x4EF6;&#x4E00;&#x81F4;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+</li>
+<li><p>&#x5177;&#x4F53;&#x88C5;&#x9970;&#x89D2;&#x8272;&#xFF08;ConcreteDecorator&#xFF09; </p>
+<p>  &#x5177;&#x4F53;&#x7684;&#x88C5;&#x9970;&#x7C7B;&#xFF0C;&#x8981;&#x589E;&#x52A0;&#x7684;&#x529F;&#x80FD;&#x5F53;&#x7136;&#x8981;&#x5728;&#x8FD9;&#x91CC;&#x5199;&#x5566;&#x3002;</p>
+</li>
+</ul>
+<p><strong>&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;:</strong></p>
+<p>&#x62BD;&#x8C61;&#x6784;&#x4EF6;:</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * &#x62BD;&#x8C61;&#x6784;&#x5EFA;
+ * 
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x5177;&#x4F53;&#x6784;&#x4EF6;:</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * &#x5177;&#x4F53;&#x6784;&#x4EF6;
+ * 
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;do something&quot;</span>);
+    }
+
+}
+</code></pre>
+<p>&#x88C5;&#x9970;&#x89D2;&#x8272;, &#x6301;&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x6784;&#x4EF6;&#x7684;&#x5F15;&#x7528;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * &#x62BD;&#x8C61;&#x88C5;&#x9970;&#x8005;
+ * 
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Decorator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">private</span> Component component;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Decorator</span><span class="hljs-params">(Component component)</span> </span>{
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>.component = component;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.component.operate();
+    }
+
+}
+</code></pre>
+<p>&#x5177;&#x4F53;&#x88C5;&#x9970;&#x89D2;&#x8272;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * &#x88C5;&#x9970;&#x8005;1
+ * 
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteDecorator1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Decorator</span> </span>{
+
+    <span class="hljs-comment">/**
+     * &#x5B9A;&#x4E49;&#x88AB;&#x4FEE;&#x9970;&#x8005;
+     * <span class="hljs-doctag">@param</span> component
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteDecorator1</span><span class="hljs-params">(Component component)</span> </span>{
+        <span class="hljs-keyword">super</span>(component);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x4FEE;&#x9970;&#x65B9;&#x6CD5;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;decorator A&quot;</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x91CD;&#x5199;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.method1();
+        <span class="hljs-keyword">super</span>.operate();
+    }
+}
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * &#x6D4B;&#x8BD5;
+ * 
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Component component = <span class="hljs-keyword">new</span> ConcreteComponent();
+        <span class="hljs-comment">// &#x7B2C;&#x4E00;&#x6B21;&#x88C5;&#x9970;</span>
+        component = <span class="hljs-keyword">new</span> ConcreteDecorator1(component);
+        <span class="hljs-comment">// &#x7B2C;&#x4E8C;&#x6B21;&#x88C5;&#x9970;</span>
+        component = <span class="hljs-keyword">new</span> ConcreteDecorator2(component);
+        component.operate();
+    }
+}
+</code></pre>
+<p><strong>&#x4EE3;&#x7801;&#x53C2;&#x8003;&#xFF1A;</strong></p>
+<p><a href="https://github.com/mstao/java-explore/tree/master/DesignPattern/src/pers/han/decorator" target="_blank">https://github.com/mstao/java-explore/tree/master/DesignPattern/src/pers/han/decorator</a></p>
 
                                 
                                 </section>
@@ -1479,7 +1610,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"装饰模式","level":"1.5.2.5","depth":3,"next":{"title":"缓存","level":"1.6","depth":1,"path":"cache/README.md","ref":"cache/README.md","articles":[{"title":"缓存设计","level":"1.6.1","depth":2,"path":"cache/design.md","ref":"cache/design.md","articles":[]},{"title":"Redis","level":"1.6.2","depth":2,"path":"cache/redis.md","ref":"cache/redis.md","articles":[]}]},"previous":{"title":"适配器模式","level":"1.5.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/decorator.md","mtime":"2018-07-08T13:30:42.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T13:44:33.081Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"装饰模式","level":"1.5.2.5","depth":3,"next":{"title":"缓存","level":"1.6","depth":1,"path":"cache/README.md","ref":"cache/README.md","articles":[{"title":"缓存设计","level":"1.6.1","depth":2,"path":"cache/design.md","ref":"cache/design.md","articles":[]},{"title":"Redis","level":"1.6.2","depth":2,"path":"cache/redis.md","ref":"cache/redis.md","articles":[]}]},"previous":{"title":"适配器模式","level":"1.5.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/decorator.md","mtime":"2018-07-08T13:59:51.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:03:59.570Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

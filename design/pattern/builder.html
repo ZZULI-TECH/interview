@@ -1436,6 +1436,75 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="builder&#x6A21;&#x5F0F;"><a name="builder&#x6A21;&#x5F0F;" class="plugin-anchor" href="#builder&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Builder&#x6A21;&#x5F0F;</h1>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5F88;&#x591A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E9B;&#x53C2;&#x6570;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x6709;&#x4E9B;&#x662F;&#x5FC5;&#x9009;&#x7684;&#xFF0C;&#x6709;&#x7684;&#x53EF;&#x80FD;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7528;&#x6784;&#x9020;&#x5668;&#x4F20;&#x53C2;&#x6216;&#x8005;&#x901A;&#x8FC7;set&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x503C;&#x8BBE;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6837;&#x5C31;&#x6709;&#x5F88;&#x5927;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x522B;&#x4EBA;&#x5728;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x9700;&#x8981;&#x4F20;&#x54EA;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x54EA;&#x4E9B;&#x53C2;&#x6570;&#x662F;&#x5FC5;&#x987B;&#x4F20;&#x503C;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x8C03;&#x7528;&#x4E5F;&#x4E0D;&#x65B9;&#x4FBF;&#xFF0C;&#x6240;&#x6709;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x5230;Builder&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;&#x5728;Effective Java&#x4E66;&#x4E2D;&#xFF0C; &#x7B2C;2&#x6761;&#x5C31;&#x662F;&#x9047;&#x5230;&#x5230;&#x591A;&#x4E2A;&#x6784;&#x9020;&#x5668;&#x65F6;&#x8981;&#x8003;&#x8651;&#x7528;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x91CC;&#x9762;&#x8BB2;&#x7684;&#x6BD4;&#x8F83;&#x8BE6;&#x7EC6;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x60F3;&#x8FD9;&#x6837;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">new</span> User.Builder(<span class="hljs-string">&quot;Walker&quot;</span>, <span class="hljs-string">&quot;Han&quot;</span>)
+        .age(<span class="hljs-number">20</span>)
+        .phone(<span class="hljs-string">&quot;123456789&quot;</span>)
+        .address(<span class="hljs-string">&quot;166&#x53F7;&quot;</span>)
+        .build();
+</code></pre>
+<p>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;User&#x7C7B;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;Builder&#xFF0C;&#x8BE5;&#x7C7B;&#x7528;&#x6765;&#x521B;&#x5EFA;User&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDE;&#x7EED;&#x8C03;&#x7528;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4F20;&#x53C2;&#xFF0C;&#x8FD9;&#x5C31;&#x8981;&#x6C42;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x540E;&#x90FD;&#x8981;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x8FDE;&#x7EED;&#x8C03;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x94FE;&#x5F0F;&#x8C03;&#x7528;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String firstName; <span class="hljs-comment">// &#x5FC5;&#x4F20;&#x53C2;&#x6570; </span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String lastName; <span class="hljs-comment">// &#x5FC5;&#x4F20;&#x53C2;&#x6570;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age; <span class="hljs-comment">// &#x53EF;&#x9009;&#x53C2;&#x6570;</span>
+    <span class="hljs-keyword">private</span> String phone; <span class="hljs-comment">// &#x53EF;&#x9009;&#x53C2;&#x6570; </span>
+    <span class="hljs-keyword">private</span> String address; <span class="hljs-comment">// &#x53EF;&#x9009;&#x53C2;&#x6570;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">User</span><span class="hljs-params">(Builder builder)</span> </span>{
+        <span class="hljs-keyword">this</span>.firstName = builder.firstName;
+        <span class="hljs-keyword">this</span>.lastName = builder.lastName;
+        <span class="hljs-keyword">this</span>.age = builder.age;
+        <span class="hljs-keyword">this</span>.phone = builder.phone;
+        <span class="hljs-keyword">this</span>.address = builder.address;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;User [firstName=&quot;</span> + firstName + <span class="hljs-string">&quot;, lastName=&quot;</span> + lastName + <span class="hljs-string">&quot;, age=&quot;</span> + age + <span class="hljs-string">&quot;, phone=&quot;</span> + phone
+                + <span class="hljs-string">&quot;, address=&quot;</span> + address + <span class="hljs-string">&quot;]&quot;</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Builder</span> </span>{
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String firstName;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String lastName;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
+        <span class="hljs-keyword">private</span> String phone;
+        <span class="hljs-keyword">private</span> String address;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Builder</span><span class="hljs-params">(String firstName, String lastName)</span> </span>{
+            <span class="hljs-keyword">this</span>.firstName = firstName;
+            <span class="hljs-keyword">this</span>.lastName = lastName;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">age</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>{
+            <span class="hljs-keyword">this</span>.age = age;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">phone</span><span class="hljs-params">(String phone)</span> </span>{
+            <span class="hljs-keyword">this</span>.phone = phone;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">address</span><span class="hljs-params">(String address)</span> </span>{
+            <span class="hljs-keyword">this</span>.address = address;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">build</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-keyword">this</span>);
+        }
+    }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x4E86;&#x3002;</p>
 
                                 
                                 </section>
@@ -1479,7 +1548,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Builder模式","level":"1.5.2.3","depth":3,"next":{"title":"适配器模式","level":"1.5.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},"previous":{"title":"观察者模式","level":"1.5.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/builder.md","mtime":"2018-07-08T13:30:42.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T13:44:33.081Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Builder模式","level":"1.5.2.3","depth":3,"next":{"title":"适配器模式","level":"1.5.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},"previous":{"title":"观察者模式","level":"1.5.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/builder.md","mtime":"2018-07-08T13:59:09.215Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:03:59.570Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
