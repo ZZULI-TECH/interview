@@ -78,6 +78,8 @@
         * [红黑树](algorithm/tree/ReadBlackTree.md)
     * [栈](algorithm/stack/README.md)
     * [队列](algorithm/queue/README.md)
+        * [链式队列](algorithm/queue/LinkQueue.md)
+        * [顺序队列](algorithm/queue/ArrayQueue.md)
     * [堆](algorithm/heap/README.md)
     * [哈希表](algorithm/hashtable/README.md)
     * [排序](algorithm/sort/README.md)
