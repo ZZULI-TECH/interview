@@ -3,7 +3,7 @@
 ### 链式队列介绍
 链式队列拥有队列的特性，只不过和顺序队列的区别是，顺序队列底层用的是数组存储元素，而链式队列用的是链表结构存储数据，也就是把一个元素和指向下个结点的指针封装成一个结点，这里称为Node，当队列为空，头指针与尾指针均指向头结点，只不过头结点为空结点，下面是链式队列的结构图
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/LinkQueue.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/LinkQueue.png?raw=true)
 
 一个结点抽象成Node类，代码如下：
 
@@ -131,6 +131,5 @@ public void clear() {
 
 ### 源码地址
 
-本篇博客源码地址：
-
+源码地址：<br/>
 https://github.com/mstao/data-structures/blob/master/Queue/src/pers/mingshan/queue/LinkQueue.java

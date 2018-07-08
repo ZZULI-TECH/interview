@@ -4,7 +4,7 @@
 
 双向链表也叫双链表，它的每个数据结点都有两个指针，分别指向前驱结点和后继节点，同时有一个数据域来保存数据，双向链表的图示如下：
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/DoubleLinkedList.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/DoubleLinkedList.png?raw=true)
 
 从图片可以看出，双链表的头结点的前驱结点和尾结点的后继结点为空，这一点要注意，对双链表的操作要检查这两种情况。
 
@@ -152,7 +152,6 @@ private void linkBefore(int index, E data) {
 ```
 在该方法中，我们需要获取在该索引位置的节点**curr**，**curr**的前驱结点**pred**，以及构造新节点**newNode**，同时还要将**curr**的前驱结点指向新节点，然后判断**pred**是否为空，如果**pred**为空，说明**curr**为头结点，那么此时就让新节点作为头结点；如果不为空，说明此时属于一般情况，在链表的中间的某个位置插入元素，那么就让**prev**的后继结点指向新节点就行了。
 
-
 ### remove方法
 
 #### remove(int index)
@@ -226,7 +225,6 @@ private boolean isElementIndex(int index) {
 - 如果既不是头结点，又不是尾节点，那么就属于一般情况了，此时将前一个结点的后继结点置为原结点的后继结点，将后一个结点的前驱结点置为原结点的前驱结点，最后切断当前删除的结点的前驱和后继结点。
 
 以上代码可以简化，具体可以参考JDK源码中**java.util.LinkedList**中的**unlink**方法，简化后的代码如下：
-
 
 ```java
 // 代表头结点
@@ -316,7 +314,7 @@ public E get(int index) {
 反转双链表，这里我采用是遍历双链表，逐个链接点进行反转。原理是：使用p和q两个指针配合工作，使得两个节点间的指向反向，同时用r记录剩下的链表。
 图示如下：
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/DoubleLinkedList-reverse.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/DoubleLinkedList-reverse.png?raw=true)
 
 具体代码和步骤参考如下代码：
 ```java
@@ -358,6 +356,5 @@ public void reverse() {
 ```
 
 ### 完整代码
-本篇博客的完整代码
-
+完整代码：<br/>
 https://github.com/mstao/data-structures/blob/master/LinkedList/src/pers/mingshan/linkedlist/DoubleLinkedList.java
