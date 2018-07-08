@@ -227,7 +227,9 @@ Throwable又派生出Error类和Exception类。
 Java堆用于存储对象实例，只要不断地创建对象，并且保证GC Root到对象间有可达路径来避免垃圾回收机制清除这些对象，那么在对象数量达到最大堆内存的容量限制后就会发生OOM。
 
 通过设置JVM参数最小堆内存-Xms， 最大堆内存-Xmx（将两者设置一样避免堆自动扩展）可以模拟堆溢出。如果出现此异常，需要分析是内存泄露和内存溢出，采取相应的手段来避免堆溢出。
-测试：https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/HeapOOM.java
+
+测试：<br/>
+[堆溢出测试代码](https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/HeapOOM.java)
 
 #### 虚拟机栈和本地方法栈溢出
 关于虚拟机栈和本地方法栈，在Java虚拟机规范中描述了两种异常：
@@ -235,28 +237,27 @@ Java堆用于存储对象实例，只要不断地创建对象，并且保证GC R
 - 如果虚拟机在扩展栈时无法申请到足够的内存空间，则抛出OutOfMemoryError异常异常。
 
 测试：<br/>
-https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/JavaVMStackSOF.java
+[虚拟机栈溢出测试代码](https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/JavaVMStackSOF.java)
 
 #### 方法区和运行时常量池溢出
 
 参考：<br/>
-https://www.cnblogs.com/softidea/archive/2016/05/15/5494924.html
+[Java方法区和运行时常量池溢出问题分析（转）](https://www.cnblogs.com/softidea/archive/2016/05/15/5494924.html)
 
-http://www.jikexueyuan.com/course/1793_4.html
+[方法区和运行时常量池-视频介绍](http://www.jikexueyuan.com/course/1793_4.html)
 
 测试：<br/>
-https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/RuntimeConstantPoolOOM.java
+[运行时常量池溢出测试代码](https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/RuntimeConstantPoolOOM.java)
 
-JDK1.8 Metaspace
-
-https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/JavaMethodAreaOOM.java
+JDK1.8 Metaspace:<br/>
+[Metaspace溢出测试代码](https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/JavaMethodAreaOOM.java)
 
 #### 本机直接内存溢出
 
 DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则默认与Java堆最大值（-Xmx）一样
 
 参考：<br/>
-https://blog.csdn.net/pfnie/article/details/52769517
+[本机直接内存溢出](https://blog.csdn.net/pfnie/article/details/52769517)
 
 测试：<br/>
-https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java
+[本机直接内存溢出测试代码](https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java)
