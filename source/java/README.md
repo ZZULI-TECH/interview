@@ -93,8 +93,8 @@ public String toString() {
 - 抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。
 
 - 设计层面不同，抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。
-　
-![image](https://github.com/ZZULI-TECH/interview/tree/master/images/interface-abstractclass.png?raw=true)
+<br/>　
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/interface-abstractclass.png?raw=true)
 
 ### 说说反射的用途及实现
 
@@ -111,7 +111,7 @@ public String toString() {
 
 1. 获取Class对象，四种方式
 
-![image](https://github.com/ZZULI-TECH/interview/tree/master/images/how-to-get-class.png?raw=true)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/how-to-get-class.png?raw=true)
 
 2. 创建对象，两种方式
 - 调用构造方法来创建对象，例如：`Object student1= clazz.newInstance();`
@@ -215,9 +215,9 @@ Throwable又派生出Error类和Exception类。
 
 **检查异常（checked exception）：** 除了Error 和  RuntimeException的其它异常。javac强制要求程序员为这样的异常做预备处理工作（使用try…catch…finally或者throws）。在方法中要么用try-catch语句捕获它并处理，要么用throws子句声明抛出它，否则编译不会通过。这样的异常一般是由程序的运行环境导致的。因为程序可能被运行在各种未知的环境下，而程序员无法干预用户如何使用他编写的程序，于是程序员就应该为这样的异常时刻准备着。如SQLException  , IOException,ClassNotFoundException 等。
 
-![image](https://github.com/ZZULI-TECH/interview/tree/master/images/throwable.png?raw=true)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/throwable.png?raw=true)
 
-参考： [Java 中的异常和处理详解](http://www.importnew.com/26613.html)
+参考：[Java 中的异常和处理详解](http://www.importnew.com/26613.html)
 
 ### OutofMemoryError异常
 
@@ -234,20 +234,17 @@ Java堆用于存储对象实例，只要不断地创建对象，并且保证GC R
 - 如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常。
 - 如果虚拟机在扩展栈时无法申请到足够的内存空间，则抛出OutOfMemoryError异常异常。
 
-测试：
-
+测试：<br/>
 https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/JavaVMStackSOF.java
 
 #### 方法区和运行时常量池溢出
 
-参考： 
-
+参考：<br/>
 https://www.cnblogs.com/softidea/archive/2016/05/15/5494924.html
 
 http://www.jikexueyuan.com/course/1793_4.html
 
-测试：
-
+测试：<br/>
 https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/RuntimeConstantPoolOOM.java
 
 JDK1.8 Metaspace
@@ -258,10 +255,8 @@ https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/ming
 
 DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则默认与Java堆最大值（-Xmx）一样
 
-参考：
-
+参考：<br/>
 https://blog.csdn.net/pfnie/article/details/52769517
 
-测试：
-
+测试：<br/>
 https://github.com/mstao/jvm learning/blob/master/jvm test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java
