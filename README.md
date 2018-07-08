@@ -9,7 +9,9 @@
 迁移到Github，采用Gitbook制作，
 [阅读链接](https://zzuli-tech.github.io/interview/index.html)
 
-文档中引用链接皆为原作者所有
+Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/index.html)
+
+文档中引用链接皆为原作者版权所有。
 
 ### 编辑流程
 
