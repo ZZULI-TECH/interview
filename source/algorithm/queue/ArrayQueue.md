@@ -5,7 +5,7 @@
 队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列中没有元素时，称为空队列。
 队列的特点是先进先出(FIFO)，下面是队列的结构图：
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/ArrayQueue.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/ArrayQueue.png?raw=true)
 
 ### 常用方法
 既然是队列，那么入队和出队操作是必不可少的，除此之外，还需要其他api，下面是Queue的接口：
@@ -238,6 +238,5 @@ public void clear() {
 
 ###源码地址
 
-本篇博客源码地址：
-
+源码地址：<br/>
 https://github.com/mstao/data-structures/blob/master/Queue/src/pers/mingshan/queue/ArrayQueue.java

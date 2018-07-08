@@ -3,7 +3,7 @@
 ### 栈介绍
 栈是一种仅在表头进行插入和删除操作的线性表，并且属于后进先出（last-in，first-out，LIFO）原则，下面是栈的入栈和出栈的图示：
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/Stack.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/Stack.png?raw=true)
 
 ### 主要操作
 
@@ -15,8 +15,6 @@
 - size 获取栈内元素的数量
 
 下面来介绍一下实现这些方法的具体实现。
-
-<!-- more -->
 
 ### 具体实现
 
@@ -157,7 +155,6 @@ public E peek() {
 
 通过传入的元素来获取该元素第一次出现的位置，如果找不到返回-1，下面是代码：
 
-
 ```java
 /**
  * 返回对象在堆栈中的位置，以 0 为基数。
@@ -186,6 +183,5 @@ public int search(Object element) {
 由于栈可以存储null，所以需对null进行处理。
 
 ### 完整代码
-本篇博客的完整代码
-
+完整代码：<br/>
 https://github.com/mstao/data-structures/blob/master/Stack/src/pers/mingshan/stack/Stack.java
