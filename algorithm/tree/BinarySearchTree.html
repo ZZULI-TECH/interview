@@ -1202,6 +1202,38 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.4.1" data-path="../queue/LinkQueue.html">
+            
+                <a href="../queue/LinkQueue.html">
+            
+                    
+                    链式队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4.2" data-path="../queue/ArrayQueue.html">
+            
+                <a href="../queue/ArrayQueue.html">
+            
+                    
+                    顺序队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.12.5" data-path="../heap/">
@@ -1436,6 +1468,367 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><a name="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;" class="plugin-anchor" href="#&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;</h1>
+<p>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#xFF08;Binary Search Tree&#xFF09;&#xFF0C;&#xFF08;&#x53C8;&#xFF1A;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#xFF0C;&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#xFF09;&#xFF0C;&#x5B83;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x7279;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x82E5;&#x4EFB;&#x610F;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x5DE6;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5C0F;&#x4E8E;&#x5B83;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#xFF1B;</li>
+<li>&#x82E5;&#x4EFB;&#x610F;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5927;&#x4E8E;&#x5B83;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#xFF1B;</li>
+<li>&#x4EFB;&#x610F;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x4E5F;&#x5206;&#x522B;&#x4E3A;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#xFF1B;</li>
+<li>&#x6CA1;&#x6709;&#x952E;&#x503C;&#x76F8;&#x7B49;&#x7684;&#x8282;&#x70B9;&#x3002;</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/BinarySearchTree.png" alt="image"></p>
+<h3 id="&#x57FA;&#x672C;&#x64CD;&#x4F5C;"><a name="&#x57FA;&#x672C;&#x64CD;&#x4F5C;" class="plugin-anchor" href="#&#x57FA;&#x672C;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x672C;&#x64CD;&#x4F5C;</h3>
+<p>&#x65E2;&#x7136;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E5F;&#x5C5E;&#x4E8E;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x90A3;&#x4E48;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E5F;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x57FA;&#x672C;&#x64CD;&#x4F5C;</p>
+<ul>
+<li>&#x67E5;&#x627E;&#x7ED3;&#x70B9;</li>
+<li>&#x63D2;&#x5165;&#x7ED3;&#x70B9;</li>
+<li>&#x5220;&#x9664;&#x7ED3;&#x70B9;</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x5148;&#x5199;&#x4E2A;&#x63A5;&#x53E3;&#x6765;&#x5B9A;&#x4E49;&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6811;&#x7684;&#x63A5;&#x53E3;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Tree</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
+
+    <span class="hljs-comment">/**
+     * &#x63D2;&#x5165;&#x64CD;&#x4F5C;
+     * <span class="hljs-doctag">@param</span> value
+     * <span class="hljs-doctag">@return</span> &#x63D2;&#x5165;&#x6210;&#x529F; &#xFF0C;&#x8FD4;&#x56DE; {<span class="hljs-doctag">@true</span>}&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;{<span class="hljs-doctag">@false</span>}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x79FB;&#x9664;
+     * <span class="hljs-doctag">@param</span> value
+     * <span class="hljs-doctag">@return</span> &#x79FB;&#x9664;&#x7684;&#x5143;&#x7D20;
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">remove</span><span class="hljs-params">(E value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6E05;&#x7A7A;&#x4E8C;&#x53C9;&#x6811;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x5224;&#x65AD;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x6B64;&#x5143;&#x7D20;
+     * <span class="hljs-doctag">@param</span> value
+     * <span class="hljs-doctag">@return</span> &#x5982;&#x679C;&#x5305;&#x542B;&#xFF0C;&#x8FD4;&#x56DE;{<span class="hljs-doctag">@true</span>}&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;{<span class="hljs-doctag">@false</span>}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">contains</span><span class="hljs-params">(E value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x83B7;&#x53D6;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7ED3;&#x70B9;&#x7684;&#x6570;&#x91CF;
+     * <span class="hljs-doctag">@return</span> &#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7ED3;&#x70B9;&#x7684;&#x6570;&#x91CF;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x6765;&#x4F9D;&#x6B21;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="&#x521D;&#x59CB;&#x5316;"><a name="&#x521D;&#x59CB;&#x5316;" class="plugin-anchor" href="#&#x521D;&#x59CB;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x59CB;&#x5316;</h3>
+<p>&#x5148;&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#x548C;&#x7ED3;&#x70B9;&#x6570;&#x91CF;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3002;&#x7136;&#x540E;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;Node&#x6765;&#x8868;&#x793A;&#x7ED3;&#x70B9;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x6839;&#x7ED3;&#x70B9;</span>
+<span class="hljs-keyword">private</span> Node&lt;E&gt; root;
+<span class="hljs-comment">// &#x4E8C;&#x53C9;&#x6811;&#x7ED3;&#x70B9;&#x6570;&#x91CF;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> size;
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">E</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">E</span>&gt;&gt; </span>{
+    E item;
+    Node&lt;E&gt; parent;
+    Node&lt;E&gt; left;
+    Node&lt;E&gt; right;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span> <span class="hljs-params">(Node&lt;E&gt; parent, E item)</span> </span>{
+        <span class="hljs-keyword">this</span>.parent = parent;
+        <span class="hljs-keyword">this</span>.item = item;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;item=&quot;</span> + item + <span class="hljs-string">&quot; parent=&quot;</span> + ((parent != <span class="hljs-keyword">null</span>) ? parent.item : <span class="hljs-string">&quot;NULL&quot;</span>) + <span class="hljs-string">&quot; left=&quot;</span>
+                + ((left != <span class="hljs-keyword">null</span>) ? left.item : <span class="hljs-string">&quot;NULL&quot;</span>) + <span class="hljs-string">&quot; right=&quot;</span> + ((right != <span class="hljs-keyword">null</span>) ? right.item : <span class="hljs-string">&quot;NULL&quot;</span>);
+    }
+}
+</code></pre>
+<h3 id="&#x67E5;&#x627E;&#x7ED3;&#x70B9;"><a name="&#x67E5;&#x627E;&#x7ED3;&#x70B9;" class="plugin-anchor" href="#&#x67E5;&#x627E;&#x7ED3;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x627E;&#x7ED3;&#x70B9;</h3>
+<p>&#x8FD9;&#x91CC;&#x91C7;&#x7528;&#x5148;&#x5E8F;&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#xFF0C;&#x5148;&#x8BBF;&#x95EE;&#x6839;&#x7ED3;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;&#x5DE6;&#x5B50;&#x6811;&#xFF0C;&#x6700;&#x540E;&#x904D;&#x5386;&#x53F3;&#x5B50;&#x6811;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x9700;&#x8981;&#x7EE7;&#x627F;Comparable&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5176;compareTo&#x65B9;&#x6CD5;&#x6765;&#x6BD4;&#x8F83;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x641C;&#x7D22;&#x5373;&#x53EF;&#x3002;
+&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">contains</span><span class="hljs-params">(E value)</span> </span>{
+    <span class="hljs-comment">// &#x5148;&#x5E8F;&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x6811;</span>
+    Node&lt;E&gt; node = root;
+    <span class="hljs-keyword">if</span> (root.item.compareTo(value) == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-keyword">while</span> (node != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x503C;&#x6BD4;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5C0F;</span>
+        <span class="hljs-keyword">if</span> (node.item.compareTo(value) &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// &#x6B64;&#x65F6;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x8FDB;&#x884C;&#x641C;&#x7D22;</span>
+            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>
+                    &amp;&amp; (node.left.item.compareTo(value) == <span class="hljs-number">0</span>)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+            node = node.left;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x6BD4;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5927;&#xFF0C;&#x8BF4;&#x660E;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x641C;&#x7D22;</span>
+            <span class="hljs-comment">// &#x5E76;&#x4E14;&#x65B0;&#x7ED3;&#x70B9;&#x4F5C;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5176;&#x7236;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x5E94;&#x4E3A;null</span>
+            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span> 
+                    &amp;&amp; (node.right.item.compareTo(value) == <span class="hljs-number">0</span>)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+            node = node.right;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}
+</code></pre>
+<h3 id="&#x63D2;&#x5165;&#x7ED3;&#x70B9;"><a name="&#x63D2;&#x5165;&#x7ED3;&#x70B9;" class="plugin-anchor" href="#&#x63D2;&#x5165;&#x7ED3;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63D2;&#x5165;&#x7ED3;&#x70B9;</h3>
+<p>&#x6839;&#x636E;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x82E5;&#x5B83;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x5DE6;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5C0F;&#x4E8E;&#x5B83;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#xFF1B; &#x82E5;&#x5B83;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5927;&#x4E8E;&#x5B83;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x3002;&#x800C;&#x4E14;&#x65B0;&#x63D2;&#x5165;&#x7684;&#x7ED3;&#x70B9;&#x5FC5;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x9700;&#x904D;&#x5386;&#x5230;&#x5F53;&#x524D;&#x7B26;&#x5408;&#x4E0A;&#x9762;&#x8981;&#x6C42;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x4E3A;&#x7A7A;&#x7684;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x6216;&#x8005;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x6307;&#x5411;&#x5F53;&#x524D;&#x7684;&#x65B0;&#x8282;&#x70B9;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x65B0;&#x7ED3;&#x70B9;&#x7684;&#x7236;&#x7ED3;&#x70B9;&#x6307;&#x5411;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E value)</span> </span>{
+    Node&lt;E&gt; node = addNode(value);
+    <span class="hljs-keyword">return</span> (node != <span class="hljs-keyword">null</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title">addNode</span><span class="hljs-params">(E value)</span> </span>{
+    <span class="hljs-comment">// &#x751F;&#x6210;&#x65B0;&#x7ED3;&#x70B9;</span>
+    Node&lt;E&gt; newNode = <span class="hljs-keyword">new</span> Node&lt;E&gt;(<span class="hljs-keyword">null</span>, value);
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x6839;&#x7ED3;&#x70B9;&#x4E0D;&#x5B58;&#x5728;</span>
+    <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) {
+        root = newNode;
+        size++;
+        <span class="hljs-keyword">return</span> newNode;
+    }
+
+    Node&lt;E&gt; node = root;
+    <span class="hljs-comment">// &#x6309;&#x7167;&#x5148;&#x5E8F;&#x8FDB;&#x884C;&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x6811;</span>
+    <span class="hljs-keyword">while</span> (node != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">// &#x5982;&#x8FC7;&#x65B0;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x6BD4;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5C0F;</span>
+        <span class="hljs-keyword">if</span> (node.item.compareTo(newNode.item) &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// &#x6B64;&#x65F6;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x8FDB;&#x884C;&#x641C;&#x7D22;</span>
+            <span class="hljs-comment">// &#x5E76;&#x4E14;&#x65B0;&#x7ED3;&#x70B9;&#x4F5C;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5176;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x5E94;&#x4E3A;null</span>
+            <span class="hljs-keyword">if</span> (node.left == <span class="hljs-keyword">null</span>) {
+                node.left = newNode;
+                newNode.parent = node;
+                size++;
+                <span class="hljs-keyword">return</span> newNode;
+            }
+            node = node.left;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x6BD4;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x5927;&#xFF0C;&#x8BF4;&#x660E;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x641C;&#x7D22;</span>
+            <span class="hljs-comment">// &#x5E76;&#x4E14;&#x65B0;&#x7ED3;&#x70B9;&#x4F5C;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5176;&#x7236;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x5E94;&#x4E3A;null</span>
+            <span class="hljs-keyword">if</span> (node.right == <span class="hljs-keyword">null</span>) {
+                node.right = newNode;
+                newNode.parent = node;
+                size++;
+                <span class="hljs-keyword">return</span> newNode;
+            }
+            node = node.right;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> newNode;
+}
+</code></pre>
+<h3 id="&#x5220;&#x9664;&#x7ED3;&#x70B9;"><a name="&#x5220;&#x9664;&#x7ED3;&#x70B9;" class="plugin-anchor" href="#&#x5220;&#x9664;&#x7ED3;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5220;&#x9664;&#x7ED3;&#x70B9;</h3>
+<p>&#x5220;&#x9664;&#x7ED3;&#x70B9;&#x662F;&#x64CD;&#x4F5C;&#x4E2D;&#x6700;&#x4E3A;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x5206;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#x8003;&#x8651;&#xFF1A;</p>
+<ol>
+<li>&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x6CA1;&#x6709;&#x5DE6;&#x53F3;&#x5B50;&#x8282;&#x70B9;</li>
+<li>&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x53EA;&#x6709;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#x6216;&#x8005;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)</li>
+<li>&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x5DE6;&#x53F3;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x5E45;&#x56FE;&#x4EE3;&#x8868;&#x8FD9;&#x51E0;&#x79CD;&#x64CD;&#x4F5C;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/BinarySearchTree_remove.png" alt="image"></p>
+<p>&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x5E45;&#x56FE;&#x4EE3;&#x8868;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x53EA;&#x6709;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#xFF0C;&#x53EA;&#x9700;&#x5C06;&#x8BE5;&#x7ED3;&#x70B9;&#x7684;&#x7236;&#x7ED3;&#x70B9;&#x6307;&#x5411;&#x8BE5;&#x7ED3;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x4F46;&#x8981;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x5B50;&#x5DE6;&#x7ED3;&#x70B9;&#x8FD8;&#x662F;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x5E94;&#x6307;&#x5411;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x7684;&#x5B50;&#x7ED3;&#x70B9;&#x5373;&#x53EF;&#xFF1B;&#x56FE;&#x4E8C;&#x4EE3;&#x8868;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x53EA;&#x6709;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#xFF0C;&#x539F;&#x7406;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF1B;&#x56FE;&#x4E09;&#x662F;&#x4EE3;&#x8868;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x5DE6;&#x53F3;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x627E;&#x51FA;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x4EE3;&#x66FF;&#x8BE5;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5220;&#x9664;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">remove</span><span class="hljs-params">(E value)</span> </span>{
+    Node&lt;E&gt; node = <span class="hljs-keyword">this</span>.removeValue(value);
+    <span class="hljs-keyword">return</span> (node != <span class="hljs-keyword">null</span> ? node.item : <span class="hljs-keyword">null</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title">removeValue</span><span class="hljs-params">(E value)</span> </span>{
+    Node&lt;E&gt; curr = <span class="hljs-keyword">this</span>.getNode(value);
+    <span class="hljs-keyword">if</span> (curr != <span class="hljs-keyword">null</span>) {
+        curr = removeNode(curr);
+    }
+
+    <span class="hljs-keyword">return</span> curr;
+}
+
+<span class="hljs-comment">/**
+ * &#x5220;&#x9664;&#x7ED3;&#x70B9;&#xFF0C;&#x5206;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#x8003;&#x8651;
+ * &lt;ul&gt;
+ *   &lt;li&gt;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x6CA1;&#x6709;&#x5DE6;&#x53F3;&#x5B50;&#x8282;&#x70B9;&lt;/li&gt;
+ *   &lt;li&gt;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x53EA;&#x6709;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#x6216;&#x8005;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&lt;/li&gt;
+ *   &lt;li&gt;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x5DE6;&#x53F3;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;&lt;/li&gt;
+ * &lt;/ul&gt;
+ * <span class="hljs-doctag">@param</span> nodeToRemoved
+ * <span class="hljs-doctag">@return</span> &#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title">removeNode</span><span class="hljs-params">(Node&lt;E&gt; nodeToRemoved)</span> </span>{
+    <span class="hljs-comment">// &#x5224;&#x65AD;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x662F;&#x5426;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF08;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;&#x7279;&#x70B9;&#x662F;&#x6CA1;&#x6709;&#x5B50;&#x7ED3;&#x70B9;&#xFF09;</span>
+    <span class="hljs-comment">// &#x76F4;&#x63A5;&#x5220;&#x9664;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;</span>
+    <span class="hljs-keyword">if</span> (nodeToRemoved.left == <span class="hljs-keyword">null</span> &amp;&amp; nodeToRemoved.right == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x8BE5;&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x5426;&#x53EA;&#x6709;&#x6839;&#x7ED3;&#x70B9;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (nodeToRemoved == root) {
+            root = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">return</span> root;
+        }
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x4E8C;&#x53C9;&#x6811;&#x4E0D;&#x662F;&#x53EA;&#x6709;&#x6839;&#x7ED3;&#x70B9;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x524D;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x4E00;&#x5B9A;&#x6709;&#x7236;&#x7ED3;&#x70B9;</span>
+        Node&lt;E&gt; targetParent = nodeToRemoved.parent;
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x8FD8;&#x662F;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (targetParent.left.item.compareTo(nodeToRemoved.item) == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;</span>
+            targetParent.left = <span class="hljs-keyword">null</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (targetParent.right.item.compareTo(nodeToRemoved.item) == <span class="hljs-number">0</span>){
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;</span>
+            targetParent.right = <span class="hljs-keyword">null</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// &#x6B64;&#x65F6;&#x4E8C;&#x53C9;&#x6811;&#x6709;&#x95EE;&#x9898;</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nodeToRemoved.left != <span class="hljs-keyword">null</span> &amp;&amp; nodeToRemoved.right != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">// &#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x5DE6;&#x53F3;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;</span>
+        <span class="hljs-comment">// &#x6B64;&#x65F6;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;&#xFF0C;&#x7528;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x4EE3;&#x66FF;&#x8BE5;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x503C;,&#x5220;&#x9664;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x7684;&#x6700;&#x5C0F;&#x503C;</span>
+        <span class="hljs-comment">// &#x6240;&#x4EE5;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x5148;&#x627E;&#x51FA;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x503C;</span>
+        Node&lt;E&gt; minNode = findMinNode(nodeToRemoved);
+        <span class="hljs-comment">// &#x5C06;&#x5F53;&#x524D;&#x8981;&#x5220;&#x9664;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x66FF;&#x6362;&#x4E3A;&#x5176;&#x5B50;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x8282;&#x70B9;</span>
+        nodeToRemoved.item = minNode.item;
+        <span class="hljs-comment">// &#x5220;&#x9664;&#x627E;&#x5230;&#x7684;&#x6700;&#x5C0F;&#x8282;&#x70B9;</span>
+        removeNode(minNode);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// &#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x53EA;&#x6709;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#x6216;&#x8005;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)</span>
+        <span class="hljs-comment">// &#x6B64;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x7ED3;&#x70B9;&#x7684;&#x5B50;&#x7ED3;&#x70B9;(&#x6811;)&#x6307;&#x5411;&#x8BE5;&#x7ED3;&#x70B9;(&#x6811;)&#x7684;&#x7236;&#x7ED3;&#x70B9;</span>
+        Node&lt;E&gt; targetLeft = nodeToRemoved.left;
+        Node&lt;E&gt; targetRight = nodeToRemoved.right;
+        Node&lt;E&gt; targetParent = nodeToRemoved.parent;
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x5F53;&#x524D;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x7ED3;&#x70B9;&#x8FD8;&#x662F;&#x53F3;&#x7ED3;&#x70B9;</span>
+        <span class="hljs-keyword">if</span> (targetParent.left.item.compareTo(nodeToRemoved.item) == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// &#x5DE6;</span>
+            <span class="hljs-keyword">if</span> (targetLeft != <span class="hljs-keyword">null</span>) {
+                targetParent.left = targetLeft;
+                targetLeft.parent = targetParent;
+                targetLeft = <span class="hljs-keyword">null</span>;
+            }
+            <span class="hljs-keyword">if</span> (targetRight != <span class="hljs-keyword">null</span>) {
+                targetParent.left = targetRight;
+                targetRight.parent = targetParent;
+                targetRight = <span class="hljs-keyword">null</span>;
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (targetParent.right.item.compareTo(nodeToRemoved.item) == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// &#x53F3;</span>
+            <span class="hljs-keyword">if</span> (targetLeft != <span class="hljs-keyword">null</span>) {
+                targetParent.right = targetLeft;
+                targetLeft.parent = targetParent;
+                targetLeft = <span class="hljs-keyword">null</span>;
+            }
+            <span class="hljs-keyword">if</span> (targetRight != <span class="hljs-keyword">null</span>) {
+                targetParent.right = targetRight;
+                targetRight.parent = targetParent;
+                targetRight = <span class="hljs-keyword">null</span>;
+            }
+        }
+    }
+
+    size--;
+    <span class="hljs-keyword">return</span> nodeToRemoved;
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x503C;&#x6765;&#x83B7;&#x53D6;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x6B64;&#x65F6;&#x8C03;&#x7528;&#x51FD;&#x6570;<strong>getNode</strong>&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x503C;&#x6765;&#x641C;&#x7D22;&#x7ED3;&#x70B9;
+ * <span class="hljs-doctag">@param</span> value &#x4F20;&#x5165;&#x7684;&#x503C;
+ * <span class="hljs-doctag">@return</span> &#x7ED3;&#x70B9;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title">getNode</span><span class="hljs-params">(E value)</span> </span>{
+    Node&lt;E&gt; node = root;
+    <span class="hljs-keyword">while</span> (node != <span class="hljs-keyword">null</span> &amp;&amp; node.item != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">if</span> (node.item.compareTo(value) &gt; <span class="hljs-number">0</span>) {
+            node = node.left;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node.item.compareTo(value) &lt; <span class="hljs-number">0</span>) {
+            node = node.right;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> node;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<p>&#x5728;&#x8981;&#x5220;&#x9664;&#x7684;&#x7ED3;&#x70B9;&#x5DE6;&#x53F3;&#x7ED3;&#x70B9;(&#x6811;)&#x90FD;&#x6709;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x67E5;&#x627E;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x8003;&#x8651;&#x5230;&#x5982;&#x679C;&#x4E3A;&#x6700;&#x5C0F;&#x7ED3;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x7ED3;&#x70B9;&#x5FC5;&#x7136;&#x6CA1;&#x6709;&#x5DE6;&#x5B50;&#x6811;(&#x7ED3;&#x70B9;)&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x9012;&#x5F52;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x627E;&#x5230;&#x7ED9;&#x5B9A;&#x7ED3;&#x70B9;&#x7684;&#x5B50;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x7ED3;&#x70B9;(&#x503C;)
+ * &#x6B64;&#x65F6;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5230;&#x5982;&#x679C;&#x4E3A;&#x6700;&#x5C0F;&#x7ED3;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x7ED3;&#x70B9;&#x5FC5;&#x7136;&#x6CA1;&#x6709;&#x5DE6;&#x5B50;&#x6811;(&#x7ED3;&#x70B9;)&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x9012;&#x5F52;&#x8FDB;&#x884C;&#x904D;&#x5386;
+ * <span class="hljs-doctag">@param</span> nodeToRemoved
+ * <span class="hljs-doctag">@return</span> &#x7ED9;&#x5B9A;&#x7ED3;&#x70B9;&#x7684;&#x5B50;&#x6811;&#x7684;&#x6700;&#x5C0F;&#x7ED3;&#x70B9;(&#x503C;)
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> Node&lt;E&gt; <span class="hljs-title">findMinNode</span><span class="hljs-params">(Node&lt;E&gt; nodeToRemoved)</span> </span>{
+    <span class="hljs-keyword">if</span> (nodeToRemoved == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+    <span class="hljs-keyword">if</span> (nodeToRemoved.left == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">return</span> nodeToRemoved;
+    }
+
+    <span class="hljs-keyword">return</span> findMinNode(nodeToRemoved.left);
+}
+</code></pre>
+<h3 id="&#x6253;&#x5370;"><a name="&#x6253;&#x5370;" class="plugin-anchor" href="#&#x6253;&#x5370;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6253;&#x5370;</h3>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x4E8C;&#x53C9;&#x6811;&#x6253;&#x5370;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x4E0A;&#xFF0C;&#x4FBF;&#x4E8E;&#x67E5;&#x770B;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6548;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/BinarySearchTree_print.png" alt="image"></p>
+<p>&#x6253;&#x5370;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> TreePrinter.getString(<span class="hljs-keyword">this</span>);
+}
+
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreePrinter</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="hljs-function">String <span class="hljs-title">getString</span><span class="hljs-params">(BinarySearchTree&lt;T&gt; tree)</span> </span>{
+        <span class="hljs-keyword">if</span> (tree.root == <span class="hljs-keyword">null</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Tree has no nodes.&quot;</span>;
+        <span class="hljs-keyword">return</span> getString(tree.root, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-keyword">true</span>);
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> &lt;E extends Comparable&lt;E&gt;&gt; <span class="hljs-function">String <span class="hljs-title">getString</span><span class="hljs-params">(Node&lt;E&gt; node, String prefix, <span class="hljs-keyword">boolean</span> isTail)</span> </span>{
+        StringBuilder builder = <span class="hljs-keyword">new</span> StringBuilder();
+
+        <span class="hljs-keyword">if</span> (node.parent != <span class="hljs-keyword">null</span>) {
+            String siteme = <span class="hljs-string">&quot;left&quot;</span>;
+            <span class="hljs-keyword">if</span> (node.equals(node.parent.right))
+                siteme = <span class="hljs-string">&quot;right&quot;</span>;
+            builder.append(prefix + (isTail ? <span class="hljs-string">&quot;&#x2514;&#x2500;&#x2500; &quot;</span> : <span class="hljs-string">&quot;&#x251C;&#x2500;&#x2500; &quot;</span>) + <span class="hljs-string">&quot;(&quot;</span> + siteme + <span class="hljs-string">&quot;) &quot;</span> + node.item + <span class="hljs-string">&quot;\n&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            builder.append(prefix + (isTail ? <span class="hljs-string">&quot;&#x2514;&#x2500;&#x2500; &quot;</span> : <span class="hljs-string">&quot;&#x251C;&#x2500;&#x2500; &quot;</span>) + node.item + <span class="hljs-string">&quot;\n&quot;</span>);
+        }
+        List&lt;Node&lt;E&gt;&gt; children = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span> || node.right != <span class="hljs-keyword">null</span>) {
+            children = <span class="hljs-keyword">new</span> ArrayList&lt;Node&lt;E&gt;&gt;(<span class="hljs-number">2</span>);
+            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>)
+                children.add(node.left);
+            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>)
+                children.add(node.right);
+        }
+        <span class="hljs-keyword">if</span> (children != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; children.size() - <span class="hljs-number">1</span>; i++) {
+                builder.append(getString(children.get(i), prefix + (isTail ? <span class="hljs-string">&quot;    &quot;</span> : <span class="hljs-string">&quot;&#x2502;   &quot;</span>), <span class="hljs-keyword">false</span>));
+            }
+            <span class="hljs-keyword">if</span> (children.size() &gt;= <span class="hljs-number">1</span>) {
+                builder.append(getString(children.get(children.size() - <span class="hljs-number">1</span>), prefix + (isTail ? <span class="hljs-string">&quot;    &quot;</span> : <span class="hljs-string">&quot;&#x2502;   &quot;</span>), <span class="hljs-keyword">true</span>));
+            }
+        }
+
+        <span class="hljs-keyword">return</span> builder.toString();
+    }
+}
+</code></pre>
+<h3 id="&#x6E90;&#x7801;&#x5730;&#x5740;"><a name="&#x6E90;&#x7801;&#x5730;&#x5740;" class="plugin-anchor" href="#&#x6E90;&#x7801;&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6E90;&#x7801;&#x5730;&#x5740;</h3>
+<p>&#x672C;&#x7BC7;&#x535A;&#x5BA2;&#x7684;&#x4EE3;&#x7801;&#x5730;&#x5740;&#xFF1A;</p>
+<p><a href="https://github.com/mstao/data-structures/blob/master/Tree/src/pers/mingshan/tree/BinarySearchTree.java" target="_blank">https://github.com/mstao/data-structures/blob/master/Tree/src/pers/mingshan/tree/BinarySearchTree.java</a></p>
+<p>&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x5730;&#x5740;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><a href="https://github.com/mstao/data-structures/blob/master/Tree/src/pers/mingshan/tree/TreeTest.java" target="_blank">https://github.com/mstao/data-structures/blob/master/Tree/src/pers/mingshan/tree/TreeTest.java</a></p>
 
                                 
                                 </section>
@@ -1479,7 +1872,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"二叉搜索树","level":"1.12.2.1","depth":3,"next":{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]},"previous":{"title":"树","level":"1.12.2","depth":2,"path":"algorithm/tree/README.md","ref":"algorithm/tree/README.md","articles":[{"title":"二叉搜索树","level":"1.12.2.1","depth":3,"path":"algorithm/tree/BinarySearchTree.md","ref":"algorithm/tree/BinarySearchTree.md","articles":[]},{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/tree/BinarySearchTree.md","mtime":"2018-07-08T13:53:31.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:03:59.570Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"二叉搜索树","level":"1.12.2.1","depth":3,"next":{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]},"previous":{"title":"树","level":"1.12.2","depth":2,"path":"algorithm/tree/README.md","ref":"algorithm/tree/README.md","articles":[{"title":"二叉搜索树","level":"1.12.2.1","depth":3,"path":"algorithm/tree/BinarySearchTree.md","ref":"algorithm/tree/BinarySearchTree.md","articles":[]},{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/tree/BinarySearchTree.md","mtime":"2018-07-08T14:48:32.659Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:54:38.625Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

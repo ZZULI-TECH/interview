@@ -1202,6 +1202,38 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.4.1" data-path="../queue/LinkQueue.html">
+            
+                <a href="../queue/LinkQueue.html">
+            
+                    
+                    链式队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4.2" data-path="../queue/ArrayQueue.html">
+            
+                <a href="../queue/ArrayQueue.html">
+            
+                    
+                    顺序队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.12.5" data-path="../heap/">
@@ -1436,6 +1468,161 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x6808;"><a name="&#x6808;" class="plugin-anchor" href="#&#x6808;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6808;</h1>
+<h3 id="&#x6808;&#x4ECB;&#x7ECD;"><a name="&#x6808;&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#&#x6808;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6808;&#x4ECB;&#x7ECD;</h3>
+<p>&#x6808;&#x662F;&#x4E00;&#x79CD;&#x4EC5;&#x5728;&#x8868;&#x5934;&#x8FDB;&#x884C;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x7684;&#x7EBF;&#x6027;&#x8868;&#xFF0C;&#x5E76;&#x4E14;&#x5C5E;&#x4E8E;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#xFF08;last-in&#xFF0C;first-out&#xFF0C;LIFO&#xFF09;&#x539F;&#x5219;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x6808;&#x7684;&#x5165;&#x6808;&#x548C;&#x51FA;&#x6808;&#x7684;&#x56FE;&#x793A;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/Stack.png" alt="image"></p>
+<h3 id="&#x4E3B;&#x8981;&#x64CD;&#x4F5C;"><a name="&#x4E3B;&#x8981;&#x64CD;&#x4F5C;" class="plugin-anchor" href="#&#x4E3B;&#x8981;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3B;&#x8981;&#x64CD;&#x4F5C;</h3>
+<p>&#x6808;&#x4E3B;&#x8981;&#x6709;&#x5165;&#x6808;&#x548C;&#x51FA;&#x6808;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x8981;&#x5B9E;&#x73B0;&#x5B8C;&#x6574;&#x7684;&#x6808;&#x64CD;&#x4F5C;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>push &#x5165;&#x6808;&#xFF0C;&#x5C06;&#x5143;&#x7D20;&#x538B;&#x5165;&#x6808;&#x9876;</li>
+<li>pop &#x51FA;&#x6808;&#xFF0C;&#x83B7;&#x53D6;&#x6808;&#x9876;&#x5143;&#x7D20;&#x5E76;&#x5C06;&#x5176;&#x4ECE;&#x6808;&#x4E2D;&#x5220;&#x9664;</li>
+<li>peek &#x83B7;&#x53D6;&#x6808;&#x9876;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x4E0D;&#x5220;&#x9664;</li>
+<li>empty &#x5224;&#x65AD;&#x6808;&#x662F;&#x5426;&#x4E3A;&#x7A7A;</li>
+<li>size &#x83B7;&#x53D6;&#x6808;&#x5185;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;</p>
+<!-- more -->
+<h3 id="&#x5177;&#x4F53;&#x5B9E;&#x73B0;"><a name="&#x5177;&#x4F53;&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5177;&#x4F53;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5177;&#x4F53;&#x5B9E;&#x73B0;</h3>
+<p>&#x6808;&#x5185;&#x7684;&#x5143;&#x7D20;&#x662F;&#x653E;&#x5728;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#x6765;&#x5B58;&#x50A8;&#x548C;&#x63CF;&#x8FF0;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5B58;&#x653E;&#x6808;&#x5185;&#x5143;&#x7D20;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x9ED8;&#x8BA4;&#x5927;&#x5C0F;&#x4E3A;10</span>
+<span class="hljs-keyword">private</span> Object[] elementData;
+<span class="hljs-comment">// &#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> elementCount;
+<span class="hljs-comment">// &#x6307;&#x5B9A;&#x8981;&#x589E;&#x52A0;&#x7684;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> capacityIncrement;
+</code></pre>
+<p>&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E2D;&#x521D;&#x59CB;&#x6570;&#x7EC4;&#x5BB9;&#x91CF;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x901A;&#x8FC7;&#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#x6765;&#x521D;&#x59CB;&#x5316;&#x6570;&#x7EC4;
+ * <span class="hljs-doctag">@param</span> initialCapacity &#x6570;&#x7EC4;&#x5BB9;&#x521D;&#x59CB;&#x91CF;
+ * <span class="hljs-doctag">@param</span> capacityIncrement &#x6269;&#x5BB9;&#x589E;&#x52A0;&#x7684;&#x5BB9;&#x91CF;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Stack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity, <span class="hljs-keyword">int</span> capacityIncrement)</span> </span>{
+    <span class="hljs-keyword">super</span>();
+    <span class="hljs-keyword">if</span> (initialCapacity &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Illegal Capacity: &quot;</span>+
+                                           initialCapacity);
+    <span class="hljs-keyword">this</span>.elementData = <span class="hljs-keyword">new</span> Object[initialCapacity];
+    <span class="hljs-keyword">this</span>.capacityIncrement = capacityIncrement;
+}
+
+<span class="hljs-comment">/**
+ * &#x901A;&#x8FC7;&#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#x6765;&#x521D;&#x59CB;&#x5316;&#x6570;&#x7EC4;
+ * <span class="hljs-doctag">@param</span> initialCapacity &#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5BB9;&#x91CF;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Stack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity)</span> </span>{
+    <span class="hljs-keyword">this</span>(initialCapacity, <span class="hljs-number">0</span>);
+}
+
+<span class="hljs-comment">/**
+ * &#x6784;&#x9020;&#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316;&#x6570;&#x7EC4;&#x5BB9;&#x91CF;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Stack</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>(<span class="hljs-number">10</span>);
+}
+</code></pre>
+<h4 id="push"><a name="push" class="plugin-anchor" href="#push"><i class="fa fa-link" aria-hidden="true"></i></a>push</h4>
+<p>&#x5165;&#x6808;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x5230;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#xFF0C;&#x5982;&#x6709;&#x6570;&#x7EC4;&#x6709;&#x521D;&#x59CB;&#x5316;&#x5927;&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x6B21;&#x5165;&#x6808;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5927;&#x5C0F;&#x4E0D;&#x591F;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x5165;&#x6808;
+ * <span class="hljs-doctag">@param</span> data
+ * <span class="hljs-doctag">@return</span> &#x5165;&#x6808;&#x7684;&#x6570;&#x636E;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">push</span><span class="hljs-params">(E data)</span> </span>{
+    addElement(data);
+    <span class="hljs-keyword">return</span> data;
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x8C03;&#x7528;&#x4E86;<strong>addElement(data)</strong>&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x5411;&#x6808;&#x9876;&#x6DFB;&#x52A0;&#x5143;&#x7D20;
+ * <span class="hljs-doctag">@param</span> obj
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addElement</span><span class="hljs-params">(E obj)</span> </span>{
+    ensureCapacity(elementCount + <span class="hljs-number">1</span>);
+    elementData[elementCount++] = obj;
+}
+</code></pre>
+<p>&#x5728;<strong>addElement(data)</strong>&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;ensureCapacity&#x6765;&#x68C0;&#x6D4B;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#x4E5F;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x65B9;&#x6CD5;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x786E;&#x4FDD;&#x6808;&#x5BB9;&#x91CF;&#xFF0C;&#x6269;&#x5BB9;
+ * <span class="hljs-doctag">@param</span> minCapacity 
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ensureCapacity</span><span class="hljs-params">(<span class="hljs-keyword">int</span> minCapacity)</span> </span>{
+    <span class="hljs-keyword">int</span> oldCapacity = elementData.length;
+    <span class="hljs-comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x6269;&#x5BB9;</span>
+    <span class="hljs-keyword">if</span> (oldCapacity &lt; minCapacity) {
+        <span class="hljs-comment">// &#x6307;&#x5B9A;&#x8981;&#x6269;&#x5927;&#x591A;&#x5C11;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x6269;&#x5BB9;2&#x500D;</span>
+        <span class="hljs-keyword">int</span> newCapacity = oldCapacity + (<span class="hljs-keyword">this</span>.capacityIncrement &gt; <span class="hljs-number">0</span> 
+                ? <span class="hljs-keyword">this</span>.capacityIncrement : oldCapacity);
+        <span class="hljs-comment">// &#x5C06;&#x539F;&#x6570;&#x7EC4;&#x7684;&#x5BB9;&#x91CF;&#x62F7;&#x8D1D;&#x5230;&#x6269;&#x5BB9;&#x540E;&#x7684;&#x6570;&#x7EC4;</span>
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7684;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x591F;&#x4E0D;&#x591F;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x591F;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5BB9;&#x5927;&#x5C0F;<strong>capacityIncrement</strong>&#x6765;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;<strong>capacityIncrement</strong>&#x5C0F;&#x4E8E;0&#xFF0C;&#x90A3;&#x4E48;&#x5BB9;&#x91CF;&#x5C31;&#x6269;&#x5927;2&#x500D;&#x3002;&#x6700;&#x540E;&#x5C06;&#x539F;&#x6765;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x62F7;&#x8D1D;&#x5230;&#x65B0;&#x6570;&#x7EC4;&#x4E2D;&#x3002;</p>
+<h4 id="pop"><a name="pop" class="plugin-anchor" href="#pop"><i class="fa fa-link" aria-hidden="true"></i></a>pop</h4>
+<p>&#x51FA;&#x6808;&#x662F;&#x5C06;&#x6808;&#x9876;&#x7684;&#x5143;&#x7D20;&#x79FB;&#x9664;&#x5E76;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x51FA;&#x6808;&#xFF0C;&#x79FB;&#x9664;&#x6808;&#x9876;&#x7684;&#x5143;&#x7D20;
+ * <span class="hljs-doctag">@return</span> &#x88AB;&#x79FB;&#x9664;&#x7684;&#x5143;&#x7D20;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>{
+    E obj = peek();
+    <span class="hljs-keyword">if</span> (size() &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-comment">// &#x79FB;&#x9664;&#x6808;&#x9876;&#x5143;&#x7D20;</span>
+        elementData[elementCount - <span class="hljs-number">1</span>] = <span class="hljs-keyword">null</span>;
+        elementCount--;
+    }
+    <span class="hljs-keyword">return</span> obj;
+}
+</code></pre>
+<p>&#x5728;pop&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x5219;&#x662F;&#x8C03;&#x7528;&#x4E86;<strong>peek</strong>&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x6808;&#x9876;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6808;&#x9876;&#x5143;&#x7D20;&#x79FB;&#x9664;&#x4E0B;&#x9762;&#x6765;&#x770B;<strong>peek</strong>&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<h4 id="peek"><a name="peek" class="plugin-anchor" href="#peek"><i class="fa fa-link" aria-hidden="true"></i></a>peek</h4>
+<p>peek&#x65B9;&#x6CD5;&#x662F;&#x83B7;&#x53D6;&#x6808;&#x9876;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x7B80;&#x5355;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x83B7;&#x53D6;&#x6808;&#x9876;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x4E0D;&#x79FB;&#x9664;
+ * <span class="hljs-doctag">@return</span> &#x6808;&#x9876;&#x7684;&#x5143;&#x7D20;
+ */</span>
+<span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">peek</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> len = size();
+
+    <span class="hljs-keyword">if</span> (len == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> EmptyStackException();
+    E obj = (E) elementData[elementCount - <span class="hljs-number">1</span>];
+    <span class="hljs-keyword">return</span> obj;
+}
+</code></pre>
+<h4 id="search"><a name="search" class="plugin-anchor" href="#search"><i class="fa fa-link" aria-hidden="true"></i></a>search</h4>
+<p>&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x5143;&#x7D20;&#x6765;&#x83B7;&#x53D6;&#x8BE5;&#x5143;&#x7D20;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x8FD4;&#x56DE;-1&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x5728;&#x5806;&#x6808;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5; 0 &#x4E3A;&#x57FA;&#x6570;&#x3002;
+ * <span class="hljs-doctag">@param</span> element
+ * <span class="hljs-doctag">@return</span> &#x5143;&#x7D20;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x8FD4;&#x56DE;-1
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(Object element)</span> </span>{
+    <span class="hljs-keyword">int</span> z = elementCount - <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (element == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = z; i &gt; <span class="hljs-number">0</span>; i--) {
+            <span class="hljs-keyword">if</span> (elementData[i] == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">return</span> i;
+            }
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = z; i &gt; <span class="hljs-number">0</span>; i--) {
+            <span class="hljs-keyword">if</span> (element.equals(elementData[i])) {
+                <span class="hljs-keyword">return</span> i;
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x6808;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;null&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x5BF9;null&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><a name="&#x5B8C;&#x6574;&#x4EE3;&#x7801;" class="plugin-anchor" href="#&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B8C;&#x6574;&#x4EE3;&#x7801;</h3>
+<p>&#x672C;&#x7BC7;&#x535A;&#x5BA2;&#x7684;&#x5B8C;&#x6574;&#x4EE3;&#x7801;</p>
+<p><a href="https://github.com/mstao/data-structures/blob/master/Stack/src/pers/mingshan/stack/Stack.java" target="_blank">https://github.com/mstao/data-structures/blob/master/Stack/src/pers/mingshan/stack/Stack.java</a></p>
 
                                 
                                 </section>
@@ -1479,7 +1666,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"栈","level":"1.12.3","depth":2,"next":{"title":"队列","level":"1.12.4","depth":2,"path":"algorithm/queue/README.md","ref":"algorithm/queue/README.md","articles":[]},"previous":{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/stack/README.md","mtime":"2018-07-08T13:53:31.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:03:59.570Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"栈","level":"1.12.3","depth":2,"next":{"title":"队列","level":"1.12.4","depth":2,"path":"algorithm/queue/README.md","ref":"algorithm/queue/README.md","articles":[{"title":"链式队列","level":"1.12.4.1","depth":3,"path":"algorithm/queue/LinkQueue.md","ref":"algorithm/queue/LinkQueue.md","articles":[]},{"title":"顺序队列","level":"1.12.4.2","depth":3,"path":"algorithm/queue/ArrayQueue.md","ref":"algorithm/queue/ArrayQueue.md","articles":[]}]},"previous":{"title":"红黑树","level":"1.12.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/stack/README.md","mtime":"2018-07-08T14:47:52.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-08T14:54:38.625Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
