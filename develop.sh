@@ -1,7 +1,7 @@
 #!/bin/sh
 cd ..
-mkdir interview
-cd interview
+mkdir interview-gitbook
+cd interview-gitbook
 git init
 git remote add origin https://github.com/ZZULI-TECH/interview.git
 git fetch

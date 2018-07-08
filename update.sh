@@ -6,8 +6,8 @@ if which gitbook > /dev/null; then
     cd source
     gitbook build
     cd _book
-    cp -R * ../../../interview/
-    cd ../../../interview/
+    cp -R * ../../../interview-gitbook/
+    cd ../../../interview-gitbook/
     git add -A
     git commit -am "update `date`"
     git push
