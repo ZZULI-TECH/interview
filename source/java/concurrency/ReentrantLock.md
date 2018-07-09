@@ -3,7 +3,7 @@
 ReentrantLock 提供非公平锁与公平锁两种加锁方式, 默认加锁方式为非公平锁。
 
 ### ReentrantLock类的结构为：<br>
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/ReentrantLock.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/ReentrantLock.png?raw=true)
 
 从图中可以看出，ReentrantLock类包含三个静态内部类：
 - Sync
