@@ -23,7 +23,7 @@ Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/
 
 ### 开源协议
 
-本仓库旨在分享相关技术，无任何协议限制，任何人即可修改，发现错误请提交Pull Request。
+[知识共享“署名-非商业性使用-相同方式共享 3.0 中国大陆”许可协议](https://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 
 
 
 
