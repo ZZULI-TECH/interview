@@ -1608,7 +1608,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"><a name="&#x5192;&#x6CE1;&#x6392;&#x5E8F;" class="plugin-anchor" href="#&#x5192;&#x6CE1;&#x6392;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5192;&#x6CE1;&#x6392;&#x5E8F;</h2>
+<p>&#x5192;&#x6CE1;&#x6392;&#x5E8F;(Bubble Sort)&#x662F;&#x4E00;&#x79CD;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4EA4;&#x6362;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x4E24;&#x4E24;&#x6BD4;&#x8F83;&#x76F8;&#x90BB;&#x8BB0;&#x5F55;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x9006;&#x5E8F;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x4EA4;&#x6362;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5173;&#x952E;&#x5B57;&#x5C0F;&#x7684;&#x8BB0;&#x5F55;&#x5982;&#x6C14;&#x6CE1;&#x4E00;&#x822C;&#x9010;&#x6E10;&#x5F80;&#x4E0A;&#x201C;&#x6F02;&#x6D6E;&#x201D;(&#x5DE6;&#x79FB;)&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x5173;&#x952E;&#x5B57;&#x5927;&#x7684;&#x8BB0;&#x5F55;&#x9010;&#x6E10;&#x5411;&#x4E0B;&#x201C;&#x5760;&#x843D;&#x201D;(&#x53F3;&#x79FB;)&#x3002;</p>
+<p><strong>&#x3010;&#x7B97;&#x6CD5;&#x6B65;&#x9AA4;&#x3011;</strong></p>
+<ol>
+<li>&#x5047;&#x8BBE;&#x5F85;&#x6392;&#x5E8F;&#x7684;&#x8BB0;&#x5F55;&#x5B58;&#x653E;&#x5728;&#x6570;&#x7EC4;r[1...n]&#x4E2D;&#x3002;&#x9996;&#x5148;&#x5C06;&#x7B2C;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x5173;&#x952E;&#x5B57;&#x548C;&#x7B2C;&#x4E8C;&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x82E5;&#x4E3A;&#x9006;&#x5E8F;&#xFF08;&#x5373;&#x7B2C;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x5927;&#x4E8E;&#x7B2C;&#x4E8C;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF09;&#xFF0C;&#x5219;&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x8BB0;&#x5F55;&#x3002;&#x7136;&#x540E;&#x6BD4;&#x8F83;&#x7B2C;&#x4E8C;&#x4E2A;&#x8BB0;&#x5F55;&#x548C;&#x7B2C;&#x4E09;&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x5173;&#x952E;&#x5B57;&#x3002;&#x4F9D;&#x6B21;&#x7C7B;&#x63A8;&#xFF0C;&#x76F4;&#x81F3;&#x7B2C;n-1&#x4E2A;&#x8BB0;&#x5F55;&#x548C;&#x7B2C;n&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x8FC7;&#x6BD4;&#x8F83;&#x4F4D;&#x7F6E;&#x3002;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x79F0;&#x4F5C;&#x7B2C;&#x4E00;&#x8D9F;&#x8D77;&#x6CE1;&#x6392;&#x5E8F;&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x4F7F;&#x5F97;&#x5173;&#x952E;&#x5B57;&#x6700;&#x5927;&#x7684;&#x8BB0;&#x5F55;&#x88AB;&#x5B89;&#x7F6E;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#x3002;</li>
+<li>&#x7136;&#x540E;&#x8FDB;&#x884C;&#x7B2C;&#x4E8C;&#x8D9F;&#x8D77;&#x6CE1;&#x6392;&#x5E8F;&#xFF0C;&#x5BF9;&#x524D;n-1&#x4E2A;&#x8BB0;&#x5F55;&#x8FDB;&#x884C;&#x540C;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x662F;&#x4F7F;&#x5F97;&#x5173;&#x952E;&#x5B57;&#x7B2C;&#x4E8C;&#x5927;&#x7684;&#x8BB0;&#x5F55;&#x88AB;&#x5B89;&#x7F6E;&#x5230;&#x7B2C;n-1&#x4E2A;&#x8BB0;&#x5F55;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#x3002;</li>
+<li>&#x91CD;&#x590D;&#x4E0A;&#x8FF0;&#x6BD4;&#x8F83;&#x4E0E;&#x4EA4;&#x6362;&#x8FC7;&#x7A0B;&#xFF0C;&#x7B2C;i&#x8D9F;&#x662F;&#x4ECE;&#x7B2C;1&#x6761;&#x8BB0;&#x5F55;&#x5230;&#x7B2C;n-i+1&#x8BB0;&#x5F55;&#x4F9D;&#x6B21;&#x6BD4;&#x8F83;&#x76F8;&#x90BB;&#x7684;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5E76;&#x518D;&#x201C;&#x9006;&#x5E8F;&#x201D;&#x6392;&#x5E8F;&#x662F;&#x4EA4;&#x6362;&#x76F8;&#x90BB;&#x8BB0;&#x5F55;&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x662F;&#x8FD9;n-i+1&#x4E2A;&#x8BB0;&#x5F55;&#x4E2D;&#x5173;&#x952E;&#x5B57;&#x6700;&#x5927;&#x7684;&#x8BB0;&#x5F55;&#x88AB;&#x4EA4;&#x6362;&#x5230;&#x7B2C;n-i+1&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#x3002;&#x77E5;&#x9053;&#x5728;&#x67D0;&#x4E00;&#x8D9F;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;&#x4E2D;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x8FC7;&#x4EA4;&#x6362;&#x8BB0;&#x5F55;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8BF4;&#x660E;&#x5E8F;&#x5217;&#x5DF2;&#x7ECF;&#x5168;&#x90E8;&#x8FBE;&#x5230;&#x6392;&#x5E8F;&#x8981;&#x6C42;&#xFF0C;&#x5219;&#x5B8C;&#x6210;&#x6392;&#x5E8F;&#x3002;</li>
+</ol>
+<p><strong>&#x3010;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;&#x3011;</strong></p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/BubbleSort.png?raw=true" alt="image"></p>
+<p><strong>&#x3010;&#x4EE3;&#x7801;&#x3011;</strong></p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BubbleSort</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">49</span>,<span class="hljs-number">38</span>,<span class="hljs-number">65</span>,<span class="hljs-number">97</span>,<span class="hljs-number">76</span>,<span class="hljs-number">13</span>,<span class="hljs-number">27</span>};
+    <span class="hljs-keyword">new</span> BubbleSort().bubbleSort(arr);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+    <span class="hljs-keyword">int</span> m = arr.length-<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<span class="hljs-comment">//flag&#x7528;&#x6765;&#x6807;&#x8BB0;&#x67D0;&#x4E00;&#x8D9F;&#x6392;&#x5E8F;&#x662F;&#x5426;&#x53D1;&#x751F;&#x4EA4;&#x6362;&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x4EA4;&#x6362;&#x5219;&#x8BF4;&#x660E;&#x5DF2;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#xFF09;</span>
+    <span class="hljs-keyword">while</span>(m&gt;<span class="hljs-number">0</span> &amp;&amp; flag==<span class="hljs-keyword">true</span>) {
+      flag = <span class="hljs-keyword">false</span>;
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;m;j++) {
+        <span class="hljs-keyword">if</span>(arr[j]&gt;arr[j+<span class="hljs-number">1</span>]) {
+          flag=<span class="hljs-keyword">true</span>;
+          <span class="hljs-keyword">int</span> temp = arr[j];
+          arr[j] = arr[j+<span class="hljs-number">1</span>];
+          arr[j+<span class="hljs-number">1</span>] = temp;
+        }
+      }
+      --m;
+    }
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> s:arr) {   <span class="hljs-comment">//&#x904D;&#x5386;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x6570;&#x7EC4;</span>
+      System.out.print(s+<span class="hljs-string">&quot; &quot;</span>);
+    }                  <span class="hljs-comment">//&#x7ED3;&#x679C;&#xFF1A;13&#xFF0C;27&#xFF0C;38&#xFF0C;49&#xFF0C;65&#xFF0C;76&#xFF0C;97</span>
+  }
+
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1651,7 +1690,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"冒泡排序","level":"1.4.7.1","depth":3,"next":{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},"previous":{"title":"排序","level":"1.4.7","depth":2,"path":"algorithm/sort/README.md","ref":"algorithm/sort/README.md","articles":[{"title":"冒泡排序","level":"1.4.7.1","depth":3,"path":"algorithm/sort/BubbleSort.md","ref":"algorithm/sort/BubbleSort.md","articles":[]},{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/sort/BubbleSort.md","mtime":"2018-07-09T13:36:30.124Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T14:08:19.671Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"冒泡排序","level":"1.4.7.1","depth":3,"next":{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},"previous":{"title":"排序","level":"1.4.7","depth":2,"path":"algorithm/sort/README.md","ref":"algorithm/sort/README.md","articles":[{"title":"冒泡排序","level":"1.4.7.1","depth":3,"path":"algorithm/sort/BubbleSort.md","ref":"algorithm/sort/BubbleSort.md","articles":[]},{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/sort/BubbleSort.md","mtime":"2018-07-09T16:16:33.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T16:19:46.804Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
