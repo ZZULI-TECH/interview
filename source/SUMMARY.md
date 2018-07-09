@@ -96,4 +96,5 @@
 * [版本控制](scm/README.md)
     * [Git](scm/git.md)
 * [其他](other/README.md)
+	* [正则表达式](other/regx/README.md)
 
