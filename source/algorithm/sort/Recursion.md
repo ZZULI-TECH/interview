@@ -24,3 +24,22 @@ static int fn(int n){
 ```
 **【汉诺塔问题】**   
 一次只能移动一个盘子；不能把大盘子放在小盘子上；除去盘子在两个柱子之间移动的瞬间，盘子必须都在柱子上。（在这三点要求下把盘子从起始柱子A全部移动到目标柱子C上）   
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/hannuotower.jpg?raw=true)   
+只有一个盘子时，直接从A-->C  
+边界:n==1,子问题:A-->C  
+**【代码】**  
+```
+public static void hanNuoTower(int n ,char a,char b,char c){
+    if(n==1){
+        move(a,c);
+    }else{
+        hanNuoTower(n-1,a,c,b);
+        move(a,c);
+        hanNuoTower(n-1,b,a,c);
+    }
+}
+    
+public static void move(char a , char c){
+    System.out.println("move  "+a+"  to  "+c);
+}
+```
