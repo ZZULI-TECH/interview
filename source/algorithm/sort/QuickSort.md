@@ -23,16 +23,20 @@
 ```Java
 void quicksort(int[] arr,int low,int high) {
   int l=low,h=high;
-  int key = arr[low];
-  while(low<high) {
-    if(low<high&&arr[high]>=key)high--;//从右向左遍历
-    arr[low]=arr[high];
-    if(low<high&&arr[low]<=key)low++;//从左向右遍历
-    arr[high]=arr[low];
+  int key=0;
+  if(l<h) {//起始位置要小于需要排序的数组长度
+    key = arr[low];
+    while(low<high) {
+      if(low<high&&arr[high]>=key)high--;//从右向左遍历
+      arr[low]=arr[high];
+      if(low<high&&arr[low]<=key)low++;//从左向右遍历
+      arr[high]=arr[low];
+    }
+    arr[low]=key;
   }
-  arr[low]=key;
+  
   ss:
-  while(l<h) {
+  while(l<h&&low<=h) {
     quicksort(arr,l,low-1);
     quicksort(arr,low+1,h);
     break ss;//跳出当前循环
