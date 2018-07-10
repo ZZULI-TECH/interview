@@ -309,7 +309,7 @@ apply方法需要两个参数，类加载器和接口类型的数组。该方法
 
 1. 包名默认是`com.sun.proxy`，如果被代理类是 non-public proxy interface ，则用和被代理类接口一样的包名，类名默认是$Proxy 加上一个自增的整数值，如$Proxy0，$Proxy1。
 2. 包名类名准备好后，就是通过`ProxyGenerator. generateProxyClass`根据具体传入的接口创建代理字节码，`-Dsun.misc.ProxyGenerator.saveGeneratedFiles=true` 这个VM参数就是在该方法起到作用，如果为true则保存字节码到磁盘。代理类中，所有的代理方法逻辑都一样都是调用invocationHander的invoke方法，这个我们可以看后面具体代理反编译结果。
-3. 把字节码通过传入的类加载器加载到JVM中: defineClass0(loader, proxyName,proxyClassFile, 0, proxyClassFile.length);。
+3. 把字节码通过传入的类加载器加载到JVM中: `defineClass0(loader, proxyName,proxyClassFile, 0, proxyClassFile.length)`。
 
 我们继续来看看`generateProxyClass`方法是如何实现的，下面是该类的源码
 
@@ -603,12 +603,10 @@ public final class $Proxy0 extends Proxy implements Calculator {
 
 代理类的结构大致如下:
 
-
 - 静态字段：被代理的接口所有方法都有一个对应的静态方法变量；
 - 静态块：主要是通过反射初始化静态方法变量；
 - 具体每个代理方法：逻辑都差不多就是`h.invoke`，主要是调用我们自定义的InvocatinoHandler逻辑，触发目标对象target上对应的方法;
 - 构造函数：从这里传入我们InvocationHandler逻辑
-
 
 参考：<br/>
 [JDK动态代理详解](http://www.importnew.com/23168.html)<br/>
