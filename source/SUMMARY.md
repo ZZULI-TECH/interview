@@ -52,6 +52,7 @@
         * [快速排序](algorithm/sort/QuickSort.md)
         * [阶乘递归](algorithm/sort/Recursion.md)
     * [搜索](algorithm/search/README.md)
+* [LeetCode题解](leetcode/README.md)
 * [数据库](database/README.md)
     * [MySQL](database/mysql/README.md)
         * [索引](database/mysql/index.md)
