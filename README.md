@@ -25,7 +25,8 @@ Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/
 
 ### 工具使用
 
-- 画图工具 https://www.draw.io/
+- 画图工具 [Draw](https://www.draw.io/)
+- 编辑工具 [VS Code](https://code.visualstudio.com/)
 
 ### 开源协议
 
