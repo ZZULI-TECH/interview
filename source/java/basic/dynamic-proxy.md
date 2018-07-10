@@ -611,6 +611,5 @@ public final class $Proxy0 extends Proxy implements Calculator {
 
 
 参考：<br/>
-http://www.importnew.com/23168.html
-
-https://www.cnblogs.com/MOBIN/p/5597215.html
+[JDK动态代理详解](http://www.importnew.com/23168.html)
+[深度剖析JDK动态代理机制](https://www.cnblogs.com/MOBIN/p/5597215.html)
