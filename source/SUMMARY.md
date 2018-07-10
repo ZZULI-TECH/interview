@@ -11,6 +11,7 @@
         * [Annotation](java/basic/annotation.md)
         * [动态代理](java/basic/dynamic-proxy.md)
         * [线程](java/basic/thread.md)
+        * [ThreadLocal](java/basic/threadlocal.md)
         * [锁机制](java/basic/lock.md)
         * [WebSocket](java/basic/websocket.md)
     * [框架](java/framework/README.md)
@@ -52,6 +53,7 @@
         * [快速排序](algorithm/sort/QuickSort.md)
         * [阶乘递归](algorithm/sort/Recursion.md)
     * [搜索](algorithm/search/README.md)
+* [LeetCode题解](leetcode/README.md)
 * [数据库](database/README.md)
     * [MySQL](database/mysql/README.md)
         * [索引](database/mysql/index.md)
@@ -101,6 +103,7 @@
     * [Socket 编程](network/Socket-Programming-Basic.md)
 * [版本控制](scm/README.md)
     * [Git](scm/git.md)
+* [爬虫](spider/README.md)
 * [其他](other/README.md)
     * [正则表达式](other/regx/README.md)
 

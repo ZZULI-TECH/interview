@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ZZULI-TECH/interview.svg?branch=master)](https://travis-ci.org/ZZULI-TECH/interview) 
 
-整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~
+整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~
 
 ### 在线阅读
 
