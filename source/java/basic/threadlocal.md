@@ -366,6 +366,6 @@ tab[staleSlot].value = null;
 最后，我们可以调用remove()方法将相关数据移除，这个肯定就不会有内存泄露啦。
 
 参考：<br/>
-[彻底理解ThreadLocal](https://www.cnblogs.com/xzwblog/p/7227509.html#_label0)
-[对ThreadLocal实现原理的一点思考](https://www.jianshu.com/p/ee8c9dccc953)
-[设计ThreadLocal的那段日子](https://mp.weixin.qq.com/s?__biz=MzA5MzQ2NTY0OA==&mid=2650796401&idx=1&sn=61f2d19bfb0e34c08206c6b31a1c2dd1&chksm=88562c2ebf21a5383ace3f52f336db9b53a714bb37d5f97a9d5746b43b6a3d30be113aca082a&mpshare=1&scene=23&srcid=1212TdJMnkHNCPTwVsPKSuao#rd)
+[彻底理解ThreadLocal](https://www.cnblogs.com/xzwblog/p/7227509.html#_label0)<br/>
+[对ThreadLocal实现原理的一点思考](https://www.jianshu.com/p/ee8c9dccc953)<br/>
+[设计ThreadLocal的那段日子](https://mp.weixin.qq.com/s?__biz=MzA5MzQ2NTY0OA==&mid=2650796401&idx=1&sn=61f2d19bfb0e34c08206c6b31a1c2dd1&chksm=88562c2ebf21a5383ace3f52f336db9b53a714bb37d5f97a9d5746b43b6a3d30be113aca082a&mpshare=1&scene=23&srcid=1212TdJMnkHNCPTwVsPKSuao#rd)<br/>
