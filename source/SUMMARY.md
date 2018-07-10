@@ -11,6 +11,7 @@
         * [Annotation](java/basic/annotation.md)
         * [动态代理](java/basic/dynamic-proxy.md)
         * [线程](java/basic/thread.md)
+        * [ThreadLocal](java/basic/threadlocal.md)
         * [锁机制](java/basic/lock.md)
         * [WebSocket](java/basic/websocket.md)
     * [框架](java/framework/README.md)
