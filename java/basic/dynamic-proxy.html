@@ -238,7 +238,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.9" data-path="lock.html">
+        <li class="chapter " data-level="1.2.1.9" data-path="threadlocal.html">
+            
+                <a href="threadlocal.html">
+            
+                    
+                    ThreadLocal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10" data-path="lock.html">
             
                 <a href="lock.html">
             
@@ -251,7 +264,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.10" data-path="websocket.html">
+        <li class="chapter " data-level="1.2.1.11" data-path="websocket.html">
             
                 <a href="websocket.html">
             
@@ -1557,7 +1570,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="../../other/">
+        <li class="chapter " data-level="1.17" data-path="../../spider/">
+            
+                <a href="../../spider/">
+            
+                    
+                    爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../../other/">
             
                 <a href="../../other/">
             
@@ -1571,7 +1597,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.17.1" data-path="../../other/regx/">
+        <li class="chapter " data-level="1.18.1" data-path="../../other/regx/">
             
                 <a href="../../other/regx/">
             
@@ -1906,7 +1932,7 @@
 <ol>
 <li>&#x5305;&#x540D;&#x9ED8;&#x8BA4;&#x662F;<code>com.sun.proxy</code>&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x662F; non-public proxy interface &#xFF0C;&#x5219;&#x7528;&#x548C;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x63A5;&#x53E3;&#x4E00;&#x6837;&#x7684;&#x5305;&#x540D;&#xFF0C;&#x7C7B;&#x540D;&#x9ED8;&#x8BA4;&#x662F;$Proxy &#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x7684;&#x6574;&#x6570;&#x503C;&#xFF0C;&#x5982;$Proxy0&#xFF0C;$Proxy1&#x3002;</li>
 <li>&#x5305;&#x540D;&#x7C7B;&#x540D;&#x51C6;&#x5907;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x662F;&#x901A;&#x8FC7;<code>ProxyGenerator. generateProxyClass</code>&#x6839;&#x636E;&#x5177;&#x4F53;&#x4F20;&#x5165;&#x7684;&#x63A5;&#x53E3;&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x5B57;&#x8282;&#x7801;&#xFF0C;<code>-Dsun.misc.ProxyGenerator.saveGeneratedFiles=true</code> &#x8FD9;&#x4E2A;VM&#x53C2;&#x6570;&#x5C31;&#x662F;&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x8D77;&#x5230;&#x4F5C;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x4E3A;true&#x5219;&#x4FDD;&#x5B58;&#x5B57;&#x8282;&#x7801;&#x5230;&#x78C1;&#x76D8;&#x3002;&#x4EE3;&#x7406;&#x7C7B;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x903B;&#x8F91;&#x90FD;&#x4E00;&#x6837;&#x90FD;&#x662F;&#x8C03;&#x7528;invocationHander&#x7684;invoke&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x540E;&#x9762;&#x5177;&#x4F53;&#x4EE3;&#x7406;&#x53CD;&#x7F16;&#x8BD1;&#x7ED3;&#x679C;&#x3002;</li>
-<li>&#x628A;&#x5B57;&#x8282;&#x7801;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x52A0;&#x8F7D;&#x5230;JVM&#x4E2D;: defineClass0(loader, proxyName,proxyClassFile, 0, proxyClassFile.length);&#x3002;</li>
+<li>&#x628A;&#x5B57;&#x8282;&#x7801;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x52A0;&#x8F7D;&#x5230;JVM&#x4E2D;: <code>defineClass0(loader, proxyName,proxyClassFile, 0, proxyClassFile.length)</code>&#x3002;</li>
 </ol>
 <p>&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x6765;&#x770B;&#x770B;<code>generateProxyClass</code>&#x65B9;&#x6CD5;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x8BE5;&#x7C7B;&#x7684;&#x6E90;&#x7801;</p>
 <pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] generateProxyClass(<span class="hljs-keyword">final</span> String var0, Class&lt;?&gt;[] var1, <span class="hljs-keyword">int</span> var2) {
@@ -2233,7 +2259,7 @@ public final class $Proxy0 extends Proxy implements Calculator {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"动态代理","level":"1.2.1.7","depth":3,"next":{"title":"线程","level":"1.2.1.8","depth":3,"path":"java/basic/thread.md","ref":"java/basic/thread.md","articles":[]},"previous":{"title":"Annotation","level":"1.2.1.6","depth":3,"path":"java/basic/annotation.md","ref":"java/basic/annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/dynamic-proxy.md","mtime":"2018-07-10T14:11:50.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-10T14:26:47.285Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"动态代理","level":"1.2.1.7","depth":3,"next":{"title":"线程","level":"1.2.1.8","depth":3,"path":"java/basic/thread.md","ref":"java/basic/thread.md","articles":[]},"previous":{"title":"Annotation","level":"1.2.1.6","depth":3,"path":"java/basic/annotation.md","ref":"java/basic/annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/dynamic-proxy.md","mtime":"2018-07-10T14:53:11.839Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-10T15:21:30.512Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
