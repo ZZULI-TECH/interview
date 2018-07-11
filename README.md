@@ -28,6 +28,9 @@ Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/
 - 画图工具 [Draw](https://www.draw.io/)
 - 编辑工具 [VS Code](https://code.visualstudio.com/)
 
+### 参与贡献
+贡献说明及格式要求请参阅：[如何贡献？](https://github.com/ZZULI-TECH/interview/blob/master/CONTRIBUTING.md)
+
 ### 开源协议
 
 [知识共享“署名-非商业性使用-相同方式共享 3.0 中国大陆”许可协议](https://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 
