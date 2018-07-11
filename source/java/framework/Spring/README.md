@@ -1,5 +1,5 @@
 # Spring  [参考](https://mp.weixin.qq.com/s/2dCebIpVjE43xUpx-2YCTg)
-java后台开发无论如何都是绕不过Spring的，其核心是IOC和AOP。spring是一个轻量级的应用开发平台。  
+java 后台开发无论如何都是绕不过Spring的，其核心是IOC和AOP。spring是一个轻量级的应用开发平台。  
 **【整体架构】**   
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spring.webp?raw=true)  
 **【核心容器】**  
