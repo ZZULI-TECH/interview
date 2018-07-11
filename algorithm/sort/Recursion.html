@@ -1307,7 +1307,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="../../distributed/lock.html">
+        <li class="chapter " data-level="1.12.3" data-path="../../distributed/transaction.html">
+            
+                <a href="../../distributed/transaction.html">
+            
+                    
+                    分布式事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../../distributed/lock.html">
             
                 <a href="../../distributed/lock.html">
             
@@ -1320,7 +1333,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="../../distributed/cluster.html">
+        <li class="chapter " data-level="1.12.5" data-path="../../distributed/cluster.html">
             
                 <a href="../../distributed/cluster.html">
             
@@ -1333,7 +1346,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="../../distributed/sharding.html">
+        <li class="chapter " data-level="1.12.6" data-path="../../distributed/sharding.html">
             
                 <a href="../../distributed/sharding.html">
             
@@ -1676,8 +1689,21 @@ n! = n<em>(n-1)</em>(n-2)...1;&#x5F97;&#x51FA;&#x8FB9;&#x754C;&#x662F;n==1<br>&#
         return n*fn(n-1);
     }
 }
-</code></pre><p><strong>&#x3010;&#x6C49;&#x8BFA;&#x5854;&#x95EE;&#x9898;&#x3011;</strong><br>&#x4E00;&#x6B21;&#x53EA;&#x80FD;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x76D8;&#x5B50;&#xFF1B;&#x4E0D;&#x80FD;&#x628A;&#x5927;&#x76D8;&#x5B50;&#x653E;&#x5728;&#x5C0F;&#x76D8;&#x5B50;&#x4E0A;&#xFF1B;&#x9664;&#x53BB;&#x76D8;&#x5B50;&#x5728;&#x4E24;&#x4E2A;&#x67F1;&#x5B50;&#x4E4B;&#x95F4;&#x79FB;&#x52A8;&#x7684;&#x77AC;&#x95F4;&#xFF0C;&#x76D8;&#x5B50;&#x5FC5;&#x987B;&#x90FD;&#x5728;&#x67F1;&#x5B50;&#x4E0A;&#x3002;&#xFF08;&#x5728;&#x8FD9;&#x4E09;&#x70B9;&#x8981;&#x6C42;&#x4E0B;&#x628A;&#x76D8;&#x5B50;&#x4ECE;&#x8D77;&#x59CB;&#x67F1;&#x5B50;A&#x5168;&#x90E8;&#x79FB;&#x52A8;&#x5230;&#x76EE;&#x6807;&#x67F1;&#x5B50;C&#x4E0A;&#xFF09;   </p>
+</code></pre><p><strong>&#x3010;&#x6C49;&#x8BFA;&#x5854;&#x95EE;&#x9898;&#x3011;</strong><br>&#x4E00;&#x6B21;&#x53EA;&#x80FD;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x76D8;&#x5B50;&#xFF1B;&#x4E0D;&#x80FD;&#x628A;&#x5927;&#x76D8;&#x5B50;&#x653E;&#x5728;&#x5C0F;&#x76D8;&#x5B50;&#x4E0A;&#xFF1B;&#x9664;&#x53BB;&#x76D8;&#x5B50;&#x5728;&#x4E24;&#x4E2A;&#x67F1;&#x5B50;&#x4E4B;&#x95F4;&#x79FB;&#x52A8;&#x7684;&#x77AC;&#x95F4;&#xFF0C;&#x76D8;&#x5B50;&#x5FC5;&#x987B;&#x90FD;&#x5728;&#x67F1;&#x5B50;&#x4E0A;&#x3002;&#xFF08;&#x5728;&#x8FD9;&#x4E09;&#x70B9;&#x8981;&#x6C42;&#x4E0B;&#x628A;&#x76D8;&#x5B50;&#x4ECE;&#x8D77;&#x59CB;&#x67F1;&#x5B50;A&#x5168;&#x90E8;&#x79FB;&#x52A8;&#x5230;&#x76EE;&#x6807;&#x67F1;&#x5B50;C&#x4E0A;&#xFF09;<br><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/hannuotower.jpg?raw=true" alt="image"><br>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x76D8;&#x5B50;&#x65F6;&#xFF0C;&#x76F4;&#x63A5;&#x4ECE;A--&gt;C<br>&#x8FB9;&#x754C;:n==1,&#x5B50;&#x95EE;&#x9898;:A--&gt;C<br><strong>&#x3010;&#x4EE3;&#x7801;&#x3011;</strong>  </p>
+<pre><code>public static void hanNuoTower(int n ,char a,char b,char c){
+    if(n==1){
+        move(a,c);
+    }else{
+        hanNuoTower(n-1,a,c,b);
+        move(a,c);
+        hanNuoTower(n-1,b,a,c);
+    }
+}
 
+public static void move(char a , char c){
+    System.out.println(&quot;move  &quot;+a+&quot;  to  &quot;+c);
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -1720,7 +1746,7 @@ n! = n<em>(n-1)</em>(n-2)...1;&#x5F97;&#x51FA;&#x8FB9;&#x754C;&#x662F;n==1<br>&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"阶乘递归","level":"1.4.7.3","depth":3,"next":{"title":"搜索","level":"1.4.8","depth":2,"path":"algorithm/search/README.md","ref":"algorithm/search/README.md","articles":[]},"previous":{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/sort/Recursion.md","mtime":"2018-07-10T14:29:52.061Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-10T15:21:30.512Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"阶乘递归","level":"1.4.7.3","depth":3,"next":{"title":"搜索","level":"1.4.8","depth":2,"path":"algorithm/search/README.md","ref":"algorithm/search/README.md","articles":[]},"previous":{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"algorithm/sort/Recursion.md","mtime":"2018-07-11T13:24:19.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-11T13:31:07.645Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
