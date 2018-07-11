@@ -85,6 +85,7 @@
 * [分布式](distributed/README.md)
     * [Dubbo](distributed/dubbo.md)
     * [Session分布式](distributed/session.md)
+	* [分布式事务](distributed/transaction.md)
     * [分布式锁](distributed/lock.md)
     * [集群与负载均衡](distributed/cluster.md)
     * [分库与分表](distributed/sharding.md)
