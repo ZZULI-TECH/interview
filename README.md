@@ -29,7 +29,7 @@ Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/
 - 编辑工具 [VS Code](https://code.visualstudio.com/)
 
 ### 参与贡献
-贡献说明及格式要求请参阅：[如何贡献？](https://github.com/ZZULI-TECH/interview/blob/master/CONTRIBUTING.md)
+贡献说明及格式要求请参阅：[如何参与贡献？](https://github.com/ZZULI-TECH/interview/blob/master/CONTRIBUTING.md)
 
 ### 开源协议
 
