@@ -38,6 +38,13 @@ boolean(布尔型) | 1 | true/false | false
 ### String， Stringbuffer， StringBuilder 的区别
 
 String 字符串常量(final修饰，不可被继承)，String是常量，当创建之后即不能更改。(可以通过StringBuffer和StringBuilder创建String对象(常用的两个字符串操作类)。) 
+```
+String s1 = "a";//数据存储在栈，字符串常量池  
+String s2 = new String("a");//数据存储在堆  
+String s3 = "a";  
+s1 == s2;//false  
+s1 == s3;//true
+```
 
 StringBuffer   字符串变量（线程安全）,其也是final类别的，不允许被继承，其中的绝大多数方法都进行了同步处理，包括常用的Append方法也做了同步处理(synchronized修饰)。其自jdk1.0起就已经出现。其toString方法会进行对象缓存，以减少元素复制开销。
 
