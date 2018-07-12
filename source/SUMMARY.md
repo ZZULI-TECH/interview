@@ -55,6 +55,7 @@
         * [冒泡排序](algorithm/sort/BubbleSort.md)
         * [快速排序](algorithm/sort/QuickSort.md)
         * [阶乘递归](algorithm/sort/Recursion.md)
+        * [希尔排序]((algorithm/sort/ShellSort.md))
     * [搜索](algorithm/search/README.md)
 * [LeetCode题解](leetcode/README.md)
 * [数据库](database/README.md)
