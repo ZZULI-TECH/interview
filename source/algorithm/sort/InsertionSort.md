@@ -35,6 +35,7 @@ public static void insertionSort(int[] arr) {
 }
 
 ```
+
 **【算法分析】**
 
 从排序步骤来看，直接插入排序的基本操作为比较元素的大小和移动位置。
@@ -42,3 +43,32 @@ public static void insertionSort(int[] arr) {
 
 ## 折半插入排序
 
+折半插入排序是对直接插入排序的改进，在排序过程中，不断将元素插入到前面已经排好序的序列中，由于前半部分为已排好序的数列，可以采用折半查找的方法来加快寻找插入点的速度。
+
+```Java
+public static void binaryInsertionSort(int[] arr) {
+    int len = arr.length;
+    int low, high, mid;
+    for (int i = 1; i < len; i++) {
+        low = 0;
+        high = i - 1;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            // 判断当前元素在mid位置的左边还是右边
+            if (arr[i] > arr[mid]) {
+                // 查找右半部分
+                low = mid + 1;
+            } else {
+                // 查找左半部分
+                high = mid - 1;
+            }
+        }
+
+        int j = i;
+        while (j > low && arr[j] < arr[j-1]) {
+            swap(arr, j, j-1);
+            j--;
+        }
+    }
+}
+```
