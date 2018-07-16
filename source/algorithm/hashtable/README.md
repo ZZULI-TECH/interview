@@ -28,7 +28,7 @@ index = hash % array_size
 
 采用拉链法的哈希表，每个桶里都存放了一个链表。初始时所有链表均为空，当一个键被散列到一个桶时，这个键就成为相应桶中链表的首结点，之后若再有一个键被散列到这个桶（即发生碰撞），第二个键就会成为链表的第二个结点，以此类推。采用拉链法解决冲突的哈希表如下图所示：
 
-(https://github.com/ZZULI-TECH/interview/blob/master/images/hashtable.png?raw=true)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/hashtable.png?raw=true)
 
 ## 具体实现
 
