@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>线程安全与锁优化 · 技术面试知识整理</title>
+        <title>一致性Hash · 技术面试知识整理</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../algorithm/" />
+    <link rel="next" href="../os/" />
     
     
-    <link rel="prev" href="jmm.html" />
+    <link rel="prev" href="sharding.html" />
     
 
     </head>
@@ -513,9 +513,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../jvm/">
             
-                <a href="./">
+                <a href="../jvm/">
             
                     
                     JVM
@@ -527,9 +527,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="memory.html">
+        <li class="chapter " data-level="1.3.1" data-path="../jvm/memory.html">
             
-                <a href="memory.html">
+                <a href="../jvm/memory.html">
             
                     
                     内存区域与内存溢出
@@ -540,9 +540,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="gc.html">
+        <li class="chapter " data-level="1.3.2" data-path="../jvm/gc.html">
             
-                <a href="gc.html">
+                <a href="../jvm/gc.html">
             
                     
                     垃圾回收
@@ -553,9 +553,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="class-structure.html">
+        <li class="chapter " data-level="1.3.3" data-path="../jvm/class-structure.html">
             
-                <a href="class-structure.html">
+                <a href="../jvm/class-structure.html">
             
                     
                     类文件结构
@@ -566,9 +566,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="classloader.html">
+        <li class="chapter " data-level="1.3.4" data-path="../jvm/classloader.html">
             
-                <a href="classloader.html">
+                <a href="../jvm/classloader.html">
             
                     
                     类加载机制
@@ -579,9 +579,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="bytecode.html">
+        <li class="chapter " data-level="1.3.5" data-path="../jvm/bytecode.html">
             
-                <a href="bytecode.html">
+                <a href="../jvm/bytecode.html">
             
                     
                     字节码执行引擎
@@ -592,9 +592,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="jmm.html">
+        <li class="chapter " data-level="1.3.6" data-path="../jvm/jmm.html">
             
-                <a href="jmm.html">
+                <a href="../jvm/jmm.html">
             
                     
                     Java内存模型
@@ -605,9 +605,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="thread-safe.html">
+        <li class="chapter " data-level="1.3.7" data-path="../jvm/thread-safe.html">
             
-                <a href="thread-safe.html">
+                <a href="../jvm/thread-safe.html">
             
                     
                     线程安全与锁优化
@@ -1338,9 +1338,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="../distributed/">
+        <li class="chapter " data-level="1.12" data-path="./">
             
-                <a href="../distributed/">
+                <a href="./">
             
                     
                     分布式
@@ -1352,9 +1352,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="../distributed/dubbo.html">
+        <li class="chapter " data-level="1.12.1" data-path="dubbo.html">
             
-                <a href="../distributed/dubbo.html">
+                <a href="dubbo.html">
             
                     
                     Dubbo
@@ -1365,9 +1365,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.2" data-path="../distributed/session.html">
+        <li class="chapter " data-level="1.12.2" data-path="session.html">
             
-                <a href="../distributed/session.html">
+                <a href="session.html">
             
                     
                     Session分布式
@@ -1378,9 +1378,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="../distributed/transaction.html">
+        <li class="chapter " data-level="1.12.3" data-path="transaction.html">
             
-                <a href="../distributed/transaction.html">
+                <a href="transaction.html">
             
                     
                     分布式事务
@@ -1391,9 +1391,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="../distributed/lock.html">
+        <li class="chapter " data-level="1.12.4" data-path="lock.html">
             
-                <a href="../distributed/lock.html">
+                <a href="lock.html">
             
                     
                     分布式锁
@@ -1404,9 +1404,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="../distributed/cluster.html">
+        <li class="chapter " data-level="1.12.5" data-path="cluster.html">
             
-                <a href="../distributed/cluster.html">
+                <a href="cluster.html">
             
                     
                     集群与负载均衡
@@ -1417,9 +1417,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.6" data-path="../distributed/sharding.html">
+        <li class="chapter " data-level="1.12.6" data-path="sharding.html">
             
-                <a href="../distributed/sharding.html">
+                <a href="sharding.html">
             
                     
                     分库与分表
@@ -1430,9 +1430,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.7" data-path="../distributed/hash.html">
+        <li class="chapter active" data-level="1.12.7" data-path="hash.html">
             
-                <a href="../distributed/hash.html">
+                <a href="hash.html">
             
                     
                     一致性Hash
@@ -1742,7 +1742,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >线程安全与锁优化</a>
+        <a href=".." >一致性Hash</a>
     </h1>
 </div>
 
@@ -1757,7 +1757,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x4E0E;&#x9501;&#x4F18;&#x5316;"><a name="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x4E0E;&#x9501;&#x4F18;&#x5316;" class="plugin-anchor" href="#&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x4E0E;&#x9501;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x4E0E;&#x9501;&#x4F18;&#x5316;</h1>
+                                <h1 id="&#x4E00;&#x81F4;&#x6027;hash&#x7B97;&#x6CD5;"><a name="&#x4E00;&#x81F4;&#x6027;hash&#x7B97;&#x6CD5;" class="plugin-anchor" href="#&#x4E00;&#x81F4;&#x6027;hash&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x81F4;&#x6027;Hash&#x7B97;&#x6CD5;</h1>
 
                                 
                                 </section>
@@ -1785,12 +1785,12 @@
 
             
                 
-                <a href="jmm.html" class="navigation navigation-prev " aria-label="Previous page: Java内存模型">
+                <a href="sharding.html" class="navigation navigation-prev " aria-label="Previous page: 分库与分表">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../algorithm/" class="navigation navigation-next " aria-label="Next page: 算法和数据结构">
+                <a href="../os/" class="navigation navigation-next " aria-label="Next page: 操作系统">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1801,7 +1801,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"线程安全与锁优化","level":"1.3.7","depth":2,"next":{"title":"算法和数据结构","level":"1.4","depth":1,"path":"algorithm/README.md","ref":"algorithm/README.md","articles":[{"title":"链表","level":"1.4.1","depth":2,"path":"algorithm/linkedlist/README.md","ref":"algorithm/linkedlist/README.md","articles":[{"title":"单链表","level":"1.4.1.1","depth":3,"path":"algorithm/linkedlist/SingleLinkedlist.md","ref":"algorithm/linkedlist/SingleLinkedlist.md","articles":[]},{"title":"双向链表","level":"1.4.1.2","depth":3,"path":"algorithm/linkedlist/DoubleLinkedlist.md","ref":"algorithm/linkedlist/DoubleLinkedlist.md","articles":[]}]},{"title":"树","level":"1.4.2","depth":2,"path":"algorithm/tree/README.md","ref":"algorithm/tree/README.md","articles":[{"title":"二叉搜索树","level":"1.4.2.1","depth":3,"path":"algorithm/tree/BinarySearchTree.md","ref":"algorithm/tree/BinarySearchTree.md","articles":[]},{"title":"红黑树","level":"1.4.2.2","depth":3,"path":"algorithm/tree/ReadBlackTree.md","ref":"algorithm/tree/ReadBlackTree.md","articles":[]}]},{"title":"栈","level":"1.4.3","depth":2,"path":"algorithm/stack/README.md","ref":"algorithm/stack/README.md","articles":[]},{"title":"队列","level":"1.4.4","depth":2,"path":"algorithm/queue/README.md","ref":"algorithm/queue/README.md","articles":[{"title":"链式队列","level":"1.4.4.1","depth":3,"path":"algorithm/queue/LinkQueue.md","ref":"algorithm/queue/LinkQueue.md","articles":[]},{"title":"顺序队列","level":"1.4.4.2","depth":3,"path":"algorithm/queue/ArrayQueue.md","ref":"algorithm/queue/ArrayQueue.md","articles":[]}]},{"title":"堆","level":"1.4.5","depth":2,"path":"algorithm/heap/README.md","ref":"algorithm/heap/README.md","articles":[]},{"title":"哈希表","level":"1.4.6","depth":2,"path":"algorithm/hashtable/README.md","ref":"algorithm/hashtable/README.md","articles":[]},{"title":"排序","level":"1.4.7","depth":2,"path":"algorithm/sort/README.md","ref":"algorithm/sort/README.md","articles":[{"title":"冒泡排序","level":"1.4.7.1","depth":3,"path":"algorithm/sort/BubbleSort.md","ref":"algorithm/sort/BubbleSort.md","articles":[]},{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},{"title":"插入排序","level":"1.4.7.3","depth":3,"path":"algorithm/sort/InsertionSort.md","ref":"algorithm/sort/InsertionSort.md","articles":[]},{"title":"希尔排序","level":"1.4.7.4","depth":3,"path":"algorithm/sort/ShellSort.md","ref":"algorithm/sort/ShellSort.md","articles":[]}]},{"title":"搜索","level":"1.4.8","depth":2,"path":"algorithm/search/README.md","ref":"algorithm/search/README.md","articles":[]},{"title":"阶乘递归","level":"1.4.9","depth":2,"path":"algorithm/Recursion.md","ref":"algorithm/Recursion.md","articles":[]}]},"previous":{"title":"Java内存模型","level":"1.3.6","depth":2,"path":"jvm/jmm.md","ref":"jvm/jmm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"jvm/thread-safe.md","mtime":"2018-07-12T16:06:29.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T14:56:51.172Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"一致性Hash","level":"1.12.7","depth":2,"next":{"title":"操作系统","level":"1.13","depth":1,"path":"os/README.md","ref":"os/README.md","articles":[{"title":"操作系统基础","level":"1.13.1","depth":2,"path":"os/basic.md","ref":"os/basic.md","articles":[]},{"title":"程序中断","level":"1.13.2","depth":2,"path":"os/interruption.md","ref":"os/interruption.md","articles":[]},{"title":"DMA","level":"1.13.3","depth":2,"path":"os/dma.md","ref":"os/dma.md","articles":[]}]},"previous":{"title":"分库与分表","level":"1.12.6","depth":2,"path":"distributed/sharding.md","ref":"distributed/sharding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"distributed/hash.md","mtime":"2018-07-15T11:38:12.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T14:56:51.172Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
