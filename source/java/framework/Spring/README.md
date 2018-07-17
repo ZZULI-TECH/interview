@@ -1,9 +1,11 @@
 # Spring   
 java 后台开发无论如何都是绕不过Spring的，其核心是IOC和AOP。spring是一个轻量级的应用开发平台。       
-[参考](https://mp.weixin.qq.com/s/2dCebIpVjE43xUpx-2YCTg)     
-**【整体架构】**      
+ 
+[TOC]  
+
+## 【整体架构】      
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spring.webp?raw=true "spring架构")      
-**【核心容器】**     
+## 【核心容器】     
 spring-core、spring-beans、spring-context、spring-context-support和spring-expression共同组成spring的核心容器。  
 
 *spring-core* 和 *spring-beans*提供框架的基础部分，包括IOC功能，BeanFactory是一个复杂的工厂模式的实现，将配置和特定的依赖从实际程序逻辑中解耦。  
@@ -15,17 +17,17 @@ spring-context-support提供对常见第三个库的支持，集成到spring上�
 spring-expression模块提供了一个强大的表达式语言用来在运行时查询和操作对象图，这种语言支持对属性值、属性参数、方法调用、数组内容存储、集合和索引、逻辑和算数操作及命名变量，并且通过名称从spring的控制反转容器中取回对象。    
      
           
-**【AOP和服务器工具】**   
+## 【AOP和服务器工具】  
 spring-aop模块提供面向切面编程实现，单独的spring-aspects模块提供了aspectj的集成和适用。  
 
 spring-instrument提供一些类级的工具支持和ClassLoader级的实现，用于服务器。spring-instrument-tomcat针对tomcat的instrument实现。       
       
 
-**【消息组件】**   
+## 【消息组件】   
 spring框架4包含了spring-messaging模块，从spring集成项目中抽象出来，比如Messge、MessageChannel、MessageHandler及其他用来提供基于消息的基础服务。    
      
 
-**【数据访问/集成】**    
+## 【数据访问/集成】    
 
 数据访问和集成层由JDBC、ORM、OXM、JMS和事务模块组成。
 
@@ -40,7 +42,7 @@ spring-oxm模块提供抽象层用于支持Object/XML maping的实现，如JAXB�
 spring-jms模块包含生产和消费消息的功能，从Spring4.1开始提供集成spring-messaging模块。   
     
 
-**【web】**    
+## 【web】    
      
 Web层包含spring-web、spirng-webmvc、spring-websocket和spring-webmvc-portlet模块组成。
 
@@ -51,6 +53,9 @@ spring-webmvc包含spring的model-view-controller和REST web services 实现的W
 spring-webmvc-portlet模块提供了MVC模式的portlet实现，protlet与Servlet的最大区别是请求的处理分为action和render阶段，在一个请求中，action阶段只执行一次，但render阶段可能由于用户的浏览器操作而被执行多次。     
        
 
-**【测试】**     
+## 【测试】     
 
-spring-test模块支持通过组合Junit或TestNG来进行单元测试和集成测试，提供了连续的加载ApplicationContext并且缓存这些上下文。
+spring-test模块支持通过组合Junit或TestNG来进行单元测试和集成测试，提供了连续的加载ApplicationContext并且缓存这些上下文。      
+      
+## 参考：     
+    - [Spring技术内幕：设计理念和整体架构概述](https://mp.weixin.qq.com/s/2dCebIpVjE43xUpx-2YCTg)
