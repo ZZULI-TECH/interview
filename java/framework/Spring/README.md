@@ -58,4 +58,4 @@ spring-webmvc-portlet模块提供了MVC模式的portlet实现，protlet与Servle
 spring-test模块支持通过组合Junit或TestNG来进行单元测试和集成测试，提供了连续的加载ApplicationContext并且缓存这些上下文。      
       
 ## 参考：     
-    - [Spring技术内幕：设计理念和整体架构概述](https://mp.weixin.qq.com/s/2dCebIpVjE43xUpx-2YCTg)
+- [Spring技术内幕：设计理念和整体架构概述](https://mp.weixin.qq.com/s/2dCebIpVjE43xUpx-2YCTg)

@@ -1,4 +1,4 @@
-# spring AOP     
+# Spring AOP     
 *AOP*要实现的是在我们原来写的代码基础上，进行一定的包装，如在方法执行前、方法返回后、方法抛出异常后等地方进行一定的拦截处理或者叫增强处理。       
      
 AOP的实现并不是因为Java提供了什么神奇的[钩子](https://baike.baidu.com/item/%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0),可以把方法的生命周期告诉我们，而是我们要实现一个代理，实际运行的实例其实就是代理类的实例。    
@@ -29,5 +29,5 @@ Spring AOP基于动态代理实现。默认地，如果使用接口，使用JDK�
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/SpringAOP02.png?raw=true)    
 
 参考：   
-    - [Spring AOP 使用介绍，从前世到今生](https://www.javadoop.com/post/spring-aop-intro?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)    
-    - [Spring本质系列(2)-AOP](https://mp.weixin.qq.com/s/Hiug-ed9gUPg8IA3PW-msA)
+- [Spring AOP 使用介绍，从前世到今生](https://www.javadoop.com/post/spring-aop-intro?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)    
+- [Spring本质系列(2)-AOP](https://mp.weixin.qq.com/s/Hiug-ed9gUPg8IA3PW-msA)
