@@ -20,11 +20,13 @@ Spring AOP基于动态代理实现。默认地，如果使用接口，使用JDK�
    - 事务：在方法开始之前开始事务，结束之后提交或回滚事务。   
    - 性能统计：统计每个方法的执行时间。      
    - ……       
+
 这些非功能性需求，是多个业务模块都需要的，是跨越模块的，使用OOP设计如下图：      
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/springAOP01.png?raw=true)      
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/springAOP01.png?raw=true)   
 这样设计会使日志，安全，事务，性能和统计相关的代码与真正的业务代码混在一块，降低可读性和可维护性。      
 应该使用AOP思想，面向切面(Aspect)编程。把日志/安全/事务这样的代码和业务代码完全隔离开来，因为他们的关注点和业务代码的关注点完全不同，他们之间应该是正交的，他们之间的关系应该是这样的：       
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/springAOP02.png?raw=true)     
+
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/springAOP02.png?raw=true) 
 参考：   
     - [Spring AOP 使用介绍，从前世到今生](https://www.javadoop.com/post/spring-aop-intro?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)    
     - [Spring本质系列(2)-AOP](https://mp.weixin.qq.com/s/Hiug-ed9gUPg8IA3PW-msA)
