@@ -86,7 +86,7 @@ public HashMapDemo(int length, float loadFactor) {
 接下来下类的内存实现静态内存类Entry，由于采用了拉链法，所以需要用链表来存储具有相同的index的节点。代码如下：
 
 
-```
+```Java
 static class Entry<K, V> implements Map.Entry<K, V> {
     K k;
     V v;
@@ -240,7 +240,7 @@ private void foundEntryByNext(Entry<K, V> entry, List<Entry<K, V>> entryList) {
 
 从哈希表中根据key来取出元素比较简单，利用哈希算法计算出索引位置index，然后遍历链表即可。
 
-```
+```Java
 /**
  * 快取
  */
