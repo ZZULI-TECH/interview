@@ -13,8 +13,6 @@
 ```
 docs(changelog): update changelog to beta.5
 fix(release): need to depend on latest rxjs and zone.js
-
-The version in our package.json gets copied to the one we publish, and users need the latest of these.
 ```
 
 参考：[Angular 的 commit 规范](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines)
