@@ -6,3 +6,7 @@
 
 
 脾气好和温柔是不一样的。脾气好的背后往往是易心软易妥协，怯懦和漠然。温柔代表坚定而有力量，敬畏而不退缩，尊重他人也保持自我。我喜欢温柔的人，真希望自己有一天也能成为那样的人。
+
+<center>
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/qwer.jpg?raw=true)
+</center>
