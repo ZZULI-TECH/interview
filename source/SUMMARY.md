@@ -34,6 +34,8 @@
 * [JVM](jvm/README.md)
     * [内存区域与内存溢出](jvm/memory/README.md)
     * [垃圾回收](jvm/gc/README.md)
+        * [GC分类](jvm/gc/gc_classify.md)
+        * [GC日志](jvm/gc/gc_log.md)
     * [类文件结构](jvm/class-structure/README.md)
     * [类加载机制](jvm/classloader/README.md)
     * [字节码执行引擎](jvm/bytecode/README.md)
