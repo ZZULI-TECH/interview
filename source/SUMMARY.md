@@ -114,6 +114,7 @@
     * [Socket 编程](network/Socket-Programming-Basic.md)
 * [版本控制](scm/README.md)
     * [Git](scm/git/README.md)
+        * [合并提交](scm/git/merge-commits.md)
 * [爬虫](spider/README.md)
 * [其他](other/README.md)
     * [正则表达式](other/regx/README.md)
