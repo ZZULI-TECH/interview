@@ -46,7 +46,7 @@ http://www\\.zzuli\\.edu\\.cn/s/12/t/1006/\\w+/\\w+/info\\d+\\.htm
 ```
 来过滤通知的详细界面，但这样未免太过宽泛，爬取效率也比较低，此时考虑到列表页中含有通知的详细界面的URL，所以我们必须从列表页中指定的区域获取URL。
 
-在这里，我们使用xpath //table[@id=\"newslist\"]选中所有区域，再使用links()获取所有链接，最后再使用正则表达式http://www\\.zzuli\\.edu\\.cn/s/12/t/1006/\\w+/\\w+/info\\d+\\.htm， 对URL进行过滤，去掉一些其他无用的链接。于是，我们可以这样写：
+在这里，我们使用xpath `//table[@id=\"newslist\"]`选中所有区域，再使用links()获取所有链接，最后再使用正则表达式`http://www\\.zzuli\\.edu\\.cn/s/12/t/1006/\\w+/\\w+/info\\d+\\.htm`， 对URL进行过滤，去掉一些其他无用的链接。于是，我们可以这样写：
 
 ```
 page.addTargetRequests(page.getHtml().xpath("//table[@id=\"newslist\"]").links().regex(URL_POST).all());
