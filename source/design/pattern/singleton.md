@@ -56,29 +56,6 @@ public class SingletonDemo2 {
 }
 ```
 
-还有一种实现懒加载的方式使用静态内部类来实现单例，由于静态内部类外部不能被访问到，这一种写法简单，比较容易理解，推荐使用。
-
-```java
-/**
- * 单例模式  使用静态内部类 实现延迟加载
- * 比较推荐
- * @author mingshan
- *
- */
-public class SingletonDemo3 {
-
-    private SingletonDemo3(){}
-
-    private static class SingletonHolder {
-        private static final SingletonDemo3 instance = new SingletonDemo3();
-    }
-
-    public static SingletonDemo3 getInstance() {
-        return SingletonHolder.instance;
-    }
-}
-```
-
 上面写了一个线程安全的单例模式的懒汉式，但却不是十分理想，假如同时有好多线程去调用getInstance方法，那么同一时间只有一个线程能够获取到类的实例，其他的线程都要排队等待该线程释放锁，效率低下。所以此时引出了“双重检验锁”。现在同时有两个线程进入到getInstance方法中，那么两个线程都会进入到第一个判空语句块中，因为此时还没有创建类的实例，接下来只有一个线程能获取到锁，进入到synchronized (SingletonDemo4.class){}语句块中，创建类的实例后释放锁，当前等待线程就会获取到锁，此时如果没有第二次判空操作，那么第二个线程就会再创建一次类的实例，这样就违背了单例的原则，所以双重检验锁就是这么来的。因为上来不是直接就加锁，而是在进行判空后加锁，也就是只有该类还没有被实例化时才会被加锁，当有实例了就不用加锁了，自然就提高了性能。当代码如下：
 
 
@@ -108,3 +85,26 @@ public class SingletonDemo4 {
 }
 ```
 这里用到了volatile关键字，这里保证了不同线程对这个变量进行操作时的可见性。
+
+还有一种实现懒加载的方式使用静态内部类来实现单例，由于静态内部类外部不能被访问到，这一种写法简单，比较容易理解，推荐使用。
+
+```java
+/**
+ * 单例模式  使用静态内部类 实现延迟加载
+ * 比较推荐
+ * @author mingshan
+ *
+ */
+public class SingletonDemo3 {
+
+    private SingletonDemo3(){}
+
+    private static class SingletonHolder {
+        private static final SingletonDemo3 instance = new SingletonDemo3();
+    }
+
+    public static SingletonDemo3 getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+```
