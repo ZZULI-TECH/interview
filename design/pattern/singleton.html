@@ -134,9 +134,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.1" data-path="../../java/basic/collection.html">
+        <li class="chapter " data-level="1.2.1.1" data-path="../../java/basic/collection/">
             
-                <a href="../../java/basic/collection.html">
+                <a href="../../java/basic/collection/">
             
                     
                     Collection
@@ -147,9 +147,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.2" data-path="../../java/basic/map.html">
+        <li class="chapter " data-level="1.2.1.2" data-path="../../java/basic/map/">
             
-                <a href="../../java/basic/map.html">
+                <a href="../../java/basic/map/">
             
                     
                     Map
@@ -160,9 +160,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.3" data-path="../../java/basic/io.html">
+        <li class="chapter " data-level="1.2.1.3" data-path="../../java/basic/io/">
             
-                <a href="../../java/basic/io.html">
+                <a href="../../java/basic/io/">
             
                     
                     IO
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="../../java/basic/nio.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="../../java/basic/nio/">
             
-                <a href="../../java/basic/nio.html">
+                <a href="../../java/basic/nio/">
             
                     
                     NIO
@@ -186,9 +186,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.5" data-path="../../java/basic/reflect.html">
+        <li class="chapter " data-level="1.2.1.5" data-path="../../java/basic/reflect/">
             
-                <a href="../../java/basic/reflect.html">
+                <a href="../../java/basic/reflect/">
             
                     
                     Reflect
@@ -212,9 +212,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.7" data-path="../../java/basic/jdk-dynamic-proxy.html">
+        <li class="chapter " data-level="1.2.1.7" data-path="../../java/basic/dynamic-proxy/jdk-dynamic-proxy.html">
             
-                <a href="../../java/basic/jdk-dynamic-proxy.html">
+                <a href="../../java/basic/dynamic-proxy/jdk-dynamic-proxy.html">
             
                     
                     JDK动态代理
@@ -225,9 +225,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.8" data-path="../../java/basic/custom-dynamic-proxy.html">
+        <li class="chapter " data-level="1.2.1.8" data-path="../../java/basic/dynamic-proxy/custom-dynamic-proxy.html">
             
-                <a href="../../java/basic/custom-dynamic-proxy.html">
+                <a href="../../java/basic/dynamic-proxy/custom-dynamic-proxy.html">
             
                     
                     自定义动态代理
@@ -1940,26 +1940,6 @@
     }
 }
 </code></pre>
-<p>&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x5355;&#x4F8B;&#xFF0C;&#x7531;&#x4E8E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5916;&#x90E8;&#x4E0D;&#x80FD;&#x88AB;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x8FD9;&#x4E00;&#x79CD;&#x5199;&#x6CD5;&#x7B80;&#x5355;&#xFF0C;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x5355;&#x4F8B;&#x6A21;&#x5F0F;  &#x4F7F;&#x7528;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B; &#x5B9E;&#x73B0;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;
- * &#x6BD4;&#x8F83;&#x63A8;&#x8350;
- * <span class="hljs-doctag">@author</span> mingshan
- *
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonDemo3</span> </span>{
-
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">SingletonDemo3</span><span class="hljs-params">()</span></span>{}
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonHolder</span> </span>{
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SingletonDemo3 instance = <span class="hljs-keyword">new</span> SingletonDemo3();
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SingletonDemo3 <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> SingletonHolder.instance;
-    }
-}
-</code></pre>
 <p>&#x4E0A;&#x9762;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#xFF0C;&#x4F46;&#x5374;&#x4E0D;&#x662F;&#x5341;&#x5206;&#x7406;&#x60F3;&#xFF0C;&#x5047;&#x5982;&#x540C;&#x65F6;&#x6709;&#x597D;&#x591A;&#x7EBF;&#x7A0B;&#x53BB;&#x8C03;&#x7528;getInstance&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x8981;&#x6392;&#x961F;&#x7B49;&#x5F85;&#x8BE5;&#x7EBF;&#x7A0B;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x6548;&#x7387;&#x4F4E;&#x4E0B;&#x3002;&#x6240;&#x4EE5;&#x6B64;&#x65F6;&#x5F15;&#x51FA;&#x4E86;&#x201C;&#x53CC;&#x91CD;&#x68C0;&#x9A8C;&#x9501;&#x201D;&#x3002;&#x73B0;&#x5728;&#x540C;&#x65F6;&#x6709;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x5165;&#x5230;getInstance&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x4F1A;&#x8FDB;&#x5165;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5224;&#x7A7A;&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x521B;&#x5EFA;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#x9501;&#xFF0C;&#x8FDB;&#x5165;&#x5230;synchronized (SingletonDemo4.class){}&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#xFF0C;&#x521B;&#x5EFA;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x540E;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5F53;&#x524D;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x5C31;&#x4F1A;&#x83B7;&#x53D6;&#x5230;&#x9501;&#xFF0C;&#x6B64;&#x65F6;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7B2C;&#x4E8C;&#x6B21;&#x5224;&#x7A7A;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C31;&#x4F1A;&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x6B21;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x8FDD;&#x80CC;&#x4E86;&#x5355;&#x4F8B;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x6240;&#x4EE5;&#x53CC;&#x91CD;&#x68C0;&#x9A8C;&#x9501;&#x5C31;&#x662F;&#x8FD9;&#x4E48;&#x6765;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x4E0A;&#x6765;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x5C31;&#x52A0;&#x9501;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x8FDB;&#x884C;&#x5224;&#x7A7A;&#x540E;&#x52A0;&#x9501;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x53EA;&#x6709;&#x8BE5;&#x7C7B;&#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x52A0;&#x9501;&#xFF0C;&#x5F53;&#x6709;&#x5B9E;&#x4F8B;&#x4E86;&#x5C31;&#x4E0D;&#x7528;&#x52A0;&#x9501;&#x4E86;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x63D0;&#x9AD8;&#x4E86;&#x6027;&#x80FD;&#x3002;&#x5F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * &#x61D2;&#x6C49;&#x5F0F;&#x7684;&#x518D;&#x6B21;&#x4F18;&#x5316;
@@ -1986,6 +1966,26 @@
 }
 </code></pre>
 <p>&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x4E86;volatile&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8FD9;&#x91CC;&#x4FDD;&#x8BC1;&#x4E86;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x5BF9;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#x7684;&#x53EF;&#x89C1;&#x6027;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x5355;&#x4F8B;&#xFF0C;&#x7531;&#x4E8E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5916;&#x90E8;&#x4E0D;&#x80FD;&#x88AB;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x8FD9;&#x4E00;&#x79CD;&#x5199;&#x6CD5;&#x7B80;&#x5355;&#xFF0C;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x5355;&#x4F8B;&#x6A21;&#x5F0F;  &#x4F7F;&#x7528;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B; &#x5B9E;&#x73B0;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;
+ * &#x6BD4;&#x8F83;&#x63A8;&#x8350;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonDemo3</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">SingletonDemo3</span><span class="hljs-params">()</span></span>{}
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonHolder</span> </span>{
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SingletonDemo3 instance = <span class="hljs-keyword">new</span> SingletonDemo3();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SingletonDemo3 <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> SingletonHolder.instance;
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -2029,7 +2029,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.7.2.1","depth":3,"next":{"title":"观察者模式","level":"1.7.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},"previous":{"title":"设计模式","level":"1.7.2","depth":2,"path":"design/pattern/README.md","ref":"design/pattern/README.md","articles":[{"title":"单例模式","level":"1.7.2.1","depth":3,"path":"design/pattern/singleton.md","ref":"design/pattern/singleton.md","articles":[]},{"title":"观察者模式","level":"1.7.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},{"title":"Builder模式","level":"1.7.2.3","depth":3,"path":"design/pattern/builder.md","ref":"design/pattern/builder.md","articles":[]},{"title":"适配器模式","level":"1.7.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},{"title":"装饰模式","level":"1.7.2.5","depth":3,"path":"design/pattern/decorator.md","ref":"design/pattern/decorator.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/singleton.md","mtime":"2018-08-10T16:09:04.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-10T16:12:44.070Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.7.2.1","depth":3,"next":{"title":"观察者模式","level":"1.7.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},"previous":{"title":"设计模式","level":"1.7.2","depth":2,"path":"design/pattern/README.md","ref":"design/pattern/README.md","articles":[{"title":"单例模式","level":"1.7.2.1","depth":3,"path":"design/pattern/singleton.md","ref":"design/pattern/singleton.md","articles":[]},{"title":"观察者模式","level":"1.7.2.2","depth":3,"path":"design/pattern/observer.md","ref":"design/pattern/observer.md","articles":[]},{"title":"Builder模式","level":"1.7.2.3","depth":3,"path":"design/pattern/builder.md","ref":"design/pattern/builder.md","articles":[]},{"title":"适配器模式","level":"1.7.2.4","depth":3,"path":"design/pattern/adapter.md","ref":"design/pattern/adapter.md","articles":[]},{"title":"装饰模式","level":"1.7.2.5","depth":3,"path":"design/pattern/decorator.md","ref":"design/pattern/decorator.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"design/pattern/singleton.md","mtime":"2018-08-20T12:04:25.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-20T12:04:50.950Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
