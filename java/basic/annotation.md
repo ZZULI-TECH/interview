@@ -70,16 +70,15 @@ public class Book {
 
 ```Java
 @SuppressWarnings(value="unchecked")
-public class SuppressWarningTest{
-   public static void main(String[] args)
-   {
+public class SuppressWarningTest {
+   public static void main(String[] args) {
        List<String> myList = new ArrayList();
    }
 }
 @SuppressWarnings("deprecation")   //取消过时警告
-    public HibernateTemplate getHt() {
-        return ht;
-    }
+public HibernateTemplate getHt() {
+    return ht;
+}
 ```
 - @SafeVarargs (java7新增）：java7的“堆污染”警告与@SafeVarargs
 [堆污染](https://blog.csdn.net/palmtale/article/details/9302711)：把一个不带泛型的对象赋给一个带泛型的变量是，就会发生堆污染。
@@ -100,11 +99,11 @@ List<String> ls = l2;
 
 ```Java
 @Functionlnterface
-public interface FunInterface{
-  static void foo(){
+public interface FunInterface {
+  static void foo() {
    System.out.println("foo类方法");
   }
-  default void bar(){
+  default void bar() {
    System.out.println("bar默认方法");
   }
   void test();//只定义一个抽象方法，默认public
@@ -162,7 +161,7 @@ public @interface ActionListenerFor{}
 用于指定被修饰的Annotation具有继承性。即子类可以继承父类中的该注解。---》注解@WW被元注解@Inherited修饰，把@WW添加在类Base上，则Base的所有子类也将默认使用@WW注解。
 
 # 4. 自定义注解
-使用@interface关键字，注解放在修饰元素的上面
+使用`@interface`关键字，注解放在修饰元素的上面
 
 ## 4.1 一个简单的注解
 
@@ -186,14 +185,14 @@ public class MyClass{
 //定义带成员变量注解MyTag
 @Rentention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface MyTag{
+public @interface MyTag {
   //定义两个成员变量，以方法的形式定义
   String name();
   int age() default 32;
 }
 
 //使用
-public class Test{
+public class Test {
   @MyTag(name="liang")
   public void info(){}
 }
@@ -363,7 +362,7 @@ java8之后新增了`@Repeatable`元注解，用来开发重复注解，其有�
 @Repeatable(DupMyTag.class)
 @Rentention(RetentionPolicy.RUNTIME)
 @Method(ElementType.METHOD)
-public @interface MyTag{
+public @interface MyTag {
   //定义两个成员变量，以方法的形式定义
   String name();
   int age() default 32;
@@ -375,11 +374,11 @@ public @interface MyTag{
 ```Java
 @MyTag(name="liang")
 @MyTag(name="huan",age =18)
-public void info(){
+public void info() {
 }
 //两种形式都可以
 @DupMyTag ({ @MyTag(name="liang"),@MyTag(name="huan",age=18)})
-public void info(){
+public void info() {
 }
 ```
 
@@ -419,7 +418,7 @@ public @interface NotNull {
 
 ```Java
 //implements实现接口中使用Type Annotation
-public class Test implements @NotNull(value="Serializable") Serializable{
+public class Test implements @NotNull(value="Serializable") Serializable {
     
         //泛型中使用Type Annotation  、   抛出异常中使用Type Annotation
     public  void foo(List<@NotNull String> list) throws @NotNull(value="ClassNotFoundException") ClassNotFoundException {
@@ -465,14 +464,14 @@ public class NotNullAnnotationProcessor {
      * 打印带注解类型
      * @param array
      */
-    public static void print(AnnotatedType[] array){
-        for( AnnotatedType at : array){
+    public static void print(AnnotatedType[] array) {
+        for (AnnotatedType at : array) {
             Type type =at.getType();//获取基础类型
             Annotation[] ans =at.getAnnotations();//获取注解
             //打印类型
             System.out.println(type);
             //打印注解
-            for( Annotation an : ans){
+            for(Annotation an : ans) {
                 System.out.println(an);
             }
             System.out.println("------------");

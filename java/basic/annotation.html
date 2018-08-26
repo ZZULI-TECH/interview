@@ -61,6 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="dynamic-proxy/jdk-dynamic-proxy.html" />
+    
     
     <link rel="prev" href="reflect/reflect-jvm.html" />
     
@@ -242,14 +244,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.7" >
+        <li class="chapter " data-level="1.2.1.7" data-path="dynamic-proxy/jdk-dynamic-proxy.html">
             
-                <span>
+                <a href="dynamic-proxy/jdk-dynamic-proxy.html">
             
                     
-                    [动态代理] (java/basic/dynamic-proxy/jdk-dynamic-proxy.md)
+                    动态代理
             
-                </span>
+                </a>
             
 
             
@@ -1993,16 +1995,15 @@
 </li>
 </ul>
 <pre><code class="lang-Java"><span class="hljs-meta">@SuppressWarnings</span>(value=<span class="hljs-string">&quot;unchecked&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SuppressWarningTest</span></span>{
-   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>
-   </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SuppressWarningTest</span> </span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
        List&lt;String&gt; myList = <span class="hljs-keyword">new</span> ArrayList();
    }
 }
 <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;deprecation&quot;</span>)   <span class="hljs-comment">//&#x53D6;&#x6D88;&#x8FC7;&#x65F6;&#x8B66;&#x544A;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HibernateTemplate <span class="hljs-title">getHt</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> ht;
-    }
+<span class="hljs-function"><span class="hljs-keyword">public</span> HibernateTemplate <span class="hljs-title">getHt</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> ht;
+}
 </code></pre>
 <ul>
 <li>@SafeVarargs (java7&#x65B0;&#x589E;&#xFF09;&#xFF1A;java7&#x7684;&#x201C;&#x5806;&#x6C61;&#x67D3;&#x201D;&#x8B66;&#x544A;&#x4E0E;@SafeVarargs
@@ -2025,11 +2026,11 @@ List&lt;String&gt; ls = l2;
 <strong>&#x4F7F;&#x7528;&#x8BE5;&#x6CE8;&#x89E3;&#x4FEE;&#x9970;&#x7684;&#x63A5;&#x53E3;&#x5FC5;&#x987B;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;&#x4E0D;&#x7136;&#x7F16;&#x8BD1;&#x4F1A;&#x51FA;&#x9519;&#x3002;&#x90A3;&#x4E48;&#x4EC0;&#x4E48;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF1F;</strong>&#x7B54;&#xFF1A;&#x5982;&#x679C;&#x63A5;&#x53E3;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF08;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x6216;static&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x3002;&#x5982;&#xFF1A;</li>
 </ul>
 <pre><code class="lang-Java"><span class="hljs-meta">@Functionlnterface</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">FunInterface</span></span>{
-  <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">FunInterface</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> </span>{
    System.out.println(<span class="hljs-string">&quot;foo&#x7C7B;&#x65B9;&#x6CD5;&quot;</span>);
   }
-  <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span></span>{
+  <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span> </span>{
    System.out.println(<span class="hljs-string">&quot;bar&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&quot;</span>);
   }
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>;<span class="hljs-comment">//&#x53EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x9ED8;&#x8BA4;public</span>
@@ -2079,7 +2080,7 @@ java&#x63D0;&#x4F9B;&#x4E86;6&#x4E2A;&#x5143;&#x6CE8;&#x89E3;&#xFF08;Meta Annota
 <h2 id="inherited"><a name="inherited" class="plugin-anchor" href="#inherited"><i class="fa fa-link" aria-hidden="true"></i></a>@Inherited</h2>
 <p>&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x88AB;&#x4FEE;&#x9970;&#x7684;Annotation&#x5177;&#x6709;&#x7EE7;&#x627F;&#x6027;&#x3002;&#x5373;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x8BE5;&#x6CE8;&#x89E3;&#x3002;---&#x300B;&#x6CE8;&#x89E3;@WW&#x88AB;&#x5143;&#x6CE8;&#x89E3;@Inherited&#x4FEE;&#x9970;&#xFF0C;&#x628A;@WW&#x6DFB;&#x52A0;&#x5728;&#x7C7B;Base&#x4E0A;&#xFF0C;&#x5219;Base&#x7684;&#x6240;&#x6709;&#x5B50;&#x7C7B;&#x4E5F;&#x5C06;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;@WW&#x6CE8;&#x89E3;&#x3002;</p>
 <h1 id="4-&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;"><a name="4-&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;" class="plugin-anchor" href="#4-&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</h1>
-<p>&#x4F7F;&#x7528;@interface&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x6CE8;&#x89E3;&#x653E;&#x5728;&#x4FEE;&#x9970;&#x5143;&#x7D20;&#x7684;&#x4E0A;&#x9762;</p>
+<p>&#x4F7F;&#x7528;<code>@interface</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x6CE8;&#x89E3;&#x653E;&#x5728;&#x4FEE;&#x9970;&#x5143;&#x7D20;&#x7684;&#x4E0A;&#x9762;</p>
 <h2 id="41-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6CE8;&#x89E3;"><a name="41-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6CE8;&#x89E3;" class="plugin-anchor" href="#41-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6CE8;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 &#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6CE8;&#x89E3;</h2>
 <pre><code class="lang-Java"><span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6CE8;&#x89E3;Test</span>
 <span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Test{}
@@ -2096,14 +2097,14 @@ java&#x63D0;&#x4F9B;&#x4E86;6&#x4E2A;&#x5143;&#x6CE8;&#x89E3;&#xFF08;Meta Annota
 <pre><code class="lang-Java"><span class="hljs-comment">//&#x5B9A;&#x4E49;&#x5E26;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x6CE8;&#x89E3;MyTag</span>
 <span class="hljs-meta">@Rentention</span>(RetentionPolicy.RUNTIME)
 <span class="hljs-meta">@Target</span>(ElementType.METHOD)
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyTag{
+<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyTag {
   <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x4EE5;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x5B9A;&#x4E49;</span>
   <span class="hljs-function">String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>;
   <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">age</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> 32</span>;
 }
 
 <span class="hljs-comment">//&#x4F7F;&#x7528;</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
   <span class="hljs-meta">@MyTag</span>(name=<span class="hljs-string">&quot;liang&quot;</span>)
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">info</span><span class="hljs-params">()</span></span>{}
 }
@@ -2234,7 +2235,7 @@ tag.age():25
 <span class="hljs-meta">@Repeatable</span>(DupMyTag.class)
 <span class="hljs-meta">@Rentention</span>(RetentionPolicy.RUNTIME)
 <span class="hljs-meta">@Method</span>(ElementType.METHOD)
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyTag{
+<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyTag {
   <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x4EE5;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x5B9A;&#x4E49;</span>
   <span class="hljs-function">String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>;
   <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">age</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> 32</span>;
@@ -2243,11 +2244,11 @@ tag.age():25
 <p>&#x4F7F;&#x7528;,&#x4E66;&#x5199;&#x5F62;&#x5F0F;&#x8FBE;&#x5230;&#x4E86;&#x7406;&#x60F3;&#x6548;&#x679C;&#xFF0C;&#x5F53;&#x7136;&#x4E0A;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
 <pre><code class="lang-Java"><span class="hljs-meta">@MyTag</span>(name=<span class="hljs-string">&quot;liang&quot;</span>)
 <span class="hljs-meta">@MyTag</span>(name=<span class="hljs-string">&quot;huan&quot;</span>,age =<span class="hljs-number">18</span>)
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">info</span><span class="hljs-params">()</span></span>{
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">info</span><span class="hljs-params">()</span> </span>{
 }
 <span class="hljs-comment">//&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#x90FD;&#x53EF;&#x4EE5;</span>
 <span class="hljs-meta">@DupMyTag</span> ({ <span class="hljs-meta">@MyTag</span>(name=<span class="hljs-string">&quot;liang&quot;</span>),<span class="hljs-meta">@MyTag</span>(name=<span class="hljs-string">&quot;huan&quot;</span>,age=<span class="hljs-number">18</span>)})
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">info</span><span class="hljs-params">()</span></span>{
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">info</span><span class="hljs-params">()</span> </span>{
 }
 </code></pre>
 <p>&#x539F;&#x7406;&#xFF1A;&#x7CFB;&#x7EDF;&#x4F9D;&#x7136;&#x8FD8;&#x662F;&#x5C06;&#x4E24;&#x4E2A;MyTag&#x6CE8;&#x89E3;&#x4F5C;&#x4E3A;DupMyTag&#x7684;value&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#xFF0C;&#x53EA;&#x662F;&#x4E66;&#x5199;&#x5F62;&#x5F0F;&#x591A;&#x4E86;&#x4E00;&#x79CD;&#x800C;&#x5DF2;</p>
@@ -2271,7 +2272,7 @@ tag.age():25
 </code></pre>
 <p><strong>&#x4F7F;&#x7528;</strong></p>
 <pre><code class="lang-Java"><span class="hljs-comment">//implements&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x4E2D;&#x4F7F;&#x7528;Type Annotation</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> <span class="hljs-keyword">implements</span> @<span class="hljs-title">NotNull</span>(<span class="hljs-title">value</span></span>=<span class="hljs-string">&quot;Serializable&quot;</span>) Serializable{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> <span class="hljs-keyword">implements</span> @<span class="hljs-title">NotNull</span>(<span class="hljs-title">value</span></span>=<span class="hljs-string">&quot;Serializable&quot;</span>) Serializable {
 
         <span class="hljs-comment">//&#x6CDB;&#x578B;&#x4E2D;&#x4F7F;&#x7528;Type Annotation  &#x3001;   &#x629B;&#x51FA;&#x5F02;&#x5E38;&#x4E2D;&#x4F7F;&#x7528;Type Annotation</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(List&lt;@NotNull String&gt; list)</span> <span class="hljs-keyword">throws</span> @<span class="hljs-title">NotNull</span><span class="hljs-params">(value=<span class="hljs-string">&quot;ClassNotFoundException&quot;</span>)</span> ClassNotFoundException </span>{
@@ -2312,14 +2313,14 @@ tag.age():25
      * &#x6253;&#x5370;&#x5E26;&#x6CE8;&#x89E3;&#x7C7B;&#x578B;
      * <span class="hljs-doctag">@param</span> array
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(AnnotatedType[] array)</span></span>{
-        <span class="hljs-keyword">for</span>( AnnotatedType at : array){
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(AnnotatedType[] array)</span> </span>{
+        <span class="hljs-keyword">for</span> (AnnotatedType at : array) {
             Type type =at.getType();<span class="hljs-comment">//&#x83B7;&#x53D6;&#x57FA;&#x7840;&#x7C7B;&#x578B;</span>
             Annotation[] ans =at.getAnnotations();<span class="hljs-comment">//&#x83B7;&#x53D6;&#x6CE8;&#x89E3;</span>
             <span class="hljs-comment">//&#x6253;&#x5370;&#x7C7B;&#x578B;</span>
             System.out.println(type);
             <span class="hljs-comment">//&#x6253;&#x5370;&#x6CE8;&#x89E3;</span>
-            <span class="hljs-keyword">for</span>( Annotation an : ans){
+            <span class="hljs-keyword">for</span>(Annotation an : ans) {
                 System.out.println(an);
             }
             System.out.println(<span class="hljs-string">&quot;------------&quot;</span>);
@@ -2369,10 +2370,14 @@ class java.lang.ClassNotFoundException
 
             
                 
-                <a href="reflect/reflect-jvm.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 反射JVM实现原理">
+                <a href="reflect/reflect-jvm.html" class="navigation navigation-prev " aria-label="Previous page: 反射JVM实现原理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="dynamic-proxy/jdk-dynamic-proxy.html" class="navigation navigation-next " aria-label="Next page: 动态代理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -2381,7 +2386,7 @@ class java.lang.ClassNotFoundException
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Annotation","level":"1.2.1.6","depth":3,"next":{"title":"[动态代理] (java/basic/dynamic-proxy/jdk-dynamic-proxy.md)","level":"1.2.1.7","depth":3,"ref":"","articles":[{"title":"JDK动态代理","level":"1.2.1.7.1","depth":4,"path":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","articles":[]},{"title":"自定义动态代理","level":"1.2.1.7.2","depth":4,"path":"java/basic/dynamic-proxy/custom-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/custom-dynamic-proxy.md","articles":[]}]},"previous":{"title":"反射JVM实现原理","level":"1.2.1.5.2","depth":4,"path":"java/basic/reflect/reflect-jvm.md","ref":"java/basic/reflect/reflect-jvm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/annotation.md","mtime":"2018-08-26T05:44:08.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T05:44:17.886Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Annotation","level":"1.2.1.6","depth":3,"next":{"title":"动态代理","level":"1.2.1.7","depth":3,"path":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","articles":[{"title":"JDK动态代理","level":"1.2.1.7.1","depth":4,"path":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","articles":[]},{"title":"自定义动态代理","level":"1.2.1.7.2","depth":4,"path":"java/basic/dynamic-proxy/custom-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/custom-dynamic-proxy.md","articles":[]}]},"previous":{"title":"反射JVM实现原理","level":"1.2.1.5.2","depth":4,"path":"java/basic/reflect/reflect-jvm.md","ref":"java/basic/reflect/reflect-jvm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/annotation.md","mtime":"2018-08-26T05:54:41.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T06:05:27.949Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
