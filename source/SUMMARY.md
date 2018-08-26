@@ -11,7 +11,7 @@
             * [反射API](java/basic/reflect/reflect-api.md)
             * [反射JVM实现原理](java/basic/reflect/reflect-jvm.md)
         * [Annotation](java/basic/annotation.md)
-        * [动态代理](java/basic/dynamic-proxy/jdk-dynamic-proxy.md)
+        * [动态代理](java/basic/dynamic-proxy/README.md)
             * [JDK动态代理](java/basic/dynamic-proxy/jdk-dynamic-proxy.md)
             * [自定义动态代理](java/basic/dynamic-proxy/custom-dynamic-proxy.md)
         * [线程](java/basic/thread.md)
