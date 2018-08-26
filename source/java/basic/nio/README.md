@@ -58,3 +58,4 @@ Charset，用来在字节和 Unicode 字符之间转换的 charset、解码器�
 
 - [NIO API](https://docs.oracle.com/javase/10/docs/api/java/nio/package-summary.html)
 - 杨晓峰 Java提供了哪些IO方式？NIO如何实现多路复用
+- [Scalable IO in Java](https://github.com/ZZULI-TECH/interview/tree/master/doc/nio.pdf)
