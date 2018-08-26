@@ -1943,6 +1943,87 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="nio"><a name="nio" class="plugin-anchor" href="#nio"><i class="fa fa-link" aria-hidden="true"></i></a>NIO</h1>
+<p>JDK 1.4&#x4E2D;&#x7684;java.nio.*&#x5305;&#x4E2D;&#x5F15;&#x5165;&#x65B0;&#x7684;Java I/O&#x5E93;&#xFF0C;&#x88AB;&#x79F0;&#x4E3A; no-blocking io (NIO)&#x3002;</p>
+<p>Java NIO &#x7531;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6838;&#x5FC3;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;</p>
+<ul>
+<li>Buffers</li>
+<li>Channels</li>
+<li>Selectors</li>
+<li>Charsets </li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E0B;&#x4E0A;&#x9762;&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;</p>
+<p><strong>Buffers</strong></p>
+<p>Buffer&#xFF0C;&#x9AD8;&#x6548;&#x7684;&#x6570;&#x636E;&#x5BB9;&#x5668;&#xFF0C;&#x9664;&#x4E86;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x90FD;&#x6709;&#x76F8;&#x5E94;&#x7684;Buffer&#x5B9E;&#x73B0;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x6240;&#x6709;Buffer&#x5B9E;&#x73B0;&#x53CA;&#x76F8;&#x5173;&#x63CF;&#x8FF0;&#xFF08;MappedByteBuffer&#x8868;&#x793A;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x6587;&#x4EF6;&#xFF09;</p>
+<table>
+<thead>
+<tr>
+<th>Buffers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buffer</td>
+<td>Position, limit, and capacity; clear, flip, rewind, and mark/reset</td>
+</tr>
+<tr>
+<td>ByteBuffer</td>
+<td>Get/put, compact, views; allocate, wrap</td>
+</tr>
+<tr>
+<td>MappedByteBuffer</td>
+<td>A byte buffer mapped to a file</td>
+</tr>
+<tr>
+<td>CharBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>DoubleBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>FloatBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>IntBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>LongBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>ShortBuffer</td>
+<td>Get/put, compact; allocate, wrap</td>
+</tr>
+<tr>
+<td>ByteOrder</td>
+<td>Typesafe enumeration for byte orders</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Channels</strong></p>
+<p>Channel, &#x901A;&#x9053;,&#x7528;&#x4E8E;&#x6E90;&#x8282;&#x70B9;&#x4E0E;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x7684;&#x8FDE;&#x63A5;&#x3002;&#x5728;Java NIO&#x4E2D;&#x8D1F;&#x8D23;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;Channel&#x672C;&#x8EAB;&#x4E0D;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x4E0E;&#x7F13;&#x51B2;&#x533A;&#x914D;&#x5408;&#x4F7F;&#x7528;&#x3002;File&#x6216;&#x8005;Socket&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6BD4;&#x8F83;&#x9AD8;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x800C;Channel&#x5219;&#x662F;&#x66F4;&#x52A0;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x7684;&#x4E00;&#x79CD;&#x62BD;&#x8C61;&#xFF0C;&#x8FD9;&#x4E5F;&#x4F7F;&#x5F97;NIO&#x5F97;&#x4EE5;&#x5145;&#x5206;&#x5229;&#x7528;&#x73B0;&#x4EE3;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x673A;&#x5236;&#xFF0C;&#x83B7;&#x5F97;&#x7279;&#x5B9A;&#x573A;&#x666F;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x5316;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;DMA&#xFF08;Direct Memory Access&#xFF09;&#x7B49;&#x3002;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x7C7B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>FileChannel </li>
+<li>SocketChannel</li>
+<li>ServerSocketChannel</li>
+<li>DatagramChannel</li>
+</ul>
+<p><strong>Selectors</strong></p>
+<p>Selector&#xFF0C;&#x662F;NIO&#x5B9E;&#x73B0;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x9AD8;&#x6548;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x5230;&#x6CE8;&#x518C;&#x5728;Selector&#x4E0A;&#x7684;&#x591A;&#x4E2A;Channel&#xFF0C;&#x662F;&#x5426;&#x6709;Channel&#x5904;&#x4E8E;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#xFF0C;&#x8FDB;&#x800C;&#x5B9E;&#x73B0;&#x5355;&#x7EBF;&#x7A0B;&#x5BF9;&#x591A;Channel&#x7684;&#x9AD8;&#x6548;&#x7BA1;&#x7406;&#x3002;</p>
+<p>Selector&#x540C;&#x6837;&#x662F;&#x57FA;&#x4E8E;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x673A;&#x5236;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3001;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5F0F;&#x90FD;&#x5B58;&#x5728;&#x533A;&#x522B;&#xFF0C;&#x4F8B;&#x5982;&#x5728;&#x6700;&#x65B0;&#x7684;&#x4EE3;&#x7801;&#x5E93;&#x4E2D;&#xFF0C;</p>
+<p>Linux &#x4E0A;&#x4F9D;&#x8D56;&#x4E8E; epoll&#xFF08;<a href="http://hg.openjdk.java.net/jdk/jdk/file/d8327f838b88/src/java.base/linux/classes/sun/nio/ch/EPollSelectorImpl.java&#xFF09;&#x3002;" target="_blank">http://hg.openjdk.java.net/jdk/jdk/file/d8327f838b88/src/java.base/linux/classes/sun/nio/ch/EPollSelectorImpl.java&#xFF09;&#x3002;</a></p>
+<p>Windows &#x4E0A; NIO2&#xFF08;AIO&#xFF09;&#x6A21;&#x5F0F;&#x5219;&#x662F;&#x4F9D;&#x8D56;&#x4E8E; iocp&#xFF08;<a href="http://hg.openjdk.java.net/jdk/jdk/file/d8327f838b88/src/java.base/windows/classes/sun/nio/ch/Iocp.java&#xFF09;" target="_blank">http://hg.openjdk.java.net/jdk/jdk/file/d8327f838b88/src/java.base/windows/classes/sun/nio/ch/Iocp.java&#xFF09;</a></p>
+<p><strong>Charsets</strong></p>
+<p>Charset&#xFF0C;&#x7528;&#x6765;&#x5728;&#x5B57;&#x8282;&#x548C; Unicode &#x5B57;&#x7B26;&#x4E4B;&#x95F4;&#x8F6C;&#x6362;&#x7684; charset&#x3001;&#x89E3;&#x7801;&#x5668;&#x548C;&#x7F16;&#x7801;&#x5668;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/10/docs/api/java/nio/package-summary.html" target="_blank">NIO API</a></li>
+<li>&#x6768;&#x6653;&#x5CF0; Java&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;IO&#x65B9;&#x5F0F;&#xFF1F;NIO&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x591A;&#x8DEF;&#x590D;&#x7528;</li>
+</ul>
 
                                 
                                 </section>
@@ -1986,7 +2067,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"NIO","level":"1.2.1.4","depth":3,"next":{"title":"Reflect","level":"1.2.1.5","depth":3,"path":"java/basic/reflect/README.md","ref":"java/basic/reflect/README.md","articles":[{"title":"反射API","level":"1.2.1.5.1","depth":4,"path":"java/basic/reflect/reflect-api.md","ref":"java/basic/reflect/reflect-api.md","articles":[]},{"title":"反射JVM实现原理","level":"1.2.1.5.2","depth":4,"path":"java/basic/reflect/reflect-jvm.md","ref":"java/basic/reflect/reflect-jvm.md","articles":[]}]},"previous":{"title":"IO","level":"1.2.1.3","depth":3,"path":"java/basic/io/README.md","ref":"java/basic/io/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/nio/README.md","mtime":"2018-08-26T09:16:55.961Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T10:36:24.995Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"NIO","level":"1.2.1.4","depth":3,"next":{"title":"Reflect","level":"1.2.1.5","depth":3,"path":"java/basic/reflect/README.md","ref":"java/basic/reflect/README.md","articles":[{"title":"反射API","level":"1.2.1.5.1","depth":4,"path":"java/basic/reflect/reflect-api.md","ref":"java/basic/reflect/reflect-api.md","articles":[]},{"title":"反射JVM实现原理","level":"1.2.1.5.2","depth":4,"path":"java/basic/reflect/reflect-jvm.md","ref":"java/basic/reflect/reflect-jvm.md","articles":[]}]},"previous":{"title":"IO","level":"1.2.1.3","depth":3,"path":"java/basic/io/README.md","ref":"java/basic/io/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据库、操作系统、分布式等相关技术，大家一起学习"},"file":{"path":"java/basic/nio/README.md","mtime":"2018-08-26T14:14:35.393Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T14:15:50.324Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
