@@ -85,3 +85,131 @@ public final Buffer flip() {
 
 **读操作**
 
+通过filp方法切换为读模式后，我们就可以从缓存区里面读取数据，代码如下：
+
+```Java
+// 从缓冲区读数据
+byte[] dst=new byte[buffer.limit()];
+buffer.get(dst);
+System.out.println("------读取数据-------");
+System.out.println(new String(dst,0,dst.length));
+
+System.out.println(buffer.position());
+System.out.println(buffer.limit());
+System.out.println(buffer.capacity());
+```
+
+此时position，limit，capacity位置如下图所示
+
+![image](https://note.youdao.com/favicon.ico)
+
+从上图可以看出，position的位置变成了5，由于我们将缓存区里面的数据读完了，就是这个情况，所以读操作的时候，每读一个值，position 就自动加 1。在HeapByteBuffer源码中，就是增加一个offset的偏移量。
+
+```Java
+protected int ix(int i) {
+    return i + offset;
+}
+```
+
+
+**重复读数据**
+
+上一步读数据的操作已经将position移动了limit的位置，我们想读数据就读不到了，但能不能重复读取数据呢？肯定可以呀，这时我们就可以用`rewind`方法来重复读写，代码如下：
+
+
+```Java
+//rewind  可重复读数据
+buffer.rewind();
+System.out.println("------重复读取数据-------");
+System.out.println(buffer.position());
+System.out.println(buffer.limit());
+System.out.println(buffer.capacity());
+```
+
+此时position，limit，capacity位置如下图所示
+
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/bytebuffer_rewind.png?raw=true)
+
+有没有发现和flip操作后一致，此时肯定要一样了，这样我们才可以重复读取。
+
+**清空缓冲区**
+
+此时我们不想要缓冲区的数据了，需要清空掉，可以用`clear`方法来操作，代码如下
+
+
+```Java
+// 清空缓冲区  ，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
+buffer.clear();
+System.out.println("------清空缓冲区-------");
+System.out.println(buffer.position());
+System.out.println(buffer.limit());
+System.out.println(buffer.capacity());
+
+```
+
+此时position，limit，capacity位置如下图所示
+
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/bytebuffer_clear.png?raw=true)
+
+注意缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
+
+**mark() & reset()**
+
+除了 position、limit、capacity 这三个基本的属性外，还有一个常用的属性就是 mark。
+
+mark 用于临时保存 position 的值，每次调用 mark() 方法都会将 mark 设值为当前的 position，便于后续需要的时候使用。
+
+```Java
+public final Buffer mark() {
+    mark = position;
+    return this;
+}
+```
+
+那到底什么时候用呢？考虑以下场景，我们在 position 为 5 的时候，先 mark() 一下，然后继续往下读，读到第 10 的时候，我想重新回到 position 为 5 的地方重新来一遍，那只要调一下 reset() 方法，position 就回到 5 了。
+
+```Java
+public final Buffer reset() {
+    int m = mark;
+    if (m < 0)
+        throw new InvalidMarkException();
+    position = m;
+    return this;
+}
+```
+
+**rewind() & clear() & compact()**
+
+rewind()：会重置 position 为 0，通常用于重新从头读写 Buffer。
+
+
+```Java
+public final Buffer rewind() {
+    position = 0;
+    mark = -1;
+    return this;
+}
+```
+clear()：有点重置 Buffer 的意思，相当于重新实例化了一样。
+
+通常，我们会先填充 Buffer，然后从 Buffer 读取数据，之后我们再重新往里填充新的数据，我们一般在重新填充之前先调用 clear()。
+
+```Java
+public final Buffer clear() {
+    position = 0;
+    limit = capacity;
+    mark = -1;
+    return this;
+}
+```
+
+compact()：和 clear() 一样的是，它们都是在准备往 Buffer 填充新的数据之前调用。
+
+前面说的 clear() 方法会重置几个属性，但是我们要看到，clear() 方法并不会将 Buffer 中的数据清空，只不过后续的写入会覆盖掉原来的数据，也就相当于清空了数据了。
+
+而 compact() 方法有点不一样，调用这个方法以后，会先处理还没有读取的数据，也就是 position 到 limit 之间的数据（还没有读过的数据），先将这些数据移到左边，然后在这个基础上再开始写入。很明显，此时 limit 还是等于 capacity，position 指向原来数据的右边。
+
+**参考：**
+
+- [Java NIO：Buffer、Channel 和 Selector](http://www.importnew.com/28007.html)
+- [NIO API](https://docs.oracle.com/javase/10/docs/api/java/nio/package-summary.html)
