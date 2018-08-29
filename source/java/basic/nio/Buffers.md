@@ -111,11 +111,9 @@ protected int ix(int i) {
 }
 ```
 
-
 **重复读数据**
 
 上一步读数据的操作已经将position移动了limit的位置，我们想读数据就读不到了，但能不能重复读取数据呢？肯定可以呀，这时我们就可以用`rewind`方法来重复读写，代码如下：
-
 
 ```Java
 //rewind  可重复读数据
@@ -138,7 +136,7 @@ System.out.println(buffer.capacity());
 
 
 ```Java
-// 清空缓冲区  ，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
+// 清空缓冲区，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
 buffer.clear();
 System.out.println("------清空缓冲区-------");
 System.out.println(buffer.position());
