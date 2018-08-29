@@ -101,7 +101,7 @@ System.out.println(buffer.capacity());
 
 此时position，limit，capacity位置如下图所示
 
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/bytebuffer_read.png?raw=true)
 
 从上图可以看出，position的位置变成了5，由于我们将缓存区里面的数据读完了，就是这个情况，所以读操作的时候，每读一个值，position 就自动加 1。在HeapByteBuffer源码中，就是增加一个offset的偏移量。
 
