@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>自定义动态代理 · 技术面试知识整理</title>
+        <title>Channels · 技术面试知识整理</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cglib-dynamic-proxy.md" />
+    <link rel="next" href="Selectors.md" />
     
     
-    <link rel="prev" href="jdk-dynamic-proxy.html" />
+    <link rel="prev" href="Buffers.html" />
     
 
     </head>
@@ -218,9 +218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="../nio/">
+        <li class="chapter " data-level="1.2.1.4" data-path="./">
             
-                <a href="../nio/">
+                <a href="./">
             
                     
                     NIO
@@ -232,9 +232,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="../nio/Buffers.html">
+        <li class="chapter " data-level="1.2.1.4.1" data-path="Buffers.html">
             
-                <a href="../nio/Buffers.html">
+                <a href="Buffers.html">
             
                     
                     Buffers
@@ -245,9 +245,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4.2" data-path="../nio/Channels.html">
+        <li class="chapter active" data-level="1.2.1.4.2" data-path="Channels.html">
             
-                <a href="../nio/Channels.html">
+                <a href="Channels.html">
             
                     
                     Channels
@@ -258,7 +258,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4.3" data-path="../nio/Selectors.md">
+        <li class="chapter " data-level="1.2.1.4.3" data-path="Selectors.md">
             
                 <span>
             
@@ -271,7 +271,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4.4" data-path="../nio/i_o.md">
+        <li class="chapter " data-level="1.2.1.4.4" data-path="i_o.md">
             
                 <span>
             
@@ -347,9 +347,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.7" data-path="./">
+        <li class="chapter " data-level="1.2.1.7" data-path="../dynamic-proxy/">
             
-                <a href="./">
+                <a href="../dynamic-proxy/">
             
                     
                     动态代理
@@ -361,9 +361,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.7.1" data-path="jdk-dynamic-proxy.html">
+        <li class="chapter " data-level="1.2.1.7.1" data-path="../dynamic-proxy/jdk-dynamic-proxy.html">
             
-                <a href="jdk-dynamic-proxy.html">
+                <a href="../dynamic-proxy/jdk-dynamic-proxy.html">
             
                     
                     JDK动态代理
@@ -374,9 +374,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.1.7.2" data-path="custom-dynamic-proxy.html">
+        <li class="chapter " data-level="1.2.1.7.2" data-path="../dynamic-proxy/custom-dynamic-proxy.html">
             
-                <a href="custom-dynamic-proxy.html">
+                <a href="../dynamic-proxy/custom-dynamic-proxy.html">
             
                     
                     自定义动态代理
@@ -387,7 +387,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.7.3" data-path="cglib-dynamic-proxy.md">
+        <li class="chapter " data-level="1.2.1.7.3" data-path="../dynamic-proxy/cglib-dynamic-proxy.md">
             
                 <span>
             
@@ -2043,7 +2043,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >自定义动态代理</a>
+        <a href="../../.." >Channels</a>
     </h1>
 </div>
 
@@ -2058,213 +2058,233 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;"><a name="&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;" class="plugin-anchor" href="#&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;</h1>
-<p>&#x7ECF;&#x8FC7;&#x5BF9;JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x7684;&#x89E3;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5BF9;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;&#x6709;&#x4E2A;&#x6839;&#x672C;&#x7684;&#x8BA4;&#x8BC6;&#xFF0C;&#x5177;&#x4F53;&#x5206;&#x6790;&#x8FC7;&#x7A0B;&#x53C2;&#x8003;<a href="http://mingshan.me/2018/07/10/JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/#more" target="_blank">JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x539F;&#x7406;</a>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x591A;&#x8C08;&#x4E86;&#x3002;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x601D;&#x8003;&#x5982;&#x4F55;&#x53BB;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x6613;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x4EE5;&#x4FBF;&#x52A0;&#x6DF1;&#x5BF9;&#x5176;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
-<p>&#x6A21;&#x4EFF;&#x7740;JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;<code>Proxy</code>&#x7C7B;&#xFF0C;&#x4E00;&#x4E2A;<code>InvocationHandler</code>&#x63A5;&#x53E3;&#xFF0C;&#x540C;&#x65F6;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x4E0B;&#x9762;&#x4E3A;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x3002;</p>
-<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/my-dynamic-proxy-class.png?raw=true" alt="image"></p>
-<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;&#x4E3A;&#xFF1A;</p>
-<p>&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;<code>InvocationHandler</code>&#x63A5;&#x53E3;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyInvocationHandler</span> </span>{
-    <span class="hljs-comment">/**
-     * proxy: &#x6B63;&#x5728;&#x8FD4;&#x56DE;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x90FD;&#x4E0D;&#x4F7F;&#x7528;&#x8BE5;&#x5BF9;&#x8C61;
-     * method: &#x6B63;&#x5728;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;
-     * args: &#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;
-     */</span>
-    <span class="hljs-function">Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable</span>;
-}
-</code></pre>
-<p>&#x63A5;&#x53E3;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;invoke&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4E2D;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+                                <h2 id="channel&#x4ECB;&#x7ECD;"><a name="channel&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#channel&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>Channel&#x4ECB;&#x7ECD;</h2>
+<p>Channel? &#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;Buffer&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x5F80;Buffer&#x4E2D;&#x653E;&#x6570;&#x636E;&#xFF0C;&#x518D;&#x4ECE;Buffer&#x4E2D;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E48;&#x5728;NIO&#x4F53;&#x7CFB;&#x4E2D;&#xFF0C;&#x4E0E;Buffer&#x4EA4;&#x4E92;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF0C;&#x6CA1;&#x9519;&#xFF0C;&#x5C31;&#x662F;Channel&#x3002;&#x6240;&#x6709;&#x7684;NIO&#x7684;I/O&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x4ECE;Channel &#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x8BFB;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#x5C06;Channel&#x4E2D;&#x7684;&#x6570;&#x636E;&#x586B;&#x5145;&#x5230;Buffer &#x4E2D;&#xFF0C;&#x800C;&#x5199;&#x64CD;&#x4F5C;&#x65F6;&#x5C06;Buffer&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;Channel&#x4E2D;&#x3002;</p>
+<p>&#x4E0B;&#x9762;Channel&#x7684;&#x5B98;&#x65B9;&#x89E3;&#x91CA;&#xFF1A;</p>
+<blockquote>
+<p>A channel represents an open connection to an entity such as a hardware device, a file, a network socket, or a program component that is capable of performing one or more distinct I/O operations, for example reading or writing. As specified in the Channel interface, channels are either open or closed, and they are both asynchronously closeable and interruptible.</p>
+</blockquote>
+<p>&#x5728;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#xFF0C;Channels&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x5B9E;&#x73B0;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5B98;&#x65B9;&#x6587;&#x6863;Channels&#x53EF;&#x4EE5;&#x5728;&#x4EE5;&#x4E0B;&#x573A;&#x666F;&#x4F7F;&#x7528;&#xFF1A;</p>
 <ul>
-<li>proxy: &#x6B63;&#x5728;&#x8FD4;&#x56DE;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x90FD;&#x4E0D;&#x4F7F;&#x7528;&#x8BE5;&#x5BF9;&#x8C61;</li>
-<li>method: &#x6B63;&#x5728;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;</li>
-<li>args: &#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;</li>
+<li>File channels</li>
+<li>Multiplexed, non-blocking I/O</li>
+<li>Asynchronous I/O</li>
 </ul>
-<p>&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#x7C7B;<code>Proxy</code>&#xFF0C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x6838;&#x5FC3;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x5305;&#x62EC;&#x5982;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<p>FileChannel&#x7C7B;&#x652F;&#x6301;&#x4ECE;&#x8FDE;&#x63A5;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x901A;&#x9053;&#x4E2D;&#x8BFB;&#x53D6;&#x5B57;&#x8282;&#x548C;&#x5C06;&#x5B57;&#x8282;&#x5199;&#x5165;&#x5230;&#x901A;&#x9053;&#x3002;</p>
+<p>&#x591A;&#x8DEF;&#x590D;&#x7528;&#x3001;&#x975E;&#x963B;&#x585E;I/O&#x7531;<code>selector</code>&#x3001;<code>selectable channels</code>&#x548C;<code>SelectionKey</code>&#x63D0;&#x4F9B;&#xFF0C;&#x5B83;&#x6BD4;&#x963B;&#x585E;I/O&#x66F4;&#x5177;&#x53EF;&#x4F38;&#x7F29;&#x6027;&#x3002;</p>
+<p>&#x5F02;&#x6B65;&#x901A;&#x9053;&#x662F;&#x4E00;&#x79CD;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x5F02;&#x6B65;I/O&#x64CD;&#x4F5C;&#x7684;&#x7279;&#x6B8A;&#x901A;&#x9053;&#x3002;&#x5F02;&#x6B65;&#x901A;&#x9053;&#x662F;&#x975E;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x6765;&#x542F;&#x52A8;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;Future&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x4F7F;&#x7528;&#x8F83;&#x591A;Channel&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x6709;&#xFF1A;</p>
 <ul>
-<li>&#x52A8;&#x6001;&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x7C7B;&#x4F3C;<code>$Proxy0.java</code></li>
-<li>&#x8C03;&#x7528;Java&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7406;&#x7C7B;</li>
-<li>&#x5C06;&#x751F;&#x6210;&#x7684;class&#x6587;&#x4EF6;&#x5229;&#x7528;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;</li>
-<li>&#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;<code>InvocationHandler</code>&#x7684;invoke&#x65B9;&#x6CD5;</li>
+<li>FileChannel&#xFF1A;&#x6587;&#x4EF6;&#x901A;&#x9053;&#xFF0C;&#x7528;&#x4E8E;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x548C;&#x5199;</li>
+<li>DatagramChannel&#xFF1A;&#x7528;&#x4E8E; UDP &#x8FDE;&#x63A5;&#x7684;&#x63A5;&#x6536;&#x548C;&#x53D1;&#x9001;</li>
+<li>SocketChannel&#xFF1A;&#x628A;&#x5B83;&#x7406;&#x89E3;&#x4E3A; TCP &#x8FDE;&#x63A5;&#x901A;&#x9053;&#xFF0C;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x5C31;&#x662F; TCP &#x5BA2;&#x6237;&#x7AEF;</li>
+<li>ServerSocketChannel&#xFF1A;TCP &#x5BF9;&#x5E94;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x7528;&#x4E8E;&#x76D1;&#x542C;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#x8FDB;&#x6765;&#x7684;&#x8BF7;&#x6C42;</li>
 </ul>
-<p>&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-Java"><span class="hljs-comment">/**
- *
- * &#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684; Proxy&#x4EE3;&#x7406;
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProxy</span> </span>{
-    <span class="hljs-keyword">protected</span> MyInvocationHandler h;
+<h2 id="filechannel"><a name="filechannel" class="plugin-anchor" href="#filechannel"><i class="fa fa-link" aria-hidden="true"></i></a>FileChannel</h2>
+<p>Java&#x9488;&#x5BF9;&#x652F;&#x6301;&#x901A;&#x9053;&#x7684;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;<code>getChannel()</code>&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;<code>FileChannel</code>&#xFF0C;<code>FileChannel</code>&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5199;&#x3001;&#x8BFB;&#x3001;&#x6620;&#x5C04;&#x548C;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x7684;&#x901A;&#x9053;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5229;&#x7528;<code>FileChannel</code>&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-Java">FileInputStream fis = <span class="hljs-keyword">null</span>;
+FileOutputStream fos = <span class="hljs-keyword">null</span>;
+FileChannel inChannel = <span class="hljs-keyword">null</span>;
+FileChannel outChannel = <span class="hljs-keyword">null</span>;
 
-    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x56DE;&#x8F66;&#x952E;</span>
-    <span class="hljs-keyword">static</span> String rt = <span class="hljs-string">&quot;\r\t&quot;</span>;
-
-    <span class="hljs-comment">// &#x7528;&#x6237;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;,&#x5305;&#x542B;&#x9879;&#x76EE;&#x540D;</span>
-    <span class="hljs-keyword">static</span> String workspace = System.getProperty(<span class="hljs-string">&quot;user.dir&quot;</span>);
-
-    <span class="hljs-comment">// &#x5F53;&#x524D;&#x7C7B;&#x5305;&#x540D;</span>
-    <span class="hljs-keyword">static</span> String packageName = MyProxy.class.getPackage().getName();
-
-    <span class="hljs-comment">/**
-     * &#x79C1;&#x6709;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x8BE5;&#x7C7B;&#x7981;&#x6B62;&#x88AB;&#x5B9E;&#x4F8B;&#x5316;
-     */</span>
-    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unused&quot;</span>)
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">MyProxy</span><span class="hljs-params">()</span> </span>{}
-
-    <span class="hljs-comment">/**
-     * &#x7531;&#x4E8E; MyProxy &#x5185;&#x90E8;&#x4ECE;&#x4E0D;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5; protected &#x610F;&#x5473;&#x7740;&#x53EA;&#x6709;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x8C03;&#x7528;
-     * <span class="hljs-doctag">@param</span> h
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">MyProxy</span><span class="hljs-params">(MyInvocationHandler h)</span> </span>{
-        <span class="hljs-keyword">this</span>.h = h;
+<span class="hljs-keyword">try</span> {
+    fis = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">&quot;1.png&quot;</span>);
+    fos = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">&quot;2.png&quot;</span>);
+    <span class="hljs-comment">// &#x83B7;&#x53D6;&#x901A;&#x9053;</span>
+    inChannel = fis.getChannel();
+    outChannel = fos.getChannel();
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x7F13;&#x51B2;&#x533A;</span>
+    ByteBuffer buffer = ByteBuffer.allocate(<span class="hljs-number">1024</span>);
+    <span class="hljs-keyword">while</span> (inChannel.read(buffer) != -<span class="hljs-number">1</span>) {
+        <span class="hljs-comment">// &#x5207;&#x6362;&#x5230;&#x8BFB;&#x6570;&#x636E;&#x6A21;&#x5F0F;</span>
+        buffer.flip();
+        <span class="hljs-comment">// &#x5C06;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x901A;&#x9053;</span>
+        outChannel.write(buffer);
+        <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x7F13;&#x51B2;&#x533A;</span>
+        buffer.clear();
+    }
+} <span class="hljs-keyword">catch</span> (Exception e) {
+    e.printStackTrace();
+} <span class="hljs-keyword">finally</span> {
+    <span class="hljs-keyword">if</span> (inChannel != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">try</span> {
+            inChannel.close();
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    <span class="hljs-comment">/**
-     * &#x5728;&#x5185;&#x5B58;&#x4E2D;&#x521B;&#x5EFA;$proxy0 &#x7684;&#x5B9E;&#x4F8B;
-     * <span class="hljs-doctag">@param</span> loader
-     * <span class="hljs-doctag">@param</span> interfaces
-     * <span class="hljs-doctag">@param</span> h
-     * <span class="hljs-doctag">@return</span>
-     * <span class="hljs-doctag">@throws</span> IllegalArgumentException
-     * <span class="hljs-doctag">@throws</span> IOException
-     */</span>
-    <span class="hljs-meta">@SuppressWarnings</span>({ <span class="hljs-string">&quot;rawtypes&quot;</span>, <span class="hljs-string">&quot;resource&quot;</span>, <span class="hljs-string">&quot;unchecked&quot;</span> })
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">createProxyInstance</span><span class="hljs-params">(ClassLoader loader,
-            Class interfaces,
-            MyInvocationHandler h)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException, IOException </span>{
-
-        Objects.requireNonNull(h);
-
-        <span class="hljs-comment">//&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x52A8;&#x6001;&#x7C7B;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
-        System.out.println(<span class="hljs-string">&quot;=====&#x81EA;&#x5B9A;&#x4E49;:&#x7C7B;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x7C7B;&#x7684;java&#x5BF9;&#x8C61;&quot;</span>);
-        Method[] methods = interfaces.getMethods();
-
-        String proxyClassString = <span class="hljs-string">&quot;package pers.han;&quot;</span> + rt
-                + <span class="hljs-string">&quot;import java.lang.reflect.Method;&quot;</span> + rt
-                + <span class="hljs-string">&quot;public class $Proxy0 implements &quot;</span> + interfaces.getName() + <span class="hljs-string">&quot;{&quot;</span> + rt
-                + <span class="hljs-string">&quot;protected MyInvocationHandler h;&quot;</span> + rt
-                + <span class="hljs-string">&quot;public $Proxy0(MyInvocationHandler h){&quot;</span> + rt
-                + <span class="hljs-string">&quot;this.h=h;&quot;</span> + rt + <span class="hljs-string">&quot;}&quot;</span> + rt + getMethodString(methods,interfaces)
-                + rt + <span class="hljs-string">&quot;}&quot;</span>;
-
-        <span class="hljs-comment">//&#x6211;&#x4EEC;&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4EE3;&#x7406;&#x7C7B;&#x8F6C;&#x5316;&#x4E3A;&#x6587;&#x4EF6;</span>
-        String fileName = workspace+<span class="hljs-string">&quot;/src/pers/han/$Proxy0.java&quot;</span>;
-        File file = <span class="hljs-keyword">new</span> File(fileName);
-
-        <span class="hljs-comment">//&#x5411;&#x6587;&#x4EF6;&#x5199;&#x5185;&#x5BB9;</span>
-        FileWriter fw = <span class="hljs-keyword">new</span> FileWriter(file);
-        fw.write(proxyClassString);
-        fw.flush();
-        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;</span>
-        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        System.out.println(<span class="hljs-string">&quot;comiler-&quot;</span> + compiler);
-        StandardJavaFileManager fileManager = compiler.getStandardFileManager(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
-        Iterable units = fileManager.getJavaFileObjects(fileName);
-        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;</span>
-        CompilationTask compTask = compiler.getTask(<span class="hljs-keyword">null</span>, fileManager, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, units);
-        compTask.call();
-        fileManager.close();
-        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x662F;&#x4E0D;&#x662F;.java</span>
-        file.delete();
-        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x540E;&#x5C31;&#x662F;class&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x628A;&#x8FD9;&#x4E2A;class&#x6587;&#x4EF6; &#x52A0;&#x5230;&#x5185;&#x5B58;</span>
-        MyClassLoader classLoader = <span class="hljs-keyword">new</span> MyClassLoader(workspace + <span class="hljs-string">&quot;/src/pers/han&quot;</span>);
-
+    <span class="hljs-keyword">if</span> (outChannel != <span class="hljs-keyword">null</span>) {
         <span class="hljs-keyword">try</span> {
-            Class&lt;?&gt; proxy0Class = classLoader.findClass(<span class="hljs-string">&quot;$Proxy0&quot;</span>);
-            <span class="hljs-comment">//&#x7B49;&#x7C7B;&#x52A0;&#x8F7D;&#x5B8C;&#x4E4B;&#x540E; &#xFF0C;&#x5220;&#x9664;</span>
-            File classFile = <span class="hljs-keyword">new</span> File(workspace + <span class="hljs-string">&quot;/src/pers/han/$Proxy0.class&quot;</span>);
-            <span class="hljs-keyword">if</span> (classFile.exists()) {
-                classFile.delete();
-            }
+            outChannel.close();
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-            Constructor&lt;?&gt; m = proxy0Class.getConstructor(MyInvocationHandler.class);
-            Object object = m.newInstance(h);
-            <span class="hljs-keyword">return</span> object;
-        } <span class="hljs-keyword">catch</span>(Exception e) {
+    <span class="hljs-keyword">if</span> (fis != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">try</span> {
+            fis.close();
+        } <span class="hljs-keyword">catch</span> (IOException e) {
             e.printStackTrace();
         }
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
 
-    <span class="hljs-comment">/**
-     * &#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;
-     * <span class="hljs-doctag">@param</span> methods
-     * <span class="hljs-doctag">@param</span> interfaces
-     * <span class="hljs-doctag">@return</span>
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getMethodString</span><span class="hljs-params">(Method[] methods, Class&lt;?&gt; interfaces)</span> </span>{
-        String proxyMe = <span class="hljs-string">&quot;&quot;</span>;
-
-        <span class="hljs-keyword">for</span> (Method m : methods) {
-            proxyMe += <span class="hljs-string">&quot;public void &quot;</span> + m.getName() + <span class="hljs-string">&quot;() throws Throwable {&quot;</span> + rt
-                    + <span class="hljs-string">&quot;Method md=&quot;</span> + interfaces.getName() + <span class="hljs-string">&quot;.class.getMethod(\&quot;&quot;</span>
-                    + m.getName() + <span class="hljs-string">&quot;\&quot;, new Class[]{});&quot;</span> + rt
-                    + <span class="hljs-string">&quot;this.h.invoke(this,md,null);&quot;</span> + rt + <span class="hljs-string">&quot;}&quot;</span> + rt;
+    <span class="hljs-keyword">if</span> (fos != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">try</span> {
+            fos.close();
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            e.printStackTrace();
         }
-        <span class="hljs-keyword">return</span> proxyMe;
     }
 }
 </code></pre>
-<p>&#x5C06;&#x7C7B;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x8FD9;&#x91CC;&#x7EE7;&#x627F;<code>ClassLoader</code>&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x5199;<code>findClass</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-Java"><span class="hljs-comment">/**
- * &#x81EA;&#x5DF1;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;
- * <span class="hljs-doctag">@author</span> mingshan
- *
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClassLoader</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassLoader</span> </span>{
-    <span class="hljs-keyword">private</span> File dir;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyClassLoader</span><span class="hljs-params">(String path)</span> </span>{
-        dir = <span class="hljs-keyword">new</span> File( path );
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="hljs-keyword">throws</span> ClassNotFoundException {
-
-        <span class="hljs-keyword">if</span> (dir != <span class="hljs-keyword">null</span>) {
-            File classFile = <span class="hljs-keyword">new</span> File(dir, name + <span class="hljs-string">&quot;.class&quot;</span>);
-            <span class="hljs-keyword">if</span> (classFile.exists()) {
-                FileInputStream input = <span class="hljs-keyword">null</span>;
-                <span class="hljs-keyword">try</span> {
-                    input = <span class="hljs-keyword">new</span> FileInputStream(classFile);
-                    ByteArrayOutputStream baos = <span class="hljs-keyword">new</span> ByteArrayOutputStream();
-                    <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];
-                    <span class="hljs-keyword">int</span> len;
-                    <span class="hljs-keyword">while</span> ((len=input.read(buffer)) != -<span class="hljs-number">1</span>) {
-                        baos.write(buffer, <span class="hljs-number">0</span>, len);
-                    }
-                    <span class="hljs-keyword">return</span> defineClass(<span class="hljs-string">&quot;pers.han.&quot;</span> + name, baos.toByteArray(), <span class="hljs-number">0</span>, baos.size());
-                } <span class="hljs-keyword">catch</span>(Exception e) {
-                    e.printStackTrace();
-                } <span class="hljs-keyword">finally</span> {
-                    <span class="hljs-keyword">if</span> (input != <span class="hljs-keyword">null</span>) {
-                        <span class="hljs-keyword">try</span> {
-                            input.close();
-                        } <span class="hljs-keyword">catch</span> (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
+<p>&#x7531;&#x4E8E;FileChannel&#x662F;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x7684;read&#x3001;write&#x548C;map&#x901A;&#x8FC7;&#x5176;&#x5B9E;&#x73B0;&#x7C7B;FileChannelImpl&#x5B9E;&#x73B0;&#xFF0C;&#x6CE8;&#x610F;
+<a href="https://github.com/unofficial-openjdk/openjdk/blob/531ef5d0ede6d733b00c9bc1b6b3c14a0b2b3e81/src/java.base/share/classes/sun/nio/ch/FileChannelImpl.java" target="_blank">FileChannelImpl</a>&#x662F;&#x5728;sun.nio.ch&#x5305;&#x4E2D;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x7C7B;&#x9700;&#x8981;&#x5728;openjdk&#x6E90;&#x7801;&#x4E2D;&#x770B;&#x5230;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">read</span><span class="hljs-params">(ByteBuffer dst)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    ensureOpen();
+    <span class="hljs-keyword">if</span> (!readable)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NonReadableChannelException();
+    <span class="hljs-keyword">synchronized</span> (positionLock) {
+        <span class="hljs-keyword">if</span> (direct)
+            Util.checkChannelPositionAligned(position(), alignment);
+        <span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> ti = -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">try</span> {
+            beginBlocking();
+            ti = threads.add();
+            <span class="hljs-keyword">if</span> (!isOpen())
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            do {
+                n = IOUtil.read(fd, dst, -<span class="hljs-number">1</span>, direct, alignment, nd);
+            } <span class="hljs-keyword">while</span> ((n == IOStatus.INTERRUPTED) &amp;&amp; isOpen());
+            <span class="hljs-keyword">return</span> IOStatus.normalize(n);
+        } <span class="hljs-keyword">finally</span> {
+            threads.remove(ti);
+            endBlocking(n &gt; <span class="hljs-number">0</span>);
+            <span class="hljs-keyword">assert</span> IOStatus.check(n);
         }
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
 }
 </code></pre>
-<p>&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7406;&#x7C7B;<code>$Proxy0.java</code>&#xFF1A;</p>
-<pre><code>package pers.han;
-    import java.lang.reflect.Method;
-    public class $Proxy0 implements pers.han.Person{
-    protected MyInvocationHandler h;
-    public $Proxy0(MyInvocationHandler h){
-    this.h=h;
-    }
-    public void say() throws Throwable {
-    Method md=pers.han.Person.class.getMethod(&quot;say&quot;, new Class[]{});
-    this.h.invoke(this,md,null);
-    }
-
-    }
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x4F1A;&#x68C0;&#x6D4B;&#x901A;&#x9053;&#x662F;&#x5426;&#x53EF;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x64CD;&#x4F5C;position&#x548C;size&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#x5904;&#x7406;&#xFF0C;&#x52A0;&#x4E0A;&#x5BF9;&#x8C61;&#x9501;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;<a href="https://github.com/unofficial-openjdk/openjdk/blob/531ef5d0ede6d733b00c9bc1b6b3c14a0b2b3e81/src/java.base/share/classes/sun/nio/ch/IOUtil.java" target="_blank">IOUtil</a>&#x7C7B;&#x7684;read&#x65B9;&#x6CD5;&#xFF0C;&#x6CE8;&#x610F;&#x662F;while&#x5FAA;&#x73AF;&#xFF0C;&#x6761;&#x4EF6;IOStatus&#x662F;INTERRUPTED&#xFF08;&#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x8C03;&#x7528;&#x4E2D;&#x65AD;&#xFF1F;&#xFF09;&#xFF0C;&#x5728;<a href="https://github.com/unofficial-openjdk/openjdk/blob/531ef5d0ede6d733b00c9bc1b6b3c14a0b2b3e81/src/java.base/share/classes/sun/nio/ch/IOStatus.java" target="_blank">IOStatus</a>&#x7C7B;&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x5E38;&#x91CF;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java">
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> EOF = -<span class="hljs-number">1</span>;              <span class="hljs-comment">// End of file</span>
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> UNAVAILABLE = -<span class="hljs-number">2</span>;      <span class="hljs-comment">// Nothing available (non-blocking)</span>
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> INTERRUPTED = -<span class="hljs-number">3</span>;      <span class="hljs-comment">// System call interrupted</span>
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> UNSUPPORTED = -<span class="hljs-number">4</span>;      <span class="hljs-comment">// Operation not supported</span>
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> THROWN = -<span class="hljs-number">5</span>;           <span class="hljs-comment">// Exception thrown in JNI code</span>
+<span class="hljs-meta">@Native</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> UNSUPPORTED_CASE = -<span class="hljs-number">6</span>; <span class="hljs-comment">// This case not supported</span>
 </code></pre>
+<p>IOUtil&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>static int read(FileDescriptor fd, ByteBuffer dst, long position,
+                    boolean directIO, int alignment, NativeDispatcher nd)
+        throws IOException
+    {
+        if (dst.isReadOnly())
+            throw new IllegalArgumentException(&quot;Read-only buffer&quot;);
+        if (dst instanceof DirectBuffer)
+            return readIntoNativeBuffer(fd, dst, position, directIO, alignment, nd);
+
+        // Substitute a native buffer
+        ByteBuffer bb;
+        int rem = dst.remaining();
+        if (directIO) {
+            Util.checkRemainingBufferSizeAligned(rem, alignment);
+            bb = Util.getTemporaryAlignedDirectBuffer(rem, alignment);
+        } else {
+            bb = Util.getTemporaryDirectBuffer(rem);
+        }
+        try {
+            int n = readIntoNativeBuffer(fd, bb, position, directIO, alignment,nd);
+            bb.flip();
+            if (n &gt; 0)
+                dst.put(bb);
+            return n;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(bb);
+        }
+}
+</code></pre><p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5927;&#x81F4;&#x4E86;&#x89E3;&#x5230;&#xFF0C;FileChannel&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5224;&#x65AD;&#x7528;&#x6237;&#x4F20;&#x5165;&#x7684;buffer&#x662F;&#x5426;&#x662F;DirectBuffer&#xFF0C;&#x5982;&#x679C;&#x662F;&#x76F4;&#x63A5;&#x7531;readIntoNativeBuffer&#x8FDB;&#x884C;&#x8BFB;&#x53D6;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF08;directIO&#x4E3A;false&#xFF09;&#xFF0C;&#x7533;&#x8BF7;&#x4E00;&#x5757;&#x548C;&#x7F13;&#x5B58;&#x540C;&#x5927;&#x5C0F;&#x7684;DirectByteBuffer bb</li>
+<li>&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5230;&#x7F13;&#x5B58;bb&#xFF0C;&#x5E95;&#x5C42;&#x7531;NativeDispatcher&#x7684;read&#x5B9E;&#x73B0;</li>
+<li>&#x628A;bb&#x7684;&#x6570;&#x636E;&#x8BFB;&#x53D6;&#x5230;dst&#xFF08;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;ByteBuffer&#xFF0C;&#x5728;jvm&#x4E2D;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF09;</li>
+</ol>
+<p>&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x53EF;&#x53C2;&#x8003;openjdk&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x5206;&#x6790;&#x4E86;&#x3002;</p>
+<h2 id="serversocketchannel&#x548C;socketchannel"><a name="serversocketchannel&#x548C;socketchannel" class="plugin-anchor" href="#serversocketchannel&#x548C;socketchannel"><i class="fa fa-link" aria-hidden="true"></i></a>ServerSocketChannel&#x548C;SocketChannel</h2>
+<p>ServerSocketChannel&#x53EF;&#x4EE5;&#x76D1;&#x542C;&#x65B0;&#x8FDB;&#x6765;&#x7684;TCP&#x8FDE;&#x63A5;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x3002;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x65B0;&#x8FDB;&#x6765;&#x7684;&#x8FDE;&#x63A5;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;SocketChannel&#x3002;ServerSocketChannel&#x53EF;&#x4EE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x963B;&#x585E;&#x6216;&#x8005;&#x975E;&#x963B;&#x585E;&#xFF0C;</p>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;&#x963B;&#x585E;&#xFF0C;&#x90A3;&#x4E48;&#x901A;&#x9053;&#x7684;&#x8BFB;&#x5199;&#x7B49;&#x64CD;&#x4F5C;&#x662F;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x8BE5;&#x7EBF;&#x7A0B;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x6709;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x88AB;&#x8BFB;&#x53D6;&#x6216;&#x5199;&#x5165;&#xFF0C;&#x8BE5;&#x7EBF;&#x7A0B;&#x5728;&#x6B64;&#x671F;&#x95F4;&#x4E0D;&#x80FD;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;</p>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;&#x975E;&#x963B;&#x585E;&#xFF0C;&#x90A3;&#x4E48;&#x8BFB;&#x5199;&#x8BF7;&#x6C42;&#x5E76;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x53EF;&#x8BFB;/&#x5199;&#x524D;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x505A;&#x5176;&#x5B83;&#x4E8B;&#x60C5;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x901A;&#x9053;&#x3002;&#x9700;&#x8981;&#x7ED3;&#x5408;Selector&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4EC5;&#x4ECB;&#x7ECD;&#x963B;&#x585E;&#x5F0F;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x975E;&#x963B;&#x585E;&#x5728;Selector&#x4E2D;&#x8BE6;&#x7EC6;&#x63A2;&#x8BA8;&#x4E0B;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>Server&#x7AEF;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">// &#x521B;&#x5EFA;&#x901A;&#x9053;</span>
+ServerSocketChannel server = ServerSocketChannel.open();
+<span class="hljs-comment">// &#x7ED1;&#x5B9A;&#x7AEF;&#x53E3;</span>
+server.bind(<span class="hljs-keyword">new</span> InetSocketAddress(<span class="hljs-number">9898</span>));
+FileChannel outChannel = FileChannel.open(Paths.get(<span class="hljs-string">&quot;2.png&quot;</span>), StandardOpenOption.WRITE,StandardOpenOption.READ,StandardOpenOption.CREATE);
+
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x7684;&#x901A;&#x9053;</span>
+SocketChannel socketChannel = server.accept();
+<span class="hljs-comment">// &#x5206;&#x914D;&#x6307;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7F13;&#x51B2;&#x533A;</span>
+ByteBuffer buffer = ByteBuffer.allocate(<span class="hljs-number">1024</span>);
+
+<span class="hljs-comment">// &#x63A5;&#x53D7;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;</span>
+<span class="hljs-keyword">while</span>(socketChannel.read(buffer) != -<span class="hljs-number">1</span>){
+    buffer.flip();
+    outChannel.write(buffer);
+    buffer.clear();
+}
+
+<span class="hljs-comment">// &#x5173;&#x95ED;&#x901A;&#x9053;</span>
+socketChannel.close();
+outChannel.close();
+server.close();
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x603B;&#x7ED3;&#x4E0B;Server&#x7AEF;&#x7684;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li>&#x521B;&#x5EFA;ServerSocketChannel&#x901A;&#x9053;</li>
+<li>&#x7ED1;&#x5B9A;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x53F7;</li>
+<li>&#x901A;&#x8FC7;ServerSocketChannel&#x7684;accept()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;SocketChannel&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x6237;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x8BFB;/&#x5199;&#x6570;&#x636E;</li>
+<li>&#x521B;&#x5EFA;&#x8BFB;&#x6570;&#x636E;/&#x5199;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A;&#x5BF9;&#x8C61;&#x6765;&#x8BFB;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;&#x6216;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x6570;&#x636E;</li>
+<li>&#x5173;&#x95ED;SocketChannel&#x548C;ServerSocketChannel</li>
+</ol>
+<p>Client&#x7AEF;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x901A;&#x9053;</span>
+SocketChannel client = SocketChannel.open(<span class="hljs-keyword">new</span> InetSocketAddress(<span class="hljs-string">&quot;127.0.0.1&quot;</span>, <span class="hljs-number">9898</span>));
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x6587;&#x4EF6;</span>
+FileChannel inChannel = FileChannel.open(Paths.get(<span class="hljs-string">&quot;1.png&quot;</span>), StandardOpenOption.READ);
+
+<span class="hljs-comment">// &#x5206;&#x914D;&#x7F13;&#x51B2;&#x533A;</span>
+ByteBuffer buffer = ByteBuffer.allocate(<span class="hljs-number">1024</span>);
+
+<span class="hljs-comment">// &#x8BFB;&#x53D6;&#x672C;&#x5730;&#x6587;&#x4EF6;</span>
+<span class="hljs-keyword">while</span> (inChannel.read(buffer) != -<span class="hljs-number">1</span>) {
+    buffer.flip();
+    client.write(buffer);
+    buffer.clear();
+}
+
+<span class="hljs-comment">// &#x5173;&#x95ED;</span>
+inChannel.close();
+client.close();
+</code></pre>
+<p>&#x603B;&#x7ED3;&#x4E0B;Client&#x7AEF;&#x7684;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li>&#x83B7;&#x53D6;SocketChannel&#xFF0C;&#x7ED1;&#x5B9A;ip&#x548C;&#x7AEF;&#x53E3;</li>
+<li>&#x521B;&#x5EFA;&#x8BFB;&#x6570;&#x636E;/&#x5199;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A;&#x5BF9;&#x8C61;&#x6765;&#x8BFB;&#x53D6;&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;&#x6216;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x6570;&#x636E;</li>
+<li>&#x5173;&#x95ED;SocketChannel</li>
+</ol>
+<h2 id="&#x53C2;&#x8003;"><a name="&#x53C2;&#x8003;" class="plugin-anchor" href="#&#x53C2;&#x8003;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/10/docs/api/java/nio/channels/package-summary.html" target="_blank">JDK API</a></li>
+<li><a href="https://segmentfault.com/a/1190000014869494" target="_blank">Java NIO &#x4E4B; Channel&#xFF08;&#x901A;&#x9053;&#xFF09;</a></li>
+<li><a href="https://www.jianshu.com/p/052035037297" target="_blank">&#x6DF1;&#x5165;&#x6D45;&#x51FA;NIO&#x4E4B;Channel&#x3001;Buffer</a></li>
+<li><a href="http://www.jasongj.com/java/nio_reactor/" target="_blank">Java&#x8FDB;&#x9636;&#xFF08;&#x4E94;&#xFF09;Java I/O&#x6A21;&#x578B;&#x4ECE;BIO&#x5230;NIO&#x548C;Reactor&#x6A21;&#x5F0F; </a></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -2291,12 +2311,12 @@
 
             
                 
-                <a href="jdk-dynamic-proxy.html" class="navigation navigation-prev " aria-label="Previous page: JDK动态代理">
+                <a href="Buffers.html" class="navigation navigation-prev " aria-label="Previous page: Buffers">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cglib-dynamic-proxy.md" class="navigation navigation-next " aria-label="Next page: CGLIB动态代理">
+                <a href="Selectors.md" class="navigation navigation-next " aria-label="Next page: Selectors">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2307,7 +2327,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"自定义动态代理","level":"1.2.1.7.2","depth":4,"next":{"title":"CGLIB动态代理","level":"1.2.1.7.3","depth":4,"path":"java/basic/dynamic-proxy/cglib-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/cglib-dynamic-proxy.md","articles":[]},"previous":{"title":"JDK动态代理","level":"1.2.1.7.1","depth":4,"path":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","ref":"java/basic/dynamic-proxy/jdk-dynamic-proxy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/basic/dynamic-proxy/custom-dynamic-proxy.md","mtime":"2018-09-01T16:53:43.255Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-01T17:01:37.018Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Channels","level":"1.2.1.4.2","depth":4,"next":{"title":"Selectors","level":"1.2.1.4.3","depth":4,"path":"java/basic/nio/Selectors.md","ref":"java/basic/nio/Selectors.md","articles":[]},"previous":{"title":"Buffers","level":"1.2.1.4.1","depth":4,"path":"java/basic/nio/Buffers.md","ref":"java/basic/nio/Buffers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/basic/nio/Channels.md","mtime":"2018-09-01T16:53:43.260Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-01T17:01:37.018Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
