@@ -51,13 +51,13 @@ String的特性：
 
 - 针对常量池的优化。当两个String对象拥有相同的值时，它们只引用常量池的同一个拷贝。可有效降低内存消耗和对象创建的开销。
 
-StringBuffer   字符串变量（线程安全）,其也是final类别的，不允许被继承，其中的绝大多数方法都进行了同步处理，包括常用的Append方法也做了同步处理(`synchronized`修饰)。其自jdk1.0起就已经出现。其toString方法会进行对象缓存，以减少元素复制开销。
+StringBuffer   字符串变量（线程安全），其也是final类别的，不允许被继承，其中的绝大多数方法都进行了同步处理，包括常用的append方法也做了同步处理(`synchronized`修饰)。其自jdk1.0起就已经出现。其toString方法会进行对象缓存，以减少元素复制开销。
 
 ```Java
 public synchronized String toString() { 
-if (toStringCache == null) { 
-   toStringCache = Arrays.copyOfRange(value, 0, count); 
-} 
+  if (toStringCache == null) { 
+    toStringCache = Arrays.copyOfRange(value, 0, count); 
+  } 
    return new String(toStringCache, true); 
 }
 ```

@@ -1,3 +1,5 @@
+## Buffer介绍
+
 Buffer？我们很容易想到缓冲区的概念，在NIO中，它是直接和Channel打交道的缓冲区，通常场景或是从Buffer写入Channel，或是从Channel读入Buffer。Buffer是一个抽象类，Java提供如下图的实现类，我是直接在Eclipse截出来的^_^
 
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/buffer_impl.png?raw=true)
@@ -25,7 +27,7 @@ mark <= position <= limit <= capacity
 
 对ByteBuffer操作主要包括读和写，向缓冲区写入数据和从缓冲区读取数据会影响以上四个属性的值的变化，我们分别对读和写以及之间切换进行分析。
 
-**写操作**
+## 写操作
 
 首先分配1024字节的缓冲区，然后向缓冲区放入5字节的字符串“abcde”，代码如下：
 
@@ -62,7 +64,7 @@ System.out.println(buffer.capacity());
 从上图可以看出，在写入数据后，position会向后移动5个位置，指向第六个位置，代表下次写数据的位置，limit和capacity没有改变。
 
 
-**切换到读操作**
+## 切换到读操作
 
 由写模式切换到读模式需要调用`flip`方法，这个方法是什么意思呢？在JDK源码中，此方法的代码如下：
 
@@ -83,7 +85,7 @@ public final Buffer flip() {
 
 和上一张图片进行对比，我们可以发现limit替换了position的位置，代表当前可以操作的位置，在写的时候，limit的值代表最大的可写位置，在读的时候，limit的值代表最大的可读位置。很明显我们现在是要读数据，就代表最大可读位置。
 
-**读操作**
+## 读操作
 
 通过filp方法切换为读模式后，我们就可以从缓存区里面读取数据，代码如下：
 
@@ -101,7 +103,7 @@ System.out.println(buffer.capacity());
 
 此时position，limit，capacity位置如下图所示
 
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/bytebuffer_read.png?raw=true)
 
 从上图可以看出，position的位置变成了5，由于我们将缓存区里面的数据读完了，就是这个情况，所以读操作的时候，每读一个值，position 就自动加 1。在HeapByteBuffer源码中，就是增加一个offset的偏移量。
 
@@ -111,9 +113,11 @@ protected int ix(int i) {
 }
 ```
 
-**重复读数据**
+
+## 重复读数据
 
 上一步读数据的操作已经将position移动了limit的位置，我们想读数据就读不到了，但能不能重复读取数据呢？肯定可以呀，这时我们就可以用`rewind`方法来重复读写，代码如下：
+
 
 ```Java
 //rewind  可重复读数据
@@ -130,13 +134,13 @@ System.out.println(buffer.capacity());
 
 有没有发现和flip操作后一致，此时肯定要一样了，这样我们才可以重复读取。
 
-**清空缓冲区**
+## 清空缓冲区
 
 此时我们不想要缓冲区的数据了，需要清空掉，可以用`clear`方法来操作，代码如下
 
 
 ```Java
-// 清空缓冲区，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
+// 清空缓冲区  ，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
 buffer.clear();
 System.out.println("------清空缓冲区-------");
 System.out.println(buffer.position());
@@ -151,7 +155,7 @@ System.out.println(buffer.capacity());
 
 注意缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
 
-**mark() & reset()**
+## mark() & reset()
 
 除了 position、limit、capacity 这三个基本的属性外，还有一个常用的属性就是 mark。
 
@@ -176,7 +180,7 @@ public final Buffer reset() {
 }
 ```
 
-**rewind() & clear() & compact()**
+## rewind() & clear() & compact()
 
 rewind()：会重置 position 为 0，通常用于重新从头读写 Buffer。
 
@@ -207,7 +211,7 @@ compact()：和 clear() 一样的是，它们都是在准备往 Buffer 填充新
 
 而 compact() 方法有点不一样，调用这个方法以后，会先处理还没有读取的数据，也就是 position 到 limit 之间的数据（还没有读过的数据），先将这些数据移到左边，然后在这个基础上再开始写入。很明显，此时 limit 还是等于 capacity，position 指向原来数据的右边。
 
-**参考：**
+## 参考
 
 - [Java NIO：Buffer、Channel 和 Selector](http://www.importnew.com/28007.html)
 - [NIO API](https://docs.oracle.com/javase/10/docs/api/java/nio/package-summary.html)
