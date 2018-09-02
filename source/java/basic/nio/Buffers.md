@@ -138,7 +138,6 @@ System.out.println(buffer.capacity());
 
 此时我们不想要缓冲区的数据了，需要清空掉，可以用`clear`方法来操作，代码如下
 
-
 ```Java
 // 清空缓冲区  ，缓冲区的数据仍然存在，但处于被遗忘的状态，不能被读取
 buffer.clear();
@@ -168,7 +167,7 @@ public final Buffer mark() {
 }
 ```
 
-那到底什么时候用呢？考虑以下场景，我们在 position 为 5 的时候，先 mark() 一下，然后继续往下读，读到第 10 的时候，我想重新回到 position 为 5 的地方重新来一遍，那只要调一下 reset() 方法，position 就回到 5 了。
+那到底什么时候用呢？考虑以下场景，我们在 position 为5的时候，先 mark() 一下，然后继续往下读，读到第10的时候，我想重新回到 position 为5的地方重新来一遍，那只要调一下reset()方法，position 就回到5了。
 
 ```Java
 public final Buffer reset() {
@@ -207,7 +206,7 @@ public final Buffer clear() {
 
 compact()：和 clear() 一样的是，它们都是在准备往 Buffer 填充新的数据之前调用。
 
-前面说的 clear() 方法会重置几个属性，但是我们要看到，clear() 方法并不会将 Buffer 中的数据清空，只不过后续的写入会覆盖掉原来的数据，也就相当于清空了数据了。
+前面说的 clear() 方法会重置几个属性，但是我们要看到，clear() 方法并不会将 Buffer 中的数据清空，只不过后续的写入会覆盖掉原来的数据，也就相当于清空了数据。
 
 而 compact() 方法有点不一样，调用这个方法以后，会先处理还没有读取的数据，也就是 position 到 limit 之间的数据（还没有读过的数据），先将这些数据移到左边，然后在这个基础上再开始写入。很明显，此时 limit 还是等于 capacity，position 指向原来数据的右边。
 

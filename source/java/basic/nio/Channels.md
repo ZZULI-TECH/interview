@@ -24,8 +24,8 @@ FileChannel类支持从连接到文件的通道中读取字节和将字节写入
 
 - FileChannel：文件通道，用于文件的读和写
 - DatagramChannel：用于 UDP 连接的接收和发送
-- SocketChannel：把它理解为 TCP 连接通道，简单理解就是 TCP 客户端
-- ServerSocketChannel：TCP 对应的服务端，用于监听某个端口进来的请求
+- SocketChannel：TCP通道，用于TCP数据传输
+- ServerSocketChannel：用于监听服务端某个端口进来的TCP请求
 
 ## FileChannel
 
