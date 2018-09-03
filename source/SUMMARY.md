@@ -128,6 +128,7 @@
 * [版本控制](scm/README.md)
     * [Git](scm/git/README.md)
         * [合并提交](scm/git/merge-commits.md)
+        * [初始配置](scm/git/git_config.md)
 * [爬虫](spider/README.md)
     * [WebMagic](spider/WebMagic/zzuli.md)
 * [其他](other/README.md)
