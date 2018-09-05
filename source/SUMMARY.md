@@ -121,7 +121,7 @@
         * [DMA](os/basic/dma.md)
     * [Linux](os/linux/README.md)
         * [Command](os/linux/command/README.md)
-            * [grep](os/linux/command/grep/README.md)    
+            * [grep](os/linux/command/grep.md)    
 * [安全和性能](security/README.md)
     * [常见Web攻击](security/attack.md)
     * [性能调优](security/optimalize.md)
