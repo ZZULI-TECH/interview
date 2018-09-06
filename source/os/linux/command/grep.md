@@ -1,5 +1,13 @@
 # grep 命令
 
+grep (Global Regular Expression Print)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
+
+基本语法：
+
+```
+grep "match_pattern" f1 f2 f3...
+```
+
 标记匹配颜色 --color=auto 选项
 
 ```
