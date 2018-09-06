@@ -4,6 +4,8 @@
 
 整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~
 
+> 纸上得来终觉浅 绝知此事要躬行
+
 ### 在线阅读
 
 文档原先采用腾讯文档编辑：[腾讯文档地址](https://docs.qq.com/doc/BtY1hJ0WeKHG4ACmux1ENFld0aA0Dd1Lvgil3LWRcK1rTcgj0UCftO2koYic4e2A4C0bGqMb2)
