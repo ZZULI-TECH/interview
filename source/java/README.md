@@ -13,4 +13,4 @@ Java SE lets you develop and deploy Java applications on desktops and servers. J
 - [调优指南](https://docs.oracle.com/javase/10/gctuning/)
 - [Open-Source JDK Community](http://openjdk.5641.n7.nabble.com/)
 - [vjtools](https://github.com/vipshop/vjtools)
-- [阿里巴巴Java开发手册](https://yq.aliyun.com/articles/69327?spm=5176.100239.blogcont69327.158.xUUgiz)
+- [阿里巴巴Java开发手册](https://102.alibaba.com/downloadFile.do?file=1528269849853/Java_manual.pdf)
