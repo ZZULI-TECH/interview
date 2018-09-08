@@ -3,32 +3,6 @@ Map的继承关系和简易类图如下：
     
 ![image](https://github.com/lyfZhixing/lyfZhixing.github.io/blob/hexo/images/Collection/Map.png?raw=true)
 
-##Map的简单实现
-```Java
-public class AssociatveArray<K,V>{
-    private Object[][] pairs;
-    private int index;
-
-    public AssociatveArray(int length){
-        pairs = new Object[length][2];
-    }
-
-    public void put(K key,V vlaue){
-        if(index >= pairs.length)
-            throw new ArrayIndexOutOfBoundsException();
-        prirs[index++] = new Object[]{key,value};//将数据存到pairs对象中去
-    }
-
-    public V get(K key){
-        for(int i = 0;i < index;i++){
-            if(key.equals(pairs[i][0]))
-                return (V)pairs[i][1]; //返回key对应的value
-        return null; //找不到key返回null
-        }
-    }
-}
-```
-
 ##HashMap
 
 HashMap是Map基于散列表的实现(它取代了Hashtable)。插入和查询“键值对”的开销是固定的。可以通过构造器设置*容量*和*负载因子*，以调整容器的特性。
