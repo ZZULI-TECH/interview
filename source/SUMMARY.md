@@ -73,6 +73,8 @@
         * [希尔排序](algorithm/sort/ShellSort.md)
     * [搜索](algorithm/search/README.md)
     * [阶乘递归](algorithm/Recursion.md)
+    * [位图](algorithm/bitmap/BitMap.md)
+        *[位运算](algorithm/bitmap/BitOperation.md)
 * [LeetCode题解](leetcode/README.md)
 * [数据库](database/README.md)
     * [MySQL](database/mysql/README.md)
