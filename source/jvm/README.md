@@ -15,4 +15,5 @@ Pascal.
 
 - [虚拟机规范](https://docs.oracle.com/javase/specs/jvms/se10/jvms10.pdf)
 - [hotspot](http://openjdk.java.net/groups/hotspot/)
+- [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
 - [一只懂JVM参数的狐狸](http://xxfox.perfma.com/)
