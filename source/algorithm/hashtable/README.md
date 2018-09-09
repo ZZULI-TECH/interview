@@ -39,7 +39,7 @@ public interface Map<K,V> {
       public V get(K k);
       public V remove(K k);
 
-      interface Entry<K,V>{
+      interface Entry<K,V> {
           public K getKey();
           public V getValue();
       }
@@ -74,7 +74,7 @@ public HashMapDemo(int length, float loadFactor) {
         throw new IllegalArgumentException("参数不能为负数" + length);
     }
     if (loadFactor <= 0 || Float.isNaN(loadFactor)) {
-        throw new IllegalArgumentException("扩容标准必须为大于0的数字" + length);
+        throw new IllegalArgumentException("扩容标准必须为大于0的数字" + loadFactor);
     }
 
     this.length = length;
