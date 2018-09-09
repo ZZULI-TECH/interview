@@ -4,6 +4,7 @@ Java有四种类型的垃圾回收器：
     并行垃圾回收器（Parallel Garbage Collector）
     并发标记扫描垃圾回收器（CMS Garbage Collector）
     G1垃圾回收器（G1 Garbage Collector）
+    ZGC(The Z Garbage Collector)
 
 **1、串行垃圾回收器**
 
@@ -24,13 +25,19 @@ Java有四种类型的垃圾回收器：
 
 相比并行垃圾回收器，并发标记扫描垃圾回收器使用更多的CPU来确保程序的吞吐量。如果我们可以为了更好的程序性能分配更多的CPU，那么并发标记上扫描垃圾回收器是更好的选择相比并发垃圾回收器。
 
-通过JVM参数 XX:+USeParNewGC 打开并发标记扫描垃圾回收器。
+通过JVM参数`XX:+USeParNewGC` 打开并发标记扫描垃圾回收器。
 
 **4、G1垃圾回收器**
 
 G1垃圾回收器适用于堆内存很大的情况，他将堆内存分割成不同的区域，并且并发的对其进行垃圾回收。G1也可以在回收内存之后对剩余的堆内存空间进行压缩。并发扫描标记垃圾回收器在STW情况下压缩内存。G1垃圾回收会优先选择第一块垃圾最多的区域
 
-通过JVM参数 –XX:+UseG1GC 使用G1垃圾回收器
+通过JVM参数`–XX:+UseG1GC` 使用G1垃圾回收器
+
+**4、ZGC**
+
+一种可扩展的低延迟垃圾收集器，在JDK11中发布，它是一种全新的垃圾收集器，使用了Load Barriors技术来跟踪堆的状态和对象的状态。详细参考：[zgc](http://openjdk.java.net/projects/zgc/)
+
+通过参数`-XX:+UnlockExperimentalVMOptions -XX:+UseZGC`开启ZGC，目前仅支持Linux/x86_64。
 
 **Java 8 的新特性**
 
@@ -51,6 +58,7 @@ G1垃圾回收器适用于堆内存很大的情况，他将堆内存分割成不
 -XX:+UseConcMarkSweepGC | 并发标记扫描垃圾回收器
 -XX:ParallelCMSThreads= | 并发标记扫描垃圾回收器 =为使用的线程数量
 -XX:+UseG1GC | G1垃圾回收器
+-XX:+UseZGC  | ZGC 
 
 **GC的优化配置**
 
