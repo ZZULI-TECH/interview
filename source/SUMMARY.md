@@ -83,6 +83,8 @@
         * [事务](database/mysql/transaction.md)
         * [数据库锁](database/mysql/local.md)
         * [优化](database/mysql/optimalize.md)
+    * [MongoDB](database/mongodb/README.md)
+    * [Redis](database/redis/README.md)
 * [设计](design/README.md)
     * [设计原则](design/principle/README.md)
     * [设计模式](design/pattern/README.md)
