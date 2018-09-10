@@ -753,7 +753,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" data-path="../../jvm/gc/gc_log.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../../jvm/gc/gc_algorithm.html">
+            
+                <a href="../../jvm/gc/gc_algorithm.html">
+            
+                    
+                    GC算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../jvm/gc/gc_log.html">
             
                 <a href="../../jvm/gc/gc_log.html">
             
@@ -1132,6 +1145,19 @@
             
                     
                     阶乘递归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../bitmap/BitMap.html">
+            
+                <a href="../bitmap/BitMap.html">
+            
+                    
+                    位图
             
                 </a>
             
@@ -1856,8 +1882,73 @@
             
         </li>
     
+        <li class="chapter " data-level="1.15.2.1.2" data-path="../../os/linux/command/top.html">
+            
+                <a href="../../os/linux/command/top.html">
+            
+                    
+                    top
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2.1.3" data-path="../../os/linux/command/awk.html">
+            
+                <a href="../../os/linux/command/awk.html">
+            
+                    
+                    awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2.1.4" data-path="../../os/linux/command/netstat.html">
+            
+                <a href="../../os/linux/command/netstat.html">
+            
+                    
+                    netstat
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2.2" data-path="../../os/linux/Linux_01.html">
+            
+                <a href="../../os/linux/Linux_01.html">
+            
+                    
+                    introduce and comands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2.3" data-path="../../os/linux/Linux_02.html">
+            
+                <a href="../../os/linux/Linux_02.html">
+            
+                    
+                    application and shell
+            
+                </a>
+            
+
             
         </li>
     
@@ -2195,7 +2286,7 @@ index = hash % array_size
       <span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">get</span><span class="hljs-params">(K k)</span></span>;
       <span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">remove</span><span class="hljs-params">(K k)</span></span>;
 
-      <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Entry</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;</span>{
+      <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Entry</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt; </span>{
           <span class="hljs-function"><span class="hljs-keyword">public</span> K <span class="hljs-title">getKey</span><span class="hljs-params">()</span></span>;
           <span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">getValue</span><span class="hljs-params">()</span></span>;
       }
@@ -2226,7 +2317,7 @@ index = hash % array_size
         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x4E3A;&#x8D1F;&#x6570;&quot;</span> + length);
     }
     <span class="hljs-keyword">if</span> (loadFactor &lt;= <span class="hljs-number">0</span> || Float.isNaN(loadFactor)) {
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;&#x6269;&#x5BB9;&#x6807;&#x51C6;&#x5FC5;&#x987B;&#x4E3A;&#x5927;&#x4E8E;0&#x7684;&#x6570;&#x5B57;&quot;</span> + length);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;&#x6269;&#x5BB9;&#x6807;&#x51C6;&#x5FC5;&#x987B;&#x4E3A;&#x5927;&#x4E8E;0&#x7684;&#x6570;&#x5B57;&quot;</span> + loadFactor);
     }
 
     <span class="hljs-keyword">this</span>.length = length;
@@ -2483,7 +2574,7 @@ index = hash % array_size
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"哈希表","level":"1.4.6","depth":2,"next":{"title":"排序","level":"1.4.7","depth":2,"path":"algorithm/sort/README.md","ref":"algorithm/sort/README.md","articles":[{"title":"冒泡排序","level":"1.4.7.1","depth":3,"path":"algorithm/sort/BubbleSort.md","ref":"algorithm/sort/BubbleSort.md","articles":[]},{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},{"title":"插入排序","level":"1.4.7.3","depth":3,"path":"algorithm/sort/InsertionSort.md","ref":"algorithm/sort/InsertionSort.md","articles":[]},{"title":"希尔排序","level":"1.4.7.4","depth":3,"path":"algorithm/sort/ShellSort.md","ref":"algorithm/sort/ShellSort.md","articles":[]}]},"previous":{"title":"堆","level":"1.4.5","depth":2,"path":"algorithm/heap/README.md","ref":"algorithm/heap/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"algorithm/hashtable/README.md","mtime":"2018-09-05T16:22:14.163Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-08T15:36:51.416Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"哈希表","level":"1.4.6","depth":2,"next":{"title":"排序","level":"1.4.7","depth":2,"path":"algorithm/sort/README.md","ref":"algorithm/sort/README.md","articles":[{"title":"冒泡排序","level":"1.4.7.1","depth":3,"path":"algorithm/sort/BubbleSort.md","ref":"algorithm/sort/BubbleSort.md","articles":[]},{"title":"快速排序","level":"1.4.7.2","depth":3,"path":"algorithm/sort/QuickSort.md","ref":"algorithm/sort/QuickSort.md","articles":[]},{"title":"插入排序","level":"1.4.7.3","depth":3,"path":"algorithm/sort/InsertionSort.md","ref":"algorithm/sort/InsertionSort.md","articles":[]},{"title":"希尔排序","level":"1.4.7.4","depth":3,"path":"algorithm/sort/ShellSort.md","ref":"algorithm/sort/ShellSort.md","articles":[]}]},"previous":{"title":"堆","level":"1.4.5","depth":2,"path":"algorithm/heap/README.md","ref":"algorithm/heap/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"algorithm/hashtable/README.md","mtime":"2018-09-09T01:31:44.152Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T04:27:50.252Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
