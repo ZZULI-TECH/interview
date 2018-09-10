@@ -22,7 +22,7 @@ http://www.zzuli.edu.cn/s/12/t/1006/p/22/i/13/list.htm
 ```
 其中i后面的13是可变的，根据上一页和下一页的切换来改变这一个数字，页面如下：
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spide-list-page.png?raw=true)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spider-list-page.png?raw=true)
 
 #### 详细页
 
@@ -36,7 +36,7 @@ http://www.zzuli.edu.cn/s/12/t/1006/e5/65/info189797.htm
 通过观察这两个url，可以发现1006后面的都是可以变的，所以可以根据这个来写正则抽取链接。
 
 详细页页面如下：
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spide-detail-page.png?raw=true)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/spider-detail-page.png?raw=true)
 
 ### 发现通知URL
 
