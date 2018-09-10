@@ -13,7 +13,8 @@ Linux-01
 &ensp;&ensp;linux不像windows那样将一个硬盘分区，linux目录结构是典型的树状结构，有一个主目录“/”，也叫根目录，你可以暂且认为所有的文件都在这个根目录里存放着。当你cd 到了“/”目录，就到了目录结构的顶点。
 <div align=center>
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/linux_dir_tree.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/linux_dir_tree.png?raw=true)
+
 </div>
 <center>根目录下的文件夹</center>
 
@@ -26,7 +27,7 @@ Linux-01
 &ensp;&ensp;很多初学者说啊，我没有Linux系统，我又不想学安装虚拟机，我也不想花钱买服务器，我拿什么来练习这些命令呢，好难啊。（就你事多。。。）<br/>
 &ensp;&ensp;那么非常感谢git，git给了你在windows上敲击Linux命令的机会。你在你的windows主机上安装一个git客户端，能够给你提供一个git bash。git bash提供了仿真命令的环境，你在git bash里尽情的输入Linux命令吧。当然这些命令是基础命令，想既省钱又能使用全部的Linux命令，就去学习装系统吧！
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/git_bash.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/git_bash.png?raw=true)
 <center>git bash</center>
 
 接下来我们就来一一看一下常用的Linux命令吧。
