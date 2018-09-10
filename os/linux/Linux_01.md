@@ -11,11 +11,10 @@ Linux-01
 2、Linux的目录结构
 -------------------------
 &ensp;&ensp;linux不像windows那样将一个硬盘分区，linux目录结构是典型的树状结构，有一个主目录“/”，也叫根目录，你可以暂且认为所有的文件都在这个根目录里存放着。当你cd 到了“/”目录，就到了目录结构的顶点。
-<div align=center>
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/linux_dir_tree.png)
-</div>
-<center>根目录下的文件夹</center>
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/linux_dir_tree.png?raw=true)
+
+根目录下的文件夹<br>
 
 其中bin目录下放着许多可执行文件，一般都是存放着各种指令，像cat、mv等，boot目录存放着开机等设定的值，dev存放的都是设备文件，就像window下的资源管理器，etc存放的是系统的配置文件，像密码，path环境变量等。home是家目录，在linux中新建的其他用户都会在这里生成一个目录，之后这个用户登录都会进入到home里的相应目录。root目录就是系统管理员的家目录。至于其他的目录，使用者可以在用到的时候深入研究一下。
 
@@ -26,11 +25,13 @@ Linux-01
 &ensp;&ensp;很多初学者说啊，我没有Linux系统，我又不想学安装虚拟机，我也不想花钱买服务器，我拿什么来练习这些命令呢，好难啊。（就你事多。。。）<br/>
 &ensp;&ensp;那么非常感谢git，git给了你在windows上敲击Linux命令的机会。你在你的windows主机上安装一个git客户端，能够给你提供一个git bash。git bash提供了仿真命令的环境，你在git bash里尽情的输入Linux命令吧。当然这些命令是基础命令，想既省钱又能使用全部的Linux命令，就去学习装系统吧！
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/git_bash.png)
+![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/git_bash.png?raw=true)
 <center>git bash</center>
 
 接下来我们就来一一看一下常用的Linux命令吧。
+
 > # 磁盘管理
+
 &ensp;&ensp;Linuxd的磁盘管理有很多命令，这里吧这些命令一一列出来，简单介绍一下。至于每一个命令的多种传参方式过多，这里不一一解释，使用者可以输入--help查看并使用。
 <br>
 ```bash
@@ -71,7 +72,9 @@ $ mount /dev/hda1 /mnt  //将 /dev/hda1 挂在 /mnt 之下。
 tree命令用于以树状图列出目录的内容,这个功能一些Linux发行版没有，需要自己安装。
 $ tree                  //以树状图列出当前目录结构
 ```
+
 > # 文件管理
+
 &ensp;&ensp;文件管理一般是对文件进行操作，在使用linux系统过程中，我们大多数时间都要对文件进行操作、管理。
 ```bash
 cat命令用于连接文件并打印到标准输出设备上。
@@ -138,7 +141,9 @@ sh命令用于执行sh文件
 $ sh test.sh               //执行sh文件
 $ ./test.sh                //可执行文件可以直接这样执行          
 ```
+
 > # 系统管理
+
 &ensp;&ensp;系统管理命令多是用于操作用户、线程、权限等。系统管理的命令也经常要使用到。
 ```bash
 adduser与useradd在centOS上是相同的指令。在Ubuntu上，useradd不会在/home目录创建用户名相同的目录，而adduser会。
@@ -163,7 +168,9 @@ $ kill -KILL 12345         //强制关掉pid为123456的线程
 ```bash
 $ sleep 5m                 //休眠5分钟（很少有人用sleep ，单核服务器直接停了5分钟。。。）
 ```
+
 > # 备份压缩
+
 &ensp;&ensp;在CentOS中，默认安装了tar和gzip。tar可以解压后缀为*.tar[.gz/b2/z]的文件，gzip可解压后缀为*.gz的文件。linux系统中大多数为这两种压缩包，基本够用，若你有更高的需求可以装其他压缩软件。
 ```bash
 在tar跟的参数中，第一个字母代表执行什么（-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件末尾追加文件-u：更新原压缩包中的文件）,中间的v表示要显示解压过程，可以去掉v不显示。
@@ -172,6 +179,7 @@ $ tar -xzvf file.tar.gz //解压tar.gz
 $ tar -xjvf file.tar.bz2   //解压 tar.bz2
 $ tar -xZvf file.tar.Z   //解压tar.Z
 ```
+
 小结
 ---------------------------
 &ensp;&ensp;你看了这么多东西将会发现，并不能操作linux系统。因为没有使用场景，你根本就没有去练习这些命令的愿望，其实在真实的开发中这些命令也就那几个常用的命令一直用，其他的都不怎么用。在下一个文档我会配置环境变量，书写一些shell批处理脚本等安装程序等一系列开发中会用到东西。但是想看后边的你还是老老实实把这部分看完，毕竟千里之行始于足下，九层之台，始于垒土。这是基础，这些内容不看你可能会一头雾水。
