@@ -11,12 +11,10 @@ Linux-01
 2、Linux的目录结构
 -------------------------
 &ensp;&ensp;linux不像windows那样将一个硬盘分区，linux目录结构是典型的树状结构，有一个主目录“/”，也叫根目录，你可以暂且认为所有的文件都在这个根目录里存放着。当你cd 到了“/”目录，就到了目录结构的顶点。
-<div align=center>
 
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/biao_linux/linux_dir_tree.png?raw=true)
 
-</div>
-<center>根目录下的文件夹</center>
+根目录下的文件夹<br>
 
 其中bin目录下放着许多可执行文件，一般都是存放着各种指令，像cat、mv等，boot目录存放着开机等设定的值，dev存放的都是设备文件，就像window下的资源管理器，etc存放的是系统的配置文件，像密码，path环境变量等。home是家目录，在linux中新建的其他用户都会在这里生成一个目录，之后这个用户登录都会进入到home里的相应目录。root目录就是系统管理员的家目录。至于其他的目录，使用者可以在用到的时候深入研究一下。
 
