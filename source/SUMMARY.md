@@ -123,7 +123,7 @@
         * [程序中断](os/basic/interruption.md)
         * [DMA](os/basic/dma.md)
     * [Linux](os/linux/README.md)
-        * [introduce and comands](os/linux/Linux_01.md)
+        * [introduce and commands](os/linux/Linux_01.md)
         * [application and shell](os/linux/Linux_02.md)
         * [Command](os/linux/command/README.md)
             * [grep](os/linux/command/grep.md)
