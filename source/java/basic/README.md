@@ -279,3 +279,24 @@ DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则
 
 测试：<br/>
 [本机直接内存溢出测试代码](https://github.com/mstao/jvm-learning/blob/master/jvm-test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java)
+
+**Minor GC、Major GC和Full GC之间的区别?**
+
+针对HotSpot VM的实现，它里面的GC其实准确分类只有两大种：
+
+- Partial GC：并不收集整个GC堆的模式
+    - Young GC：只收集young gen的GC
+    - Old GC：只收集old gen的GC。只有CMS的concurrent collection是这个模式
+    - Mixed GC：收集整个young gen以及部分old gen的GC。只有G1有这个模式
+- Full GC：收集整个堆，包括young gen、old gen、perm gen（JDK8之后metaspace替代）等所有部分的模式。
+
+Minor GC收集新生代（Young generation），包括Eden和两个Survivor。当Eden区没有足够空间进行分配时，虚拟机会触发Minor GC。
+
+Full GC 触发条件：
+
+- 当准备要触发一次young GC时，如果发现统计数据说之前young GC的平均晋升大小比目前old gen剩余的空间大，则不会触发young GC而是转为触发full GC（因为HotSpot VM的GC里，除了CMS的concurrent collection之外，其它能收集old gen的GC都会同时收集整个GC堆，包括young gen，所以不需要事先触发一次单独的young GC）；
+- 如果有perm gen的话，要在perm gen分配空间但已经没有足够空间时，也要触发一次Full GC；
+- 或者System.gc()、heap dump带GC，默认也是触发Full GC。
+
+作者：RednaxelaFX
+链接：https://www.zhihu.com/question/41922036/answer/93079526
