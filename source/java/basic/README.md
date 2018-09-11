@@ -280,7 +280,7 @@ DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则
 测试：<br/>
 [本机直接内存溢出测试代码](https://github.com/mstao/jvm-learning/blob/master/jvm-test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java)
 
-**Minor GC、Major GC和Full GC之间的区别?**
+### Minor GC、Major GC和Full GC之间的区别?
 
 针对HotSpot VM的实现，它里面的GC其实准确分类只有两大种：
 
