@@ -127,7 +127,7 @@ public String toString() {
 
 **实现:**
 
-1. 获取Class对象，四种方式
+1. 获取Class对象
 
 - 已知具体的类，通过类的class属性获取，对于基本类型来说，它们的包装类型（wrapper classes）拥有一个名为“TYPE”的final静态字段，指向该基本类型对应的Class对象
 - 已知某个类的实例，调用对象的getClass()方法获取Class对象
