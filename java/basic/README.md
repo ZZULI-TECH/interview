@@ -1,4 +1,4 @@
-# 基本功
+# 基本知识
 
 ### 面对对象的特性
 
@@ -122,24 +122,30 @@ public String toString() {
 反射的核心：是 JVM 在运行时 才动态加载的类或调用方法或属性，它不需要事先（写代码的时候或编译期）知道运行对象是谁。
 
 **用途：**
-- 当我们在使用 IDE（如Eclipse\IDEA）时，当我们输入一个队长或者类并向调用它的属性和方法时，一按(“.”)点号，编译器就会自动列出她的属性或方法，这里就会用到反射。
+- 当我们在使用 IDE（如Eclipse\IDEA）时，当我们输入一个类名并向调用它的属性和方法时，一按(“.”)点号，编译器就会自动列出她的属性或方法，这里就会用到反射。
 - 反射最重要的用途就是开发各种通用框架。很多框架（比如 Spring）都是配置化的（比如通过 XML文件配置 JavaBean，Action之类的），为了保证框架的通用性，他们可能根据配置文件加载不同的对象或类，调用不同的方法，这个时候就必须用到反射——运行时动态加载需要加载的对象。
 
 **实现:**
 
-1. 获取Class对象，四种方式
+1. 获取Class对象
 
-![image](https://github.com/ZZULI-TECH/interview/blob/master/images/how-to-get-class.png?raw=true)
+- 已知具体的类，通过类的class属性获取，对于基本类型来说，它们的包装类型（wrapper classes）拥有一个名为“TYPE”的final静态字段，指向该基本类型对应的Class对象
+- 已知某个类的实例，调用对象的getClass()方法获取Class对象
+- 已知一个类的全类名，使用静态方法Class.forName来获取
+
+例如，Integer.TYPE 指向 int.class。对于数组类型来说，可以使用类名 +“[ ].class”来访问，如 int[ ].class。
+
+除此之外，Class 类和 java.lang.reflect 包中还提供了许多返回 Class 对象的方法。例如，对于数组类的 Class 对象，调用 Class.getComponentType() 方法可以获得数组元素的类型。
+
+我们还可以利用自定义Classloader来加载我们的类，然后可以获取到该类的Class对象。类似于下面的代码，注意代码可能会抛出异常。
 
 2. 创建对象，两种方式
 - 调用构造方法来创建对象，例如：`Object student1= clazz.newInstance();`
-- 通过构造方法创建对象，例如：`Constructor c= clazz.getConstructor();  Object student2=c.newInstance();
-`
+- 通过构造方法创建对象，例如：`Constructor c= clazz.getConstructor();  Object student2=c.newInstance();`
 
 3. 获取该类所有的方法 `clazz.getMethods()`
 4. 获取属性  `clazz.getSuperclass().getDeclaredField("name")`
 5. 获取接口  `clazz.getInterfaces()[0].getName()`
-
 
 ### 什么是泛型、为什么要使用以及泛型擦除
 
@@ -279,3 +285,24 @@ DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则
 
 测试：<br/>
 [本机直接内存溢出测试代码](https://github.com/mstao/jvm-learning/blob/master/jvm-test/src/main/java/me/mingshan/jvm/oom/DirectMemoryOOM.java)
+
+### Minor GC、Major GC和Full GC之间的区别?
+
+针对HotSpot VM的实现，它里面的GC其实准确分类只有两大种：
+
+- Partial GC：并不收集整个GC堆的模式
+    - Young GC：只收集young gen的GC
+    - Old GC：只收集old gen的GC。只有CMS的concurrent collection是这个模式
+    - Mixed GC：收集整个young gen以及部分old gen的GC。只有G1有这个模式
+- Full GC：收集整个堆，包括young gen、old gen、perm gen（JDK8之后metaspace替代）等所有部分的模式。
+
+Minor GC收集新生代（Young generation），包括Eden和两个Survivor。当Eden区没有足够空间进行分配时，虚拟机会触发Minor GC。
+
+Full GC 触发条件：
+
+- 当准备要触发一次young GC时，如果发现统计数据说之前young GC的平均晋升大小比目前old gen剩余的空间大，则不会触发young GC而是转为触发full GC（因为HotSpot VM的GC里，除了CMS的concurrent collection之外，其它能收集old gen的GC都会同时收集整个GC堆，包括young gen，所以不需要事先触发一次单独的young GC）；
+- 如果有perm gen的话，要在perm gen分配空间但已经没有足够空间时，也要触发一次Full GC；
+- 或者System.gc()、heap dump带GC，默认也是触发Full GC。
+
+作者：RednaxelaFX
+链接：https://www.zhihu.com/question/41922036/answer/93079526
