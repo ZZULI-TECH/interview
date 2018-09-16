@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../database/" />
+    <link rel="next" href="001.TwoSum.html" />
     
     
     <link rel="prev" href="../algorithm/bitmap/BitMap.html" />
@@ -474,6 +474,51 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.12" data-path="../java/basic/Java8/">
+            
+                <a href="../java/basic/Java8/">
+            
+                    
+                    Java8
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.12.1" data-path="../java/basic/Java8/lambda.html">
+            
+                <a href="../java/basic/Java8/lambda.html">
+            
+                    
+                    lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.12.2" data-path="../java/basic/Java8/stream.html">
+            
+                <a href="../java/basic/Java8/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1245,6 +1290,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="001.TwoSum.html">
+            
+                <a href="001.TwoSum.html">
+            
+                    
+                    两数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="002.AddTwoNumbers.html">
+            
+                <a href="002.AddTwoNumbers.html">
+            
+                    
+                    两数相加
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2349,12 +2426,78 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#leetcode"><b> </b>LeetCode</a></li></ul></div><a href="#leetcode" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="leetcode"><a name="leetcode" class="anchor-navigation-ex-anchor" href="#leetcode"><i class="fa fa-link" aria-hidden="true"></i></a> LeetCode</h1>
-<p>&#x7B80;&#x7EA6;&#x7684;&#x80CC;&#x540E;&#xFF0C;&#x5F80;&#x5F80;&#x662F;&#x590D;&#x6742;&#xFF1B;<br>
-&#x6DF1;&#x9083;&#x7684;&#x6781;&#x70B9;&#xFF0C;&#x5F80;&#x5F80;&#x662F;&#x7B80;&#x7EA6;&#x3002;<br>
-&#x6211;&#x4EEC;&#x4E0D;&#x505C;&#x8FFD;&#x5BFB;&#x90A3;&#x667A;&#x6167;&#x7684;&#x4E00;&#x4E1D;&#x5149;&#x8292;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5E0C;&#x671B;&#x5728;&#x6C89;&#x601D;&#x4E2D;&#xFF0C;&#x770B;&#x5230;&#x59CB;&#x7EC8;&#x5FAE;&#x7B11;&#x5E76;&#x81EA;&#x4FE1;&#x7684;&#x81EA;&#x5DF1;&#x3002;<br>
-<br>
-<br>
-Talk is cheap, show me the code!  &#x2014;&#x2014; Linus Torvalds</p>
+<blockquote>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF08;Time Complexity&#xFF09;</p>
+</blockquote>
+<p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7B97;&#x6CD5;&#x4E2D;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x91CD;&#x590D;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;&#x662F;&#x95EE;&#x9898;&#x89C4;&#x6A21;n&#x7684;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;T(n)&#x8868;&#x793A;&#xFF0C;&#x82E5;&#x6709;&#x67D0;&#x4E2A;&#x8F85;&#x52A9;&#x51FD;&#x6570;f(n)&#xFF0C;&#x4F7F;&#x5F97;T(n)/f(n)&#x7684;&#x6781;&#x9650;&#x503C;&#xFF08;&#x5F53;n&#x8D8B;&#x8FD1;&#x4E8E;&#x65E0;&#x7A77;&#x5927;&#x65F6;&#xFF09;&#x4E3A;&#x4E0D;&#x7B49;&#x4E8E;&#x96F6;&#x7684;&#x5E38;&#x6570;&#xFF0C;&#x5219;&#x79F0;f(n)&#x662F;T(n)&#x7684;&#x540C;&#x6570;&#x91CF;&#x7EA7;&#x51FD;&#x6570;&#x3002;&#x8BB0;&#x4F5C;T(n)=O(f(n))&#xFF0C;&#x79F0;O(f(n))&#x4E3A;&#x7B97;&#x6CD5;&#x7684;&#x6E10;&#x8FDB;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x7B80;&#x79F0;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF08;Time Complexity&#xFF09;&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x9009;&#x53D6;&#x76F8;&#x5BF9;&#x589E;&#x957F;&#x6700;&#x9AD8;&#x7684;&#x9879; </li>
+<li>&#x5FFD;&#x7565;&#x6240;&#x6709;&#x4F4E;&#x6B21;&#x5E42;&#x9879;&#x548C;&#x6700;&#x9AD8;&#x6B21;&#x5E42;&#x7684;&#x7CFB;&#x6570;</li>
+<li>&#x82E5;&#x662F;&#x5E38;&#x6570;&#x7684;&#x8BDD;&#x7528;O(1)</li>
+</ul>
+<p>&#x5E38;&#x89C1;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x6267;&#x884C;&#x6B21;&#x6570;&#x51FD;&#x6570;</th>
+<th>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</th>
+<th>&#x9636;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>O(1)</td>
+<td>&#x5E38;&#x6570;&#x9636;</td>
+</tr>
+<tr>
+<td>2n+3</td>
+<td>O(n)</td>
+<td>&#x7EBF;&#x6027;&#x9636;</td>
+</tr>
+<tr>
+<td>2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>+3n+1</td>
+<td>O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>)</td>
+<td>&#x5E73;&#x65B9;&#x9636;</td>
+</tr>
+<tr>
+<td>5<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mrow><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">log_2{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord textstyle uncramped"><span class="mord mathit">n</span></span></span></span></span> + 20</td>
+<td>O(logn)</td>
+<td>&#x5BF9;&#x6570;&#x9636;</td>
+</tr>
+<tr>
+<td>2n + 3n<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mrow><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">log_2{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord textstyle uncramped"><span class="mord mathit">n</span></span></span></span></span> +19</td>
+<td>O(nlogn)</td>
+<td>nlogn&#x9636;</td>
+</tr>
+<tr>
+<td>4<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> + 2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>+3n+1</td>
+<td>O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>)</td>
+<td>&#x7ACB;&#x65B9;&#x9636;</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></td>
+<td>O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>)</td>
+<td>&#x6307;&#x6570;&#x9636;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF08;Space Complexity&#xFF09;</p>
+</blockquote>
+<p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;(Space Complexity)&#x662F;&#x5BF9;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#x5728;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E34;&#x65F6;&#x5360;&#x7528;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x7684;&#x91CF;&#x5EA6;&#xFF0C;&#x8BB0;&#x505A;S(n)=O(f(n))&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x5728;&#x673A;&#x5668;&#x4E0A;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x9664;&#x4E86;&#x9700;&#x8981;&#x5BC4;&#x5B58;&#x672C;&#x8EAB;&#x6240;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x3001;&#x5E38;&#x6570;&#x3001;&#x53D8;&#x91CF;&#x548C;&#x8F93;&#x5165;&#x6570;&#x636E;&#x5916;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x8F85;&#x52A9;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x5FFD;&#x7565;&#x5E38;&#x6570;&#xFF0C;&#x7528;O(1)&#x8868;&#x793A; </li>
+<li>&#x9012;&#x5F52;&#x7B97;&#x6CD5;&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;=&#x9012;&#x5F52;&#x6DF1;&#x5EA6;N*&#x6BCF;&#x6B21;&#x9012;&#x5F52;&#x6240;&#x8981;&#x7684;&#x8F85;&#x52A9;&#x7A7A;&#x95F4; </li>
+<li>&#x5BF9;&#x4E8E;&#x5355;&#x7EBF;&#x7A0B;&#x6765;&#x8BF4;&#xFF0C;&#x9012;&#x5F52;&#x6709;&#x8FD0;&#x884C;&#x65F6;&#x5806;&#x6808;&#xFF0C;&#x6C42;&#x7684;&#x662F;&#x9012;&#x5F52;&#x6700;&#x6DF1;&#x7684;&#x90A3;&#x4E00;&#x6B21;&#x538B;&#x6808;&#x6240;&#x8017;&#x8D39;&#x7684;&#x7A7A;&#x95F4;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x9012;&#x5F52;&#x6700;&#x6DF1;&#x7684;&#x90A3;&#x4E00;&#x6B21;&#x6240;&#x8017;&#x8D39;&#x7684;&#x7A7A;&#x95F4;&#x8DB3;&#x4EE5;&#x5BB9;&#x7EB3;&#x5B83;&#x6240;&#x6709;&#x9012;&#x5F52;&#x8FC7;&#x7A0B;&#x3002;</li>
+</ul>
+<p><strong>&#x89E3;&#x9898;&#x5217;&#x8868;&#xFF1A;</strong></p>
+<ul>
+<li><a href="https://zzuli-tech.github.io/interview/leetcode/001.TwoSum.html" target="_blank">001 - &#x4E24;&#x6570;&#x4E4B;&#x548C;</a></li>
+<li><a href="https://zzuli-tech.github.io/interview/leetcode/002.AddTwoNumbers.html" target="_blank">002 - &#x4E24;&#x6570;&#x76F8;&#x52A0;</a>)</li>
+</ul>
 
                                 
                                 </section>
@@ -2387,7 +2530,7 @@ Talk is cheap, show me the code!  &#x2014;&#x2014; Linus Torvalds</p>
                 </a>
                 
                 
-                <a href="../database/" class="navigation navigation-next " aria-label="Next page: 数据库">
+                <a href="001.TwoSum.html" class="navigation navigation-next " aria-label="Next page: 两数之和">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2398,7 +2541,7 @@ Talk is cheap, show me the code!  &#x2014;&#x2014; Linus Torvalds</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode题解","level":"1.5","depth":1,"next":{"title":"数据库","level":"1.6","depth":1,"path":"database/README.md","ref":"database/README.md","articles":[{"title":"MySQL","level":"1.6.1","depth":2,"path":"database/mysql/README.md","ref":"database/mysql/README.md","articles":[{"title":"索引","level":"1.6.1.1","depth":3,"path":"database/mysql/index.md","ref":"database/mysql/index.md","articles":[]},{"title":"事务","level":"1.6.1.2","depth":3,"path":"database/mysql/transaction.md","ref":"database/mysql/transaction.md","articles":[]},{"title":"数据库锁","level":"1.6.1.3","depth":3,"path":"database/mysql/local.md","ref":"database/mysql/local.md","articles":[]},{"title":"优化","level":"1.6.1.4","depth":3,"path":"database/mysql/optimalize.md","ref":"database/mysql/optimalize.md","articles":[]}]},{"title":"MongoDB","level":"1.6.2","depth":2,"path":"database/mongodb/README.md","ref":"database/mongodb/README.md","articles":[]},{"title":"Redis","level":"1.6.3","depth":2,"path":"database/redis/README.md","ref":"database/redis/README.md","articles":[]}]},"previous":{"title":"位图","level":"1.4.10","depth":2,"path":"algorithm/bitmap/BitMap.md","ref":"algorithm/bitmap/BitMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"leetcode/README.md","mtime":"2018-09-12T11:35:51.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-12T14:42:22.008Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode题解","level":"1.5","depth":1,"next":{"title":"两数之和","level":"1.5.1","depth":2,"path":"leetcode/001.TwoSum.md","ref":"leetcode/001.TwoSum.md","articles":[]},"previous":{"title":"位图","level":"1.4.10","depth":2,"path":"algorithm/bitmap/BitMap.md","ref":"algorithm/bitmap/BitMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"leetcode/README.md","mtime":"2018-09-16T04:30:36.478Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-16T04:31:43.332Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
