@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="lock.html" />
+    <link rel="next" href="websocket.html" />
     
     
-    <link rel="prev" href="thread.html" />
+    <link rel="prev" href="lock/" />
     
 
     </head>
@@ -407,9 +407,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.7.3" data-path="dynamic-proxy/cglib-dynamic-proxy.md">
+        <li class="chapter " data-level="1.2.1.7.3" data-path="dynamic-proxy/cglib-dynamic-proxy.html">
             
-                <span>
+                <a href="dynamic-proxy/cglib-dynamic-proxy.html">
             
                     
                     CGLIB动态代理
@@ -425,9 +425,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.8" data-path="thread.html">
+        <li class="chapter " data-level="1.2.1.8" data-path="thread/">
             
-                <a href="thread.html">
+                <a href="thread/">
             
                     
                     线程
@@ -438,12 +438,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.1.9" data-path="threadlocal.html">
+        <li class="chapter " data-level="1.2.1.9" data-path="lock/">
             
-                <a href="threadlocal.html">
+                <a href="lock/">
             
                     
-                    ThreadLocal
+                    锁机制
             
                 </a>
             
@@ -451,12 +451,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.10" data-path="lock.html">
+        <li class="chapter active" data-level="1.2.1.10" data-path="threadlocal.html">
             
-                <a href="lock.html">
+                <a href="threadlocal.html">
             
                     
-                    锁机制
+                    ThreadLocal
             
                 </a>
             
@@ -904,6 +904,25 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../jvm/class-structure/descriptor.html">
+            
+                <a href="../../jvm/class-structure/descriptor.html">
+            
+                    
+                    描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2425,7 +2444,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#threadlocal"><b> </b>ThreadLocal</a></li></ul></div><a href="#threadlocal" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="threadlocal"><a name="threadlocal" class="anchor-navigation-ex-anchor" href="#threadlocal"><i class="fa fa-link" aria-hidden="true"></i></a> ThreadLocal</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#threadlocal"><b> </b>ThreadLocal</a></li></ul></div><a href="#threadlocal" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="threadlocal"><a name="threadlocal" class="anchor-navigation-ex-anchor" href="#threadlocal"><i class="fa fa-link" aria-hidden="true"></i></a> ThreadLocal</h1>
 <p>&#x8BB0;&#x5F97;&#x53BB;&#x5E74;&#x5B66;&#x4E60;Spring MVC&#x7684;&#x65F6;&#x5019;&#x81EA;&#x5DF1;&#x5B66;&#x7740;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x5C0F;&#x5C0F;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x7528;&#x4E86;&#x4E00;&#x4E2A;AppContext&#x6765;&#x8868;&#x793A;&#x5E94;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x5E94;&#x8BE5;&#x6709;&#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x7684;AppContext&#xFF0C;&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;Connection&#x7B49;&#xFF0C;&#x6B64;&#x65F6;&#x8003;&#x8651;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4E8B;&#x52A1;&#x95EE;&#x9898;&#xFF0C;&#x5373;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5185;&#xFF0C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#x62FF;&#x5230;&#x7684;&#x662F;&#x4E00;&#x4E2A;Connection&#xFF0C;&#x8BE5;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;&#x6B64;&#x65F6;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;ThreadLocal&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
 <h3 id="threadlocal&#x4ECB;&#x7ECD;"><a name="threadlocal&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#threadlocal&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="threadlocal&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#threadlocal&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>ThreadLocal&#x4ECB;&#x7ECD;</h3>
 <p><strong>ThreadLocal&#x80FD;&#x5E72;&#x5565;&#xFF1F;</strong></p>
@@ -2747,12 +2766,12 @@ tab[staleSlot].value = <span class="hljs-keyword">null</span>;
 
             
                 
-                <a href="thread.html" class="navigation navigation-prev " aria-label="Previous page: 线程">
+                <a href="lock/" class="navigation navigation-prev " aria-label="Previous page: 锁机制">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="lock.html" class="navigation navigation-next " aria-label="Next page: 锁机制">
+                <a href="websocket.html" class="navigation navigation-next " aria-label="Next page: WebSocket">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2763,7 +2782,7 @@ tab[staleSlot].value = <span class="hljs-keyword">null</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ThreadLocal","level":"1.2.1.9","depth":3,"next":{"title":"锁机制","level":"1.2.1.10","depth":3,"path":"java/basic/lock.md","ref":"java/basic/lock.md","articles":[]},"previous":{"title":"线程","level":"1.2.1.8","depth":3,"path":"java/basic/thread.md","ref":"java/basic/thread.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/basic/threadlocal.md","mtime":"2018-09-12T14:55:30.747Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-16T04:31:43.332Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ThreadLocal","level":"1.2.1.10","depth":3,"next":{"title":"WebSocket","level":"1.2.1.11","depth":3,"path":"java/basic/websocket.md","ref":"java/basic/websocket.md","articles":[]},"previous":{"title":"锁机制","level":"1.2.1.9","depth":3,"path":"java/basic/lock/README.md","ref":"java/basic/lock/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/basic/threadlocal.md","mtime":"2018-09-16T13:18:16.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-18T02:38:10.231Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
