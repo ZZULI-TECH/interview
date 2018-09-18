@@ -25,6 +25,7 @@
         * [线程](java/basic/thread/README.md)
         * [锁机制](java/basic/lock/README.md)
         * [ThreadLocal](java/basic/threadlocal.md)
+        * [位运算](java/basic/BitOperation.md)
         * [WebSocket](java/basic/websocket.md)
         * [Java8](java/basic/Java8/README.md)
             * [lambda](java/basic/Java8/lambda.md)
