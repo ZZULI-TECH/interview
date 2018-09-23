@@ -1,6 +1,6 @@
 # Selector介绍
 
-Selector是Java NIO中实现多路复用的关键，用于检查一个或多个NIO Channel 的状态是否处于可连接、可接收、可读、可写状态。单个单线程通过Selector来管理多个Channel，减少线程上下文切花能带来的开销。 Selector是一个抽象类，具体是通过SelectorProvider实现的。对于Windows和Linux，SelectorProvider有着不同的实现。
+Selector是Java NIO中实现多路复用的关键，用于检查一个或多个NIO Channel 的状态是否处于可连接、可接收、可读、可写状态。单个线程通过Selector来管理多个Channel，减少线程上下文切花能带来的开销。 Selector是一个抽象类，具体是通过SelectorProvider实现的。对于Windows和Linux，SelectorProvider有着不同的实现。
 
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/nio-selector.png?raw=true)
 
@@ -54,7 +54,7 @@ public static SelectorProvider provider() {
 }
 ```
 
-[windows](https://github.com/unofficial-openjdk/openjdk/blob/531ef5d0ede6d733b00c9bc1b6b3c14a0b2b3e81/src/java.base/windows/classes/sun/nio/ch/DefaultSelectorProvider.java)
+[Windows](https://github.com/unofficial-openjdk/openjdk/blob/531ef5d0ede6d733b00c9bc1b6b3c14a0b2b3e81/src/java.base/windows/classes/sun/nio/ch/DefaultSelectorProvider.java)
 ```
 public class DefaultSelectorProvider {
 
