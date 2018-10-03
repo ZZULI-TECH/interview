@@ -31,6 +31,7 @@
         * [Java8](java/base/Java8/README.md)
             * [lambda](java/base/Java8/lambda.md)
             * [stream](java/base/Java8/stream.md)
+        * [MethodHandles](java/base/MethodHandles.md)
     * [框架](java/framework/README.md)  
         * [Spring](java/framework/Spring/README.md)
             * [IOC](java/framework/Spring/SpringIOC.md)
