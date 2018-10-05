@@ -1,4 +1,4 @@
-# MethodHandles(方法句柄)
+# Method Handles(方法句柄)
 
 在Java中，我们想在程序运行时调用其方法，可以用JDK提供的反射相关API来实现，代码如下：
 
