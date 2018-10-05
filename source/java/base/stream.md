@@ -1,5 +1,7 @@
-# stream   
-java 8 中的stream流是一个来自数据源的元素队列并支持聚合操作    
+# stream
+
+java 8 中的stream流是一个来自数据源的元素队列并支持聚合操作
+
 - 元素是特定类型的对象，形成一个队列。stream不会存储元素，只是按需计算    
 - 的数据来源可以`集合`，`数组`，`I/O channel`,产生器`generator`等    
 - 可以进行`聚合操作`，filter,map,reduce,find,match,sorted等   
