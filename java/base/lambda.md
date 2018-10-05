@@ -1,4 +1,5 @@
-# lambda   
+# lambda
+
 lambda 的通用格式(参数类型可以不用声明):
 ```
 (Type a, Type b, ……) -> {
@@ -23,10 +24,10 @@ a -> {
 例如：     
 ```
 @FunctionalInterface
-    public static interface Converter<F, T> {
-        T converter(F from);
-    }
-```    
+public static interface Converter<F, T> {
+    T converter(F from);
+}
+```
 可以使用lambda表达式实现函数式接口，在java8之前内部实现接口都是用匿名类的，    
 例如：
 ```
