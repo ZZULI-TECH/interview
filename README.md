@@ -20,7 +20,7 @@ Gitbook使用教程：[GitBook 简明教程](http://www.chengweiyang.cn/gitbook/
 ### 编辑流程
 
 - 在本地安装Gitbook，将本仓库Clone下来(Master分支)
-- 在source下的文件运行命令`gitbook install` 添加相关插件(不要执行`gitbook init`)
+- 在source文夹夹下运行命令`gitbook install` 添加相关插件(不要执行`gitbook init`)
 - 编辑source下的文件(注意SUMMARY.md里面的内容要和source目录下的文件一致)，运行`gitbook serve`进行本地预览
 - 只需编辑Master分支下的文件，gh-pages分支为编译后的HTML，统一进行更新
 - 最后将Master分支下改动的文件Push到Github的本仓库即可(注意先Pull后Push)
