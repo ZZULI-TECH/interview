@@ -2890,7 +2890,423 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#callablefuture&#x53CA;futuretask&#x5B9E;&#x73B0;&#x5206;&#x6790;jdk11"><b> </b>Callable&amp;Future&#x53CA;FutureTask&#x5B9E;&#x73B0;&#x5206;&#x6790;(JDK11)</a></li><ul><li><span class="title-icon "></span><a href="#callable"><b>1. </b>Callable</a></li><li><span class="title-icon "></span><a href="#future"><b>2. </b>Future</a></li><li><span class="title-icon "></span><a href="#futuretask"><b>3. </b>FutureTask</a></li><ul><li><span class="title-icon "></span><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state"><b>3.1. </b>&#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state</a></li><li><span class="title-icon "></span><a href="#run"><b>3.2. </b>run</a></li><li><span class="title-icon "></span><a href="#get"><b>3.3. </b>get</a></li><li><span class="title-icon "></span><a href="#finishcompletion"><b>3.4. </b>finishCompletion</a></li><li><span class="title-icon "></span><a href="#cancel"><b>3.5. </b>cancel</a></li></ul></ul></ul></div><a href="#callablefuture&#x53CA;futuretask&#x5B9E;&#x73B0;&#x5206;&#x6790;jdk11" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="callablefuture&#x53CA;futuretask&#x5B9E;&#x73B0;&#x5206;&#x6790;jdk11"><a name="callablefuture&#x53CA;futuretask&#x5B9E;&#x73B0;&#x5206;&#x6790;jdk11" class="anchor-navigation-ex-anchor" href="#callablefuture&#x53CA;futuretask&#x5B9E;&#x73B0;&#x5206;&#x6790;jdk11"><i class="fa fa-link" aria-hidden="true"></i></a> Callable&amp;Future&#x53CA;FutureTask&#x5B9E;&#x73B0;&#x5206;&#x6790;(JDK11)</h1>
+<h2 id="callable"><a name="callable" class="anchor-navigation-ex-anchor" href="#callable"><i class="fa fa-link" aria-hidden="true"></i></a>1. Callable</h2>
+<p>&#x5728;Java&#x4E2D;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;<code>Thread</code>&#x7C7B;&#x6216;&#x8005;&#x5B9E;&#x73B0;<code>Runnable</code>&#x63A5;&#x53E3;&#xFF0C;JDK1.5&#x4E4B;&#x540E;&#x5728;<code>java.util.concurrent</code>&#x63D0;&#x4F9B;&#x4E86;<code>Callable</code>&#x63A5;&#x53E3;&#xFF0C;&#x8BE5;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x7C7B;&#x4F3C;<code>Runnable</code>&#x63A5;&#x53E3;&#xFF0C;&#x4E0D;&#x8FC7;<code>Callable</code>&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x800C;<code>Runnable</code>&#x5374;&#x4E0D;&#x4F1A;&#x3002;&#x4E0B;&#x9762;&#x662F;<code>Callable</code>&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-meta">@FunctionalInterface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Callable</span>&lt;<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-comment">/**
+     * Computes a result, or throws an exception if unable to do so.
+     *
+     * <span class="hljs-doctag">@return</span> computed result
+     * <span class="hljs-doctag">@throws</span> Exception if unable to compute a result
+     */</span>
+    <span class="hljs-function">V <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>;
+}
+</code></pre>
+<p><code>Callable</code>&#x63A5;&#x53E3;&#x4E2D;&#x53EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;<code>call()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x7C7B;&#x578B;&#x4E0E;&#x4F20;&#x5165;&#x7684;&#x6CDB;&#x578B;&#x4E00;&#x81F4;&#x3002;&#x65E2;&#x7136;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x54EA;&#x91CC;&#x7528;&#x5230;&#x5462;&#xFF1F;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4E0E;<code>FutureTask</code>&#x7ED3;&#x5408;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallableTest</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Callable</span>&lt;<span class="hljs-title">String</span>&gt; </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException,
+        ExecutionException </span>{
+        FutureTask&lt;String&gt; future = <span class="hljs-keyword">new</span> FutureTask&lt;&gt;(<span class="hljs-keyword">new</span> CallableTest());
+        <span class="hljs-keyword">new</span> Thread(future).start();
+        System.out.println(future.get());
+    }
+
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x5C06; <code>Callable</code>&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4F20;&#x7ED9;<code>FutureTask</code>&#xFF0C;&#x7136;&#x540E;&#x5229;&#x7528;&#x7EBF;&#x7A0B;&#x6765;&#x8FD0;&#x884C;<code>FutureTask</code>&#xFF0C;&#x6700;&#x7EC8;&#x8C03;&#x7528;<code>get()</code>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;</p>
+<h2 id="future"><a name="future" class="anchor-navigation-ex-anchor" href="#future"><i class="fa fa-link" aria-hidden="true"></i></a>2. Future</h2>
+<p><code>FutureTask</code>&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x53D6;&#x6D88;&#x7684;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#xFF0C;&#x8BE5;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;<code>Future</code>&#x7684;&#x57FA;&#x672C;&#x5B9E;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;<code>Future</code>&#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;&#x5462;&#xFF1F;<code>Future</code>&#x63A5;&#x53E3;&#x63D0;&#x4F9B;&#x4E86;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Future</span>&lt;<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-comment">/**
+     * &#x8BD5;&#x56FE;&#x53D6;&#x6D88;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x3002;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">cancel</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> mayInterruptIfRunning)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x5982;&#x679C;&#x6B64;&#x4EFB;&#x52A1;&#x5728;&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#x88AB;&#x53D6;&#x6D88;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true&#x3002;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isCancelled</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x8FD4;&#x56DE;true&#x3002;&#x5B8C;&#x6210;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x4E8E;&#x6B63;&#x5E38;&#x7EC8;&#x6B62;&#x3001;&#x5F02;&#x5E38;&#x6216;&#x53D6;&#x6D88;&#x2014;&#x2014;&#x5728;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;true&#x3002;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isDone</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#xFF0C;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
+     */</span>
+    <span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException, ExecutionException</span>;
+
+    <span class="hljs-comment">/**
+     * &#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
+     */</span>
+    <span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span>
+        <span class="hljs-keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;
+}
+</code></pre>
+<p><code>Future</code>&#x8868;&#x793A;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x4E86;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x8BA1;&#x7B97;&#x662F;&#x5426;&#x5B8C;&#x6210;&#x3001;&#x7B49;&#x5F85;&#x5176;&#x5B8C;&#x6210;&#x4EE5;&#x53CA;&#x68C0;&#x7D22;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5BF9;&#x8FD9;&#x4E9B;&#x65B9;&#x9762;&#x7684;&#x5177;&#x4F53;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<ul>
+<li><code>cancel(boolean mayInterruptIfRunning)</code>&#xFF1A;&#x8BD5;&#x56FE;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x3001;&#x5DF2;&#x88AB;&#x53D6;&#x6D88;&#x6216;&#x7531;&#x4E8E;&#x5176;&#x4ED6;&#x539F;&#x56E0;&#x65E0;&#x6CD5;&#x53D6;&#x6D88;&#xFF0C;&#x5219;&#x6B64;&#x5C1D;&#x8BD5;&#x5C06;&#x5931;&#x8D25;&#x3002;&#x5982;&#x679C;&#x6210;&#x529F;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x8C03;&#x7528;cancel&#x65F6;&#x8BE5;&#x4EFB;&#x52A1;&#x5C1A;&#x672A;&#x542F;&#x52A8;&#xFF0C;&#x5219;&#x8BE5;&#x4EFB;&#x52A1;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8FD0;&#x884C;&#x3002;&#x53C2;&#x6570;mayInterruptIfRunning&#x8868;&#x793A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x53D6;&#x6D88;&#x6B63;&#x5728;&#x6267;&#x884C;&#x5374;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x5728;&#x6B64;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x540E;&#xFF0C;&#x5BF9;<code>isDone</code>&#x7684;&#x540E;&#x7EED;&#x8C03;&#x7528;&#x5C06;&#x59CB;&#x7EC8;&#x8FD4;&#x56DE;<code>true</code>&#x3002;&#x5982;&#x679C;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;<code>true</code>&#xFF0C;&#x5219;&#x5BF9;<code>isCancelled</code>&#x7684;&#x540E;&#x7EED;&#x8C03;&#x7528;&#x5C06;&#x59CB;&#x7EC8;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</li>
+<li><code>isCancelled</code> : &#x5982;&#x679C;&#x6B64;&#x4EFB;&#x52A1;&#x5728;&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#x88AB;&#x53D6;&#x6D88;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li><code>isDone</code>&#xFF1A;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x8FD4;&#x56DE;true&#x3002;&#x5728;&#x6B63;&#x5E38;&#x7EC8;&#x6B62;&#x3001;&#x5F02;&#x5E38;&#x6216;&#x53D6;&#x6D88;&#x60C5;&#x51B5;&#x4E0B;&#x5BFC;&#x81F4;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;true&#x3002;</li>
+<li><code>get</code>&#xFF1A;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#xFF0C;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x671F;&#x95F4;&#x4F1A;&#x88AB;&#x963B;&#x585E;&#x3002;&#x6CE8;&#x610F;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;<ul>
+<li>CancellationException - &#x5982;&#x679C;&#x8BA1;&#x7B97;&#x88AB;&#x53D6;&#x6D88;</li>
+<li>ExecutionException - &#x5982;&#x679C;&#x5728;&#x8BA1;&#x7B97;&#x629B;&#x51FA;&#x5F02;&#x5E38;</li>
+<li>InterruptedException - &#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x65F6;&#x88AB;&#x4E2D;&#x65AD;</li>
+</ul>
+</li>
+<li><code>get(long timeout, TimeUnit unit)</code>&#xFF1A;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;&#x6CE8;&#x610F;&#x8BE5;&#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1A;<ul>
+<li>CancellationException - &#x5982;&#x679C;&#x8BA1;&#x7B97;&#x88AB;&#x53D6;&#x6D88;</li>
+<li>ExecutionException - &#x5982;&#x679C;&#x5728;&#x8BA1;&#x7B97;&#x629B;&#x51FA;&#x5F02;&#x5E38;</li>
+<li>InterruptedException - &#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x65F6;&#x88AB;&#x4E2D;&#x65AD;</li>
+<li>TimeoutException - &#x7B49;&#x5F85;&#x8D85;&#x65F6;</li>
+</ul>
+</li>
+</ul>
+<p>&#x611F;&#x89C9;<code>Future</code>&#x7684;API&#x8BBE;&#x8BA1;&#x7684;&#x5341;&#x5206;&#x7B80;&#x6D01;&#x660E;&#x4E86;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x5BF9;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7684;&#x5E38;&#x7528;&#x64CD;&#x4F5C;&#xFF0C;&#x7531;&#x4E8E;<code>Future</code>&#x53EA;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x521A;&#x624D;&#x63D0;&#x5230;&#x7684;<code>FutureTask</code>&#x662F;JDK&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;<code>Future</code>&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x5E76;&#x62FF;&#x5230;&#x7ED3;&#x679C;&#x7684;&#x3002;</p>
+<h2 id="futuretask"><a name="futuretask" class="anchor-navigation-ex-anchor" href="#futuretask"><i class="fa fa-link" aria-hidden="true"></i></a>3. FutureTask</h2>
+<p><code>FutureTask</code>&#x7684;&#x7C7B;&#x56FE;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x8BE5;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;<code>RunnableFuture</code>
+&#x63A5;&#x53E3;&#xFF0C;<code>RunnableFuture</code>&#x63A5;&#x53E3;&#x7EE7;&#x627F;&#x81EA;<code>Runnable</code>&#x548C;<code>Future</code>&#xFF0C;&#x6240;&#x4EE5;&#x8BE5;&#x7C7B;&#x65E2;&#x53EF;&#x4EE5;&#x4EA4;&#x7ED9;Thread&#x53BB;&#x6267;&#x884C;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;<code>Future</code>&#x6765;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/FutureTask_class.png?raw=true" alt="image"></p>
+<h3 id="&#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state"><a name="&#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state" class="anchor-navigation-ex-anchor" href="#&#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x6784;&#x9020;&#x51FD;&#x6570;&#x53CA;state</h3>
+<p>&#x6253;&#x5F00;<code>FutureTask</code>&#x7C7B;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x770B;&#x770B;&#x5176;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FutureTask</span><span class="hljs-params">(Callable&lt;V&gt; callable)</span> </span>{
+    <span class="hljs-keyword">if</span> (callable == <span class="hljs-keyword">null</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException();
+    <span class="hljs-keyword">this</span>.callable = callable;
+    <span class="hljs-keyword">this</span>.state = NEW;       <span class="hljs-comment">// ensure visibility of callable</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FutureTask</span><span class="hljs-params">(Runnable runnable, V result)</span> </span>{
+    <span class="hljs-keyword">this</span>.callable = Executors.callable(runnable, result);
+    <span class="hljs-keyword">this</span>.state = NEW;       <span class="hljs-comment">// ensure visibility of callable</span>
+}
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x7B2C;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4F20;&#x5165;Callable&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5C06;&#x5176;&#x8D4B;&#x7ED9;FutureTask&#x6210;&#x5458;&#x53D8;&#x91CF;<code>callable</code>&#xFF0C;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;state&#x4E3A;<code>NEW</code>&#xFF0C;state&#x5B57;&#x6BB5;&#x7528;&#x6765;&#x4FDD;&#x5B58;FutureTask&#x5185;&#x90E8;&#x7684;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x4E00;&#x5171;&#x6709;7&#x4E2D;&#x72B6;&#x6001;&#xFF0C;&#x6BCF;&#x79CD;&#x72B6;&#x6001;&#x53CA;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> state;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> NEW          = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> COMPLETING   = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> NORMAL       = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> EXCEPTIONAL  = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> CANCELLED    = <span class="hljs-number">4</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> INTERRUPTING = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> INTERRUPTED  = <span class="hljs-number">6</span>;
+</code></pre>
+<p>&#x6CE8;&#x610F;state&#x662F;&#x7528;<code>volatile</code>&#x4FEE;&#x9970;&#xFF0C;&#x4FDD;&#x8BC1;&#x5176;&#x5728;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x7684;&#x53EF;&#x89C1;&#x6027;&#x3002;&#x5728;&#x6E90;&#x7801;&#x6CE8;&#x91CA;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;state&#x6240;&#x4EE3;&#x8868;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java">NEW -&gt; COMPLETING -&gt; NORMAL
+NEW -&gt; COMPLETING -&gt; EXCEPTIONAL
+NEW -&gt; CANCELLED
+NEW -&gt; INTERRUPTING -&gt; INTERRUPTED
+</code></pre>
+<p>&#x7528;&#x56FE;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;
+<img src="https://github.com/ZZULI-TECH/interview/blob/master/images/FutureTask_state_transitions.png?raw=true" alt="image"></p>
+<p>&#x4ECE;&#x56FE;&#x4E2D;&#x4EFF;&#x4F5B;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8BE5;&#x7C7B;&#x901A;&#x8FC7;&#x6539;&#x53D8;state&#x7684;&#x72B6;&#x6001;&#x6765;&#x53CD;&#x6620;&#x6700;&#x540E;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<h3 id="run"><a name="run" class="anchor-navigation-ex-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. run</h3>
+<p>&#x5728;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;FutureTask&#x5B9E;&#x4F8B;&#x4E4B;&#x540E;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x6B64;Task&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x76F4;&#x63A5;&#x521B;&#x5EFA;Thead&#x8FD8;&#x662F;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x90FD;&#x662F;<code>run()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> (state != NEW ||
+        !RUNNER.compareAndSet(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">null</span>, Thread.currentThread()))
+        <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">try</span> {
+        Callable&lt;V&gt; c = callable;
+        <span class="hljs-keyword">if</span> (c != <span class="hljs-keyword">null</span> &amp;&amp; state == NEW) {
+            V result;
+            <span class="hljs-keyword">boolean</span> ran;
+            <span class="hljs-keyword">try</span> {
+                result = c.call();
+                ran = <span class="hljs-keyword">true</span>;
+            } <span class="hljs-keyword">catch</span> (Throwable ex) {
+                result = <span class="hljs-keyword">null</span>;
+                ran = <span class="hljs-keyword">false</span>;
+                setException(ex);
+            }
+            <span class="hljs-keyword">if</span> (ran)
+                set(result);
+        }
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-comment">// runner must be non-null until state is settled to</span>
+        <span class="hljs-comment">// prevent concurrent calls to run()</span>
+        runner = <span class="hljs-keyword">null</span>;
+        <span class="hljs-comment">// state must be re-read after nulling runner to prevent</span>
+        <span class="hljs-comment">// leaked interrupts</span>
+        <span class="hljs-keyword">int</span> s = state;
+        <span class="hljs-keyword">if</span> (s &gt;= INTERRUPTING)
+            handlePossibleCancellationInterrupt(s);
+    }
+}
+</code></pre>
+<p>&#x5728;run&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x4F1A;&#x5224;&#x65AD;state&#x662F;&#x5426;&#x7B49;&#x4E8E;<code>NEW</code>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x7B49;&#x4E8E;<code>NEW</code>&#xFF0C;&#x8BF4;&#x660E;&#x6B64;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x88AB;&#x6267;&#x884C;&#x8FC7;&#xFF0C;&#x6216;&#x8005;&#x7531;&#x4E8E;&#x5176;&#x4ED6;&#x539F;&#x56E0;&#x88AB;&#x53D6;&#x6D88;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF1B;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x5229;&#x7528;CAS&#x5C06;&#x8BE5;&#x7C7B;<code>volatile</code>&#x4FEE;&#x9970;&#x7684;<code>runner</code>&#x6210;&#x5458;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x6CE8;&#x610F;&#x5728;&#x8BBE;&#x7F6E;&#x4E4B;&#x524D;<code>runner</code>&#x5FC5;&#x987B;&#x4E3A;null&#xFF0C;&#x8BBE;&#x7F6E;&#x5931;&#x8D25;&#x4E5F;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x7531;&#x4E8E;&#x6211;&#x770B;&#x7684;&#x7248;&#x672C;&#x662F;JDK11&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;CAS&#x64CD;&#x4F5C;&#x7528;&#x7684;&#x662F;JDK9&#x5F15;&#x5165;&#x7684;<code>VarHandle</code>(&#x65B9;&#x6CD5;&#x53E5;&#x67C4;)&#xFF0C;&#x7528;&#x6765;&#x4EE3;&#x66FF;<code>UnSafe</code>&#x7C7B;&#xFF0C;&#x8BE6;&#x60C5;&#x53C2;&#x8003;&#xFF1A;<a href="http://mingshan.me/2018/10/05/%E7%94%A8Variable%20Handles%E6%9D%A5%E6%9B%BF%E6%8D%A2Unsafe/" target="_blank">&#x7528;Variable Handles&#x6765;&#x66FF;&#x6362;Unsafe</a>&#xFF0C;&#x5728;FutureTask&#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">// VarHandle mechanics</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> VarHandle STATE;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> VarHandle RUNNER;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> VarHandle WAITERS;
+<span class="hljs-keyword">static</span> {
+    <span class="hljs-keyword">try</span> {
+        MethodHandles.Lookup l = MethodHandles.lookup();
+        STATE = l.findVarHandle(FutureTask.class, <span class="hljs-string">&quot;state&quot;</span>, <span class="hljs-keyword">int</span>.class);
+        RUNNER = l.findVarHandle(FutureTask.class, <span class="hljs-string">&quot;runner&quot;</span>, Thread.class);
+        WAITERS = l.findVarHandle(FutureTask.class, <span class="hljs-string">&quot;waiters&quot;</span>, WaitNode.class);
+    } <span class="hljs-keyword">catch</span> (ReflectiveOperationException e) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ExceptionInInitializerError(e);
+    }
+
+    <span class="hljs-comment">// Reduce the risk of rare disastrous classloading in first call to</span>
+    <span class="hljs-comment">// LockSupport.park: https://bugs.openjdk.java.net/browse/JDK-8074773</span>
+    Class&lt;?&gt; ensureLoaded = LockSupport.class;
+}
+</code></pre>
+<p>&#x68C0;&#x6D4B;&#x8FC7;<code>state</code>&#x548C;<code>runner</code>&#x540E;&#xFF0C;&#x63A5;&#x7740;&#x4F1A;&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;callable&#x7684;<code>call()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3002;&#x5982;&#x679C;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>null</code>&#xFF0C;&#x8C03;&#x7528;<code>setException()</code>&#x65B9;&#x6CD5;&#x4FDD;&#x5B58;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setException</span><span class="hljs-params">(Throwable t)</span> </span>{
+    <span class="hljs-keyword">if</span> (STATE.compareAndSet(<span class="hljs-keyword">this</span>, NEW, COMPLETING)) {
+        outcome = t;
+        STATE.setRelease(<span class="hljs-keyword">this</span>, EXCEPTIONAL); <span class="hljs-comment">// final state</span>
+        finishCompletion();
+    }
+}
+</code></pre>
+<p>&#x5728;<code>setException</code>&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>&#x5229;&#x7528;CAS&#x64CD;&#x4F5C;&#x5C06;state&#x72B6;&#x6001;&#x7531;NEW&#x6539;&#x4E3A;<code>COMPLETING</code>&#xFF0C;&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#xFF1B;</li>
+<li>&#x628A;&#x5F02;&#x5E38;&#x539F;&#x56E0;&#x4FDD;&#x5B58;&#x5728;<code>outcome</code>&#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;<code>outcome</code>&#x5B57;&#x6BB5;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x6216;&#x8005;&#x5F02;&#x5E38;&#x539F;&#x56E0;&#xFF1B;</li>
+<li>&#x5229;&#x7528;CAS&#x628A;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x4ECE;<code>COMPLETING</code>&#x53D8;&#x66F4;&#x4E3A;<code>EXCEPTIONAL</code>&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0A;&#x9762;&#x8F6C;&#x6362;&#x7684;&#x56FE;&#xFF1B;</li>
+<li>&#x8C03;&#x7528;<code>finishCompletion()</code>&#x901A;&#x77E5;&#x548C;&#x79FB;&#x9664;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x6CA1;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x8C03;&#x7528;<code>set(result)</code>&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(V v)</span> </span>{
+    <span class="hljs-keyword">if</span> (STATE.compareAndSet(<span class="hljs-keyword">this</span>, NEW, COMPLETING)) {
+        outcome = v;
+        STATE.setRelease(<span class="hljs-keyword">this</span>, NORMAL); <span class="hljs-comment">// final state</span>
+        finishCompletion();
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;<code>set()</code>&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;&#x548C;<code>setException()</code>&#x771F;&#x50CF;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;state&#x72B6;&#x6001;&#x53D8;&#x5316;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x5229;&#x7528;CAS&#x64CD;&#x4F5C;&#x5C06;state&#x72B6;&#x6001;&#x7531;NEW&#x6539;&#x4E3A;<code>COMPLETING</code>&#xFF0C;&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#xFF1B;</li>
+<li>&#x628A;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5728;outcome&#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;outcome&#x5B57;&#x6BB5;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x6216;&#x8005;&#x5F02;&#x5E38;&#x539F;&#x56E0;&#xFF1B;</li>
+<li>&#x5229;&#x7528;CAS&#x628A;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#x4ECE;<code>COMPLETING</code>&#x53D8;&#x66F4;&#x4E3A;<code>NORMAL</code>&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0A;&#x9762;&#x8F6C;&#x6362;&#x7684;&#x56FE;&#xFF1B;</li>
+<li>&#x8C03;&#x7528;<code>finishCompletion()</code>&#x901A;&#x77E5;&#x548C;&#x79FB;&#x9664;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;</li>
+</ul>
+<p>&#x8BA1;&#x7B97;&#x5B8C;&#x540E;&#xFF0C;&#x65E0;&#x8BBA;&#x53D1;&#x5E03;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x90FD;&#x8981;&#x6267;&#x884C;finally&#x8BED;&#x53E5;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9996;&#x5148;&#x5C06;runner&#x8BBE;&#x7F6E;&#x4E3A;<code>null</code>&#xFF0C;&#x91CA;&#x653E;&#x503C;&#x7B49;&#x5F85;gc&#x56DE;&#x6536;&#xFF0C;&#x540C;&#x65F6;&#x5224;&#x65AD;state&#x7684;&#x72B6;&#x6001;&#x662F;&#x5426;&#x4E3A;<code>INTERRUPTING</code>&#xFF0C;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x88AB;&#x4E2D;&#x65AD;&#xFF0C;&#x6267;&#x884C;&#x4E2D;&#x65AD;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x770B;&#x5B8C;&#x4E86;run&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x603B;&#x7ED3;&#x6765;&#x8BF4;&#xFF0C;&#x5229;&#x7528;CAS&#x6839;&#x636E;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#x66F4;&#x6539;state&#x7684;&#x503C;&#xFF0C;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x518D;&#x6839;&#x636E;state&#x7684;&#x503C;&#x505A;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="get"><a name="get" class="anchor-navigation-ex-anchor" href="#get"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. get</h3>
+<p>&#x7531;&#x4E8E;FutureTask&#x662F;Future&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;<code>get()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * <span class="hljs-doctag">@throws</span> CancellationException {<span class="hljs-doctag">@inheritDoc</span>}
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">get</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException, ExecutionException </span>{
+    <span class="hljs-keyword">int</span> s = state;
+    <span class="hljs-comment">/**
+     * state&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;COMPLETING&#xFF0C;&#x8868;&#x793A;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x8FD8;&#x672A;&#x5B8C;&#x6210;&#xFF0C;
+     * &#x6240;&#x4EE5;&#x8C03;&#x7528;awaitDone&#x65B9;&#x6CD5;&#xFF0C;&#x8BA9;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;
+     */</span>
+    <span class="hljs-keyword">if</span> (s &lt;= COMPLETING)
+        s = awaitDone(<span class="hljs-keyword">false</span>, <span class="hljs-number">0L</span>);
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x6216;&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+    <span class="hljs-keyword">return</span> report(s);
+}
+</code></pre>
+<p>FutureTask&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x91CC;&#x6765;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x7531;&#x4E8E;Future&#x8BBE;&#x8BA1;&#x7684;&#x662F;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x6A21;&#x5F0F;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x7136;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4ECE;get&#x65B9;&#x6CD5;&#x770B;&#x5230;&#xFF0C;&#x5982;&#x679C;state&#x7684;&#x503C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;<code>COMPLETING</code>&#xFF0C;&#x8BF4;&#x660E;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x8FD8;&#x6CA1;&#x5B8C;&#x6210;&#xFF0C;&#x90A3;&#x4E48;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;&#x7EBF;&#x7A0B;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x5728;<code>awaitDone</code>&#x65B9;&#x6CD5;&#x91CC;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x662F;&#x5426;&#x6709;&#x8D85;&#x65F6;&#x9650;&#x5236;timed&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E3A;&#x7B49;&#x5F85;&#x65F6;&#x95F4;nanos&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">awaitDone</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> timed, <span class="hljs-keyword">long</span> nanos)</span>
+    <span class="hljs-keyword">throws</span> InterruptedException </span>{
+    <span class="hljs-comment">// The code below is very delicate, to achieve these goals:</span>
+    <span class="hljs-comment">// - call nanoTime exactly once for each call to park</span>
+    <span class="hljs-comment">// - if nanos &lt;= 0L, return promptly without allocation or nanoTime</span>
+    <span class="hljs-comment">// - if nanos == Long.MIN_VALUE, don&apos;t underflow</span>
+    <span class="hljs-comment">// - if nanos == Long.MAX_VALUE, and nanoTime is non-monotonic</span>
+    <span class="hljs-comment">//   and we suffer a spurious wakeup, we will do no worse than</span>
+    <span class="hljs-comment">//   to park-spin for a while</span>
+    <span class="hljs-keyword">long</span> startTime = <span class="hljs-number">0L</span>;    <span class="hljs-comment">// Special value 0L means not yet parked</span>
+    WaitNode q = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">boolean</span> queued = <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">for</span> (;;) {
+        <span class="hljs-keyword">int</span> s = state;
+        <span class="hljs-comment">// &#x8BA1;&#x7B97;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+        <span class="hljs-keyword">if</span> (s &gt; COMPLETING) {
+            <span class="hljs-keyword">if</span> (q != <span class="hljs-keyword">null</span>)
+                q.thread = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">return</span> s;
+        }<span class="hljs-comment">// &#x6B63;&#x5728;&#x8BA1;&#x7B97;&#xFF0C;&#x8BA9;&#x51FA;&#x65F6;&#x95F4;&#x7247;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (s == COMPLETING)
+            <span class="hljs-comment">// We may have already promised (via isDone) that we are done</span>
+            <span class="hljs-comment">// so never return empty-handed or throw InterruptedException</span>
+            Thread.yield();
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Thread.interrupted()) {
+            <span class="hljs-comment">//  &#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x88AB;&#x4E2D;&#x65AD;&#xFF08;&#x4E2D;&#x65AD;&#x6807;&#x5FD7;&#x4F4D;&#x4E3A;true&#xFF09;&#xFF0C;</span>
+            <span class="hljs-comment">//  &#x90A3;&#x4E48;&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x79FB;&#x9664;&#x8282;&#x70B9;q&#xFF0C;&#x5E76;&#x629B;&#x51FA;InterruptedException&#x5F02;&#x5E38;</span>
+            removeWaiter(q);
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InterruptedException();
+        } <span class="hljs-comment">// &#x5224;&#x65AD;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5305;&#x88C5;&#x7684;&#x7B49;&#x5F85;&#x8282;&#x70B9;&#x662F;&#x5426;&#x4E3A;&#x7A7A;</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (q == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x7B49;&#x5F85;&#xFF0C;&#x4F46;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x4E3A;0&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+            <span class="hljs-keyword">if</span> (timed &amp;&amp; nanos &lt;= <span class="hljs-number">0L</span>)
+                <span class="hljs-keyword">return</span> s;
+            <span class="hljs-comment">// &#x65B0;&#x5EFA;&#x7B49;&#x5F85;&#x8282;&#x70B9;</span>
+            q = <span class="hljs-keyword">new</span> WaitNode();
+        }<span class="hljs-comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x5165;&#x961F;</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!queued)
+            <span class="hljs-comment">//&#x672A;&#x5165;&#x961F;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;CAS&#x5C06;&#x65B0;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x5230;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;queued&#x4E3A;false</span>
+            queued = WAITERS.weakCompareAndSet(<span class="hljs-keyword">this</span>, q.next = waiters, q);
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (timed) {
+            <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> parkNanos;
+            <span class="hljs-comment">// &#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#xFF0C;&#x521D;&#x59CB;&#x5316; startTime</span>
+            <span class="hljs-keyword">if</span> (startTime == <span class="hljs-number">0L</span>) { <span class="hljs-comment">// first time</span>
+                startTime = System.nanoTime();
+                <span class="hljs-keyword">if</span> (startTime == <span class="hljs-number">0L</span>)
+                    startTime = <span class="hljs-number">1L</span>;
+                parkNanos = nanos;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">// &#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x5DF2;&#x7528;&#x65F6;&#x95F4;</span>
+                <span class="hljs-keyword">long</span> elapsed = System.nanoTime() - startTime;
+                <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x5DF2;&#x7528;&#x65F6;&#x95F4;&#x5927;&#x4E8E;&#x8BBE;&#x7F6E;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x79FB;&#x9664;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+                <span class="hljs-keyword">if</span> (elapsed &gt;= nanos) {
+                    removeWaiter(q);
+                    <span class="hljs-keyword">return</span> state;
+                }
+                <span class="hljs-comment">// &#x8BA1;&#x7B97;&#x5269;&#x4F59;&#x65F6;&#x95F4;</span>
+                parkNanos = nanos - elapsed;
+            }
+            <span class="hljs-comment">// nanoTime may be slow; recheck before parking</span>
+            <span class="hljs-comment">// &#x6302;&#x8D77;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x8BA9;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;nanos&#x65F6;&#x95F4;</span>
+            <span class="hljs-keyword">if</span> (state &lt; COMPLETING)
+                LockSupport.parkNanos(<span class="hljs-keyword">this</span>, parkNanos);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-comment">// &#x672A;&#x8BBE;&#x7F6E;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#xFF0C;&#x90A3;&#x5C31;&#x7B49;&#x7740;&#x5427;</span>
+            LockSupport.park(<span class="hljs-keyword">this</span>);
+    }
+}
+</code></pre>
+<p>&#x5728;FutureTask&#x7C7B;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;<code>waiters</code>&#xFF0C;&#x58F0;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/** Treiber stack of waiting threads */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> WaitNode waiters;
+</code></pre>
+<p><code>WaitNode</code>&#x662F;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E3A;&#x5355;&#x94FE;&#x8868;&#xFF0C;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * Simple linked list nodes to record waiting threads in a Treiber
+ * stack.  See other classes such as Phaser and SynchronousQueue
+ * for more detailed explanation.
+ */</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WaitNode</span> </span>{
+    <span class="hljs-keyword">volatile</span> Thread thread;
+    <span class="hljs-keyword">volatile</span> WaitNode next;
+    WaitNode() { thread = Thread.currentThread(); }
+}
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x770B;&#xFF0C;&#x5728;<code>awaitDone</code>&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x5B58;&#x5728;&#x7740;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x6B7B;&#x5FAA;&#x73AF;&#x5185;&#x90E8;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x5224;&#x65AD;state&#x7684;&#x503C;&#xFF0C;<ul>
+<li>&#x5982;&#x679C;&#x503C;&#x5927;&#x4E8E;<code>COMPLETING</code>&#xFF0C;&#x4EE3;&#x8868;&#x8BA1;&#x7B97;&#x5DF2;&#x5B8C;&#x6210;&#xFF08;&#x5305;&#x62EC;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7B49;&#xFF09;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x503C;&#x7B49;&#x4E8E;<code>COMPLETING</code>&#xFF0C;&#x4EE3;&#x8868;&#x6B63;&#x5728;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x8C03;&#x7528;<code>Thread.yield()</code>&#x8BA9;&#x51FA;&#x65F6;&#x95F4;&#x7247;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x88AB;&#x4E2D;&#x65AD;&#xFF08;&#x4E2D;&#x65AD;&#x6807;&#x5FD7;&#x4F4D;&#x4E3A;true&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x79FB;&#x9664;&#x8282;&#x70B9;q&#xFF0C;&#x5E76;&#x629B;&#x51FA;<code>InterruptedException</code>&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5305;&#x88C5;&#x7684;&#x7B49;&#x5F85;&#x8282;&#x70B9;&#x4E3A;&#x7A7A;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8BBE;&#x7F6E;&#x7B49;&#x5F85;&#xFF0C;&#x5E76;&#x4E14;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x4E3A;0&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x8005;&#x521B;&#x5EFA;&#x7B49;&#x5F85;&#x8282;&#x70B9;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5165;&#x961F;&#xFF0C;&#x4F7F;&#x7528;CAS&#x5C06;&#x65B0;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x5230;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;queued&#x4E3A;false</li>
+<li>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#xFF0C;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x662F;&#x5426;&#x5728;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x5185;&#xFF0C;<ul>
+<li>&#x5982;&#x679C;&#x4E0D;&#x5728;&#xFF0C;&#x79FB;&#x9664;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</li>
+<li>&#x5982;&#x679C;&#x5728;&#xFF0C;&#x8BA1;&#x7B97;&#x5269;&#x4F59;&#x65F6;&#x95F4;&#xFF0C;&#x6302;&#x8D77;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x8BA9;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5269;&#x4E0B;&#x7684;&#x65F6;&#x95F4;</li>
+</ul>
+</li>
+<li>&#x672A;&#x8BBE;&#x7F6E;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#xFF0C;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x6302;&#x8D77;&#x64CD;&#x4F5C;&#xFF0C;&#x8FDB;&#x5165;&#x963B;&#x585E;&#x3002;</li>
+</ol>
+<p>&#x5F53;&#x7EBF;&#x7A0B;&#x88AB;&#x89E3;&#x9664;&#x6302;&#x8D77;&#xFF0C;&#x6216;&#x8BA1;&#x7B97;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5C06;&#x4F1A;<code>get</code>&#x65B9;&#x6CD5;&#x4E2D;&#x5C06;&#x4F1A;&#x8C03;&#x7528;<code>report</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x5176;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * Returns result or throws exception for completed task.
+ *
+ * <span class="hljs-doctag">@param</span> s completed state value
+ */</span>
+<span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">private</span> V <span class="hljs-title">report</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span> <span class="hljs-keyword">throws</span> ExecutionException </span>{
+    Object x = outcome;
+    <span class="hljs-keyword">if</span> (s == NORMAL)
+        <span class="hljs-keyword">return</span> (V)x;
+    <span class="hljs-keyword">if</span> (s &gt;= CANCELLED)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> CancellationException();
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ExecutionException((Throwable)x);
+}
+</code></pre>
+<ol>
+<li>&#x5982;&#x679C;state&#x7B49;&#x4E8E;<code>NORMAL</code>&#xFF0C;&#x4EE3;&#x8868;&#x8BA1;&#x7B97;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#xFF0C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF1B;</li>
+<li>&#x5982;&#x679C;state&#x7B49;&#x4E8E;<code>CANCELLED</code>&#xFF0C;&#x4EE3;&#x8868;&#x8BA1;&#x7B97;&#x88AB;&#x53D6;&#x6D88;&#xFF0C;&#x629B;&#x51FA;<code>CancellationException</code>&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x8BA1;&#x7B97;&#x4EE5;&#x5F02;&#x5E38;&#x7ED3;&#x675F;&#xFF0C;&#x5373;&#x72B6;&#x6001;&#x662F;<code>EXCEPTIONAL</code>&#xFF0C;&#x90A3;&#x4E48;&#x629B;&#x51FA;<code>ExecutionException</code>&#x3002;</li>
+</ol>
+<h3 id="finishcompletion"><a name="finishcompletion" class="anchor-navigation-ex-anchor" href="#finishcompletion"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. finishCompletion</h3>
+<p>&#x5728;<code>run</code>&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;<code>set</code>&#x548C;<code>setException</code>&#x65F6;&#x6700;&#x540E;&#x4E00;&#x6B65;&#x662F;&#x6267;&#x884C;<code>finishCompletion</code>&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x6765;&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x5427;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * Removes and signals all waiting threads, invokes done(), and
+ * nulls out callable.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">finishCompletion</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// assert state &gt; COMPLETING;</span>
+    <span class="hljs-keyword">for</span> (WaitNode q; (q = waiters) != <span class="hljs-keyword">null</span>;) {
+        <span class="hljs-keyword">if</span> (WAITERS.weakCompareAndSet(<span class="hljs-keyword">this</span>, q, <span class="hljs-keyword">null</span>)) {
+            <span class="hljs-keyword">for</span> (;;) {
+                Thread t = q.thread;
+                <span class="hljs-keyword">if</span> (t != <span class="hljs-keyword">null</span>) {
+                    q.thread = <span class="hljs-keyword">null</span>;
+                    LockSupport.unpark(t);
+                }
+                WaitNode next = q.next;
+                <span class="hljs-keyword">if</span> (next == <span class="hljs-keyword">null</span>)
+                    <span class="hljs-keyword">break</span>;
+                q.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// unlink to help gc</span>
+                q = next;
+            }
+            <span class="hljs-keyword">break</span>;
+        }
+    }
+
+    done();
+
+    callable = <span class="hljs-keyword">null</span>;        <span class="hljs-comment">// to reduce footprint</span>
+}
+</code></pre>
+<p>&#x521A;&#x624D;&#x6211;&#x4EEC;&#x770B;get&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x65F6;&#xFF0C;&#x53D1;&#x73B0;&#x6709;&#x4E00;&#x4E2A;<code>WaitNode</code>&#x7684;&#x5355;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x50A8;&#x7740;&#x7B49;&#x5F85;&#x7740;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5524;&#x9192;&#x90A3;&#x4E9B;&#x8FD8;&#x5728;&#x7B49;&#x5F85;&#x7740;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x6BD5;&#x7ADF;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x90FD;&#x505A;&#x5B8C;&#x4E86;&#xFF08;&#x5F02;&#x5E38;&#x4E5F;&#x7B97;&#x7ED3;&#x675F;&#xFF09;&#xFF0C;&#x603B;&#x4E0D;&#x80FD;&#x8BA9;&#x90A3;&#x4E9B;&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x5E72;&#x7B49;&#x7740;&#x5427;&#xFF0C;&#x6240;&#x4EE5;&#x5728;<code>finishCompletion</code>&#x65B9;&#x6CD5;&#x4E2D;&#x5C31;&#x904D;&#x5386;&#x5355;&#x94FE;&#x8868;&#xFF0C;&#x5229;&#x7528;cas&#x5C06;FutureTask&#x4E2D;&#x7684;waiters&#x8BBE;&#x7F6E;&#x4E3A;<code>null</code>&#xFF0C;&#x8C03;&#x7528;<code>LockSupport.unpark</code>&#x5524;&#x9192;&#x7EBF;&#x7A0B;&#xFF0C;&#x5F53;&#x7EBF;&#x7A0B;&#x88AB;&#x91CA;&#x653E;&#x540E;&#xFF0C;&#x90A3;&#x4E48;&#x5728;awaitDone&#x7684;&#x6B7B;&#x5FAA;&#x73AF;&#x4E2D;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#xFF0C;&#x7531;&#x4E8E;&#x72B6;&#x6001;&#x5DF2;&#x7ECF;&#x53D8;&#x6210;&#x4E86;<code>NORMAL</code>&#x6216;&#x8005;<code>EXCEPTIONAL</code>&#xFF0C;&#x5C06;&#x4F1A;&#x76F4;&#x63A5;&#x8DF3;&#x51FA;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x5F53;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x90FD;&#x5524;&#x9192;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>done</code>&#x65B9;&#x6CD5;&#xFF0C;<code>done</code>&#x65B9;&#x6CD5;&#x662F;&#x4E2A;<code>protected</code>&#x4FEE;&#x9970;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;FutureTask&#x6CA1;&#x6709;&#x505A;&#x76F8;&#x5173;&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x5728;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#x540E;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5904;&#x7406;&#xFF0C;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x91CD;&#x5199;<code>done</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="cancel"><a name="cancel" class="anchor-navigation-ex-anchor" href="#cancel"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. cancel</h3>
+<p>&#x4ECE;Future&#x63A5;&#x53E3;&#x7684;&#x63CF;&#x8FF0;&#x6765;&#x770B;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;<code>cancel</code>&#x65B9;&#x6CD5;&#x6765;&#x53D6;&#x6D88;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;FutureTask&#x5B9E;&#x73B0;&#x4E86;<code>cancel</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5B83;&#x7684;&#x4EE3;&#x7801;&#x5427;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">cancel</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> mayInterruptIfRunning)</span> </span>{
+    <span class="hljs-keyword">if</span> (!(state == NEW &amp;&amp; STATE.compareAndSet
+          (<span class="hljs-keyword">this</span>, NEW, mayInterruptIfRunning ? INTERRUPTING : CANCELLED)))
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">try</span> {    <span class="hljs-comment">// in case call to interrupt throws exception</span>
+        <span class="hljs-keyword">if</span> (mayInterruptIfRunning) {
+            <span class="hljs-keyword">try</span> {
+                Thread t = runner;
+                <span class="hljs-keyword">if</span> (t != <span class="hljs-keyword">null</span>)
+                    t.interrupt();
+            } <span class="hljs-keyword">finally</span> { <span class="hljs-comment">// final state</span>
+                STATE.setRelease(<span class="hljs-keyword">this</span>, INTERRUPTED);
+            }
+        }
+    } <span class="hljs-keyword">finally</span> {
+        finishCompletion();
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+</code></pre>
+<p>&#x53C2;&#x6570;<code>mayInterruptIfRunning</code>&#x6307;&#x660E;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x4E2D;&#x65AD;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;false&#xFF0C;&#x4EE3;&#x8868;&#x4E0D;&#x4E0D;&#x8981;&#x4E2D;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;state&#x7684;&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;&#x7531;<code>NEW-&gt;CANCELLED</code></li>
+<li>&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;true&#xFF0C;&#x4EE3;&#x8868;&#x9700;&#x8981;&#x4E2D;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;state&#x7684;&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;&#x5C06;&#x4E3A;<code>NEW-&gt;INTERRPUTING-&gt;INTERRUPTED</code>&#xFF0C;&#x5E76;&#x7ED9;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x8BBE;&#x4E2D;&#x65AD;&#x6807;&#x5FD7;&#x3002;</li>
+</ul>
+<p>&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x4E2D;&#x65AD;&#xFF0C;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x8C03;&#x7528;finishCompletion()&#x65B9;&#x6CD5;&#x6765;&#x91CA;&#x653E;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Callable.html" target="_blank">Callable DOC</a></li>
+<li><a href="http://www.importnew.com/25286.html" target="_blank">&#x6DF1;&#x5165;&#x5B66;&#x4E60; FutureTask</a></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -2933,7 +3349,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Callable & Future","level":"1.2.3.2","depth":3,"next":{"title":"Fork/Join","level":"1.2.3.3","depth":3,"path":"java/concurrency/Forkjoin.md","ref":"java/concurrency/Forkjoin.md","articles":[]},"previous":{"title":"CAS","level":"1.2.3.1","depth":3,"path":"java/concurrency/CAS.md","ref":"java/concurrency/CAS.md","articles":[]},"dir":"neutral"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/concurrency/Callable&Future.md","mtime":"2018-10-06T07:46:31.822Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-06T15:04:04.783Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Callable & Future","level":"1.2.3.2","depth":3,"next":{"title":"Fork/Join","level":"1.2.3.3","depth":3,"path":"java/concurrency/Forkjoin.md","ref":"java/concurrency/Forkjoin.md","articles":[]},"previous":{"title":"CAS","level":"1.2.3.1","depth":3,"path":"java/concurrency/CAS.md","ref":"java/concurrency/CAS.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/concurrency/Callable&Future.md","mtime":"2018-10-13T13:56:40.958Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-13T14:51:05.599Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
