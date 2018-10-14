@@ -4,7 +4,6 @@
 
 在Java中我们知道创建一个线程可以继承`Thread`类或者实现`Runnable`接口，JDK1.5之后在`java.util.concurrent`提供了`Callable`接口，该接口设计类似`Runnable`接口，不过`Callable`接口可以返回任务执行的结果，并且在执行任务过程中可能会抛出异常，而`Runnable`却不会。下面是`Callable`接口的定义：
 
-
 ```Java
 @FunctionalInterface
 public interface Callable<V> {
@@ -218,7 +217,7 @@ protected void setException(Throwable t) {
 ```
 
 在`setException`方法中，有以下流程：
-- 利用CAS操作将state状态由NEW改为`COMPLETING`，如果操作成功；
+- 利用CAS操作将state状态由`NEW`改为`COMPLETING`，如果操作成功；
 - 把异常原因保存在`outcome`字段中，`outcome`字段用来保存任务执行结果或者异常原因；
 - 利用CAS把当前任务状态从`COMPLETING`变更为`EXCEPTIONAL`，可以参考上面转换的图；
 - 调用`finishCompletion()`通知和移除等待线程
@@ -238,13 +237,13 @@ protected void set(V v) {
 
 我们发现`set()`方法实现流程和`setException()`真像，只不过是state状态变化的差异，流程如下：
 
-- 利用CAS操作将state状态由NEW改为`COMPLETING`，如果操作成功；
+- 利用CAS操作将state状态由`NEW`改为`COMPLETING`，如果操作成功；
 - 把计算结果保存在outcome字段中，outcome字段用来保存任务执行结果或者异常原因；
 - 利用CAS把当前任务状态从`COMPLETING`变更为`NORMAL`，可以参考上面转换的图；
 - 调用`finishCompletion()`通知和移除等待线程
 
 
-计算完后，无论发布发生异常，都要执行finally语句块的方法，首先将runner设置为`null`，释放值等待gc回收，同时判断state的状态是否为`INTERRUPTING`，如果任务被中断，执行中断处理。
+计算完后，无论是否发生异常，都要执行finally语句块的方法，首先将runner设置为`null`，释放值等待gc回收，同时判断state的状态是否为`INTERRUPTING`，如果任务被中断，执行中断处理。
 
 看完了run方法的实现，总结来说，利用CAS根据任务的执行情况更改state的值，其他方法再根据state的值做出相应的处理。
 
@@ -373,14 +372,14 @@ static final class WaitNode {
     - 如果值大于`COMPLETING`，代表计算已完成（包括抛出异常等），直接返回；
     - 如果值等于`COMPLETING`，代表正在执行计算，调用`Thread.yield()`让出时间片等待计算完成
 2. 如果当前线程被中断（中断标志位为true），那么从列表中移除节点q，并抛出`InterruptedException`；
-3. 如果当前线程包装的等待节点为空，判断是否设置等待，并且等待时间为0，直接返回，否者创建等待节点；
+3. 如果当前线程包装的等待节点为空，判断是否设置等待，并且等待时间为0，直接返回，否则创建等待节点；
 4. 如果没有入队，使用CAS将新节点添加到链表中，如果添加失败，那么queued为false
 5. 如果设置超时，判断当前计算任务是否在超时时间内，
     - 如果不在，移除队列中的结点，直接返回
     - 如果在，计算剩余时间，挂起当前线程，让当前线程等待剩下的时间
 6. 未设置等待时间，直接进行线程挂起操作，进入阻塞。
 
-当线程被解除挂起，或计算已经完成后，将会`get`方法中将会调用`report`方法返回结果，其实现如下：
+当线程被解除挂起，或计算已经完成后，在`get`方法中将会调用`report`方法返回结果，其实现如下：
 
 ```Java
 /**
@@ -438,7 +437,7 @@ private void finishCompletion() {
 }
 ```
 
-刚才我们看get方法的实现时，发现有一个`WaitNode`的单链表结构，里面存储着等待着的线程，所以在计算完成时，需要唤醒那些还在等待着的线程，毕竟计算任务都做完了（异常也算结束），总不能让那些阻塞的线程干等着吧，所以在`finishCompletion`方法中就遍历单链表，利用cas将FutureTask中的waiters设置为`null`，调用`LockSupport.unpark`唤醒线程，当线程被释放后，那么在awaitDone的死循环中就会进入下一个循环，由于状态已经变成了`NORMAL`或者`EXCEPTIONAL`，将会直接跳出循环。
+刚才我们看`get`方法的实现时，发现有一个`WaitNode`的单链表结构，里面存储着等待着的线程，所以在计算完成时，需要唤醒那些还在等待着的线程，毕竟计算任务都做完了（异常也算结束），总不能让那些阻塞的线程干等着吧，所以在`finishCompletion`方法中就遍历单链表，利用CAS将FutureTask中的waiters设置为`null`，调用`LockSupport.unpark`唤醒线程，当线程被释放后，那么在awaitDone的死循环中就会进入下一个循环，由于状态已经变成了`NORMAL`或者`EXCEPTIONAL`，将会直接跳出循环。
 
 当所有等待线程都唤醒后，直接调用`done`方法，`done`方法是个`protected`修饰的方法，FutureTask没有做相关实现，所以如果在计算完成后需要特殊处理，子类可以重写`done`方法。
 
@@ -472,7 +471,7 @@ public boolean cancel(boolean mayInterruptIfRunning) {
 - 如果参数为false，代表不不要中断，那么state的转换过程由`NEW->CANCELLED`
 - 如果参数为true，代表需要中断，那么state的转换过程将为`NEW->INTERRPUTING->INTERRUPTED`，并给当前线程设中断标志。
 
-无论是否中断，最终都会调用finishCompletion()方法来释放等待线程。
+无论是否中断，最终都会调用`finishCompletion()`方法来释放等待线程。
 
 参考：
 
