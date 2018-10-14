@@ -468,7 +468,7 @@ public boolean cancel(boolean mayInterruptIfRunning) {
 ```
 
 参数`mayInterruptIfRunning`指明是否应该中断正在运行的任务，
-- 如果参数为false，代表不不要中断，那么state的转换过程由`NEW->CANCELLED`
+- 如果参数为false，代表不需要中断，那么state的转换过程由`NEW->CANCELLED`
 - 如果参数为true，代表需要中断，那么state的转换过程将为`NEW->INTERRPUTING->INTERRUPTED`，并给当前线程设中断标志。
 
 无论是否中断，最终都会调用`finishCompletion()`方法来释放等待线程。
