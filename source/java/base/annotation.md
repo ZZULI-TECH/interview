@@ -2,7 +2,7 @@
 
 ------
 
-# 1. Annotation为何而来
+#  Annotation为何而来
 
 ## What：Annotation干嘛的
 
@@ -46,7 +46,7 @@ public class Book {
 
 提示：有些注解只是为了防止我们犯低级错误，通过这些注解，让编译器在编译期就可以检查出一些低级错误，对于这些注解，可以加或者不加，当然还有很多其他注解都是起辅助编程作用。但是有一些注解的作用很重要，不加的话就实现不了一些功能，比如，数据持久化操作中，通过@Entity注解来标识持久化实体类，如果不使用该注解程序就识别不了持久化实体类。
 
-# 2. 基本Annotation
+# 基本Annotation
 
 **Java提供了5个基本的Annotation的用法，在使用Annotation时要在其前面增加@符号。**
 
@@ -109,7 +109,7 @@ public interface FunInterface {
   void test();//只定义一个抽象方法，默认public
 }
 ```
-# 3. JDK的元Annotation
+# JDK的元Annotation
 元注解(Meta Annotation)：和元数据一样，修饰注解的注解。
 java提供了6个元注解（Meta Annotation)，在`java.lang.annotation`中。其中5个用于修饰其他的Annonation定义。而`@Repeatable`专门用于定义Java8新增的重复注解。所以要定义注解必须使用到5个元注解来定义。
 
@@ -160,10 +160,10 @@ public @interface ActionListenerFor{}
 
 用于指定被修饰的Annotation具有继承性。即子类可以继承父类中的该注解。---》注解@WW被元注解@Inherited修饰，把@WW添加在类Base上，则Base的所有子类也将默认使用@WW注解。
 
-# 4. 自定义注解
+# 自定义注解
 使用`@interface`关键字，注解放在修饰元素的上面
 
-## 4.1 一个简单的注解
+## 一个简单的注解
 
 ```Java
 //定义一个简单的注解Test
@@ -177,7 +177,7 @@ public class MyClass{
 }
 ```
 
-## 4.2 带成员变量的注解
+## 带成员变量的注解
 
 以无形参的方法形式来声明Annotation的成员变量，方法名和返回值定义了成员变量名称和类型。使用default关键字设置初始值。没设置初始值的变量则使用时必须提供，有初始值的变量可以设置也可以不设置。
 
@@ -198,11 +198,11 @@ public class Test {
 }
 ```
 
-## 4.3 结论
+## 结论
 
 没带成员变量的Annotation被称为标记，这种注解仅利用自身的存在与否来提供信息，如@Override等。包含成员变量的Annotation称为元数据Annotation,因为他们提供更多元数据。
 
-## 4.4 提取Annotation信息
+## 提取Annotation信息
 
 使用Annotation修饰了类、方法、成员变量等程序元素之后，这些Annotation不会自己生效，必须由开发者通过API来提取并处理Annotation信息。
 
@@ -296,7 +296,7 @@ public static void main(String[] args) {
 tag.name():liang
 tag.age():25
 ```
-# 5. Java8新增的重复注解
+# Java8新增的重复注解
 
 在java8以前，同一个程序元素只能使用一个相同类型的Annotation。如下代码是错误的。
 
@@ -308,7 +308,7 @@ public void info(){
 }
 ```
 
-## 5.1 java8之前实现思路
+## java8之前实现思路
 
 要想达到使用多个注解的目的，可以使用注解”容器“：其实就是新定义一个注解DupMyTag，让这个DupMyTag 注解的成员变量value的类型为注解MyTag数组。这样就可以通过注解DupMyTag 使用多个注解MyTag了。换个思路实现，只是书写形式不一样而已。
 
@@ -345,7 +345,7 @@ public void info() {
 
 注：”容器“注解的保留期Retention必须比它所包含注解的保留期更长，否则编译报错
 
-## 5.2 java8之后
+## java8之后
 
 java8之后新增了`@Repeatable`元注解，用来开发重复注解，其有一个必填Class类型变量value。
 
@@ -393,15 +393,15 @@ public void info() {
 @annotation.DupMyTag(value=[@annotation.MyTag(age=25, name=liang), @annotation.MyTag(age=18, name=huan)])
 ```
 
-# 6. Java8新增的Type Annotation注解
+#  Java8新增的Type Annotation注解
 
-## 6.1 介绍
+## 介绍
 
 目的：以前的注解只能用在`包、类、构造器、方法、成员变量、参数、局部变量`。如果想在：创建对象（通过new创建）、类型转换、使用`implements`实现接口、使用`throws`声明抛出异常的位置使用注解就不行了。而`Type Annotation`注解就为了这个而来。
 
 抽象表述： java为`ElementType`枚举增加了`TYPE_PARAMETER`、`TYPE_USE`两个枚举值。`@Target(TYPE_USE)`修饰的注解称为`Type Annotation`(类型注解），`Type Annotation`可用在任何用到类型的地方。*
 
-## 6.2 案例
+## 案例
 
 **定义一个类型注解NotNull**
 
