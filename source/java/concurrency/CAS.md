@@ -132,6 +132,10 @@ public class AtomicStampedReferenceDemo {
 操作线程Thread[主操作线程,5,main], CAS操作结果: false
 ```
 
+**Variable Handles** 
+
+在JDK9之前，JDK源码中在进行CAS操作时需要调用`sun.misc.Unsafe`类native修饰的方法，该类由于涉及到底层操作被JDK视为不安全，不推荐使用，在以后的版本中会被逐渐替代，所以在JDK9引入了Variable Handles（变量句柄）这个概念，主要提供`java.util.concurrent.atomic` 和 `sun.misc.Unsafe`相似的功能，但会更加安全和易用，并且在并发方面提高了性能。详细参考[Variable Handles（变量句柄）](https://github.com/ZZULI-TECH/interview/blob/master/source/java/base/VariableHandles.md)
+
 参考：
 
 - [Non-blocking algorithm](https://en.wikipedia.org/wiki/Non-blocking_algorithm)
