@@ -235,7 +235,7 @@ public class ForkJoinCalculatorImpl implements Calculator {
 java.lang.NoClassDefFoundError: Could not initialize class java.util.concurrent.locks.AbstractQueuedSynchronizer$Node
 ```
 
-### 计算耗时
+### 计算耗时（基础测试）
 
 上面三种计算方式究竟计算效率怎么样呢？我们来写个测试类测试一把，代码如下：
 
@@ -273,12 +273,217 @@ System.out.println("Fork/Join计算结果：" + result3 + ", 耗时：" + execut
 
 ![image](https://github.com/ZZULI-TECH/interview/blob/master/images/concurrency/fj_cpu.png?raw=true)
 
+从上面的计算结果来看，Fork/Join耗时最少，线程池次之，直接For循环是耗时最多的，简直是难以置信啊，不过这个结果可能不稳定，至少也说明了Fork/Join在某些场景下比较优秀的事实（结论未必正确）。
 
-从上面的计算结果来看，Fork/Join耗时最少，线程池次之，直接For循环是耗时最多的，简直是难以置信啊，不过这个结果可能不稳定，至少也说明了Fork/Join在某些场景下比较优秀的事实。
+### 基准测试（JMH）
+
+上面我们是利用方法执行的开始与结束时间的差值来评估方法的执行性能，利用这种方式得出的结论往往是站不住脚的（不严谨），因为没有考虑到程序在运行时JVM所带来的影响，所以得出的结论未必可靠，我们也不能乱下结论。
+
+那么有没有一个比较靠谱的性能测试框架呢？JMH（Java Microbenchmark Harness）是一个面向Java语言或JVM平台语言的性能基准测试框架，它针对的是纳秒级别、微秒级别、毫秒级别以及秒级别的性能测试。听上去是不是很叼？我们就用它来测试上面写的三个计算任务吧。
+
+首先我们需要用`@Benchmark`来标识JMH基准测试的测试方法，用法和Junit的`@Test`类似，代码如下：
+
+```Java
+private static long[] numbers = LongStream.rangeClosed(1L, 100_000_000L).toArray();
+
+@Benchmark
+public void test1() {
+    // 1 直接for循环
+    Calculator calculator = new ForLoopCalculatorImpl();
+    calculator.sum(numbers);
+}
+
+@Benchmark
+public void test2() {
+    // 2 利用线程池
+    Calculator calculator2 = new ExecutorServiceCalculatorImpl();
+    calculator2.sum(numbers);
+}
+
+@Benchmark
+public void test3() {
+    // 3 fork/join
+    Calculator calculator3 = new ForkJoinCalculatorImpl();
+    calculator3.sum(numbers);
+}
+```
+
+别忘了添加相关依赖哦，目前最新版本已是`1.21`，由于JMH性能测试是运行其提供的Main方法，需要添加maven相关插件配置运行Main方法，如下：
+
+```Java
+<dependency>
+  <groupId>org.openjdk.jmh</groupId>
+  <artifactId>jmh-core</artifactId>
+  <version>${jmh.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.openjdk.jmh</groupId>
+  <artifactId>jmh-generator-annprocess</artifactId>
+  <version>${jmh.version}</version>
+  <scope>provided</scope>
+</dependency>
+```
+
+maven插件
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>shade</goal>
+        </goals>
+        <configuration>
+          <finalName>java11-tutorial</finalName>
+          <transformers>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+              <mainClass>org.openjdk.jmh.Main</mainClass>
+            </transformer>
+          </transformers>
+        </configuration>
+      </execution>
+    </executions>
+</plugin>
+```
+
+接下来在该项目主目录下运行`maven clean package`进行编译打包，然后运行`java -jar target/java11-tutorial.jar` 直接执行测试，它的输出如下（重复的省略）：
+
+
+```
+# JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test1
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 11.702 ops/s
+# Warmup Iteration   2: 11.902 ops/s
+# Warmup Iteration   3: 11.014 ops/s
+# Warmup Iteration   4: 10.663 ops/s
+# Warmup Iteration   5: 11.611 ops/s
+Iteration   1: 11.615 ops/s
+Iteration   2: 11.981 ops/s
+Iteration   3: 13.429 ops/s
+Iteration   4: 12.363 ops/s
+Iteration   5: 10.350 ops/s
+
+...运行五次
+
+
+Result "me.mingshan.demo.fj.Test.test1":
+  11.492 ±(99.9%) 0.864 ops/s [Average]
+  (min, avg, max) = (9.804, 11.492, 14.808), stdev = 1.154
+  CI (99.9%): [10.628, 12.356] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test2
+
+# Run progress: 33.33% complete, ETA 00:16:59
+# Fork: 1 of 5
+# Warmup Iteration   1: 17.420 ops/s
+# Warmup Iteration   2: 15.220 ops/s
+# Warmup Iteration   3: 15.497 ops/s
+# Warmup Iteration   4: 14.617 ops/s
+# Warmup Iteration   5: 17.724 ops/s
+Iteration   1: 18.410 ops/s
+Iteration   2: 18.326 ops/s
+Iteration   3: 16.326 ops/s
+Iteration   4: 15.471 ops/s
+Iteration   5: 15.603 ops/s
+
+...运行五次
+
+Result "me.mingshan.demo.fj.Test.test2":
+  16.358 ±(99.9%) 1.549 ops/s [Average]
+  (min, avg, max) = (11.898, 16.358, 18.918), stdev = 2.068
+  CI (99.9%): [14.809, 17.907] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test3
+
+# Run progress: 66.67% complete, ETA 00:08:29
+# Fork: 1 of 5
+# Warmup Iteration   1: 14.169 ops/s
+# Warmup Iteration   2: 14.925 ops/s
+# Warmup Iteration   3: 14.652 ops/s
+# Warmup Iteration   4: 14.448 ops/s
+# Warmup Iteration   5: 14.090 ops/s
+Iteration   1: 14.948 ops/s
+Iteration   2: 15.234 ops/s
+Iteration   3: 15.371 ops/s
+Iteration   4: 15.451 ops/s
+Iteration   5: 18.772 ops/s
+
+...运行五次
+
+Result "me.mingshan.demo.fj.Test.test3":
+  17.366 ±(99.9%) 0.902 ops/s [Average]
+  (min, avg, max) = (14.948, 17.366, 19.462), stdev = 1.204
+  CI (99.9%): [16.465, 18.268] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:27
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark    Mode  Cnt   Score   Error  Units
+Test.test1  thrpt   25  11.492 ± 0.864  ops/s
+Test.test2  thrpt   25  16.358 ± 1.549  ops/s
+Test.test3  thrpt   25  17.366 ± 0.902  ops/s
+```
+
+其中`Fork：1 of 5`指的是JMH会Fork出一个新的虚拟机，来运行基准测试，目的是获得一个相对干净的运行环境，每个 Fork 包含了 5 个预热迭代（warmup iteration，如# Warmup Iteration   1: 14.169 ops/s）和5个测试迭代（measurement iteration，如Iteration   5: 18.772 ops/s）。
+
+每次迭代后面的数据代表本次迭代的吞吐量，即每秒运行的次数（ops/s），也就是一次操作调用了一次测试方法。
+
+好了，我们直接来看性能测试结果吧，如下:
+
+```
+Benchmark    Mode  Cnt   Score   Error  Units
+Test.test1  thrpt   25  11.492 ± 0.864  ops/s
+Test.test2  thrpt   25  16.358 ± 1.549  ops/s
+Test.test3  thrpt   25  17.366 ± 0.902  ops/s
+```
+
+上面的输出便是本次基准测试的结果，主要关注Score和Error，Socre代表本次基准测试的平均吞吐量（每秒运行test*的次数），Error代表误差范围，所以。。。test1代表For循环串性执行，test2代表线程池并发执行，test3代表Fork/Join执行，结果很明显，Fork/Join每秒执行次数最多，线程池并发执行次之，For循环串性执行最少。
+
+综合以上，我们可以小心翼翼地得出结论（怕被打。。），Fork/Join在计算密集型任务执行效率上是很好的，推荐大家使用。（完毕）
 
 ## 原理分析
 
-(暂无)
+目前先不分析，后面再写一遍文章。
 
 参考：
 
@@ -287,3 +492,6 @@ System.out.println("Fork/Join计算结果：" + result3 + ", 耗时：" + execut
 - [Fork/Join tutorial](https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)
 - [jdk1.8-ForkJoin框架剖析](https://www.jianshu.com/p/f777abb7b251)
 - [Java 并发编程笔记：如何使用 ForkJoinPool 以及原理](http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/)
+- [Code Tools: jmh](http://openjdk.java.net/projects/code-tools/jmh/)
+- [基准测试框架JMH（上）](https://time.geekbang.org/column/article/40275)
+- [基准测试框架JMH（下）](https://time.geekbang.org/column/article/40281)
