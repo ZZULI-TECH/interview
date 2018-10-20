@@ -568,6 +568,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.1.18" data-path="../../java/base/jmh/">
+            
+                <a href="../../java/base/jmh/">
+            
+                    
+                    JMH
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -2781,7 +2794,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20" data-path="../../spider/">
+        <li class="chapter " data-level="1.20" data-path="../../regx/README.md">
+            
+                <span>
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../../spider/">
             
                 <a href="../../spider/">
             
@@ -2795,44 +2821,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../../spider/WebMagic/zzuli.html">
+        <li class="chapter " data-level="1.21.1" data-path="../../spider/WebMagic/zzuli.html">
             
                 <a href="../../spider/WebMagic/zzuli.html">
             
                     
                     WebMagic
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.21" data-path="../../other/">
-            
-                <a href="../../other/">
-            
-                    
-                    其他
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.21.1" data-path="../../other/regx/">
-            
-                <a href="../../other/regx/">
-            
-                    
-                    正则表达式
             
                 </a>
             
@@ -2890,7 +2884,368 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#rabbitmq"><b> </b>RabbitMQ</a></li></ul></div><a href="#rabbitmq" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="rabbitmq"><a name="rabbitmq" class="anchor-navigation-ex-anchor" href="#rabbitmq"><i class="fa fa-link" aria-hidden="true"></i></a> RabbitMQ</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#rabbitmq"><b> </b>RabbitMQ</a></li><ul><li><span class="title-icon "></span><a href="#rabbitmq&#x7B80;&#x4ECB;"><b>1. </b>RabbitMQ&#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#rabbitmq&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;"><b>2. </b>RabbitMQ&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#exchange-types-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><b>3. </b>Exchange Types &#x7B80;&#x5355;&#x4ECB;&#x7ECD;</a></li><ul><li><span class="title-icon "></span><a href="#fanout"><b>3.1. </b>fanout</a></li><li><span class="title-icon "></span><a href="#direct"><b>3.2. </b>direct</a></li><li><span class="title-icon "></span><a href="#topic"><b>3.3. </b>topic</a></li><li><span class="title-icon "></span><a href="#headers"><b>3.4. </b>headers</a></li></ul><li><span class="title-icon "></span><a href="#&#x6E90;&#x7801;&#x94FE;&#x63A5;"><b>4. </b>&#x6E90;&#x7801;&#x94FE;&#x63A5;</a></li></ul></ul></div><a href="#rabbitmq" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="rabbitmq"><a name="rabbitmq" class="anchor-navigation-ex-anchor" href="#rabbitmq"><i class="fa fa-link" aria-hidden="true"></i></a> RabbitMQ</h1>
+<h2 id="rabbitmq&#x7B80;&#x4ECB;"><a name="rabbitmq&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#rabbitmq&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1. RabbitMQ&#x7B80;&#x4ECB;</h2>
+<p>RabbitMQ&#x5B9E;&#x73B0;&#x4E86;AMQP(Advanced Message Queuing Protocol)&#x534F;&#x8BAE;&#xFF0C;AMQP&#x662F;&#x4E00;&#x79CD;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x534F;&#x8BAE;&#xFF0C;&#x662F;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x6807;&#x51C6;&#xFF0C;&#x4E3A;&#x9762;&#x5411;&#x6D88;&#x606F;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x8BBE;&#x8BA1;&#x3002;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#x53C2;&#x8003;<a href="http://www.rabbitmq.com/tutorials/amqp-concepts.html" target="_blank">&#xFF1A;AMQP&#x4ECB;&#x7ECD;</a></p>
+<h2 id="rabbitmq&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;"><a name="rabbitmq&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#rabbitmq&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>2. RabbitMQ&#x6982;&#x5FF5;&#x4ECB;&#x7ECD;</h2>
+<p>RabbitMQ&#x6709;&#x8BB8;&#x591A;&#x91CD;&#x8981;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E86;&#x89E3;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x5BF9;&#x4E86;&#x89E3;RabbitMQ&#x662F;&#x5341;&#x5206;&#x6709;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p>RabbitMQ &#x6D88;&#x606F;&#x6A21;&#x578B;</p>
+<pre><code>RabbitMQ&#x6D88;&#x606F;&#x53D1;&#x9001;&#x65F6;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x662F;&#x4E0D;&#x77E5;&#x9053;&#x6D88;&#x606F;&#x662F;&#x5426;&#x53D1;&#x9001;&#x5230;&#x67D0;&#x4E2A;&#x961F;&#x5217;&#x4E2D;&#x53BB;&#x4E86;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x4EC5;&#x4EC5;&#x53EA;&#x80FD;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x67D0;&#x4E2A;&#x4EA4;&#x6362;&#x5668;&#x3002;
+</code></pre><p>ConnectionFactory</p>
+<pre><code>&#x8FDE;&#x63A5;&#x5DE5;&#x5382;&#x7C7B;&#x3002;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x3002;
+</code></pre><p>Connection</p>
+<pre><code>&#x5728;&#x5BA2;&#x6237;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5230;&#x67D0;&#x4E2A;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x8FDE;&#x63A5;&#x3002;
+</code></pre><p>Channel</p>
+<pre><code>&#x6D88;&#x606F;&#x901A;&#x9053;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5927;&#x91CF;&#x7684;API&#x53EF;&#x7528;&#x4E8E;&#x7F16;&#x7A0B;&#x3002;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x91CC;&#xFF0C;&#x53EF;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A;channel&#xFF0C;&#x6BCF;&#x4E2A;channel&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x4F1A;&#x8BDD;&#x4EFB;&#x52A1;&#x3002;
+</code></pre><p>Broker</p>
+<pre><code>RabbbitMQ&#x6D88;&#x606F;&#x961F;&#x5217;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x4F53;&#x3002;
+</code></pre><p>Producer</p>
+<pre><code>&#x53D1;&#x9001;&#x6D88;&#x606F;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;
+</code></pre><p>Consumer</p>
+<pre><code>&#x63A5;&#x6536;&#x6D88;&#x606F;&#x7684;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x3002;
+</code></pre><p>Exchange</p>
+<pre><code>&#x4EA4;&#x6362;&#x5668;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x76F4;&#x63A5;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x4EA4;&#x6362;&#x5668;&#x3002;&#x4EA4;&#x6362;&#x5668;&#x5C06;&#x6D88;&#x606F;&#x5206;&#x53D1;&#x7ED9;&#x6307;&#x5B9A;&#x7684;&#x961F;&#x5217;&#x3002;&#x5B83;&#x6307;&#x5B9A;&#x6D88;&#x606F;&#x6309;&#x4EC0;&#x4E48;&#x89C4;&#x5219;&#xFF0C;&#x8DEF;&#x7531;&#x5230;&#x54EA;&#x4E2A;&#x961F;&#x5217;&#x3002;
+</code></pre><p>Binding</p>
+<pre><code>&#x7ED1;&#x5B9A;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x4EA4;&#x6362;&#x5668;&#x548C;&#x961F;&#x5217;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x628A;exchange&#x548C;queue&#x6309;&#x7167;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7ED1;&#x5B9A;&#x8D77;&#x6765;&#x3002;
+</code></pre><p>Routing Key</p>
+<pre><code>&#x8DEF;&#x7531;&#x5173;&#x952E;&#x5B57;&#xFF0C;exchange&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x6D88;&#x606F;&#x6295;&#x9012;&#x3002;
+</code></pre><p>vhost</p>
+<pre><code>&#x865A;&#x62DF;&#x4E3B;&#x673A;&#xFF0C;&#x4E00;&#x4E2A;broker&#x91CC;&#x53EF;&#x4EE5;&#x5F00;&#x8BBE;&#x591A;&#x4E2A;vhost&#xFF0C;&#x7528;&#x4F5C;&#x4E0D;&#x540C;&#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#x5206;&#x79BB;&#x3002;
+</code></pre><p>Excahnge Types</p>
+<pre><code>RabbitMQ&#x5E38;&#x7528;&#x7684;Exchange Type&#x6709;fanout&#x3001;direct&#x3001;topic&#x3001;headers&#x8FD9;&#x56DB;&#x79CD;&#xFF0C;&#x4E0B;&#x9762;&#x5206;&#x522B;&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;&#x3002;
+</code></pre><h2 id="exchange-types-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><a name="exchange-types-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#exchange-types-&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>3. Exchange Types &#x7B80;&#x5355;&#x4ECB;&#x7ECD;</h2>
+<p>&#x4E0B;&#x9762;&#x5BF9;&#x8FD9;&#x56DB;&#x79CD;Exchange Types&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF0C;&#x7531;&#x4E8E;&#x7528;&#x5230;maven&#x6765;&#x7EC4;&#x7EC7;&#x9879;&#x76EE;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5148;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.rabbitmq<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>amqp-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="fanout"><a name="fanout" class="anchor-navigation-ex-anchor" href="#fanout"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. fanout</h3>
+<p>fanout&#x7C7B;&#x578B;&#x7684;Exchange&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x53D1;&#x9001;&#x5230;&#x8BE5;Exchange&#x7684;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x6240;&#x6709;&#x4E0E;&#x5B83;&#x7ED1;&#x5B9A;&#x7684;Queue&#x4E2D;&#x3002;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/mq_fanout.png?raw=true" alt="image"></p>
+<p>&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#xFF08;P&#xFF09;&#x53D1;&#x9001;&#x5230;Exchange&#xFF08;X&#xFF09;&#x7684;&#x6240;&#x6709;&#x6D88;&#x606F;&#x90FD;&#x4F1A;&#x8DEF;&#x7531;&#x5230;&#x56FE;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;Queue&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x88AB;&#x4E24;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#xFF08;C1&#x4E0E;C2&#xFF09;&#x6D88;&#x8D39;&#x3002;</p>
+<p><strong>&#x751F;&#x4EA7;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x751F;&#x4EA7;&#x8005;
+ * Exchange Types&#x4E3A;fanout
+ *
+ * fanout&#x7C7B;&#x578B;&#x7684;Exchange&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x53D1;&#x9001;&#x5230;&#x8BE5;Exchange&#x7684;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x6240;&#x6709;&#x4E0E;&#x5B83;&#x7ED1;&#x5B9A;&#x7684;Queue&#x4E2D;&#x3002;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        <span class="hljs-comment">// &#x58F0;&#x660E;exchange&#xFF0C;Exchange Types&#x4E3A;fanout</span>
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
+
+        String message = <span class="hljs-string">&quot;Info-hello world&quot;</span>;
+        channel.basicPublish(EXCHANGE_NAME, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-keyword">null</span>, message.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+        channel.close();
+        connection.close();
+    }
+}
+</code></pre>
+<p>&#x7531;&#x4E8E;fanout&#x4E0D;&#x9700;&#x8981;&#x9009;&#x62E9;&#x5C06;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x54EA;&#x4E2A;Queue&#xFF0C;&#x6240;&#x4EE5;channel.basicPublish&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;routingKey&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p><strong>&#x6D88;&#x8D39;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6D88;&#x8D39;&#x8005;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsumerA</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
+
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, EXCHANGE_NAME, <span class="hljs-string">&quot;&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;A Waiting for messages. To exit press CTRL+C&quot;</span>);
+
+        Consumer consumer = <span class="hljs-keyword">new</span> DefaultConsumer(channel) {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleDelivery</span><span class="hljs-params">(String consumerTag, Envelope envelope, BasicProperties properties, <span class="hljs-keyword">byte</span>[] body)</span>
+                    <span class="hljs-keyword">throws</span> IOException </span>{
+                String message = <span class="hljs-keyword">new</span> String(body, <span class="hljs-string">&quot;UTF-8&quot;</span>);
+                System.out.println(<span class="hljs-string">&quot;A Recv &apos;&quot;</span> + message + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+        };
+
+        channel.basicConsume(queueName, <span class="hljs-keyword">true</span>, consumer);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x6D88;&#x8D39;&#x8005;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;EXCHANGE_NAME&#x9700;&#x8981;&#x4E0E;&#x751F;&#x4EA7;&#x8005;&#x7684;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;channel.queueDeclare().getQueue()&#x521B;&#x5EFA;&#x4E34;&#x65F6;queue&#xFF0C;channel.queueBind(queueName, EXCHANGE_NAME, &quot;&quot;)&#x5C06;exchange&#x7ED1;&#x5B9A;&#x5230;&#x6307;&#x5B9A;&#x7684;queue&#x4E0A;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;routingKey&#xFF0C;&#x7531;&#x4E8E;&#x6B64;&#x5904;&#x4E3A;fanout&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x7A7A;&#x3002;</p>
+<h3 id="direct"><a name="direct" class="anchor-navigation-ex-anchor" href="#direct"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. direct</h3>
+<p>direct&#x7C7B;&#x578B;&#x7684;Exchange&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x4E5F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x90A3;&#x4E9B;binding key&#x4E0E;routing key&#x5B8C;&#x5168;&#x5339;&#x914D;&#x7684;Queue&#x4E2D;&#x3002;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/mq_direct.png?raw=true" alt="image"></p>
+<p>&#x4EE5;&#x4E0A;&#x56FE;&#x4E3A;&#x4F8B;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5728;&#x751F;&#x4EA7;&#x8005;&#x914D;&#x7F6E;&#x7684;routingKey&#x4E3A;error&#xFF0C;&#x90A3;&#x4E48;&#x4E24;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x90FD;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x6D88;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x662F;info&#xFF0C;&#x90A3;&#x4E48;c2&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x5230;&#x6D88;&#x606F;&#xFF0C;c2&#x4FBF;&#x63A5;&#x6536;&#x4E0D;&#x5230;&#x6D88;&#x606F;&#x4E86;&#x3002;</p>
+<p><strong>&#x751F;&#x4EA7;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x751F;&#x4EA7;&#x8005;
+ * Exchange Types&#x4E3A;direct
+ *
+ * direct&#x7C7B;&#x578B;&#x7684;Exchange&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x6D88;&#x606F;&#x8DEF;&#x7531;&#x5230;&#x90A3;&#x4E9B;binding key&#x4E0E;routing key&#x5B8C;&#x5168;&#x5339;&#x914D;&#x7684;Queue&#x4E2D;&#x3002;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-direct&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        <span class="hljs-comment">// &#x58F0;&#x660E;exchange&#xFF0C;Exchange Types&#x4E3A;direct</span>
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
+        System.out.println(<span class="hljs-string">&quot;Please enter message ---&gt;&quot;</span>);
+        String message = <span class="hljs-string">&quot;&quot;</span>;
+        String routeKey = <span class="hljs-string">&quot;error&quot;</span>;
+        Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);
+
+        <span class="hljs-keyword">while</span> (scanner.hasNext()) {
+            message = scanner.nextLine();
+            System.out.println(<span class="hljs-string">&quot; ----- &quot;</span> + message);
+            channel.basicPublish(EXCHANGE_NAME, routeKey, <span class="hljs-keyword">null</span>, message.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+        }
+
+        channel.close();
+        connection.close();
+        scanner.close();
+    }
+
+}
+</code></pre>
+<p>&#x6B64;&#x65F6;&#x751F;&#x4EA7;&#x8005;Exchange Tyoes&#x8BBE;&#x7F6E;&#x4E3A;direct&#xFF0C;&#x5E76;&#x4E14;routingKey&#x8BBE;&#x7F6E;&#x7684;&#x4E3A;error</p>
+<p><strong>&#x6D88;&#x8D39;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6D88;&#x8D39;&#x8005;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsumerA</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-direct&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
+
+        String queueName = channel.queueDeclare().getQueue();
+        <span class="hljs-comment">// &#x6B64;&#x65F6;routeKey &#x4E3A; info</span>
+        String routeKey = <span class="hljs-string">&quot;info&quot;</span>;
+        channel.queueBind(queueName, EXCHANGE_NAME, routeKey);
+        System.out.println(<span class="hljs-string">&quot;A Waiting for messages. To exit press CTRL+C&quot;</span>);
+
+        Consumer consumer = <span class="hljs-keyword">new</span> DefaultConsumer(channel) {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleDelivery</span><span class="hljs-params">(String consumerTag, Envelope envelope, BasicProperties properties, <span class="hljs-keyword">byte</span>[] body)</span>
+                    <span class="hljs-keyword">throws</span> IOException </span>{
+                String message = <span class="hljs-keyword">new</span> String(body, <span class="hljs-string">&quot;UTF-8&quot;</span>);
+                System.out.println(<span class="hljs-string">&quot;A Recv &apos;&quot;</span> + message + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+        };
+
+        channel.basicConsume(queueName, <span class="hljs-keyword">true</span>, consumer);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x6D88;&#x8D39;&#x8005;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x7684;routeKey&#x4E3A;info&#xFF0C;&#x6B64;&#x65F6;&#x6D88;&#x8D39;&#x8005;A&#x63A5;&#x53D7;&#x4E0D;&#x5230;&#x6D88;&#x606F;&#x4E86;&#xFF0C;&#x5982;&#x679C;routingKey&#x4E3A;error&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x5230;&#x6D88;&#x606F;&#x3002;</p>
+<h3 id="topic"><a name="topic" class="anchor-navigation-ex-anchor" href="#topic"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. topic</h3>
+<p>&#x7531;&#x4E8E;direct&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x914D;&#x7F6E;&#xFF0C;&#x6CA1;&#x6709;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x6240;&#x4EE5;topic&#x5C31;&#x5F25;&#x8865;&#x4E86;&#x8FD9;&#x4E00;&#x7F3A;&#x70B9;&#xFF0C;  routingKey &#x5FC5;&#x987B;&#x662F;&#x7531;&#x70B9;&#x5206;&#x9694;&#x7684;&#x5355;&#x8BCD;&#x5217;&#x8868;&#x3002;&#x8FD9;&#x4E9B;&#x5355;&#x8BCD;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#xFF0C;&#x4F46;&#x901A;&#x5E38;&#x5B83;&#x4EEC;&#x6307;&#x5B9A;&#x8FDE;&#x63A5;&#x5230;&#x6D88;&#x606F;&#x7684;&#x4E00;&#x4E9B;&#x529F;&#x80FD;&#x3002;&#x4E00;&#x4E9B;&#x6709;&#x6548;&#x7684;&#x8DEF;&#x7531;&#x952E;&#x4F8B;&#x5B50;&#xFF1A;&#x201C; stock.usd.nyse &#x201D;&#xFF0C;&#x201C; nyse.vmw &#x201D;&#xFF0C;&#x201C; quick.orange.rabbit &#x201D;&#x3002;&#x5728;&#x8DEF;&#x7531;&#x9009;&#x62E9;&#x952E;&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x5B57;&#xFF0C;&#x6700;&#x591A;255&#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
+<p>&#x7ED1;&#x5B9A;&#x952E;&#x4E5F;&#x5FC5;&#x987B;&#x662F;&#x76F8;&#x540C;&#x7684;&#x5F62;&#x5F0F;&#x3002;binding key&#x4E2D;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x201C;*&#x201D;&#x4E0E;&#x201C;#&#x201D;&#xFF0C;&#x7528;&#x4E8E;&#x505A;&#x6A21;&#x7CCA;&#x5339;&#x914D;&#xFF1A;</p>
+<ul>
+<li>&quot;*&quot; &#x53EF;&#x4EE5;&#x4EE3;&#x66FF;&#x4E00;&#x4E2A;&#x5B57;&#x3002;</li>
+<li>&quot;#&quot; &#x53EF;&#x4EE5;&#x4EE3;&#x66FF;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5355;&#x8BCD;&#x3002;</li>
+</ul>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/mq_topic.png?raw=true" alt="image"></p>
+<p><strong>&#x751F;&#x4EA7;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x751F;&#x4EA7;&#x8005;
+ * Exchange Types&#x4E3A;topic
+ * &lt;ul&gt;
+ *   &lt;li&gt;routing key&#x4E3A;&#x4E00;&#x4E2A;&#x53E5;&#x70B9;&#x53F7;&#x201C;. &#x201D;&#x5206;&#x9694;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x6211;&#x4EEC;&#x5C06;&#x88AB;&#x53E5;&#x70B9;&#x53F7;&#x201C;. &#x201D;&#x5206;&#x9694;&#x5F00;&#x7684;&#x6BCF;&#x4E00;&#x6BB5;&#x72EC;&#x7ACB;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#xFF09;&#xFF0C;
+ *     &#x5982;&#x201C;stock.usd.nyse&#x201D;&#x3001;&#x201C;nyse.vmw&#x201D;&#x3001;&#x201C;quick.orange.rabbit&#x201D;&lt;/li&gt;
+ *   &lt;li&gt;binding key&#x4E0E;routing key&#x4E00;&#x6837;&#x4E5F;&#x662F;&#x53E5;&#x70B9;&#x53F7;&#x201C;. &#x201D;&#x5206;&#x9694;&#x7684;&#x5B57;&#x7B26;&#x4E32;&lt;/li&gt;
+ *   &lt;li&gt;binding key&#x4E2D;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x201C;*&#x201D;&#x4E0E;&#x201C;#&#x201D;&#xFF0C;&#x7528;&#x4E8E;&#x505A;&#x6A21;&#x7CCA;&#x5339;&#x914D;&#xFF0C;&#x5176;&#x4E2D;&#x201C;*&#x201D;&#x7528;&#x4E8E;&#x5339;&#x914D;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#xFF0C;&#x201C;#&#x201D;&#x7528;&#x4E8E;&#x5339;&#x914D;&#x591A;&#x4E2A;&#x5355;&#x8BCD;&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x96F6;&#x4E2A;&#xFF09;&lt;/li&gt;
+ * &lt;/ul&gt;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-topic&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        <span class="hljs-comment">// &#x58F0;&#x660E;exchange&#xFF0C;Exchange Types&#x4E3A;headers</span>
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
+        System.out.println(<span class="hljs-string">&quot;Please enter message ---&gt;&quot;</span>);
+        String message = <span class="hljs-string">&quot;&quot;</span>;
+        String routeKey = <span class="hljs-string">&quot;quick.orange.rabbit&quot;</span>;
+        Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);
+
+        <span class="hljs-keyword">while</span> (scanner.hasNext()) {
+            message = scanner.nextLine();
+            System.out.println(<span class="hljs-string">&quot; ----- &quot;</span> + message);
+            channel.basicPublish(EXCHANGE_NAME, routeKey, <span class="hljs-keyword">null</span>, message.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+        }
+
+        channel.close();
+        connection.close();
+        scanner.close();
+    }
+
+}
+</code></pre>
+<p><strong>&#x6D88;&#x8D39;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6D88;&#x8D39;&#x8005;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsumerA</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-topic&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
+
+        String queueName = channel.queueDeclare().getQueue();
+        <span class="hljs-comment">// &#x6B64;&#x65F6;routeKey &#x4E3A; *.orange.*</span>
+        String routeKey = <span class="hljs-string">&quot;*.orange.*&quot;</span>;
+        channel.queueBind(queueName, EXCHANGE_NAME, routeKey);
+        System.out.println(<span class="hljs-string">&quot;A Waiting for messages. To exit press CTRL+C&quot;</span>);
+
+        Consumer consumer = <span class="hljs-keyword">new</span> DefaultConsumer(channel) {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleDelivery</span><span class="hljs-params">(String consumerTag, Envelope envelope, BasicProperties properties, <span class="hljs-keyword">byte</span>[] body)</span>
+                    <span class="hljs-keyword">throws</span> IOException </span>{
+                String message = <span class="hljs-keyword">new</span> String(body, <span class="hljs-string">&quot;UTF-8&quot;</span>);
+                System.out.println(<span class="hljs-string">&quot;A Recv &apos;&quot;</span> + message + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+        };
+
+        channel.basicConsume(queueName, <span class="hljs-keyword">true</span>, consumer);
+    }
+}
+</code></pre>
+<h3 id="headers"><a name="headers" class="anchor-navigation-ex-anchor" href="#headers"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. headers</h3>
+<p>headers&#x7C7B;&#x578B;&#x7684;Exchange&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;routing key&#x4E0E;binding key&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#x6765;&#x8DEF;&#x7531;&#x6D88;&#x606F;&#xFF0C;&#x800C;&#x662F;&#x6839;&#x636E;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#x4E2D;&#x7684;headers&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x5339;&#x914D;&#x3002;
+&#x5728;&#x7ED1;&#x5B9A;Queue&#x4E0E;Exchange&#x65F6;&#x6307;&#x5B9A;&#x4E00;&#x7EC4;&#x952E;&#x503C;&#x5BF9;&#xFF1B;&#x5F53;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;Exchange&#x65F6;&#xFF0C;RabbitMQ&#x4F1A;&#x53D6;&#x5230;&#x8BE5;&#x6D88;&#x606F;&#x7684;headers&#xFF08;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#xFF09;&#xFF0C;&#x6D88;&#x8D39;&#x8005;&#x4F1A;&#x6839;&#x636E;&#x8BBE;&#x7F6E;x-match&#x8BBE;&#x7F6E;&#x7684;&#x914D;&#x7F6E;&#x7C7B;&#x578B;(all,any)&#x6765;&#x8FDB;&#x884C;&#x5339;&#x914D;&#x3002;</p>
+<p><strong>&#x751F;&#x4EA7;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x751F;&#x4EA7;&#x8005;
+ * Exchange Types&#x4E3A;headers
+ *
+ * Headers&#x662F;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x6210;HashMap&#x3002;&#x53D1;&#x9001;&#x8005;&#x5728;&#x53D1;&#x9001;&#x7684;&#x65F6;&#x5019;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x63A5;&#x6536;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x518D;&#x7ED1;&#x5B9A;&#x65F6;&#x5019;&#x4F20;&#x5165;&#x4E00;&#x4E9B;&#x952E;&#x503C;&#x5BF9;&#xFF0C;
+ * &#x4E24;&#x8005;&#x5339;&#x914D;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x5BF9;&#x5E94;&#x7684;&#x961F;&#x5217;&#x5C31;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x6D88;&#x606F;&#x3002;&#x5339;&#x914D;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;all&#x548C;any&#x3002;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x63A5;&#x6536;&#x7AEF;&#x5FC5;&#x987B;&#x8981;&#x7528;&#x952E;&#x503C;&quot;x-mactch&quot;&#x6765;&#x5B9A;&#x4E49;
+ * &#x3002;all&#x4EE3;&#x8868;&#x5B9A;&#x4E49;&#x7684;&#x591A;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x90FD;&#x8981;&#x6EE1;&#x8DB3;&#xFF0C;&#x800C;any&#x5219;&#x4EE3;&#x7801;&#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;fanout&#xFF0C;direct&#xFF0C;topic exchange&#x7684;routingKey&#x90FD;&#x9700;&#x8981;&#x8981;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x7684;&#xFF0C;
+ * &#x800C;headers exchange&#x5219;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x8981;&#x6C42;&#xFF0C;&#x56E0;&#x4E3A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x3002;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-headers&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        <span class="hljs-comment">// &#x58F0;&#x660E;exchange&#xFF0C;Exchange Types&#x4E3A;headers</span>
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.HEADERS);
+
+        Map&lt;String,Object&gt; headers =  <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();
+        headers.put(<span class="hljs-string">&quot;xiaoming&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>);
+        AMQP.BasicProperties.Builder builder = <span class="hljs-keyword">new</span> AMQP.BasicProperties.Builder();
+        builder.deliveryMode(MessageProperties.PERSISTENT_TEXT_PLAIN.getDeliveryMode());
+        builder.priority(MessageProperties.PERSISTENT_TEXT_PLAIN.getPriority());
+        builder.headers(headers);
+        AMQP.BasicProperties theProps = builder.build();
+
+        System.out.println(<span class="hljs-string">&quot;Please enter message ---&gt;&quot;</span>);
+        Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);
+        String message = <span class="hljs-string">&quot;&quot;</span>;
+
+        <span class="hljs-keyword">while</span> (scanner.hasNext()) {
+            message = scanner.nextLine();
+            channel.basicPublish(EXCHANGE_NAME, <span class="hljs-string">&quot;&quot;</span>, theProps, message.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+        }
+
+        channel.close();
+        connection.close();
+        scanner.close();
+    }
+
+}
+</code></pre>
+<p><strong>&#x6D88;&#x8D39;&#x8005;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6D88;&#x8D39;&#x8005;
+ * <span class="hljs-doctag">@author</span> mingshan
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsumerA</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String EXCHANGE_NAME = <span class="hljs-string">&quot;logs-headers&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, TimeoutException </span>{
+        ConnectionFactory factory = <span class="hljs-keyword">new</span> ConnectionFactory();
+        factory.setHost(<span class="hljs-string">&quot;localhost&quot;</span>);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.HEADERS);
+
+        String queueName = channel.queueDeclare().getQueue();
+
+        Map&lt;String, Object&gt; headers = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();
+        headers.put(<span class="hljs-string">&quot;x-match&quot;</span>, <span class="hljs-string">&quot;any&quot;</span>);<span class="hljs-comment">//all any  </span>
+        headers.put(<span class="hljs-string">&quot;xiaoming&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>);
+        headers.put(<span class="hljs-string">&quot;bbb&quot;</span>, <span class="hljs-string">&quot;56789&quot;</span>);
+        channel.queueBind(queueName, EXCHANGE_NAME, <span class="hljs-string">&quot;&quot;</span>, headers);
+
+        System.out.println(<span class="hljs-string">&quot;A Waiting for messages. To exit press CTRL+C&quot;</span>);
+        Consumer consumer = <span class="hljs-keyword">new</span> DefaultConsumer(channel) {
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleDelivery</span><span class="hljs-params">(String consumerTag, Envelope envelope, BasicProperties properties, <span class="hljs-keyword">byte</span>[] body)</span>
+                    <span class="hljs-keyword">throws</span> IOException </span>{
+                String message = <span class="hljs-keyword">new</span> String(body, <span class="hljs-string">&quot;UTF-8&quot;</span>);
+                System.out.println(<span class="hljs-string">&quot;A Recv &apos;&quot;</span> + message + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+        };
+
+        channel.basicConsume(queueName, <span class="hljs-keyword">true</span>, consumer);
+    }
+}
+</code></pre>
+<h2 id="&#x6E90;&#x7801;&#x94FE;&#x63A5;"><a name="&#x6E90;&#x7801;&#x94FE;&#x63A5;" class="anchor-navigation-ex-anchor" href="#&#x6E90;&#x7801;&#x94FE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x6E90;&#x7801;&#x94FE;&#x63A5;</h2>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x770B;&#x5230;&#x672C;&#x7BC7;&#x6E90;&#x7801;&#xFF1A;</p>
+<p><a href="https://github.com/mstao/rabbitmq-learning" target="_blank">https://github.com/mstao/rabbitmq-learning</a></p>
+<p>&#x53C2;&#x8003;:</p>
+<ul>
+<li><a href="http://www.rabbitmq.com/getstarted.html" target="_blank">RabbitMQ Doc</a></li>
+<li><a href="http://www.rabbitmq.com/tutorials/amqp-concepts.html" target="_blank">AMQP 0-9-1 Model Explained</a></li>
+</ul>
 
                                 
                                 </section>
@@ -2934,7 +3289,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RabbitMQ","level":"1.11.1","depth":2,"next":{"title":"RocketMQ","level":"1.11.2","depth":2,"path":"mq/rocketmq/README.md","ref":"mq/rocketmq/README.md","articles":[]},"previous":{"title":"消息队列","level":"1.11","depth":1,"path":"mq/README.md","ref":"mq/README.md","articles":[{"title":"RabbitMQ","level":"1.11.1","depth":2,"path":"mq/rabbitmq/README.md","ref":"mq/rabbitmq/README.md","articles":[]},{"title":"RocketMQ","level":"1.11.2","depth":2,"path":"mq/rocketmq/README.md","ref":"mq/rocketmq/README.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"mq/rabbitmq/README.md","mtime":"2018-10-07T02:16:44.858Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-13T14:51:05.599Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RabbitMQ","level":"1.11.1","depth":2,"next":{"title":"RocketMQ","level":"1.11.2","depth":2,"path":"mq/rocketmq/README.md","ref":"mq/rocketmq/README.md","articles":[]},"previous":{"title":"消息队列","level":"1.11","depth":1,"path":"mq/README.md","ref":"mq/README.md","articles":[{"title":"RabbitMQ","level":"1.11.1","depth":2,"path":"mq/rabbitmq/README.md","ref":"mq/rabbitmq/README.md","articles":[]},{"title":"RocketMQ","level":"1.11.2","depth":2,"path":"mq/rocketmq/README.md","ref":"mq/rocketmq/README.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"mq/rabbitmq/README.md","mtime":"2018-10-14T12:51:53.164Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-20T06:26:48.185Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

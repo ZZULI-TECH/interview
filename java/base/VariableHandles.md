@@ -102,4 +102,5 @@ public void test() {
 - [当我们在谈论 memory order 的时候，我们在谈论什么](https://cloud.tencent.com/developer/article/1005903)
 - 杨晓峰，AtomicInteger底层实现原理是什么？如何在自己的产品代码中应用CAS操作？
 - [内存屏障](http://ifeve.com/memory-barriers-or-fences/)
+- [Using JDK 9 Memory Order Modes](http://gee.cs.oswego.edu/dl/html/j9mm.html)
 - [memory_order](https://zh.cppreference.com/w/cpp/atomic/memory_order)

@@ -568,6 +568,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.1.18" data-path="../base/jmh/">
+            
+                <a href="../base/jmh/">
+            
+                    
+                    JMH
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -2781,7 +2794,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20" data-path="../../spider/">
+        <li class="chapter " data-level="1.20" data-path="../../regx/README.md">
+            
+                <span>
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../../spider/">
             
                 <a href="../../spider/">
             
@@ -2795,44 +2821,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../../spider/WebMagic/zzuli.html">
+        <li class="chapter " data-level="1.21.1" data-path="../../spider/WebMagic/zzuli.html">
             
                 <a href="../../spider/WebMagic/zzuli.html">
             
                     
                     WebMagic
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.21" data-path="../../other/">
-            
-                <a href="../../other/">
-            
-                    
-                    其他
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.21.1" data-path="../../other/regx/">
-            
-                <a href="../../other/regx/">
-            
-                    
-                    正则表达式
             
                 </a>
             
@@ -2890,7 +2884,423 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <p>&#x719F;&#x6089;Java Stream API&#x7684;&#x540C;&#x5B66;&#x53EF;&#x80FD;&#x77E5;&#x9053;&#x53EF;&#x4EE5;&#x5229;&#x7528;<code>parallelStream</code>&#x6765;&#x5B9E;&#x73B0;&#x5E76;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;Stream&#x7684;&#x5E76;&#x884C;&#x64CD;&#x4F5C;&#x4F9D;&#x8D56;JDK1.7&#x5F15;&#x5165;&#x7684;Fork/Join&#x6846;&#x67B6;&#xFF0C;&#x63D0;&#x4F9B;&#x5B9E;&#x73B0;&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6848;&#x3002;&#x4E0B;&#x9762;&#x662F;Doug Lea&#x5BF9;&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<pre><code>(recursively) splitting them into subtasks that are solved in
+parallel, waiting for them to complete, and then composing
+results.
+</code></pre><p>Fork/Join&#x6846;&#x67B6;&#x7684;&#x4E3B;&#x8981;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x662F;&#x91C7;&#x7528;&#x4E86;&#x7C7B;&#x4F3C;&#x5206;&#x6CBB;&#x7B97;&#x6CD5;&#xFF08; divide&#x2212;
+and&#x2212;conquer algorithms&#xFF09;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#x6210;&#x8BB8;&#x591A;&#x5C0F;&#x4EFB;&#x52A1;&#x5E76;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x6700;&#x540E;&#x5408;&#x5E76;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x6BD4;&#x4E32;&#x884C;&#x5316;&#x6267;&#x884C;&#x6548;&#x7387;&#x63D0;&#x9AD8;&#x4E0D;&#x5C11;&#x3002;&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-function">Result <span class="hljs-title">solve</span><span class="hljs-params">(Problem problem)</span> </span>{
+ <span class="hljs-keyword">if</span> (problem is small)
+ directly solve problem
+ <span class="hljs-keyword">else</span> {
+ split problem into independent parts
+ fork <span class="hljs-keyword">new</span> subtasks to solve each part
+ join all subtasks
+ compose result from subresults
+ }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6D89;&#x53CA;&#x5230;&#x4E24;&#x4E2A;&#x8BCD;&#xFF0C;fork&#x548C;join&#xFF0C;&#x5728;Doug Lea&#x7684;&#x8BBA;&#x6587;&#x4E2D;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<p>Fork&#xFF1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B50;&#x4EFB;&#x52A1;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</p>
+<blockquote>
+<p>The fork operation starts a new parallel fork/join subtask. </p>
+</blockquote>
+<p>Join: &#x5BFC;&#x81F4;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x7B49;&#x5F85;&#x76F4;&#x81F3;&#x88AB;fork&#x7684;&#x7EBF;&#x7A0B;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;</p>
+<blockquote>
+<p>The join operation causes the current task not to proceed until the
+forked subtask has completed.</p>
+</blockquote>
+<p>&#x4ECE;fork/join&#x7684;&#x63CF;&#x8FF0;&#x6765;&#x770B;&#xFF0C;&#x5C31;&#x662F;&#x5229;&#x7528;&#x9012;&#x5F52;&#x4E0D;&#x65AD;&#x7684;&#x5212;&#x5206;&#x5B50;&#x4EFB;&#x52A1;&#xFF0C;&#x76F4;&#x81F3;&#x4EFB;&#x52A1;&#x88AB;&#x5212;&#x5206;&#x7684;&#x8DB3;&#x591F;&#x5C0F;&#xFF0C;&#x76F4;&#x63A5;&#x4E32;&#x884C;&#x6267;&#x884C;&#x8DB3;&#x591F;&#x7B80;&#x5355;&#xFF0C;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;"><a name="&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;" class="plugin-anchor" href="#&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;</h2>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;1 ~ 100000000&#x76F8;&#x52A0;&#x6C42;&#x548C;&#x95EE;&#x9898;&#xFF0C;&#x6765;&#x6A21;&#x62DF;fork/join&#x5E76;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x4E0E;&#x4E32;&#x884C;&#x5316;for&#x5FAA;&#x73AF;&#x6267;&#x884C;&#xFF0C;&#x5229;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x6267;&#x884C; &#x7684;&#x65F6;&#x95F4;&#x5BF9;&#x6BD4;&#xFF0C;&#x6765;&#x63A8;&#x6D4B;fork/join&#x7684;&#x8BA1;&#x7B97;&#x6548;&#x7387;&#x3002;</p>
+<h3 id="for&#x4E32;&#x884C;"><a name="for&#x4E32;&#x884C;" class="anchor-navigation-ex-anchor" href="#for&#x4E32;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="for&#x4E32;&#x884C;" class="plugin-anchor" href="#for&#x4E32;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>FOR&#x4E32;&#x884C;</h3>
+<p>&#x5148;&#x8003;&#x8651;&#x6700;&#x7B80;&#x5355;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x76F4;&#x63A5;&#x5229;&#x7528;for&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x662F;&#x5728;&#x5355;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;&#x4E0B;&#x6765;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E32;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForLoopCalculatorImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Calculator</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">long</span>[] numbers)</span> </span>{
+        <span class="hljs-keyword">long</span> result = <span class="hljs-number">0L</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numbers.length; i++) {
+            result += numbers[i];
+        }
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x76F8;&#x5F53;&#x7B80;&#x5355;&#xFF0C;&#x65E0;&#x9700;&#x591A;&#x8A00;&#x3002;</p>
+<h3 id="&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;"><a name="&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;" class="anchor-navigation-ex-anchor" href="#&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;" class="plugin-anchor" href="#&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;</h3>
+<p>For&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x65F6;&#x5229;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5F53;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x8F83;&#x5927;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;&#x6765;&#x5904;&#x7406;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;&#x9996;&#x5148;&#x8003;&#x8651;CPU&#x6838;&#x5FC3;&#x6570;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#x6210;&#x4E0E;CPU&#x6838;&#x5FC3;&#x6570;&#x4E00;&#x6837;&#x6570;&#x91CF;&#x7684;&#x5B50;&#x4EFB;&#x52A1;&#xFF0C;&#x907F;&#x514D;CPU&#x65F6;&#x95F4;&#x7247;&#x7684;&#x8FC7;&#x5EA6;&#x5207;&#x6362;&#x5F15;&#x8D77;&#x8D44;&#x6E90;&#x6D6A;&#x8D39;&#x3002;&#x83B7;&#x53D6;CPU&#x6838;&#x5FC3;&#x6570;&#x548C;&#x521D;&#x59CB;&#x5316;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> parallism = Runtime.getRuntime().availableProcessors();
+<span class="hljs-keyword">private</span> ExecutorService pool;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExecutorServiceCalculatorImpl</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> corePoolSize = Math.max(<span class="hljs-number">2</span>, Math.min(parallism - <span class="hljs-number">1</span>, <span class="hljs-number">4</span>));
+    <span class="hljs-keyword">int</span> maximumPoolSize = parallism * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> keepAliveTime = <span class="hljs-number">30</span>;
+    System.out.println(String.format(<span class="hljs-string">&quot;corePoolSize = %s, maximumPoolSize = %s&quot;</span>, corePoolSize, maximumPoolSize));
+    BlockingQueue&lt;Runnable&gt; workQueue = <span class="hljs-keyword">new</span> LinkedBlockingDeque&lt;&gt;();
+    <span class="hljs-comment">// &#x7EBF;&#x7A0B;&#x7684;&#x521B;&#x5EFA;&#x5DE5;&#x5382;</span>
+    ThreadFactory threadFactory = <span class="hljs-keyword">new</span> ThreadFactory() {
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AtomicInteger mCount = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">1</span>);
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Thread <span class="hljs-title">newThread</span><span class="hljs-params">(Runnable r)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Thread(r, <span class="hljs-string">&quot;AdvacnedAsyncTask #&quot;</span> + mCount.getAndIncrement());
+        }
+    };
+
+    <span class="hljs-comment">// &#x7EBF;&#x7A0B;&#x6C60;&#x4EFB;&#x52A1;&#x6EE1;&#x8F7D;&#x540E;&#x91C7;&#x53D6;&#x7684;&#x4EFB;&#x52A1;&#x62D2;&#x7EDD;&#x7B56;&#x7565;</span>
+    RejectedExecutionHandler rejectHandler = <span class="hljs-keyword">new</span> ThreadPoolExecutor.DiscardOldestPolicy();
+
+    pool = <span class="hljs-keyword">new</span> ThreadPoolExecutor(corePoolSize,
+            maximumPoolSize,
+            keepAliveTime,
+            TimeUnit.SECONDS,
+            workQueue,
+            threadFactory,
+            rejectHandler);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x4F7F;&#x7528;ThreadPoolExecutor&#x6765;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x66F4;&#x52A0;&#x4E86;&#x89E3;&#x7EBF;&#x7A0B;&#x6C60;&#x4F7F;&#x7528;&#x7684;&#x5404;&#x79CD;&#x7EC6;&#x8282;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6839;&#x636E;CPU&#x6838;&#x5FC3;&#x6570;&#x6765;&#x5212;&#x5206;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5B50;&#x4EFB;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8FD9;&#x4E9B;&#x5B50;&#x4EFB;&#x52A1;&#x4EA4;&#x7ED9;&#x7EBF;&#x7A0B;&#x6C60;&#x91CC;&#x9762;&#x7684;&#x7EBF;&#x7A0B;&#x53BB;&#x6267;&#x884C;&#x3002;&#x6B64;&#x65F6;&#x6CE8;&#x610F;&#x4EFB;&#x52A1;&#x7684;&#x5212;&#x5206;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5747;&#x5300;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x4EFD;&#x4EFB;&#x52A1;&#x53EF;&#x80FD;&#x6BD4;&#x5176;&#x4ED6;&#x7684;&#x591A;&#x6216;&#x8005;&#x5C11;&#xFF0C;&#x9700;&#x8981;&#x7279;&#x522B;&#x5904;&#x7406;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">long</span>[] numbers)</span> </span>{
+    List&lt;Future&lt;Long&gt;&gt; futures = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+
+    <span class="hljs-comment">// &#x628A;&#x4EFB;&#x52A1;&#x5206;&#x89E3;&#x4E3A; n &#x4EFD;&#xFF0C;&#x4EA4;&#x7ED9; n &#x4E2A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x6B64;&#x65F6;&#x7531;&#x4E8E;int&#x7C7B;&#x578B;&#x4E22;&#x5931;&#x7CBE;&#x5EA6;</span>
+    <span class="hljs-keyword">int</span> part = numbers.length / parallism;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; parallism; i++) {
+        <span class="hljs-comment">// &#x8FDB;&#x884C;&#x4EFB;&#x52A1;&#x5206;&#x914D;</span>
+        <span class="hljs-keyword">int</span> from = i * part;
+        <span class="hljs-comment">// &#x6700;&#x540E;&#x4E00;&#x4EFD;&#x4EFB;&#x52A1;&#x53EF;&#x80FD;&#x4E0D;&#x5747;&#x5300;&#xFF0C;&#x76F4;&#x63A5;&#x5206;&#x914D;&#x7ED9;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;</span>
+        <span class="hljs-keyword">int</span> to = (i == parallism - <span class="hljs-number">1</span>) ? numbers.length - <span class="hljs-number">1</span> : (i + <span class="hljs-number">1</span>) * part - <span class="hljs-number">1</span>;
+        <span class="hljs-comment">// &#x63D0;&#x4EA4;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;</span>
+        futures.add(pool.submit(<span class="hljs-keyword">new</span> SumTask(numbers, from, to)));
+    }
+
+    <span class="hljs-comment">// &#x628A;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x7ED3;&#x679C;&#x76F8;&#x52A0;&#xFF0C;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7ED3;&#x679C;</span>
+    <span class="hljs-keyword">long</span> total = <span class="hljs-number">0L</span>;
+    <span class="hljs-keyword">for</span> (Future&lt;Long&gt; future : futures) {
+        <span class="hljs-keyword">try</span> {
+            total += future.get();
+        } <span class="hljs-keyword">catch</span> (Exception ignore) {}
+    }
+    pool.shutdown();
+    <span class="hljs-keyword">return</span> total;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;<code>SumTask</code>&#xFF0C;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x4ECE;<code>from</code> &#x5230; <code>to</code> &#x4E4B;&#x95F4;&#x7684;&#x6570;&#x76F8;&#x52A0;&#x4E4B;&#x548C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SumTask</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Callable</span>&lt;<span class="hljs-title">Long</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span>[] numbers;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> from;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> to;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SumTask</span><span class="hljs-params">(<span class="hljs-keyword">long</span>[] numbers, <span class="hljs-keyword">int</span> from, <span class="hljs-keyword">int</span> to)</span> </span>{
+        <span class="hljs-keyword">this</span>.numbers = numbers;
+        <span class="hljs-keyword">this</span>.from = from;
+        <span class="hljs-keyword">this</span>.to = to;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-keyword">long</span> total = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = from; i &lt;= to; i++) {
+            total += numbers[i];
+        }
+        <span class="hljs-keyword">return</span> total;
+    }
+}
+</code></pre>
+<p>&#x770B;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x662F;&#x5229;&#x7528;&#x4E86;&#x7EBF;&#x7A0B;&#x6C60;&#x6765;&#x5E76;&#x53D1;&#x6765;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x5229;&#x7528;&#x4E86;&#x7EBF;&#x7A0B;&#x6C60;&#x5F02;&#x6B65;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x6765;&#x8BF4;&#x6BD4;for&#x5FAA;&#x73AF;&#x4E32;&#x884C;&#x6267;&#x884C;&#x8981;&#x597D;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x6D89;&#x53CA;&#x5230;CPU&#x7684;&#x65F6;&#x95F4;&#x7247;&#x5207;&#x6362;&#xFF0C;&#x6267;&#x884C;&#x8017;&#x65F6;&#x4E0A;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x4E32;&#x884C;&#x6267;&#x884C;&#x8981;&#x9AD8;&#x3002;</p>
+<h3 id="fokrjoin"><a name="fokrjoin" class="anchor-navigation-ex-anchor" href="#fokrjoin"><i class="fa fa-link" aria-hidden="true"></i></a><a name="fokrjoin" class="plugin-anchor" href="#fokrjoin"><i class="fa fa-link" aria-hidden="true"></i></a>Fokr/Join</h3>
+<p>&#x5199;&#x5B8C;&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x8BBE;&#x8BA1;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#x5230;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x6765;&#x505A;&#xFF0C;&#x65E2;&#x7136;Doug Lea&#x5199;&#x51FA;&#x4E86;Fork/Join&#x6846;&#x67B6;&#xFF0C;&#x80AF;&#x5B9A;&#x4E0D;&#x662F;&#x5229;&#x7528;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x505A;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#x5462;&#xFF1F;</p>
+<p>Fork/Join&#x6846;&#x67B6;&#x62BD;&#x8C61;&#x51FA;&#x4E86;<code>ForkJoinTask</code>&#x6765;&#x4EE3;&#x8868;&#x8981;&#x6267;&#x884C;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x8BE5;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;<code>Future</code>&#x63A5;&#x53E3;&#xFF0C;&#x6BD4;<code>Thread</code>&#x66F4;&#x52A0;&#x8F7B;&#x91CF;&#x7EA7;&#x3002;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x8BE5;&#x7C7B;&#xFF0C;Fork/Join&#x6846;&#x67B6;&#x7ED9;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x4F9B;&#x6211;&#x4EEC;&#x7EE7;&#x627F;&#xFF1A;</p>
+<ul>
+<li><code>RecursiveTask</code> &#xFF1A;&#x4EE3;&#x8868;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1; </li>
+<li><code>RecursiveAction</code>&#xFF1A;&#x4EE3;&#x8868;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4EFB;&#x52A1;</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x7EE7;&#x627F;<code>RecursiveTask</code>&#x5C31;&#x597D;&#x4E86;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SumTask</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecursiveTask</span>&lt;<span class="hljs-title">Long</span>&gt; </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> THRESHOLD = <span class="hljs-number">2000000</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span>[] numbers;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> start;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> end;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SumTask</span><span class="hljs-params">(<span class="hljs-keyword">long</span>[] numbers, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span> </span>{
+        <span class="hljs-keyword">this</span>.numbers = numbers;
+        <span class="hljs-keyword">this</span>.start = start;
+        <span class="hljs-keyword">this</span>.end = end;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Long <span class="hljs-title">compute</span><span class="hljs-params">()</span> </span>{
+
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x95EE;&#x9898;&#x89C4;&#x6A21;</span>
+        <span class="hljs-keyword">if</span> ((end - start) &lt;= THRESHOLD) {
+            <span class="hljs-keyword">long</span> result = <span class="hljs-number">0L</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start; i &lt;= end; i++) {
+                result += numbers[i];
+            }
+            <span class="hljs-keyword">return</span> result;
+        }
+
+        <span class="hljs-comment">// &#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#x4E3A;&#x591A;&#x4E2A;&#x5C0F;&#x4EFB;&#x52A1;</span>
+        <span class="hljs-keyword">int</span> middle = (start + end) / <span class="hljs-number">2</span>;
+        SumTask taskLeft = <span class="hljs-keyword">new</span> SumTask(numbers, start, middle);
+        SumTask taskRight = <span class="hljs-keyword">new</span> SumTask(numbers, middle + <span class="hljs-number">1</span>, end);
+        invokeAll(taskLeft, taskRight);
+        <span class="hljs-keyword">long</span> result = taskLeft.join() + taskRight.join();
+
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x91CD;&#x5199;<code>RecursiveTask</code>&#x7C7B;&#x7684;<code>compute()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x8FDB;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x5206;&#x5272;&#x64CD;&#x4F5C;&#x3002;&#x548C;&#x5F00;&#x59CB;&#x6211;&#x4EEC;&#x89C1;&#x5230;&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#x7C7B;&#x4F3C;&#xFF0C;&#x5148;&#x5224;&#x65AD;&#x4EFB;&#x52A1;&#x89C4;&#x6A21;&#xFF08;&#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x9012;&#x5F52;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#xFF09;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x9608;&#x503C;&#xFF0C;&#x4EFB;&#x52A1;&#x89C4;&#x6A21;&#x5C0F;&#x4E8E;&#x8FD9;&#x4E2A;&#x9608;&#x503C;&#xFF0C;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF1B;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x9608;&#x503C;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x4E00;&#x4EFD;&#x4E3A;&#x4E8C;&#xFF0C;&#x8FD9;&#x6837;&#x9012;&#x5F52;&#x4E0B;&#x53BB;&#xFF0C;&#x76F4;&#x81F3;&#x4EFB;&#x52A1;&#x4E0D;&#x53EF;&#x518D;&#x5206;&#x3002;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x91C7;&#x7528;<code>invokeAll</code>&#x6765;&#x8FDB;&#x884C;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#xFF0C;&#x4E0D;&#x8FC7;&#x5F88;&#x591A;&#x7F51;&#x4E0A;&#x7684;&#x4F8B;&#x5B50;&#x91C7;&#x7528;&#x7684;&#x662F;&#x5982;&#x4E0B;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>// &#x5206;&#x522B;&#x5BF9;&#x5B50;&#x4EFB;&#x52A1;&#x8C03;&#x7528;fork():
+subTask1.fork();
+subTask2.fork();
+</code></pre><p>&#x5728;JDK&#x5B98;&#x65B9;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x662F;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#xFF0C;&#x4E5F;&#x662F;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x539F;&#x56E0;&#x540E;&#x9762;&#x518D;&#x5206;&#x6790;&#x3002;</p>
+<p>Fork/Join&#x6846;&#x67B6;&#x63D0;&#x4F9B;&#x4E86;<code>ForkJoinPool</code>&#x6765;&#x6267;&#x884C;&#x6211;&#x4EEC;&#x5206;&#x5272;&#x597D;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;<code>pool.invoke(task)</code>&#x6765;&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;Fork/Join&#x4EFB;&#x52A1;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x83B7;&#x5F97;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForkJoinCalculatorImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Calculator</span> </span>{
+    <span class="hljs-keyword">private</span> ForkJoinPool pool;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">long</span>[] source)</span> </span>{
+        pool = <span class="hljs-keyword">new</span> ForkJoinPool();
+        SumTask task = <span class="hljs-keyword">new</span> SumTask(source, <span class="hljs-number">0</span>, source.length - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> pool.invoke(task);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x5229;&#x7528;Fork/Join&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;<code>StackOverflowError</code>&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x9012;&#x5F52;&#x5C42;&#x6570;&#x592A;&#x6DF1;&#xFF0C;&#x5BFC;&#x81F4;&#x8D85;&#x51FA;JDK&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8BC4;&#x4F30;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#x7684;&#x7A0B;&#x5EA6;&#x6216;&#x8005;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5206;&#x5272;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x8FD8;&#x4F1A;&#x629B;&#x51FA;&#x4EE5;&#x4E0B;&#x5F02;&#x5E38;&#xFF0C;&#x9700;&#x8981;&#x5173;&#x6CE8;&#xFF1A;</p>
+<pre><code>java.lang.NoClassDefFoundError: Could not initialize class java.util.concurrent.locks.AbstractQueuedSynchronizer$Node
+</code></pre><h3 id="&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;"><a name="&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;" class="plugin-anchor" href="#&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF08;&#x57FA;&#x7840;&#x6D4B;&#x8BD5;&#xFF09;</h3>
+<p>&#x4E0A;&#x9762;&#x4E09;&#x79CD;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x7A76;&#x7ADF;&#x8BA1;&#x7B97;&#x6548;&#x7387;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x6765;&#x5199;&#x4E2A;&#x6D4B;&#x8BD5;&#x7C7B;&#x6D4B;&#x8BD5;&#x4E00;&#x628A;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>long[] numbers = LongStream.rangeClosed(1L, 100000000L).toArray();
+
+// 1 &#x76F4;&#x63A5;for&#x5FAA;&#x73AF;
+Calculator calculator = new ForLoopCalculatorImpl();
+long currentTime1 = System.currentTimeMillis();
+long result1 = calculator.sum(numbers);
+long executedTime = System.currentTimeMillis() - currentTime1;
+System.out.println(&quot;&#x76F4;&#x63A5;&#x5FAA;&#x73AF;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;&quot; + result1 + &quot;, &#x8017;&#x65F6;&#xFF1A;&quot; + executedTime);
+
+// 2 &#x5229;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;
+Calculator calculator2 = new ExecutorServiceCalculatorImpl();
+long currentTime2 = System.currentTimeMillis();
+long result2 = calculator2.sum(numbers);
+long executedTime2 = System.currentTimeMillis() - currentTime2;
+System.out.println(&quot;&#x7EBF;&#x7A0B;&#x6C60;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;&quot; + result2 + &quot;, &#x8017;&#x65F6;&#xFF1A;&quot; + executedTime2);
+
+// 3 fork/join
+Calculator calculator3 = new ForkJoinCalculatorImpl();
+long currentTime3 = System.currentTimeMillis();
+long result3 = calculator3.sum(numbers);
+long executedTime3 = System.currentTimeMillis() - currentTime3;
+System.out.println(&quot;Fork/Join&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF1A;&quot; + result3 + &quot;, &#x8017;&#x65F6;&#xFF1A;&quot; + executedTime3);
+</code></pre><p>&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/concurrency/fj_calculator_result.png?raw=true" alt="image"></p>
+<p>&#x6211;&#x7528;&#x7684;&#x662F;Window10&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;CPU i5 7&#x4EE3;&#x3001;4&#x6838;&#x5FC3;&#xFF0C;&#x8DD1;&#x7684;&#x65F6;&#x5019;CPU&#x98D9;&#x5230;&#x4E86;100%&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x8BA1;&#x7B97;&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;CPU&#x7684;&#x5168;&#x529B;&#x53C2;&#x4E0E;&#xFF0C;&#x4E5F;&#x65E0;&#x53EF;&#x539A;&#x975E;&#x3002;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://github.com/ZZULI-TECH/interview/blob/master/images/concurrency/fj_cpu.png?raw=true" alt="image"></p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x6765;&#x770B;&#xFF0C;Fork/Join&#x8017;&#x65F6;&#x6700;&#x5C11;&#xFF0C;&#x7EBF;&#x7A0B;&#x6C60;&#x6B21;&#x4E4B;&#xFF0C;&#x76F4;&#x63A5;For&#x5FAA;&#x73AF;&#x662F;&#x8017;&#x65F6;&#x6700;&#x591A;&#x7684;&#xFF0C;&#x7B80;&#x76F4;&#x662F;&#x96BE;&#x4EE5;&#x7F6E;&#x4FE1;&#x554A;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x81F3;&#x5C11;&#x4E5F;&#x8BF4;&#x660E;&#x4E86;Fork/Join&#x5728;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#x6BD4;&#x8F83;&#x4F18;&#x79C0;&#x7684;&#x4E8B;&#x5B9E;&#xFF08;&#x7ED3;&#x8BBA;&#x672A;&#x5FC5;&#x6B63;&#x786E;&#xFF09;&#x3002;</p>
+<h3 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;jmh&#xFF09;"><a name="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;jmh&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;jmh&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;jmh&#xFF09;" class="plugin-anchor" href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;jmh&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF08;JMH&#xFF09;</h3>
+<p>&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x662F;&#x5229;&#x7528;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7684;&#x5F00;&#x59CB;&#x4E0E;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x7684;&#x5DEE;&#x503C;&#x6765;&#x8BC4;&#x4F30;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x6027;&#x80FD;&#xFF0C;&#x5229;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x8BBA;&#x5F80;&#x5F80;&#x662F;&#x7AD9;&#x4E0D;&#x4F4F;&#x811A;&#x7684;&#xFF08;&#x4E0D;&#x4E25;&#x8C28;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5230;&#x7A0B;&#x5E8F;&#x5728;&#x8FD0;&#x884C;&#x65F6;JVM&#x6240;&#x5E26;&#x6765;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x6240;&#x4EE5;&#x5F97;&#x51FA;&#x7684;&#x7ED3;&#x8BBA;&#x672A;&#x5FC5;&#x53EF;&#x9760;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x4E0D;&#x80FD;&#x4E71;&#x4E0B;&#x7ED3;&#x8BBA;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x9760;&#x8C31;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x5462;&#xFF1F;JMH&#xFF08;Java Microbenchmark Harness&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x5411;Java&#x8BED;&#x8A00;&#x6216;JVM&#x5E73;&#x53F0;&#x8BED;&#x8A00;&#x7684;&#x6027;&#x80FD;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x9488;&#x5BF9;&#x7684;&#x662F;&#x7EB3;&#x79D2;&#x7EA7;&#x522B;&#x3001;&#x5FAE;&#x79D2;&#x7EA7;&#x522B;&#x3001;&#x6BEB;&#x79D2;&#x7EA7;&#x522B;&#x4EE5;&#x53CA;&#x79D2;&#x7EA7;&#x522B;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x3002;&#x542C;&#x4E0A;&#x53BB;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x53FC;&#xFF1F;&#x6211;&#x4EEC;&#x5C31;&#x7528;&#x5B83;&#x6765;&#x6D4B;&#x8BD5;&#x4E0A;&#x9762;&#x5199;&#x7684;&#x4E09;&#x4E2A;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x5427;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;<code>@Benchmark</code>&#x6765;&#x6807;&#x8BC6;JMH&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6CD5;&#x548C;Junit&#x7684;<code>@Test</code>&#x7C7B;&#x4F3C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span>[] numbers = LongStream.rangeClosed(<span class="hljs-number">1L</span>, <span class="hljs-number">100_000_000L</span>).toArray();
+
+<span class="hljs-meta">@Benchmark</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// 1 &#x76F4;&#x63A5;for&#x5FAA;&#x73AF;</span>
+    Calculator calculator = <span class="hljs-keyword">new</span> ForLoopCalculatorImpl();
+    calculator.sum(numbers);
+}
+
+<span class="hljs-meta">@Benchmark</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// 2 &#x5229;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;</span>
+    Calculator calculator2 = <span class="hljs-keyword">new</span> ExecutorServiceCalculatorImpl();
+    calculator2.sum(numbers);
+}
+
+<span class="hljs-meta">@Benchmark</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// 3 fork/join</span>
+    Calculator calculator3 = <span class="hljs-keyword">new</span> ForkJoinCalculatorImpl();
+    calculator3.sum(numbers);
+}
+</code></pre>
+<p>&#x522B;&#x5FD8;&#x4E86;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x4F9D;&#x8D56;&#x54E6;&#xFF0C;&#x76EE;&#x524D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x5DF2;&#x662F;<code>1.21</code>&#xFF0C;&#x7531;&#x4E8E;JMH&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x662F;&#x8FD0;&#x884C;&#x5176;&#x63D0;&#x4F9B;&#x7684;Main&#x65B9;&#x6CD5;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;maven&#x76F8;&#x5173;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;&#x8FD0;&#x884C;Main&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-Java">&lt;dependency&gt;
+  &lt;groupId&gt;org.openjdk.jmh&lt;/groupId&gt;
+  &lt;artifactId&gt;jmh-core&lt;/artifactId&gt;
+  &lt;version&gt;${jmh.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.openjdk.jmh&lt;/groupId&gt;
+  &lt;artifactId&gt;jmh-generator-annprocess&lt;/artifactId&gt;
+  &lt;version&gt;${jmh.version}&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>maven&#x63D2;&#x4EF6;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-shade-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>package<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>shade<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">finalName</span>&gt;</span>java11-tutorial<span class="hljs-tag">&lt;/<span class="hljs-name">finalName</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">transformers</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">transformer</span> <span class="hljs-attr">implementation</span>=<span class="hljs-string">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mainClass</span>&gt;</span>org.openjdk.jmh.Main<span class="hljs-tag">&lt;/<span class="hljs-name">mainClass</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">transformer</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">transformers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5728;&#x8BE5;&#x9879;&#x76EE;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x8FD0;&#x884C;<code>maven clean package</code>&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;<code>java -jar target/java11-tutorial.jar</code> &#x76F4;&#x63A5;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B83;&#x7684;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF08;&#x91CD;&#x590D;&#x7684;&#x7701;&#x7565;&#xFF09;&#xFF1A;</p>
+<pre><code># JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test1
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 11.702 ops/s
+# Warmup Iteration   2: 11.902 ops/s
+# Warmup Iteration   3: 11.014 ops/s
+# Warmup Iteration   4: 10.663 ops/s
+# Warmup Iteration   5: 11.611 ops/s
+Iteration   1: 11.615 ops/s
+Iteration   2: 11.981 ops/s
+Iteration   3: 13.429 ops/s
+Iteration   4: 12.363 ops/s
+Iteration   5: 10.350 ops/s
+
+...&#x8FD0;&#x884C;&#x4E94;&#x6B21;
+
+
+Result &quot;me.mingshan.demo.fj.Test.test1&quot;:
+  11.492 &#xB1;(99.9%) 0.864 ops/s [Average]
+  (min, avg, max) = (9.804, 11.492, 14.808), stdev = 1.154
+  CI (99.9%): [10.628, 12.356] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test2
+
+# Run progress: 33.33% complete, ETA 00:16:59
+# Fork: 1 of 5
+# Warmup Iteration   1: 17.420 ops/s
+# Warmup Iteration   2: 15.220 ops/s
+# Warmup Iteration   3: 15.497 ops/s
+# Warmup Iteration   4: 14.617 ops/s
+# Warmup Iteration   5: 17.724 ops/s
+Iteration   1: 18.410 ops/s
+Iteration   2: 18.326 ops/s
+Iteration   3: 16.326 ops/s
+Iteration   4: 15.471 ops/s
+Iteration   5: 15.603 ops/s
+
+...&#x8FD0;&#x884C;&#x4E94;&#x6B21;
+
+Result &quot;me.mingshan.demo.fj.Test.test2&quot;:
+  16.358 &#xB1;(99.9%) 1.549 ops/s [Average]
+  (min, avg, max) = (11.898, 16.358, 18.918), stdev = 2.068
+  CI (99.9%): [14.809, 17.907] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, Java HotSpot(TM) 64-Bit Server VM, 11+28
+# VM invoker: F:\develope\Java\Java11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: me.mingshan.demo.fj.Test.test3
+
+# Run progress: 66.67% complete, ETA 00:08:29
+# Fork: 1 of 5
+# Warmup Iteration   1: 14.169 ops/s
+# Warmup Iteration   2: 14.925 ops/s
+# Warmup Iteration   3: 14.652 ops/s
+# Warmup Iteration   4: 14.448 ops/s
+# Warmup Iteration   5: 14.090 ops/s
+Iteration   1: 14.948 ops/s
+Iteration   2: 15.234 ops/s
+Iteration   3: 15.371 ops/s
+Iteration   4: 15.451 ops/s
+Iteration   5: 18.772 ops/s
+
+...&#x8FD0;&#x884C;&#x4E94;&#x6B21;
+
+Result &quot;me.mingshan.demo.fj.Test.test3&quot;:
+  17.366 &#xB1;(99.9%) 0.902 ops/s [Average]
+  (min, avg, max) = (14.948, 17.366, 19.462), stdev = 1.204
+  CI (99.9%): [16.465, 18.268] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:27
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark    Mode  Cnt   Score   Error  Units
+Test.test1  thrpt   25  11.492 &#xB1; 0.864  ops/s
+Test.test2  thrpt   25  16.358 &#xB1; 1.549  ops/s
+Test.test3  thrpt   25  17.366 &#xB1; 0.902  ops/s
+</code></pre><p>&#x5176;&#x4E2D;<code>Fork&#xFF1A;1 of 5</code>&#x6307;&#x7684;&#x662F;JMH&#x4F1A;Fork&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x6765;&#x8FD0;&#x884C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x5E72;&#x51C0;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x6BCF;&#x4E2A; Fork &#x5305;&#x542B;&#x4E86; 5 &#x4E2A;&#x9884;&#x70ED;&#x8FED;&#x4EE3;&#xFF08;warmup iteration&#xFF0C;&#x5982;# Warmup Iteration   1: 14.169 ops/s&#xFF09;&#x548C;5&#x4E2A;&#x6D4B;&#x8BD5;&#x8FED;&#x4EE3;&#xFF08;measurement iteration&#xFF0C;&#x5982;Iteration   5: 18.772 ops/s&#xFF09;&#x3002;</p>
+<p>&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x540E;&#x9762;&#x7684;&#x6570;&#x636E;&#x4EE3;&#x8868;&#x672C;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF0C;&#x5373;&#x6BCF;&#x79D2;&#x8FD0;&#x884C;&#x7684;&#x6B21;&#x6570;&#xFF08;ops/s&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#x8C03;&#x7528;&#x4E86;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x6765;&#x770B;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5427;&#xFF0C;&#x5982;&#x4E0B;:</p>
+<pre><code>Benchmark    Mode  Cnt   Score   Error  Units
+Test.test1  thrpt   25  11.492 &#xB1; 0.864  ops/s
+Test.test2  thrpt   25  16.358 &#xB1; 1.549  ops/s
+Test.test3  thrpt   25  17.366 &#xB1; 0.902  ops/s
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x4FBF;&#x662F;&#x672C;&#x6B21;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4E3B;&#x8981;&#x5173;&#x6CE8;Score&#x548C;Error&#xFF0C;Socre&#x4EE3;&#x8868;&#x672C;&#x6B21;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7684;&#x5E73;&#x5747;&#x541E;&#x5410;&#x91CF;&#xFF08;&#x6BCF;&#x79D2;&#x8FD0;&#x884C;test*&#x7684;&#x6B21;&#x6570;&#xFF09;&#xFF0C;Error&#x4EE3;&#x8868;&#x8BEF;&#x5DEE;&#x8303;&#x56F4;&#xFF0C;&#x6240;&#x4EE5;&#x3002;&#x3002;&#x3002;test1&#x4EE3;&#x8868;For&#x5FAA;&#x73AF;&#x4E32;&#x6027;&#x6267;&#x884C;&#xFF0C;test2&#x4EE3;&#x8868;&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;test3&#x4EE3;&#x8868;Fork/Join&#x6267;&#x884C;&#xFF0C;&#x7ED3;&#x679C;&#x5F88;&#x660E;&#x663E;&#xFF0C;Fork/Join&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x6B21;&#x6570;&#x6700;&#x591A;&#xFF0C;&#x7EBF;&#x7A0B;&#x6C60;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x6B21;&#x4E4B;&#xFF0C;For&#x5FAA;&#x73AF;&#x4E32;&#x6027;&#x6267;&#x884C;&#x6700;&#x5C11;&#x3002;</p>
+<p>&#x7EFC;&#x5408;&#x4EE5;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C0F;&#x5FC3;&#x7FFC;&#x7FFC;&#x5730;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;&#xFF08;&#x6015;&#x88AB;&#x6253;&#x3002;&#x3002;&#xFF09;&#xFF0C;Fork/Join&#x5728;&#x8BA1;&#x7B97;&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x6548;&#x7387;&#x4E0A;&#x662F;&#x5F88;&#x597D;&#x7684;&#xFF0C;&#x63A8;&#x8350;&#x5927;&#x5BB6;&#x4F7F;&#x7528;&#x3002;&#xFF08;&#x5B8C;&#x6BD5;&#xFF09;</p>
+<h2 id="&#x539F;&#x7406;&#x5206;&#x6790;"><a name="&#x539F;&#x7406;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x7406;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x539F;&#x7406;&#x5206;&#x6790;" class="plugin-anchor" href="#&#x539F;&#x7406;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x539F;&#x7406;&#x5206;&#x6790;</h2>
+<p>&#x76EE;&#x524D;&#x5148;&#x4E0D;&#x5206;&#x6790;&#xFF0C;&#x540E;&#x9762;&#x518D;&#x5199;&#x4E00;&#x904D;&#x6587;&#x7AE0;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="http://gee.cs.oswego.edu/dl/papers/fj.pdf" target="_blank">A Java Fork/Join Framework</a></li>
+<li><a href="https://www.oracle.com/technetwork/cn/articles/java/fork-join-422606-zhs.html" target="_blank">&#x5206;&#x89E3;&#x548C;&#x5408;&#x5E76;&#xFF1A;Java &#x4E5F;&#x64C5;&#x957F;&#x8F7B;&#x677E;&#x7684;&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#xFF01;</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html" target="_blank">Fork/Join tutorial</a></li>
+<li><a href="https://www.jianshu.com/p/f777abb7b251" target="_blank">jdk1.8-ForkJoin&#x6846;&#x67B6;&#x5256;&#x6790;</a></li>
+<li><a href="http://blog.dyngr.com/blog/2016/09/15/java-forkjoinpool-internals/" target="_blank">Java &#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x7B14;&#x8BB0;&#xFF1A;&#x5982;&#x4F55;&#x4F7F;&#x7528; ForkJoinPool &#x4EE5;&#x53CA;&#x539F;&#x7406;</a></li>
+<li><a href="http://openjdk.java.net/projects/code-tools/jmh/" target="_blank">Code Tools: jmh</a></li>
+<li><a href="https://time.geekbang.org/column/article/40275" target="_blank">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;JMH&#xFF08;&#x4E0A;&#xFF09;</a></li>
+<li><a href="https://time.geekbang.org/column/article/40281" target="_blank">&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;JMH&#xFF08;&#x4E0B;&#xFF09;</a></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -2933,7 +3343,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fork/Join","level":"1.2.3.3","depth":3,"next":{"title":"Atomic","level":"1.2.3.4","depth":3,"path":"java/concurrency/atomic/README.md","ref":"java/concurrency/atomic/README.md","articles":[{"title":"AtomicInteger","level":"1.2.3.4.1","depth":4,"path":"java/concurrency/atomic/AtomicInteger.md","ref":"java/concurrency/atomic/AtomicInteger.md","articles":[]},{"title":"AtomicIntegerArray","level":"1.2.3.4.2","depth":4,"path":"java/concurrency/atomic/AtomicIntegerArray.md","ref":"java/concurrency/atomic/AtomicIntegerArray.md","articles":[]},{"title":"AtomicIntegerFieldUpdater","level":"1.2.3.4.3","depth":4,"path":"java/concurrency/atomic/AtomicIntegerFieldUpdater.md","ref":"java/concurrency/atomic/AtomicIntegerFieldUpdater.md","articles":[]},{"title":"AtomicMarkableReference","level":"1.2.3.4.4","depth":4,"path":"java/concurrency/atomic/AtomicMarkableReference.md","ref":"java/concurrency/atomic/AtomicMarkableReference.md","articles":[]},{"title":"AtomicReference","level":"1.2.3.4.5","depth":4,"path":"java/concurrency/atomic/AtomicReference.md","ref":"java/concurrency/atomic/AtomicReference.md","articles":[]},{"title":"AtomicStampedReference","level":"1.2.3.4.6","depth":4,"path":"java/concurrency/atomic/AtomicStampedReference.md","ref":"java/concurrency/atomic/AtomicStampedReference.md","articles":[]},{"title":"LongAdder","level":"1.2.3.4.7","depth":4,"path":"java/concurrency/atomic/LongAdder.md","ref":"java/concurrency/atomic/LongAdder.md","articles":[]},{"title":"LongAccumulator","level":"1.2.3.4.8","depth":4,"path":"java/concurrency/atomic/LongAccumulator.md","ref":"java/concurrency/atomic/LongAccumulator.md","articles":[]}]},"previous":{"title":"Callable & Future","level":"1.2.3.2","depth":3,"path":"java/concurrency/Callable&Future.md","ref":"java/concurrency/Callable&Future.md","articles":[]},"dir":"neutral"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/concurrency/Forkjoin.md","mtime":"2018-10-07T02:16:44.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-13T14:51:05.599Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fork/Join","level":"1.2.3.3","depth":3,"next":{"title":"Atomic","level":"1.2.3.4","depth":3,"path":"java/concurrency/atomic/README.md","ref":"java/concurrency/atomic/README.md","articles":[{"title":"AtomicInteger","level":"1.2.3.4.1","depth":4,"path":"java/concurrency/atomic/AtomicInteger.md","ref":"java/concurrency/atomic/AtomicInteger.md","articles":[]},{"title":"AtomicIntegerArray","level":"1.2.3.4.2","depth":4,"path":"java/concurrency/atomic/AtomicIntegerArray.md","ref":"java/concurrency/atomic/AtomicIntegerArray.md","articles":[]},{"title":"AtomicIntegerFieldUpdater","level":"1.2.3.4.3","depth":4,"path":"java/concurrency/atomic/AtomicIntegerFieldUpdater.md","ref":"java/concurrency/atomic/AtomicIntegerFieldUpdater.md","articles":[]},{"title":"AtomicMarkableReference","level":"1.2.3.4.4","depth":4,"path":"java/concurrency/atomic/AtomicMarkableReference.md","ref":"java/concurrency/atomic/AtomicMarkableReference.md","articles":[]},{"title":"AtomicReference","level":"1.2.3.4.5","depth":4,"path":"java/concurrency/atomic/AtomicReference.md","ref":"java/concurrency/atomic/AtomicReference.md","articles":[]},{"title":"AtomicStampedReference","level":"1.2.3.4.6","depth":4,"path":"java/concurrency/atomic/AtomicStampedReference.md","ref":"java/concurrency/atomic/AtomicStampedReference.md","articles":[]},{"title":"LongAdder","level":"1.2.3.4.7","depth":4,"path":"java/concurrency/atomic/LongAdder.md","ref":"java/concurrency/atomic/LongAdder.md","articles":[]},{"title":"LongAccumulator","level":"1.2.3.4.8","depth":4,"path":"java/concurrency/atomic/LongAccumulator.md","ref":"java/concurrency/atomic/LongAccumulator.md","articles":[]}]},"previous":{"title":"Callable & Future","level":"1.2.3.2","depth":3,"path":"java/concurrency/Callable&Future.md","ref":"java/concurrency/Callable&Future.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors","edit-link","toggle-chapters","mermaid","splitter","katex","github","emphasize","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"github":{"url":"https://github.com/ZZULI-TECH/interview"},"livereload":{},"splitter":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/ZZULI-TECH/interview/edit/master/source"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"技术面试知识整理","gitbook":"*","description":"整理一些关于Java、框架、数据结构和算法、LeetCode题解、数据库、操作系统、分布式等相关技术，欢迎大家提交Pull Request，大家一起学习~"},"file":{"path":"java/concurrency/Forkjoin.md","mtime":"2018-10-20T04:20:01.122Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-20T06:26:48.185Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -45,9 +45,9 @@ public final int getAndAddInt(Object o, long offset, int delta) {
 
 1. 假设现在有两个线程同时进入getAndAddInt方法, 主内存的value假设为2，根据Java内存模型，线程A和线程B各自持有一份value的副本，值为2；
 2. 线程A 执行`getIntVolatile(o, offset)`方法，拿到value值为2，线程A被挂起了；
-3. 线程B执行`getIntVolatile(o, offset)`方法，拿到value值为2， 接着执行`weakCompareAndSetInt(o, offset, v, v + delta))`方法，发现内存值和获取的值都是2，成功修改value的值为1；
-4. 线程A继续执行`weakCompareAndSetInt(o, offset, v, v + delta))`方法，发现自己获取的值2和内存中的值1不一样了，修改失败，继续循环执行
-5. 继续上面同样的操作，由于value被volatile修饰，所以此时线程A的value的副本就为1了，执行`getIntVolatile(o, offset)`方法，获取的值也为1，最后执行`weakCompareAndSetInt(o, offset, v, v + delta))`，直至成功修改value的值。
+3. 线程B执行`getIntVolatile(o, offset)`方法，拿到value值为2， 接着执行`weakCompareAndSetInt(o, offset, v, v + delta)`方法，发现内存值和获取的值都是2，成功修改value的值为1；
+4. 线程A继续执行`weakCompareAndSetInt(o, offset, v, v + delta)`方法，发现自己获取的值2和内存中的值1不一样了，修改失败，继续循环执行
+5. 继续上面同样的操作，由于value被volatile修饰，所以此时线程A的value的副本就为1了，执行`getIntVolatile(o, offset)`方法，获取的值也为1，最后执行`weakCompareAndSetInt(o, offset, v, v + delta)`，直至成功修改value的值。
 
 
 `weakCompareAndSetInt`最终调用`compareAndSetInt`方法，注意该方法为本地方法，如下。该方法有四个参数，分别是对象（这里是AtomicInteger）、对象的偏移地址、预期值、修改值。
@@ -61,7 +61,7 @@ public final native boolean compareAndSetInt(Object o, long offset,
 
 该方法根据操作系统的不同有不同的实现。在openjdk调用的c++代码为：[unsafe.cpp](https://github.com/unofficial-openjdk/openjdk/blob/4fb6d169db9c9732929ebbd5df01075b29105275/src/hotspot/share/prims/unsafe.cpp#L907)。。我也看不懂
 
-**ABA问题**我也看不懂
+**ABA问题**
 
 从上面的分析可以看出，CAS涉及到修改值操作，如果一个值先被修改然后再修改为原值，那么就出现了ABA问题。具体流程如下：
 1. 线程P1读取指定内存的值为A
@@ -131,6 +131,10 @@ public class AtomicStampedReferenceDemo {
 操作线程Thread[干扰线程,5,main], 【decrement】, Reference = 1, Stamp = 2
 操作线程Thread[主操作线程,5,main], CAS操作结果: false
 ```
+
+**Variable Handles** 
+
+在JDK9之前，JDK源码中在进行CAS操作时需要调用`sun.misc.Unsafe`类native修饰的方法，该类由于涉及到底层操作被JDK视为不安全，不推荐使用，在以后的版本中会被逐渐替代，所以在JDK9引入了Variable Handles（变量句柄）这个概念，主要提供`java.util.concurrent.atomic` 和 `sun.misc.Unsafe`相似的功能，但会更加安全和易用，并且在并发方面提高了性能。详细参考[Variable Handles（变量句柄）](https://github.com/ZZULI-TECH/interview/blob/master/source/java/base/VariableHandles.md)
 
 参考：
 
