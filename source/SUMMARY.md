@@ -160,6 +160,7 @@
     * [Docker](container-platforms/docker/README.md)
 * [CI](ci/README.md)
     * [Jenkins](ci/jenkins/README.md)
+    * [Travis CI](ci/travis-ci/README.md)
 * [操作系统](os/README.md)
     * [操作系统基础](os/base/README.md)
         * [程序中断](os/base/interruption.md)
