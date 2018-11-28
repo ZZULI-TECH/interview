@@ -160,6 +160,8 @@
     * [集群与负载均衡](distributed/cluster.md)
     * [分库与分表](distributed/sharding.md)
     * [一致性Hash](distributed/hash.md)
+* [Hadoop](hadoop/README.md)
+    * [Hadoop之初体验](hadoop/hadoop_first.md)
 * [容器](container-platforms/README.md)
     * [Docker](container-platforms/docker/README.md)
 * [CI](ci/README.md)
