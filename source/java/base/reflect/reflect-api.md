@@ -190,7 +190,7 @@ int len = Array.getLength(arr);
 
 当然我们可以用Array类来创建数组，向数组添加元素，修改元素等，具体可以参考官方API。
 
-最后推荐一个[反射工具类](https://github.com/Blankj/AndroidUtilCode/blob/4b5d0852f8274583968a7fb36db3b25bf92aaa22/utilcode/src/main/java/com/blankj/utilcode/util/ReflectUtils.java)，可以参考参考。
+最后推荐一个[反射工具类](https://github.com/mstao/hutils/blob/master/src/main/java/me/mingshan/util/ReflectUtil.java)，可以参考参考。
 
 **反射API参考：**
 
